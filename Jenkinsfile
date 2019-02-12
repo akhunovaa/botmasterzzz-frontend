@@ -44,7 +44,7 @@ pipeline {
         stage('Push Docker image') {
             steps {
                 echo 'Push Docker image'
-                withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
+                withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerHubPwd')]) {
                    sh "docker login -u leon4uk -p ${dockerHubPwd}"
                 }
                 sh 'docker push leon4uk/botmasterzzz-frontend:1.0.0'
@@ -54,7 +54,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo '## Deploy locally ##'
-                withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
+                withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerHubPwd')]) {
                    sh "docker login -u leon4uk -p ${dockerHubPwd}"
                 }
                 sh 'docker ps -f name=botmasterzzz-frontend -q | xargs --no-run-if-empty docker container stop'
