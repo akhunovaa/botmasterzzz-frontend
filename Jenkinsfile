@@ -10,7 +10,7 @@ pipeline {
         stage('npm install dependencies') {
             steps {
                 echo 'Install dependencies'
-                nodejs('Node 10.15.0 LTS') {
+                nodejs('Node 6.16.0 LTS') {
                     sh 'npm install'
               }
             }
@@ -18,7 +18,7 @@ pipeline {
         stage('Test') {
                     steps {
                         echo 'Test cases'
-                        nodejs('Node 10.15.0 LTS') {
+                        nodejs('Node 6.16.0 LTS') {
                             sh 'npm run-script test'
                       }
                     }
@@ -27,7 +27,7 @@ pipeline {
         stage('Build NPM') {
             steps {
                 echo 'Build NPM'
-                nodejs('Node 10.15.0 LTS') {
+                nodejs('Node 6.16.0 LTS') {
                     sh 'npm run-script build'
               }
             }
