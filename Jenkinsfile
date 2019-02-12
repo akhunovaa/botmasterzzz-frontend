@@ -7,30 +7,60 @@ pipeline {
                 echo 'Checkout'
             }
         }
-
-        stage('Push Docker image') {
+        stage('npm install dependencies') {
             steps {
-                echo 'Push Docker image'
-                withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerHubPwd')]) {
-                    sh "docker login -u leon4uk -p ${dockerHubPwd}"
+                echo 'Install dependencies'
+                nodejs('Node 10.15.0 LTS') {
+                    sh 'npm install'
+              }
+            }
+        }
+        stage('Test') {
+                    steps {
+                        echo 'Test cases'
+                        nodejs('Node 10.15.0 LTS') {
+                            sh 'npm run-script test'
+                      }
+                    }
                 }
-                sh 'docker push leon4uk/botmasterzzz-frontend:1.0.0'
-                sh 'docker rmi leon4uk/botmasterzzz-frontend:1.0.0'
+
+        stage('Build NPM') {
+            steps {
+                echo 'Build NPM'
+                nodejs('Node 10.15.0 LTS') {
+                    sh 'npm run-script build'
+              }
             }
         }
 
+
+        stage('Build Docker Image') {
+            steps {
+                echo 'Build Docker Image'
+                sh 'docker build --no-cache -t leon4uk/botmasterzzz-frontend:1.0.0 .'
+            }
+        }
+        stage('Push Docker image') {
+            steps {
+                echo 'Push Docker image'
+                withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
+                   sh "docker login -u leon4uk -p ${dockerHubPwd}"
+                }
+                sh 'docker push leon4uk/botmasterzzz-frontend:1.0.0'
+                sh 'docker rmi  leon4uk/botmasterzzz-frontend:1.0.0'
+            }
+        }
         stage('Deploy') {
             steps {
                 echo '## Deploy locally ##'
-                withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerHubPwd')]) {
-                    sh "docker login -u leon4uk -p ${dockerHubPwd}"
+                withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
+                   sh "docker login -u leon4uk -p ${dockerHubPwd}"
                 }
                 sh 'docker ps -f name=botmasterzzz-frontend -q | xargs --no-run-if-empty docker container stop'
                 sh 'docker container ls -a -f name=botmasterzzz-frontend -q | xargs -r docker container rm'
                 sh "docker images --format '{{.Repository}}:{{.Tag}}' | grep 'botmasterzzz-frontend' | xargs --no-run-if-empty docker rmi"
-                sh 'docker run --name botmasterzzz-frontend -m 50M --cpus=".1" -d -p 127.0.0.1:8080:80 leon4uk/botmasterzzz-frontend:1.0.0'
+                sh 'docker run --name botmasterzzz-frontend -m 50M --cpus=".1" -d -p 127.0.0.1:8066:80 leon4uk/botmasterzzz-frontend:1.0.0'
             }
         }
     }
 }
-
