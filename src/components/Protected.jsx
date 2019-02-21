@@ -18,7 +18,10 @@ class Protected extends React.Component {
 
 
     render() {
-        return <h1>Hello {this.state.message}!</h1>;
+        <div>
+            <h1>Hello {this.state.message}!</h1>
+            <button onClick={this.updateMessage}>Click me!</button>
+        </div>
     }
 }
 
