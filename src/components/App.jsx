@@ -17,7 +17,7 @@ import {fakeAuthService} from '../service'
 import Header from './Header.jsx';
 import Body from './Body.jsx';
 import Login from './Login.jsx';
-import Protected from "./Protected";
+import Protected from "./Protected.jsx";
 
 function App() {
     return (
