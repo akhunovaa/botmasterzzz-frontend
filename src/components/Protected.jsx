@@ -36,11 +36,8 @@ class Protected extends React.Component {
 
     botStart(){
         axios({
-            url: 'https://botmasterzzz.com/admin/bot/start',
-            method: 'get',
-            data: {
-                access_token: localStorage.getItem('token')
-            }
+            url: 'https://botmasterzzz.com/admin/bot/start?access_token=' + localStorage.getItem('token'),
+            method: 'get'
         }).then(result => {
             this.setState({
                 create: result.data
@@ -52,11 +49,8 @@ class Protected extends React.Component {
 
     botStop(){
         axios({
-            url: 'https://botmasterzzz.com/admin/bot/stop',
-            method: 'get',
-            data: {
-                access_token: localStorage.getItem('token')
-            }
+            url: 'https://botmasterzzz.com/admin/bot/stop?access_token=' + localStorage.getItem('token'),
+            method: 'get'
         }).then(result => {
             this.setState({
                 stop: result.data
