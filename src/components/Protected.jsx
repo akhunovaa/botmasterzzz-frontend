@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from "axios";
-import {fakeAuthService} from "../service";
 
 class Protected extends React.Component {
 
