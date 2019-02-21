@@ -14,7 +14,7 @@ class Protected extends React.Component {
 
     updateMessage() {
         this.setState({
-            message: 'my friend (from changed state)!'
+            message: 'Добро пожаловать!'
     });
     }
 
