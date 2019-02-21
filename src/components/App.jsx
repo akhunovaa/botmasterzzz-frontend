@@ -26,7 +26,7 @@ function App() {
                 <div className="container mt-1">
                 <Route path="/public" component={Public} />
                 <Route path="/auth/login" component={Login} />
-                <PrivateRoute path="/protected" component={Protected} />
+                <PrivateRoute path="/main" component={Protected} />
                 </div>
             </div>
     );
@@ -73,7 +73,7 @@ function Public() {
 }
 
 function Protected() {
-    return <h3>Protected</h3>;
+    return <h3>Main Page</h3>;
 }
 
 

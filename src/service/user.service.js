@@ -29,7 +29,7 @@ function loginAuth(username, password) {
         headers}
     ).then(result => {
         return axios.get('oauth/authorize?client_id=web_application&response_type=code').then((res) => {
-            console.log(res.request.responseURL);
+            //console.log(res.request.responseURL);
             var code = getURLParameter('code',res.request.responseURL)
             localStorage.setItem('code', code);
             var data = qs.stringify({
@@ -47,12 +47,12 @@ function loginAuth(username, password) {
                 data,
                 auth}
             ).then(result => {
-                console.log("token_result");
+                //console.log("token_result");
                 var parsedResponse = JSON.parse(JSON.stringify(result.data));
                 localStorage.setItem('token', parsedResponse.access_token);
                 localStorage.setItem('token_type', parsedResponse.token_type);
                 localStorage.setItem('scope', parsedResponse.scope);
-                console.log(parsedResponse.access_token);
+                //console.log(parsedResponse.access_token);
                 fakeAuthService.isAuthenticated = true;
             }).catch(result => {
                 console.log(result);

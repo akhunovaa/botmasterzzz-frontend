@@ -53,11 +53,11 @@ class Header extends React.Component {
             <div className={classes.root}>
                 <AppBar position="static">
                     <Toolbar>
-                        <MenuButton  items={[{title:'Public page', url:"/public"},{title:'Protected', url:"/protected"}]}/>
+                        <MenuButton  items={[{title:'Public page', url:"/public"},{title:'Main', url:"/main"}]}/>
                         <Typography variant="h6" color="inherit" className={classes.grow}>
                             Botmasterzzz
                         </Typography>
-                        {/*<MenuButton  items={['Profile','User Management', 'Logout']}/>*/}
+                        {<MenuButton  items={['Profile','User Management', 'Logout']}/>}
                     </Toolbar>
                 </AppBar>
             </div>
