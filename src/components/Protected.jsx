@@ -1,6 +1,7 @@
 import React from 'react';
+import withStyles from "@material-ui/core/styles/withStyles";
 
-class MainPage extends React.Component {
+class Protected extends React.Component {
 
     constructor(props) {
         super(props);
@@ -15,4 +16,5 @@ class MainPage extends React.Component {
     }
 }
 
-export default MainPage;
+
+export default withStyles(styles)(Protected);
