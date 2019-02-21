@@ -53,7 +53,7 @@ class Header extends React.Component {
             <div className={classes.root}>
                 <AppBar position="static">
                     <Toolbar>
-                        <MenuButton  items={[{title:'Public page', url:"/public"},{title:'Main', url:"/main"}]}/>
+                        <MenuButton  items={[{title:'Public page', url:"/public"},{title:'Main', url:"/"}]}/>
                         <Typography variant="h6" color="inherit" className={classes.grow}>
                             Botmasterzzz
                         </Typography>
