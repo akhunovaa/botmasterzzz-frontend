@@ -20,12 +20,12 @@ class Protected extends React.Component {
     componentDidMount(){
         axios({
             url: 'https://botmasterzzz.com/admin/bot/status',
-            method: 'get',
+            method: 'post',
             data: {
                 access_token: localStorage.getItem('token')
             }
         }).then(result => {
-            var parsedResponse = JSON.parse(JSON.stringify(result.data));
+            const parsedResponse = JSON.parse(JSON.stringify(result.data));
             console.log(parsedResponse);
         }).catch(result => {
             console.log(result);
