@@ -1,5 +1,4 @@
 import React from 'react';
-import withStyles from "@material-ui/core/styles/withStyles";
 
 class Protected extends React.Component {
 
@@ -16,5 +15,4 @@ class Protected extends React.Component {
     }
 }
 
-
-export default withStyles(styles)(Protected);
+export default Protected;
