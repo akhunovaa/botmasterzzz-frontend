@@ -17,6 +17,7 @@ import {fakeAuthService} from '../service'
 import Header from './Header.jsx';
 import Body from './Body.jsx';
 import Login from './Login.jsx';
+import Protected from "./Protected";
 
 function App() {
     return (
@@ -70,10 +71,6 @@ function Public() {
                 <Route path="/project/delete" component={Body} />
         </div>
     );
-}
-
-function Protected() {
-    return <h3>Main Page</h3>;
 }
 
 
