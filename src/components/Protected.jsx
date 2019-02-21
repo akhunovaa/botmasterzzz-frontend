@@ -6,7 +6,8 @@ class Protected extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            message: 'my friend (from state)!'
+
+            message: 'friend'
     };
         this.updateMessage = this.updateMessage.bind(this);
     }
@@ -35,9 +36,12 @@ class Protected extends React.Component {
     render() {
         return (
             <div>
-                <h1>Hello {this.state.message}!</h1>
-                <button onClick={this.componentDidMount}>Status</button>
+                <h3>Recipes</h3>
+                <ul className="list-group">
+                    {this.state.message}
+                </ul>
             </div>
+
         );
     }
 }
