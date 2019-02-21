@@ -20,7 +20,7 @@ class Protected extends React.Component {
     componentDidMount(){
         axios({
             url: 'https://botmasterzzz.com/admin/bot/status',
-            method: 'post',
+            method: 'get',
             data: {
                 access_token: localStorage.getItem('token')
             }
@@ -37,7 +37,7 @@ class Protected extends React.Component {
     botStart(){
         axios({
             url: 'https://botmasterzzz.com/admin/bot/start',
-            method: 'post',
+            method: 'get',
             data: {
                 access_token: localStorage.getItem('token')
             }
@@ -53,7 +53,7 @@ class Protected extends React.Component {
     botStop(){
         axios({
             url: 'https://botmasterzzz.com/admin/bot/stop',
-            method: 'post',
+            method: 'get',
             data: {
                 access_token: localStorage.getItem('token')
             }
