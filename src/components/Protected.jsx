@@ -7,7 +7,7 @@ class Protected extends React.Component {
         super(props);
         this.state = {
 
-            message: 'friend'
+            status: 'bot stopped', error: false, running: false
     };
         this.updateMessage = this.updateMessage.bind(this);
     }
@@ -27,7 +27,9 @@ class Protected extends React.Component {
             }
         }).then(result => {
             const parsedResponse = JSON.parse(JSON.stringify(result.data));
-            console.log(parsedResponse);
+            this.setState({
+                status: parsedResponse.status, error: parsedResponse.hasError, running: parsedResponse.running
+            })
         }).catch(result => {
             console.log(result);
         })
@@ -36,12 +38,11 @@ class Protected extends React.Component {
     render() {
         return (
             <div>
-                <h3>Recipes</h3>
-                <ul className="list-group">
-                    {this.state.message}
-                </ul>
+                <h1>BOT status: {this.state.status}</h1>
+                <h1>BOT error: {this.state.error}</h1>
+                <h1>BOT running: {this.state.running}</h1>
+                <button onClick={this.componentDidMount}>Status</button>
             </div>
-
         );
     }
 }
