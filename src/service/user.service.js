@@ -36,7 +36,6 @@ function loginAuth(username, password) {
                 grant_type: 'authorization_code',
                 code: code
             });
-            //baseURL: "https://api.lyft.com/",
             var auth =  {
                 username: 'web_application',
                 password: '123456'
@@ -85,9 +84,6 @@ function loginAuth(username, password) {
                 console.log(result);
 
             })
-
-            // curl -X POST -vu web_application:123456 https://botmasterzzz.com/auth/oauth/token -H "Accept: application/json" -d "grant_type=authorization_code&code=81rwtn"
-
         });
     });
 

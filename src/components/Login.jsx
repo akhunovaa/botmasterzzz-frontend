@@ -96,8 +96,8 @@ class Login extends React.Component {
         userService.loginAuth(username, password)
             .then(
                 user => {
-                    // const { from } = this.props.location.state || { from: { pathname: "/" } };
-                    // this.props.history.push(from);
+                    const { from } = this.props.location.state || { from: { pathname: "/" } };
+                    this.props.history.push(from);
                 },
                 error => this.setState({ error, loading: false })
             );
@@ -106,16 +106,16 @@ class Login extends React.Component {
             this.setState({ redirectToReferrer: true });
         });
 
-        // this.setState({ submitted: true });
-        // const { username, password, returnUrl } = this.state;
-        //
-        // // stop here if form is invalid
+        this.setState({ submitted: true });
+       // const { username, password, returnUrl } = this.state;
+
+        // stop here if form is invalid
         // if (!(username && password)) {
         //     return;
         // }
-        //
-        // this.setState({ loading: true });
-        // userService.login(username, password)
+
+        //this.setState({ loading: true })
+        //userService.login(username, password)
         //     .then(
         //         user => {
         //             const { from } = this.props.location.state || { from: { pathname: "/" } };
@@ -150,10 +150,6 @@ class Login extends React.Component {
                 <Typography component="h1" variant="h5">
                     Log in
                 </Typography>
-                <Paper className={classes.paperinfo}>
-                    Username: admin<br />
-                    Password: iTAgZwgjdYdxeDXN
-                </Paper>
                 <form className={classes.form} onSubmit={this.handleSubmit}>
                     <FormControl margin="normal" required fullWidth>
                         <InputLabel htmlFor="username">Email Address</InputLabel>
