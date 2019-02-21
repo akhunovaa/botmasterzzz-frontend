@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from "axios";
+import {fakeAuthService} from "../service";
 
 class Protected extends React.Component {
 
@@ -16,11 +18,26 @@ class Protected extends React.Component {
     });
     }
 
+    componentDidMount(){
+        axios({
+            url: 'https://botmasterzzz.com/admin/bot/status',
+            method: 'get',
+            data: {
+                access_token: localStorage.getItem('token')
+            }
+        }).then(result => {
+            var parsedResponse = JSON.parse(JSON.stringify(result.data));
+            console.log(parsedResponse);
+        }).catch(result => {
+            console.log(result);
+        })
+    }
+
     render() {
         return (
             <div>
                 <h1>Hello {this.state.message}!</h1>
-                <button onClick={this.updateMessage}>Click me!</button>
+                <button onClick={this.componentDidMount}>Status</button>
             </div>
         );
     }
