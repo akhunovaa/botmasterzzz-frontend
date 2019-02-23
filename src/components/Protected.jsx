@@ -19,7 +19,7 @@ class Protected extends React.Component {
                 access_token: localStorage.getItem('token')
             }
         }).then(result => {
-            this.setState({msg: result.data.status})
+            this.setState({msg: result.data})
         }).catch(result => {
             console.log(result);
         });
@@ -31,7 +31,7 @@ class Protected extends React.Component {
                 access_token: localStorage.getItem('token')
             }
         }).then(result => {
-            this.setState({msg: result.data.status})
+            this.setState({msg: result.data})
         }).catch(result => {
             console.log(result);
         });
@@ -43,7 +43,7 @@ class Protected extends React.Component {
                     access_token: localStorage.getItem('token')
                 }
             }).then(result => {
-                this.setState({msg: result.data.status})
+                this.setState({msg: result.data})
             }).catch(result => {
                 console.log(result);
             });
@@ -55,7 +55,7 @@ class Protected extends React.Component {
                 access_token: localStorage.getItem('token')
             }
         }).then(result => {
-            this.setState({msg: result.data.status})
+            this.setState({msg: result.data})
         }).catch(result => {
             console.log(result);
         });
@@ -73,7 +73,12 @@ class Protected extends React.Component {
                 <button className='button_stop' onClick={this.botStop}>
                     BOT Stop
                 </button>
-                <p>{this.state.msg}</p>
+                <h3>Статус бота:</h3>
+                <h3>{this.state.msg.status}</h3>
+                <h3>Ошибки бота:</h3>
+                <h3>{this.state.msg.hasError}</h3>
+                <h3>Запущен бот:</h3>
+                <h3>{this.state.msg.running}</h3>
             </div>
         )
     }
