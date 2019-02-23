@@ -18,12 +18,10 @@ class Protected extends React.Component {
     }
 
     componentDidMount(){
-        axios({
-            url: 'https://botmasterzzz.com/admin/bot/status',
+        const url = 'https://botmasterzzz.com/admin/bot/status';
+            axios({
+            url: url,
             method: 'get',
-            data: {
-                access_token: localStorage.getItem('token')
-            }
         }).then(result => {
             const parsedResponse = JSON.parse(JSON.stringify(result.data));
             this.setState({
@@ -35,8 +33,9 @@ class Protected extends React.Component {
     }
 
     botStart(){
+        const url = 'https://botmasterzzz.com/admin/bot/start?access_token=' + localStorage.getItem('token');
         axios({
-            url: 'https://botmasterzzz.com/admin/bot/start?access_token=' + localStorage.getItem('token'),
+            url: url,
             method: 'get'
         }).then(result => {
             const parsedResponse = JSON.parse(JSON.stringify(result.data));
@@ -52,8 +51,9 @@ class Protected extends React.Component {
     }
 
     botStop(){
+        const url = 'https://botmasterzzz.com/admin/bot/stop?access_token=' + localStorage.getItem('token');
         axios({
-            url: 'https://botmasterzzz.com/admin/bot/stop?access_token=' + localStorage.getItem('token'),
+            url: url,
             method: 'get'
         }).then(result => {
             const parsedResponse = JSON.parse(JSON.stringify(result.data));
