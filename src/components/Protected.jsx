@@ -18,62 +18,59 @@ class Protected extends React.Component {
     }
 
     componentDidMount(){
-        let url = 'https://botmasterzzz.com/admin/bot/status';
-            axios({
-            url: url,
-            method: 'get',
-        }).then(result => {
-            const parsedResponse = JSON.parse(JSON.stringify(result.data));
-            this.setState({
-                msg: parsedResponse
-            })
-        }).catch(result => {
-            console.log(result);
-        })
-    }
-
-    botStatus(){
-        let url = 'https://botmasterzzz.com/admin/bot/status';
-            axios({
-            url: url,
-            method: 'get',
-        }).then(result => {
-            const parsedResponse = JSON.parse(JSON.stringify(result.data));
-            this.setState({
-                msg: parsedResponse
-            })
-        }).catch(result => {
-            console.log(result);
-        })
-    }
-
-    botStart(){
-        let url = 'https://botmasterzzz.com/admin/bot/start?access_token=' + localStorage.getItem('token');
-        axios({
-            url: url,
-            method: 'get'
-        }).then(result => {
-            const parsedResponse = JSON.parse(JSON.stringify(result.data));
-            this.setState({
-                msg: parsedResponse
-            })
-        }).catch(result => {
-            console.log(result);
-        })
-    }
-
-    botStop(){
-        let url = 'https://botmasterzzz.com/admin/bot/stop?access_token=' + localStorage.getItem('token');
-        axios({
-            url: url,
-            method: 'get'
+        axios.get('/admin/bot/status', {
+            params: {
+                access_token: localStorage.getItem('token')
+            }
         }).then(result => {
             this.setState({
                 msg: result.data
             })
         }).catch(result => {
             console.log(result);
-        })
+        });
+    }
+
+    botStatus(){
+        axios.get('/admin/bot/status', {
+            params: {
+                access_token: localStorage.getItem('token')
+            }
+        }).then(result => {
+            this.setState({
+                msg: result.data
+            })
+        }).catch(result => {
+            console.log(result);
+        });
+    }
+
+    botStart(){
+            axios.get('/admin/bot/start', {
+                params: {
+                    access_token: localStorage.getItem('token')
+                }
+            }).then(result => {
+                this.setState({
+                    msg: result.data
+                })
+            }).catch(result => {
+                console.log(result);
+            });
+    }
+
+    botStop(){
+        axios.get('/admin/bot/stop', {
+            params: {
+                access_token: localStorage.getItem('token')
+            }
+        }).then(result => {
+            this.setState({
+                msg: result.data
+            })
+        }).catch(result => {
+            console.log(result);
+        });
     }
 
     render() {
