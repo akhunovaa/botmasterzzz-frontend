@@ -6,7 +6,7 @@ class Protected extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            status: 'bot stopped', create: '', stop: ''
+            msg: 'bot stopped'
         };
         this.updateMessage = this.updateMessage.bind(this);
     }
@@ -25,7 +25,22 @@ class Protected extends React.Component {
         }).then(result => {
             const parsedResponse = JSON.parse(JSON.stringify(result.data));
             this.setState({
-                status: parsedResponse.status
+                msg: parsedResponse
+            })
+        }).catch(result => {
+            console.log(result);
+        })
+    }
+
+    botStatus(){
+        let url = 'https://botmasterzzz.com/admin/bot/status';
+            axios({
+            url: url,
+            method: 'get',
+        }).then(result => {
+            const parsedResponse = JSON.parse(JSON.stringify(result.data));
+            this.setState({
+                msg: parsedResponse
             })
         }).catch(result => {
             console.log(result);
@@ -39,11 +54,8 @@ class Protected extends React.Component {
             method: 'get'
         }).then(result => {
             const parsedResponse = JSON.parse(JSON.stringify(result.data));
-            console.log(result);
-            console.log(result.data);
-            console.log(parsedResponse);
             this.setState({
-                create: result.data
+                msg: parsedResponse
             })
         }).catch(result => {
             console.log(result);
@@ -56,12 +68,8 @@ class Protected extends React.Component {
             url: url,
             method: 'get'
         }).then(result => {
-            const parsedResponse = JSON.parse(JSON.stringify(result.data));
-            console.log(result);
-            console.log(result.data);
-            console.log(parsedResponse);
             this.setState({
-                stop: result.data
+                msg: result.data
             })
         }).catch(result => {
             console.log(result);
@@ -71,10 +79,10 @@ class Protected extends React.Component {
     render() {
         return (
             <div>
-                <h1>BOT status: {this.state.status}</h1>
-                <h1>BOT start: {this.state.start}</h1>
-                <h1>BOT stop: {this.state.stop}</h1>
-                <button onClick={this.componentDidMount}>Status</button>
+                <h1>BOT status: {this.msg.status}</h1>
+                <h1>BOT start: {this.msg.status}</h1>
+                <h1>BOT stop: {this.msg.status}</h1>
+                <button onClick={this.botStatus}>Status</button>
                 <button onClick={this.botStart}>Start</button>
                 <button onClick={this.botStop}>Stop</button>
             </div>
