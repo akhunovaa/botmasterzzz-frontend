@@ -6,11 +6,9 @@ class Protected extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            msg: {
-                "status": "good",
-                "hasError": false,
-                "running": false
-            }
+                status: 'unknown',
+                error: false,
+                running: false
         };
         this.botStatus = this.botStatus.bind(this)
         this.botStart = this.botStart.bind(this)
@@ -23,7 +21,11 @@ class Protected extends React.Component {
                 access_token: localStorage.getItem('token')
             }
         }).then(result => {
-            this.setState({msg: result.data})
+            this.setState({
+                status: result.data.status,
+                error: result.data.hasError,
+                running: result.data.running,
+            })
         }).catch(result => {
             console.log(result);
         });
@@ -47,7 +49,11 @@ class Protected extends React.Component {
                     access_token: localStorage.getItem('token')
                 }
             }).then(result => {
-                this.setState({msg: result.data})
+                this.setState({
+                    status: result.data.status,
+                    error: result.data.hasError,
+                    running: result.data.running,
+                })
             }).catch(result => {
                 console.log(result);
             });
@@ -59,7 +65,11 @@ class Protected extends React.Component {
                 access_token: localStorage.getItem('token')
             }
         }).then(result => {
-            this.setState({msg: result.data})
+            this.setState({
+                status: result.data.status,
+                error: result.data.hasError,
+                running: result.data.running,
+            })
         }).catch(result => {
             console.log(result);
         });
@@ -77,9 +87,9 @@ class Protected extends React.Component {
                 <button className='button_stop' onClick={this.botStop}>
                     BOT Stop
                 </button>
-                <h3>Статус бота: {this.state.msg.status}</h3>
-                <h3>Ошибки бота: {this.state.msg.hasError}</h3>
-                <h3>Запущен бот: {this.state.msg.running}</h3>
+                <h3>Статус бота: {this.state.status}</h3>
+                <h3>Ошибки бота: {this.state.hasError}</h3>
+                <h3>Запущен бот: {this.state.running}</h3>
             </div>
         )
     }
