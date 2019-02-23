@@ -70,6 +70,7 @@ class Protected extends React.Component {
     }
 
     render () {
+        const { message } = this.state;
         return (
             <div className='button__container'>
                 <button className='button_status' onClick={this.botStatus}>
@@ -81,9 +82,9 @@ class Protected extends React.Component {
                 <button className='button_stop' onClick={this.botStop}>
                     BOT Stop
                 </button>
-                <h3>Статус бота: {this.state.msg.status}</h3>
-                <h3>Ошибки бота: {this.state.msg.hasError}</h3>
-                <h3>Запущен бот: {this.state.msg.running}</h3>
+                <h3>Статус бота: {message.status}</h3>
+                <h3>Ошибки бота: {message.hasError}</h3>
+                <h3>Запущен бот: {message.running}</h3>
             </div>
         )
     }
