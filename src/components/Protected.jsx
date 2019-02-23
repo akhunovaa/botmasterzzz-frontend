@@ -6,18 +6,11 @@ class Protected extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            msg: 'bot stopped'
+            msg: ''
         };
-        this.updateMessage = this.updateMessage.bind(this);
-        this.botStatus = this.botStatus.bind(this);
-        this.botStart = this.botStart.bind(this);
-        this.botStop = this.botStop.bind(this);
-    }
-
-    updateMessage() {
-        this.setState({
-            message: 'Добро пожаловать!'
-    });
+        this.botStatus = this.botStatus.bind(this)
+        this.botStart = this.botStart.bind(this)
+        this.botStop = this.botStop.bind(this)
     }
 
     componentDidMount(){
@@ -26,9 +19,7 @@ class Protected extends React.Component {
                 access_token: localStorage.getItem('token')
             }
         }).then(result => {
-            this.setState({
-                msg: result.data
-            })
+            this.setState({msg: result.data.status})
         }).catch(result => {
             console.log(result);
         });
@@ -40,9 +31,7 @@ class Protected extends React.Component {
                 access_token: localStorage.getItem('token')
             }
         }).then(result => {
-            this.setState({
-                msg: result.data
-            })
+            this.setState({msg: result.data.status})
         }).catch(result => {
             console.log(result);
         });
@@ -54,9 +43,7 @@ class Protected extends React.Component {
                     access_token: localStorage.getItem('token')
                 }
             }).then(result => {
-                this.setState({
-                    msg: result.data
-                })
+                this.setState({msg: result.data.status})
             }).catch(result => {
                 console.log(result);
             });
@@ -68,25 +55,27 @@ class Protected extends React.Component {
                 access_token: localStorage.getItem('token')
             }
         }).then(result => {
-            this.setState({
-                msg: result.data
-            })
+            this.setState({msg: result.data.status})
         }).catch(result => {
             console.log(result);
         });
     }
 
-    render() {
+    render () {
         return (
-            <div>
-                <h1>BOT status: {this.msg}</h1>
-                <h1>BOT start: {this.msg}</h1>
-                <h1>BOT stop: {this.msg}</h1>
-                <button onClick={this.botStatus}>Status</button>
-                <button onClick={this.botStart}>Start</button>
-                <button onClick={this.botStop}>Stop</button>
+            <div className='button__container'>
+                <button className='button_status' onClick={this.botStatus}>
+                    BOT Status
+                </button>
+                <button className='button_start' onClick={this.botStart}>
+                    BOT Start
+                </button>
+                <button className='button_stop' onClick={this.botStop}>
+                    BOT Stop
+                </button>
+                <p>{this.state.msg}</p>
             </div>
-        );
+        )
     }
 }
 
