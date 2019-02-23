@@ -6,7 +6,11 @@ class Protected extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            msg: ''
+            msg: {
+                "status": "good",
+                "hasError": false,
+                "running": false
+            }
         };
         this.botStatus = this.botStatus.bind(this)
         this.botStart = this.botStart.bind(this)
@@ -73,12 +77,9 @@ class Protected extends React.Component {
                 <button className='button_stop' onClick={this.botStop}>
                     BOT Stop
                 </button>
-                <h3>Статус бота:</h3>
-                <h3>{this.state.msg.status}</h3>
-                <h3>Ошибки бота:</h3>
-                <h3>{this.state.msg.hasError}</h3>
-                <h3>Запущен бот:</h3>
-                <h3>{this.state.msg.running}</h3>
+                <h3>Статус бота: {this.state.msg.status}</h3>
+                <h3>Ошибки бота: {this.state.msg.hasError}</h3>
+                <h3>Запущен бот: {this.state.msg.running}</h3>
             </div>
         )
     }
