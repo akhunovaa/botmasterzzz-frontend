@@ -39,6 +39,10 @@ class Protected extends React.Component {
             url: 'https://botmasterzzz.com/admin/bot/start?access_token=' + localStorage.getItem('token'),
             method: 'get'
         }).then(result => {
+            const parsedResponse = JSON.parse(JSON.stringify(result.data));
+            console.log(result);
+            console.log(result.data);
+            console.log(parsedResponse);
             this.setState({
                 create: result.data
             })
@@ -52,6 +56,10 @@ class Protected extends React.Component {
             url: 'https://botmasterzzz.com/admin/bot/stop?access_token=' + localStorage.getItem('token'),
             method: 'get'
         }).then(result => {
+            const parsedResponse = JSON.parse(JSON.stringify(result.data));
+            console.log(result);
+            console.log(result.data);
+            console.log(parsedResponse);
             this.setState({
                 stop: result.data
             })
