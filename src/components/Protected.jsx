@@ -9,6 +9,9 @@ class Protected extends React.Component {
             msg: 'bot stopped'
         };
         this.updateMessage = this.updateMessage.bind(this);
+        this.botStatus = this.botStatus.bind(this);
+        this.botStart = this.botStart.bind(this);
+        this.botStop = this.botStop.bind(this);
     }
 
     updateMessage() {
