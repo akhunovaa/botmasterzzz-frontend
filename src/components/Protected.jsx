@@ -79,9 +79,9 @@ class Protected extends React.Component {
     render() {
         return (
             <div>
-                <h1>BOT status: {this.msg.status}</h1>
-                <h1>BOT start: {this.msg.status}</h1>
-                <h1>BOT stop: {this.msg.status}</h1>
+                <h1>BOT status: {this.msg}</h1>
+                <h1>BOT start: {this.msg}</h1>
+                <h1>BOT stop: {this.msg}</h1>
                 <button onClick={this.botStatus}>Status</button>
                 <button onClick={this.botStart}>Start</button>
                 <button onClick={this.botStop}>Stop</button>
