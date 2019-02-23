@@ -70,7 +70,7 @@ class Protected extends React.Component {
     }
 
     render () {
-        const message = this.state;
+        const message = this.state.msg;
         return (
             <div className='button__container'>
                 <button className='button_status' onClick={this.botStatus}>
