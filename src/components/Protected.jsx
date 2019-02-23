@@ -18,7 +18,7 @@ class Protected extends React.Component {
     }
 
     componentDidMount(){
-        const url = 'https://botmasterzzz.com/admin/bot/status';
+        let url = 'https://botmasterzzz.com/admin/bot/status';
             axios({
             url: url,
             method: 'get',
@@ -33,7 +33,7 @@ class Protected extends React.Component {
     }
 
     botStart(){
-        const url = 'https://botmasterzzz.com/admin/bot/start?access_token=' + localStorage.getItem('token');
+        let url = 'https://botmasterzzz.com/admin/bot/start?access_token=' + localStorage.getItem('token');
         axios({
             url: url,
             method: 'get'
@@ -51,7 +51,7 @@ class Protected extends React.Component {
     }
 
     botStop(){
-        const url = 'https://botmasterzzz.com/admin/bot/stop?access_token=' + localStorage.getItem('token');
+        let url = 'https://botmasterzzz.com/admin/bot/stop?access_token=' + localStorage.getItem('token');
         axios({
             url: url,
             method: 'get'
