@@ -22,9 +22,9 @@ class Protected extends React.Component {
             }
         }).then(result => {
             this.setState({
-                status: result.data,
-                error: result.data,
-                running: result.data,
+                status: result.data.status,
+                error: result.data.hasError,
+                running: result.data.running,
             })
         }).catch(result => {
             console.log(result);
@@ -38,9 +38,9 @@ class Protected extends React.Component {
             }
         }).then(result => {
             this.setState({
-                status: result.data,
-                error: result.data,
-                running: result.data,
+                status: result.data.status,
+                error: result.data.hasError,
+                running: result.data.running,
             })
         }).catch(result => {
             console.log(result);
@@ -54,9 +54,9 @@ class Protected extends React.Component {
                 }
             }).then(result => {
                 this.setState({
-                    status: result.data,
-                    error: result.data,
-                    running: result.data,
+                    status: result.data.status,
+                    error: result.data.hasError,
+                    running: result.data.running,
                 })
             }).catch(result => {
                 console.log(result);
@@ -70,9 +70,9 @@ class Protected extends React.Component {
             }
         }).then(result => {
             this.setState({
-                status: result.data,
-                error: result.data,
-                running: result.data,
+                status: result.data.status,
+                error: result.data.hasError,
+                running: result.data.running,
             })
         }).catch(result => {
             console.log(result);
