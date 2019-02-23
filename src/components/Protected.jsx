@@ -22,9 +22,9 @@ class Protected extends React.Component {
             }
         }).then(result => {
             this.setState({
-                status: result.data.status,
-                error: result.data.hasError,
-                running: result.data.running,
+                status: result.data,
+                error: result.data,
+                running: result.data,
             })
         }).catch(result => {
             console.log(result);
@@ -37,7 +37,11 @@ class Protected extends React.Component {
                 access_token: localStorage.getItem('token')
             }
         }).then(result => {
-            this.setState({msg: result.data})
+            this.setState({
+                status: result.data,
+                error: result.data,
+                running: result.data,
+            })
         }).catch(result => {
             console.log(result);
         });
@@ -50,9 +54,9 @@ class Protected extends React.Component {
                 }
             }).then(result => {
                 this.setState({
-                    status: result.data.status,
-                    error: result.data.hasError,
-                    running: result.data.running,
+                    status: result.data,
+                    error: result.data,
+                    running: result.data,
                 })
             }).catch(result => {
                 console.log(result);
@@ -66,9 +70,9 @@ class Protected extends React.Component {
             }
         }).then(result => {
             this.setState({
-                status: result.data.status,
-                error: result.data.hasError,
-                running: result.data.running,
+                status: result.data,
+                error: result.data,
+                running: result.data,
             })
         }).catch(result => {
             console.log(result);
