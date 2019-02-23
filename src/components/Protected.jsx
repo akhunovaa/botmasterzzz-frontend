@@ -82,9 +82,9 @@ class Protected extends React.Component {
                 <button className='button_stop' onClick={this.botStop}>
                     BOT Stop
                 </button>
-                <h3>Статус бота: {message.status}</h3>
-                <h3>Ошибки бота: JSON.stringify( {message.hasError})</h3>
-                <h3>Запущен бот: JSON.stringify( {message.running})</h3>
+                <h3>Статус бота: {message.status.toString()}</h3>
+                <h3>Ошибки бота: {message.hasError.toString()}</h3>
+                <h3>Запущен бот: {message.running.toString()}</h3>
             </div>
         )
     }
