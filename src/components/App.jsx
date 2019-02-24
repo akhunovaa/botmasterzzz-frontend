@@ -55,11 +55,9 @@ function PrivateRoute({ component: Component, ...rest }) {
 
 function Public() {
 
-    if (localStorage.getItem("token") == null) {
-        return;
-    }
     return (
         <div>
+            <h3>xa`x`axa`x`axa`</h3>
                 <Route path="/admin/hello" component={Body} />
                 <Route path="/admin/admin" component={Body} />
                 <Route path="/admin/client" component={Body} />
