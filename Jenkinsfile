@@ -19,7 +19,7 @@ pipeline {
                     steps {
                         echo 'Test cases'
                         nodejs('Node 10.15.0 LTS') {
-                            sh 'npm run-script test --watchAll'
+                            sh 'npm run-script test'
                       }
                     }
                 }
