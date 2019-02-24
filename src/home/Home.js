@@ -21,7 +21,7 @@ class Home extends Component {
                             <div className="graf-circle"></div>
                         </div>
                     </div>
-                    <h1 className="home-title">Botmasterzzz - сервис по управлению и разработке искусственным интелектом</h1>
+                    <h1 className="home-title">Botmasterzzz - сервис по управлению и разработке искусственного интелекта</h1>
                 </div>
             </div>
         )
