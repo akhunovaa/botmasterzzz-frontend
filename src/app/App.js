@@ -58,7 +58,7 @@ class App extends Component {
             authenticated: false,
             currentUser: null
         });
-        Alert.success("You're safely logged out!");
+        Alert.success("Вы удачно покинули сессию.");
     }
 
     componentDidMount() {
