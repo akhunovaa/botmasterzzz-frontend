@@ -43,8 +43,6 @@ class SocialSignup extends Component {
                     <img src={googleLogo} alt="Google" /> Авторизоваться с Google</a>
                 <a className="btn btn-block social-btn facebook" href={FACEBOOK_AUTH_URL}>
                     <img src={fbLogo} alt="Facebook" /> Авторизоваться с Facebook</a>
-                <a className="btn btn-block social-btn github" href={GITHUB_AUTH_URL}>
-                    <img src={githubLogo} alt="Github" /> Авторизоваться с Github</a>
             </div>
         );
     }
