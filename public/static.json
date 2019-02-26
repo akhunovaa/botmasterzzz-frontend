@@ -1,7 +1,8 @@
 {
   "root": "build/",
-  "clean_urls": false,
+  "clean_urls": true,
   "routes": {
+    "/auth/oauth2/authorize/google/": "/auth/oauth2/authorize/google/",
     "/**": "index.html"
   }
 }
