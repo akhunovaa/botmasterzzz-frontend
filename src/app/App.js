@@ -84,7 +84,7 @@ class App extends Component {
                                render={(props) => <Login authenticated={this.state.authenticated} {...props} />}/>
                         <Route path="/signup"
                                render={(props) => <Signup authenticated={this.state.authenticated} {...props} />}/>
-                        <Route path="/redirect" component={OAuth2RedirectHandler}/>
+                        <Route path="/auth/oauth2/redirect" component={OAuth2RedirectHandler}/>
                     </Switch>
                 </div>
                 <Alert stack={{limit: 3}}
