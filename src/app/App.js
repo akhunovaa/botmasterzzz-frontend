@@ -80,9 +80,9 @@ class App extends Component {
                         <Route exact path="/" component={Home}/>
                         <PrivateRoute path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser}
                                       component={Profile}/>
-                        <Route path="/auth/login"
+                        <Route path="/login"
                                render={(props) => <Login authenticated={this.state.authenticated} {...props} />}/>
-                        <Route path="/auth/signup"
+                        <Route path="/signup"
                                render={(props) => <Signup authenticated={this.state.authenticated} {...props} />}/>
                         <Route path="/auth/oauth2/redirect" component={OAuth2RedirectHandler}/>
                     </Switch>
