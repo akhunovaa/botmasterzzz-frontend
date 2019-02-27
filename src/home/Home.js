@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './Home.css';
+import mainLogo from '../img/main.gif';
+import fbLogo from "../img/fb-logo.png";
 
 class Home extends Component {
     render() {
@@ -7,18 +9,8 @@ class Home extends Component {
             <div className="home-container">
                 <div className="container">
                     <div className="graf-bg-container">
-                        <div className="graf-layout">
-                            <div className="graf-circle"></div>
-                            <div className="graf-circle"></div>
-                            <div className="graf-circle"></div>
-                            <div className="graf-circle"></div>
-                            <div className="graf-circle"></div>
-                            <div className="graf-circle"></div>
-                            <div className="graf-circle"></div>
-                            <div className="graf-circle"></div>
-                            <div className="graf-circle"></div>
-                            <div className="graf-circle"></div>
-                            <div className="graf-circle"></div>
+                        <div className="overlay.currently-loading">
+                            <div id="overlay"><img src={mainLogo}  alt="Tssss..." /></div>
                         </div>
                     </div>
                     <h1 className="home-title">Botmasterzzz - сервис по управлению и разработке искусственного интелекта</h1>
