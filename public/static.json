@@ -2,6 +2,6 @@
   "root": "build/",
   "clean_urls": false,
   "routes": {
-    "/**": "index.html"
+    "/oauth2/redirect": "index.html"
   }
 }
