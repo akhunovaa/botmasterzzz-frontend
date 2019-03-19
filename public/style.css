@@ -1,6 +1,5 @@
-@import "../bower_components/font-awesome/css/font-awesome.css";
-@import "awesome-bootstrap-checkbox.css";
-@import "sweetalert.css";
+@import "../build/static/styles/awesome-bootstrap-checkbox.css";
+@import "../build/static/styles/sweetalert.css";
 html,
 body {
   font-family: "Open Sans", sans-serif, Roboto, Arial, Georgia, FontAwesome;
