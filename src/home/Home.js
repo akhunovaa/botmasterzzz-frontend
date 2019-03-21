@@ -1,21 +1,32 @@
 import React, { Component } from 'react';
-import './Home.css';
-import mainLogo from '../img/main.gif';
-import fbLogo from "../img/fb-logo.png";
+import '../styles/style.css';
+import mainLogo from '../img/logo.png';
 
 class Home extends Component {
     render() {
         return (
-            <div className="home-container">
-                <div className="container">
-                    <div className="graf-bg-container">
-                        <div className="overlay.currently-loading">
-                            <div id="overlay"><img src={mainLogo}  alt="Tssss..." /></div>
-                        </div>
+            <section className="header">
+                <nav className="b_nav clearfix">
+                    <div className="b_nav_contacts pull-xs-right">
+
                     </div>
-                    <h1 className="home-title">Botmasterzzz - сервис по управлению и разработке искусственного интелекта</h1>
-                </div>
-            </div>
+                    <div className="b_nav_contacts pull-xs-right">
+                        <div className="b_nav_contacts_phone"><a
+                            href="mailto:admin@botmasterzzz.com">admin@botmasterzzz.com</a></div>
+                        <div className="b_nav_contacts_phone"><a href="https://t.me/balsakas">@balsakas</a></div>
+                    </div>
+
+                    <a href="/" className="b_nav_link_home pull-xs-left">
+                        <div className="b_nav_logo pull-xs-left">
+                            <img src={mainLogo} alt="Botmasterzzz Logo"/>
+                        </div>
+                        <div className="b_nav_brand pull-xs-left">
+                            Botmasterzzz
+                        </div>
+                    </a>
+
+                </nav>
+            </section>
         )
     }
 }
