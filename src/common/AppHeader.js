@@ -7,8 +7,7 @@ import mainLogo from '../img/logo.png';
 class AppHeader extends Component {
     render() {
         return (
-            <header className="header">
-                <div className="b_nav_contacts pull-xs-right"/>
+            <section className="header">
                 <div className="b_nav_contacts pull-xs-right">
                     <div className="b_nav_contacts_phone"><a
                         href="mailto:admin@botmasterzzz.com">admin@botmasterzzz.com</a></div>
@@ -48,7 +47,7 @@ class AppHeader extends Component {
                             )}
                         </nav>
                     </div>
-            </header>
+            </section>
 
         )
     }

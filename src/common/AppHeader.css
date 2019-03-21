@@ -18,6 +18,18 @@
     float: right;
 }
 
+.b_nav .b_nav_contacts {
+    color: #fff;
+    font-size: 18px;
+    text-align: right;
+    padding: 7px 20px;
+    overflow: hidden;
+}
+
+a.b_nav_link_home {
+    display: inline-block;
+    overflow: hidden;
+}
 .app-nav ul {
     list-style-position: none;
     margin: 0;
