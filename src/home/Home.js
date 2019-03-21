@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../styles/style.css';
-import '../styles/style.css';
 import preview from '../img/preview.png';
 import botm from '../img/botmasterzzz.png';
 import dc from '../img/5ba3f7d7fd5c6c28dc.png';
