@@ -5,7 +5,8 @@ import mainLogo from '../img/logo.png';
 class Home extends Component {
     render() {
         return (
-            <section className="header">
+
+            <section>
                 {/*<nav className="b_nav clearfix">*/}
                     {/*<div className="b_nav_contacts pull-xs-right">*/}
 

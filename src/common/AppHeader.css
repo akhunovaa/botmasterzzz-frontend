@@ -30,6 +30,25 @@ a.b_nav_link_home {
     display: inline-block;
     overflow: hidden;
 }
+
+.b_nav a.b_nav_link_home {
+    display: inline-block;
+    overflow: hidden;
+}
+
+.b_nav_brand {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 300;
+    margin-top: 12px;
+}
+
+.b_nav img {
+    width: 60px;
+    height: 60px;
+    margin: 0 20px 8px 10px;
+}
+
 .app-nav ul {
     list-style-position: none;
     margin: 0;
