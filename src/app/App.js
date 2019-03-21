@@ -71,10 +71,7 @@ class App extends Component {
 
         return (
             <div>
-                <div>
                     <AppHeader authenticated={this.state.authenticated} onLogout={this.handleLogout} />
-                </div>
-                <div className="app-body">
                     <Switch>
                         <Route exact path="/" component={Home}/>
                         <PrivateRoute path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser}
@@ -85,7 +82,6 @@ class App extends Component {
                                render={(props) => <Signup authenticated={this.state.authenticated} {...props} />}/>
                         <Route path="/oauth2/redirect" component={OAuth2RedirectHandler}/>
                     </Switch>
-                </div>
                 <Alert stack={{limit: 3}}
                        timeout = {3000}
                        position='top-right' effect='slide' offset={65} />
