@@ -7,6 +7,7 @@ import mainLogo from '../img/logo.png';
 class AppHeader extends Component {
     render() {
         return (
+            <nav className="b_nav clearfix">
             <section className="header">
                 <div className="b_nav_contacts pull-xs-right">
                     <div className="b_nav_contacts_phone"><a
@@ -48,7 +49,7 @@ class AppHeader extends Component {
                         </nav>
                     </div>
             </section>
-
+            </nav>
         )
     }
 }
