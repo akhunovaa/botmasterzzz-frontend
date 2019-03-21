@@ -14,7 +14,7 @@ class AppHeader extends Component {
                         href="mailto:admin@botmasterzzz.com">admin@botmasterzzz.com</a></div>
                     <div className="b_nav_contacts_phone"><a href="https://t.me/balsakas">@balsakas</a></div>
                 </div>
-                    <div className="active">
+                    <div>
                         <Link to="/">Botmasterzzz</Link>
                     </div>
                 <a href="/" className="b_nav_link_home pull-xs-left">
