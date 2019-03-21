@@ -53,25 +53,7 @@ class Login extends Component {
                     <span className="signup-link">Нет аккаунта? <Link to="/signup">Зарегистрироваться!</Link></span>
                 </div>
             </div>
-                    <section className="call_to_action">
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-md-4">
-                                    <img src={botm} className="cta_logo" alt="BOTMASTERZZZ Logo"/>
-                                </div>
-                                <div className="col-md-8">
-                                    <h1>Разрабатываем удобных ботов для Telegram</h1>
-
-                                    <p>Бот — это аккаунт в мессенджере Telegram, выполняющий запрограммированные действия
-                                        при получении
-                                        определенных команд.</p>
-                                </div>
-
-                            </div>
-                        </div>
-                    </section>
-
-                    <section className="what_they_can_do">
+       <section className="what_they_can_do">
                         <div className="container">
                             <h1 className="text-xs-center">Зачем боты пришли в этот мир</h1>
 
