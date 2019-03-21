@@ -17,7 +17,8 @@ import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 import './App.css';
-
+import '../styles/style.css';
+import mainLogo from '../img/logo.png';
 
 class App extends Component {
     constructor(props) {
