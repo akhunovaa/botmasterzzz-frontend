@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ACCESS_TOKEN } from '../../constants';
 import { Redirect } from 'react-router-dom'
+import '../../styles/style.css';
 
 class OAuth2RedirectHandler extends Component {
     getUrlParameter(name) {
