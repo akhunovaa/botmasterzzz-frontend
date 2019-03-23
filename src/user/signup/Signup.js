@@ -189,7 +189,7 @@ class SignupForm extends Component {
             name: '',
             email: '',
             password: ''
-        }
+        };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }

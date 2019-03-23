@@ -10,7 +10,6 @@ import a4 from "../../img/17a804837802700ea4.jpg";
 class Profile extends Component {
     constructor(props) {
         super(props);
-        console.log(props);
     }
     render() {
         return (

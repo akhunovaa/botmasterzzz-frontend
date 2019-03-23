@@ -8,6 +8,7 @@ import Home from '../home/Home'
 import Login from '../user/login/Login';
 import Signup from '../user/signup/Signup';
 import Profile from '../user/profile/Profile';
+import NotFound from '../common/NotFound';
 import OAuth2RedirectHandler from '../user/oauth2/OAuth2RedirectHandler';
 import LoadingIndicator from '../common/LoadingIndicator';
 import { getCurrentUser } from '../util/APIUtils';
@@ -26,7 +27,7 @@ class App extends Component {
             authenticated: false,
             currentUser: null,
             loading: false
-        }
+        };
 
         this.loadCurrentlyLoggedInUser = this.loadCurrentlyLoggedInUser.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
@@ -81,6 +82,7 @@ class App extends Component {
                         <Route path="/signup"
                                render={(props) => <Signup authenticated={this.state.authenticated} {...props} />}/>
                         <Route path="/oauth2/redirect" component={OAuth2RedirectHandler}/>
+                        <Route component={NotFound}/>
                     </Switch>
                 <Alert stack={{limit: 3}}
                        timeout = {3000}

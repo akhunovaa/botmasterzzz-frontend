@@ -14,6 +14,9 @@ import a9 from "../../img/50d0312845a05e6da9.png";
 import a4 from "../../img/17a804837802700ea4.jpg";
 
 class Login extends Component {
+    constructor(props) {
+        super(props);
+    }
     componentDidMount() {
         // If the OAuth2 login encounters an error, the user is redirected to the /login page with an error.
         // Here we display the error and then remove the error query parameter from the location.
