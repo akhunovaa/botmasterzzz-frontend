@@ -41,6 +41,9 @@ class AppHeader extends Component {
                                     <li>
                                         <NavLink className="active" to="/signup">Регистрация</NavLink>
                                     </li>
+                                    <li>
+                                        <NavLink className="active" to="/feedback">Обратная связь</NavLink>
+                                    </li>
                                 </ul>
                             )}
                         </nav>

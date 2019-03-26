@@ -6,6 +6,7 @@ import {
 import AppHeader from '../common/AppHeader';
 import Home from '../home/Home'
 import Login from '../user/login/Login';
+import Feedback from '../feedback/Feedback';
 import Signup from '../user/signup/Signup';
 import Profile from '../user/profile/Profile';
 import NotFound from '../common/NotFound';
@@ -75,6 +76,7 @@ class App extends Component {
                     <AppHeader authenticated={this.state.authenticated} onLogout={this.handleLogout} />
                     <Switch>
                         <Route exact path="/" component={Home}/>
+                        <Route exact path="/feedback" component={Feedback}/>
                         <PrivateRoute path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser}
                                       component={Profile}/>
                         <Route path="/login"
