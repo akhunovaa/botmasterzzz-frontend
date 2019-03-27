@@ -12,7 +12,7 @@ class Profile extends Component {
             <section>
                 <div className="feedback-container">
                     <h2>Форма обратной связи</h2>
-                    <form id="contactForm" action="/admin/feedback" method="post">
+                    <form id="contactForm" action="/admin/feedback" method="post" name="contactForm" target="hiddenFrame">
                         <div className="field-block">
                             <label htmlFor="name">Ваше имя:</label>
                             <input id="name" className="field" name="name" required type="text"
@@ -43,6 +43,7 @@ class Profile extends Component {
                         </div>
                     </form>
                 </div>
+                <iframe name="hiddenFrame" width="0" height="0" border="0"/>
             </section>
         );
     }
