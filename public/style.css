@@ -126,7 +126,7 @@ body {
 }
 .call_to_action {
   background: #569acf;
-/*padding-top 60px*/
+padding-top: 60px;
   color: #fff;
   box-shadow: 0px 1px 5px 0px #ad9e9e;
 }

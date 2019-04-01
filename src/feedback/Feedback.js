@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Feedback.css';
-// import '../../styles/style.css';
+import Alert from "react-s-alert";
+import { feedback } from '../util/APIUtils';
 
 
 class Profile extends Component {
@@ -9,43 +10,46 @@ class Profile extends Component {
     }
     render() {
         return (
-            <section>
-                <div className="feedback-container">
-                    <h2>Форма обратной связи</h2>
-                    <form id="contactForm" action="/admin/feedback" method="post" name="contactForm" target="hiddenFrame">
-                        <div className="field-block">
-                            <label htmlFor="name">Ваше имя:</label>
-                            <input id="name" className="field" name="name" required type="text"
-                                   placeholder="Иванов Иван Иванович"/>
+            <div className="feedback-container">
+                <div className="feedback-content">
+                    <h1 className="signup-title">Форма обратной связи</h1>
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="form-item">
+                            <input type="text" id="name"
+                                   className="form-control" placeholder="Иванов Иван Иванович" required/>
                         </div>
-                        <div className="field-block">
-                            <label htmlFor="email">Ваш E-mail:</label>
-                            <input id="email" className="field" name="email"
-                                   placeholder="ivanov@email.com"/>
+                        <div className="form-item">
+                            <input type="text" id="email"
+                                   className="form-control" placeholder="ivanov@email.com"/>
                         </div>
-                        <div className="field-block">
-                            <label htmlFor="phone">Ваш телефон:</label>
-                            <input id="phone" className="field" name="phone" required type="text"
-                                   placeholder="+7 (800) 000-00-00"/>
+                        <div className="form-item">
+                            <input type="text" id="phone"
+                                   className="form-control" placeholder="+7 (800) 000-00-00" required/>
                         </div>
-                        <div className="field-block">
-                            <label htmlFor="message">Текст сообщения:</label>
-                            <textarea id="message" className="field" required name="message" rows="4"></textarea>
+                        <div className="form-item">
+                            <textarea id="message"
+                                   className="form-control" placeholder="Ваше сообщение" required/>
                         </div>
-                        <div className="field-block">
-                            <input id="check" name="check" checked type="checkbox"/>
-                                <span className="check-text"> Я добровольно отправляю свои данные</span>
-                        </div>
-                        <button id="button" className="button" type="submit">Отправить</button>
-                        <div className="result">
-                            <span id="answer"></span>
-                            <span id="loader"><img src="images/loader.gif" alt=""/></span>
+                        <div className="form-item">
+                            <button id="button" type="submit" className="btn btn-block btn-primary">Отправить</button>
                         </div>
                     </form>
-                </div>
-                <iframe name="hiddenFrame" width="0" height="0" border="0"/>
-            </section>
+                    </div>
+            </div>
         );
+    }
+
+
+    handleSubmit(event) {
+        event.preventDefault();
+
+        feedback()
+            .then(response => {
+                Alert.success("Сообщение успешно отправлено");
+                this.props.history.push("/");
+            }).catch(error => {
+            Alert.error((error && error.message) || 'Что-то пошло не так! Попробуйте заново.');
+        });
     }
 }
 
