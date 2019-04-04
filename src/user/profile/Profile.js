@@ -145,17 +145,6 @@ class Profile extends Component {
                                         Вашего бота.</p>
                                 </div>
                             </div>
-                            <div className="card text-xs-center">
-                                <div className="card-block">
-                                    <h4 className="card-title">Вероника</h4>
-                                    <ul>
-                                        <li>
-                                            <a href="https://www.instagram.com/fitoniki/?hl=ru"
-                                               className="card-text">Instagram</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </section>
