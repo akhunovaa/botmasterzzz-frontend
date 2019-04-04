@@ -57,6 +57,19 @@ class Feedback extends Component {
         if (feedbackRequest.message.length >= 3000){
             Alert.error('Слишком длинное сообщение! Попробуйте заново.');
         }
+
+        if (feedbackRequest.name.length >= 300){
+            Alert.error('Слишком длинное сообщение! Попробуйте заново.');
+        }
+
+        if (feedbackRequest.phone.length >= 300){
+            Alert.error('Слишком длинное сообщение! Попробуйте заново.');
+        }
+
+        if (feedbackRequest.email.length >= 300){
+            Alert.error('Слишком длинное сообщение! Попробуйте заново.');
+        }
+
         feedback(feedbackRequest).then(response => {
                 Alert.success("Сообщение успешно отправлено '" + response.message + "'");
                 this.props.history.push("/feedback");
