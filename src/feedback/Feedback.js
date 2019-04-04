@@ -55,19 +55,19 @@ class Feedback extends Component {
 
         const feedbackRequest = Object.assign({}, this.state);
         if (feedbackRequest.message.length >= 3000){
-            Alert.error('Слишком длинное сообщение! Попробуйте заново.');
+            Alert.warning('Слишком длинное сообщение! Попробуйте заново.');
         }
 
         if (feedbackRequest.name.length >= 300){
-            Alert.error('Слишком длинное сообщение! Попробуйте заново.');
+            Alert.warning('Слишком длинное сообщение! Попробуйте заново.');
         }
 
         if (feedbackRequest.phone.length >= 300){
-            Alert.error('Слишком длинное сообщение! Попробуйте заново.');
+            Alert.warning('Слишком длинное сообщение! Попробуйте заново.');
         }
 
         if (feedbackRequest.email.length >= 300){
-            Alert.error('Слишком длинное сообщение! Попробуйте заново.');
+            Alert.warning('Слишком длинное сообщение! Попробуйте заново.');
         }
 
         feedback(feedbackRequest).then(response => {
