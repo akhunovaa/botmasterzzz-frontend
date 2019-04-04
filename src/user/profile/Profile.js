@@ -8,9 +8,6 @@ import a9 from "../../img/50d0312845a05e6da9.png";
 import a4 from "../../img/17a804837802700ea4.jpg";
 
 class Profile extends Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         return (
             <section>
@@ -101,7 +98,7 @@ class Profile extends Component {
                                 <p className="card-text">Клиенты получают мгновенные ответы от бота.</p>
                             </div>
                             <div className="card text-xs-center">
-                                <img className="card-img-top" src={dc}/>
+                                <img  alt="dc" className="card-img-top" src={dc}/>
 
                                 <div className="card-block">
                                     <h4 className="card-title">Местоположение и номер телефона</h4>
@@ -111,7 +108,7 @@ class Profile extends Component {
                                 </div>
                             </div>
                             <div className="card text-xs-center">
-                                <img className="card-img-top" src={a9}/>
+                                <img  alt="a9" className="card-img-top" src={a9}/>
 
                                 <div className="card-block">
                                     <h4 className="card-title">Встроенный режим</h4>
@@ -122,7 +119,7 @@ class Profile extends Component {
                                 </div>
                             </div>
                             <div className="card text-xs-center">
-                                <img className="card-img-top" src={a4}/>
+                                <img  alt="a4" className="card-img-top" src={a4}/>
 
                                 <div className="card-block">
                                     <h4 className="card-title">Встроенная клавиатура</h4>

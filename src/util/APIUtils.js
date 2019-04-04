@@ -3,7 +3,7 @@ import { API_BASE_URL, ACCESS_TOKEN } from '../constants';
 const request = (options) => {
     const headers = new Headers({
         'Content-Type': 'application/json;charset=UTF-8',
-    })
+    });
 
     if(localStorage.getItem(ACCESS_TOKEN)) {
         headers.append('Authorization', 'Bearer ' + localStorage.getItem(ACCESS_TOKEN))
@@ -50,9 +50,10 @@ export function signup(signupRequest) {
     });
 }
 
-export function feedback(signupRequest) {
+export function feedback(feedbackRequest) {
     return request({
         url: API_BASE_URL + "/admin/feedback",
         method: 'POST',
+        body: JSON.stringify(feedbackRequest)
     });
 }
