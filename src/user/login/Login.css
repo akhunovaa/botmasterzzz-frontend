@@ -18,13 +18,13 @@
 }
 .login-content {
     background-color: #ebebeb;
-    max-width: 500px;
+    max-width: 600px;
     margin: 50px auto;
     padding: 20px;
     border-radius: 4px;
     vertical-align: middle;
     box-shadow: 0 0 3px #666;
-    width: 500px;
+    width: 600px;
     margin-top: 30px;
     position: relative;
 }
@@ -67,7 +67,7 @@
     color: rgba(0, 0, 0, 0.65);
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 600px) {
 
 
     .login-container {
@@ -89,13 +89,13 @@
     }
     .login-content {
         background-color: #ebebeb;
-        max-width: 400px;
+        max-width: 350px;
         margin: 50px auto;
         padding: 20px;
         border-radius: 4px;
         vertical-align: middle;
         box-shadow: 0 0 3px #666;
-        width: 400px;
+        width: 350px;
         margin-top: 30px;
         position: relative;
     }
