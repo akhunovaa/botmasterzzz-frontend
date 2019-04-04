@@ -54,9 +54,11 @@ class Feedback extends Component {
         event.preventDefault();
 
         const feedbackRequest = Object.assign({}, this.state);
-
+        if (feedbackRequest.message.length >= 3000){
+            Alert.error('Слишком длинное сообщение! Попробуйте заново.');
+        }
         feedback(feedbackRequest).then(response => {
-                Alert.success("Сообщение успешно отправлено '<br>" + response.message + "'");
+                Alert.success("Сообщение успешно отправлено '" + response.message + "'");
                 this.props.history.push("/feedback");
             }).catch(error => {
             Alert.error((error && error.message) || 'Что-то пошло не так! Попробуйте заново.');
