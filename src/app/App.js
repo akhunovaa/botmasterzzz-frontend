@@ -3,6 +3,7 @@ import {
     Route,
     Switch
 } from 'react-router-dom';
+import { loadReCaptcha } from 'react-recaptcha-google'
 import AppHeader from '../common/AppHeader';
 import Home from '../home/Home'
 import Login from '../user/login/Login';
@@ -63,6 +64,7 @@ class App extends Component {
     }
 
     componentDidMount() {
+        loadReCaptcha();
         this.loadCurrentlyLoggedInUser();
     }
 

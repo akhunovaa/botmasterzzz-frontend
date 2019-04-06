@@ -2,22 +2,43 @@ import React, { Component } from 'react';
 import './Feedback.css';
 import Alert from "react-s-alert";
 import {feedback} from '../util/APIUtils';
-
+import { ReCaptcha } from 'react-recaptcha-google'
 
 class Feedback extends Component {
 
-    constructor(props) {
-        super(props);
+    constructor(props, context) {
+        super(props, context);
         this.state = {
             name: '',
             email: '',
             phone: '',
-            message: ''
+            message: '',
+            captchaToken: ''
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.onLoadRecaptcha = this.onLoadRecaptcha.bind(this);
+        this.verifyCallback = this.verifyCallback.bind(this);
     }
+
+    componentDidMount() {
+        if (this.captcha) {
+            this.captcha.reset();
+        }
+    }
+    onLoadRecaptcha() {
+        if (this.captcha) {
+            this.captcha.reset();
+        }
+    }
+
+    verifyCallback(recaptchaToken) {
+        this.setState({
+            captchaToken : recaptchaToken
+        })
+    }
+
     render() {
         return (
             <div className="feedback-container">
@@ -39,6 +60,17 @@ class Feedback extends Component {
                         <div className="form-item text-area">
                             <textarea id="message" name="message"
                                    className="form-control text-area" placeholder="Ваше сообщение" value={this.state.message} onChange={this.handleInputChange} required/>
+                        </div>
+                        <div className="form-item">
+                            <ReCaptcha
+                                ref={(el) => {this.captcha = el;}}
+                                size="normal"
+                                data-theme="light"
+                                render="explicit"
+                                sitekey="6LeulZwUAAAAAA07OHdhKen90gZauyUDCBe8GDEn"
+                                onloadCallback={this.onLoadRecaptcha}
+                                verifyCallback={this.verifyCallback}
+                            />
                         </div>
                         <div className="form-item">
                             <button id="button" type="submit" className="btn btn-block btn-primary">Отправить</button>
