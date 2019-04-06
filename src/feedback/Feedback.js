@@ -70,6 +70,7 @@ class Feedback extends Component {
                                 sitekey="6LeulZwUAAAAAA07OHdhKen90gZauyUDCBe8GDEn"
                                 onloadCallback={this.onLoadRecaptcha}
                                 verifyCallback={this.verifyCallback}
+                                hl="ru"
                             />
                         </div>
                         <div className="form-item">
