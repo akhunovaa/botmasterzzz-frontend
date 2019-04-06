@@ -75,6 +75,10 @@
     display: none;
 }
 
+.text-area {
+    resize:vertical;
+    height: 100px;
+}
 
 @media screen and (max-width: 600px) {
 

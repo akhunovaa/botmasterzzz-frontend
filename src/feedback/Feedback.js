@@ -36,9 +36,9 @@ class Feedback extends Component {
                             <input type="text" id="phone" name="phone"
                                    className="form-control" placeholder="+7 (800) 000-00-00" value={this.state.phone} onChange={this.handleInputChange} required/>
                         </div>
-                        <div className="form-item">
+                        <div className="form-item text-area">
                             <textarea id="message" name="message"
-                                   className="form-control" placeholder="Ваше сообщение" value={this.state.message} onChange={this.handleInputChange} required/>
+                                   className="form-control text-area" placeholder="Ваше сообщение" value={this.state.message} onChange={this.handleInputChange} required/>
                         </div>
                         <div className="form-item">
                             <button id="button" type="submit" className="btn btn-block btn-primary">Отправить</button>
