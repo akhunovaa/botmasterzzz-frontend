@@ -101,7 +101,7 @@ class Feedback extends Component {
         if (feedbackRequest.email.length >= 300){
             Alert.warning('Слишком длинное сообщение! Попробуйте заново.');
         }
-        if (feedbackRequest.captchaToken !== "" && feedbackRequest.captchaToken.length <= 1){
+        if (feedbackRequest.captchaToken !== ""){
             feedback(feedbackRequest).then(response => {
                 Alert.success("Сообщение успешно отправлено '" + response.message + "'");
                 this.props.history.push("/feedback");
