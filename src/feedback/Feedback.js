@@ -101,13 +101,14 @@ class Feedback extends Component {
         if (feedbackRequest.email.length >= 300){
             Alert.warning('Слишком длинное сообщение! Попробуйте заново.');
         }
-
-        feedback(feedbackRequest).then(response => {
+        if (feedbackRequest.captchaToken !== "" || feedbackRequest.captchaToken.length <= 1){
+            feedback(feedbackRequest).then(response => {
                 Alert.success("Сообщение успешно отправлено '" + response.message + "'");
                 this.props.history.push("/feedback");
             }).catch(error => {
             Alert.error((error && error.message) || 'Что-то пошло не так! Попробуйте заново.');
-        });
+            });
+        }
     }
 
 
