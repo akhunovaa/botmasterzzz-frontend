@@ -95,6 +95,7 @@ class LoginForm extends Component {
                 localStorage.setItem(ACCESS_TOKEN, response.accessToken);
                 Alert.success("Вы авторизовались в системе!");
                 this.props.history.push("/");
+                window.location.reload();
             }).catch(error => {
             Alert.error((error && error.message) || 'Что-то пошло не так! Попробуйте заново.');
         });
