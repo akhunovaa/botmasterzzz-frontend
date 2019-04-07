@@ -7,6 +7,7 @@ import { signup } from '../../util/APIUtils';
 import fbLogo from '../../img/fb-logo.png';
 import googleLogo from '../../img/google-logo.png';
 import Alert from 'react-s-alert';
+import { ReCaptcha } from 'react-recaptcha-google'
 
 class Signup extends Component {
     render() {
@@ -53,10 +54,30 @@ class SignupForm extends Component {
         this.state = {
             name: '',
             email: '',
-            password: ''
+            password: '',
+            captchaToken: ''
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.onLoadRecaptcha = this.onLoadRecaptcha.bind(this);
+        this.verifyCallback = this.verifyCallback.bind(this);
+    }
+
+    componentDidMount() {
+        if (this.captcha) {
+            this.captcha.reset();
+        }
+    }
+    onLoadRecaptcha() {
+        if (this.captcha) {
+            this.captcha.reset();
+        }
+    }
+
+    verifyCallback(recaptchaToken) {
+        this.setState({
+            captchaToken : recaptchaToken
+        })
     }
 
     handleInputChange(event) {
@@ -73,14 +94,16 @@ class SignupForm extends Component {
         event.preventDefault();
 
         const signUpRequest = Object.assign({}, this.state);
+        if (signUpRequest.captchaToken !== ""){
+            signup(signUpRequest)
+                .then(response => {
+                    Alert.success("Вы успешно зарегистрировались! Пожалуйста авторизуйтесь заново.");
+                    this.props.history.push("/signup");
+                }).catch(error => {
+                Alert.error((error && error.message) || 'Что-то пошло не так! Попробуйте заново.');
+            });
+        }
 
-        signup(signUpRequest)
-            .then(response => {
-                Alert.success("Вы успешно зарегистрировались! Пожалуйста авторизуйтесь заново.");
-                this.props.history.push("/login");
-            }).catch(error => {
-            Alert.error((error && error.message) || 'Что-то пошло не так! Попробуйте заново.');
-        });
     }
 
     render() {
@@ -100,6 +123,18 @@ class SignupForm extends Component {
                     <input type="password" name="password"
                            className="form-control" placeholder="Пароль"
                            value={this.state.password} onChange={this.handleInputChange} required/>
+                </div>
+                <div className="form-item">
+                    <ReCaptcha
+                        ref={(el) => {this.captcha = el;}}
+                        size="normal"
+                        data-theme="light"
+                        render="explicit"
+                        sitekey="6LeulZwUAAAAAA07OHdhKen90gZauyUDCBe8GDEn"
+                        onloadCallback={this.onLoadRecaptcha}
+                        verifyCallback={this.verifyCallback}
+                        hl="ru"
+                    />
                 </div>
                 <div className="form-item">
                     <button type="submit" className="btn btn-block btn-primary" >Зарегистрироваться</button>
