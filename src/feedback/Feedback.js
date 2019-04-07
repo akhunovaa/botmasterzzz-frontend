@@ -105,7 +105,8 @@ class Feedback extends Component {
         if (feedbackRequest.captchaToken !== ""){
             feedback(feedbackRequest).then(response => {
                 Alert.success("Сообщение успешно отправлено '" + response.message + "'");
-                this.props.history.push("/feedback");
+                this.onLoadRecaptcha();
+                this.props.history.push("/");
             }).catch(error => {
             Alert.error((error && error.message) || 'Что-то пошло не так! Попробуйте заново.');
             });

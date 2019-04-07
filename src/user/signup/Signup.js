@@ -98,7 +98,8 @@ class SignupForm extends Component {
             signup(signUpRequest)
                 .then(response => {
                     Alert.success("Вы успешно зарегистрировались! Пожалуйста авторизуйтесь заново.");
-                    this.props.history.push("/signup");
+                    this.onLoadRecaptcha();
+                    this.props.history.push("/");
                 }).catch(error => {
                 Alert.error((error && error.message) || 'Что-то пошло не так! Попробуйте заново.');
             });
