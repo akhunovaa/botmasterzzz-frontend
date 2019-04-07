@@ -28,11 +28,7 @@ body {
   padding: 7px 20px;
   overflow: hidden;
 }
-@media screen and (max-width: 600px) {
-  .b_nav .b_nav_contacts {
-    display: none;
-  }
-}
+
 .b_nav .b_nav_contacts a {
   color: #fff;
 }
@@ -51,11 +47,11 @@ body {
   font-weight: 300;
   margin-top: 12px;
 }
-@media screen and (max-width: 1100px) {
-  .b_nav .b_nav_box {
-    padding-top: 68px;
-  }
-}
+/*@media screen and (max-width: 1100px) {*/
+  /*.b_nav .b_nav_box {*/
+    /*padding-top: 68px;*/
+  /*}*/
+/*}*/
 .b_nav_links {
   padding: 0;
   margin: 0 auto;
@@ -104,7 +100,7 @@ body {
   }
 }
 .b_nav_links a:hover {
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px ridge #fff;
   text-decoration: none;
 }
 .b_nav_links a:visited,
@@ -278,7 +274,6 @@ body {
   font-weight: 300;
 }
 .form span {
-  font-family: Roboto;
   color: #c7e2f7;
   font-size: 16px;
   font-weight: 400;
@@ -322,7 +317,6 @@ body {
   border-bottom: 1px solid #f0f0f0;
 }
 .price .module .price_module {
-  font-family: Georgia;
   font-size: 28px;
   line-height: 1;
 }

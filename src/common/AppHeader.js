@@ -7,12 +7,11 @@ import mainLogo from '../img/logo.png';
 class AppHeader extends Component {
     render() {
         return (
-            <nav className="b_nav clearfix">
+            <nav className="b_nav">
             <section className="header">
                 <div className="b_nav_contacts pull-xs-right">
-                    <div className="b_nav_contacts_phone"><a
-                        href="mailto:admin@botmasterzzz.com">admin@botmasterzzz.com</a></div>
-                    <div className="b_nav_contacts_phone"><a href="https://t.me/balsakas">@balsakas</a></div>
+                        <a href="mailto:admin@botmasterzzz.com">admin@botmasterzzz.com</a>
+                        <p><a href="https://t.me/balsakas">@balsakas</a></p>
                 </div>
                 <a href="/" className="b_nav_link_home pull-xs-left">
                     <div className="b_nav_logo pull-xs-left">
@@ -25,16 +24,16 @@ class AppHeader extends Component {
                     <div className="b_nav_box">
                         <nav className="b_nav_links">
                             { this.props.authenticated ? (
-                                <ul>
-                                    <li>
+                                <div>
+                                <li>
                                         <NavLink className="active" to="/profile">Профиль</NavLink>
-                                    </li>
-                                    <li>
+                                </li>
+                                <li>
                                         <a className="active" onClick={this.props.onLogout}>Выйти</a>
-                                    </li>
-                                </ul>
+                                </li>
+                                </div>
                             ): (
-                                <ul>
+                                <div>
                                     <li>
                                         <NavLink className="active" to="/login">Авторизация</NavLink>
                                     </li>
@@ -44,7 +43,7 @@ class AppHeader extends Component {
                                     <li>
                                         <NavLink className="active" to="/feedback">Обратная связь</NavLink>
                                     </li>
-                                </ul>
+                                </div>
                             )}
                         </nav>
                     </div>

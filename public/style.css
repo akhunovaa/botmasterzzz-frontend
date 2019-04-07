@@ -122,7 +122,7 @@ body {
   border-bottom: 2px solid #fff;
 }
 .active {
-  border-bottom: 2px solid #fff;
+  border-bottom: 3px solid #ff1c23;
 }
 .call_to_action {
   background: #569acf;
