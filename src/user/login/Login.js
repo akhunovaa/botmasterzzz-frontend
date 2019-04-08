@@ -40,8 +40,8 @@ class Login extends Component {
             <div className="login-container">
                 <div className="login-content">
                     <h1 className="login-title">Авторизация на портале Botmasterzzz</h1>
-                    <SocialLogin />
-                        <span>или</span>
+                    {/*<SocialLogin />*/}
+                        {/*<span>или</span>*/}
                     <LoginForm {...this.props} />
                     <span className="signup-link">Нет аккаунта? <Link to="/signup">Зарегистрироваться!</Link></span>
                 </div>
