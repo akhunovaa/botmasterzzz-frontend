@@ -53,12 +53,12 @@ class Login extends Component {
 class SocialLogin extends Component {
     render() {
         return (
-            <section>
-                <a className="btn btn-block social-btn google" href={GOOGLE_AUTH_URL}>
+            <div className="socials">
+                <a className="facebook" href={GOOGLE_AUTH_URL}>
                     <img src={googleLogo} alt="Google" /></a>
-                <a className="btn btn-block social-btn facebook" href={FACEBOOK_AUTH_URL}>
+                <a className="google" href={FACEBOOK_AUTH_URL}>
                     <img src={fbLogo} alt="Facebook" /></a>
-            </section>
+            </div>
         );
     }
 }

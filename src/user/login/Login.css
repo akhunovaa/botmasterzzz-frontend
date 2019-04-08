@@ -33,11 +33,10 @@
     font-weight: 400;
     font-size: 16px;
 }
-
-.social-btn img {
-    height: 32px;
-    float: left;
-    margin-top: 10px;
+.socials {
+    margin-top: 8px;
+    position: center;
+    margin-bottom: 8px;
 }
 
 .social-btn.google {
@@ -47,10 +46,11 @@
     margin-top: 7px;
     margin-bottom: 8px;
 }
-
-.social-btn.facebook img {
-    height: 24px;
-    margin-left: 3px;
+.facebook img {
+    height: 50px;
+}
+.google img {
+    height: 50px;
 }
 
 .social-btn.github img {
