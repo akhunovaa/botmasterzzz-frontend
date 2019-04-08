@@ -43,7 +43,7 @@ class Feedback extends Component {
         return (
             <div className="feedback-container">
                 <div className="feedback-content">
-                    <h1 className="signup-title">Форма обратной связи</h1>
+                    <h1 className="signup-title">Форма обратной связи на портале Botmasterzzz</h1>
                     <form onSubmit={this.handleSubmit}>
                         <div className="form-item">
                             <input type="text" id="name" name="name"
