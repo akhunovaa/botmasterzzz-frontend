@@ -74,7 +74,7 @@ class Feedback extends Component {
                             />
                         </div>
                         <div className="form-item">
-                            <button id="button" type="submit" className="btn btn-block btn-primary">Отправить</button>
+                            <button id="button" type="submit" className="btn confirm-button btn-primary">Отправить</button>
                         </div>
                     </form>
                     </div>

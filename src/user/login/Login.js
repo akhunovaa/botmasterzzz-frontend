@@ -53,12 +53,12 @@ class Login extends Component {
 class SocialLogin extends Component {
     render() {
         return (
-            <div className="social-login">
+            <section>
                 <a className="btn btn-block social-btn google" href={GOOGLE_AUTH_URL}>
-                    <img src={googleLogo} alt="Google" /> Авторизоваться с Google</a>
+                    <img src={googleLogo} alt="Google" /></a>
                 <a className="btn btn-block social-btn facebook" href={FACEBOOK_AUTH_URL}>
-                    <img src={fbLogo} alt="Facebook" /> Авторизоваться с Facebook</a>
-            </div>
+                    <img src={fbLogo} alt="Facebook" /></a>
+            </section>
         );
     }
 }
@@ -115,7 +115,7 @@ class LoginForm extends Component {
                            value={this.state.password} onChange={this.handleInputChange} required/>
                 </div>
                 <div className="form-item">
-                    <button type="submit" className="btn btn-block btn-primary">Авторизоваться</button>
+                    <button type="submit" className="btn confirm-button btn-primary">Авторизоваться</button>
                 </div>
             </form>
         );
