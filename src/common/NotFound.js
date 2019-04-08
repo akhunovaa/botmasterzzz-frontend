@@ -7,7 +7,6 @@ class NotFound extends Component {
 
     render() {
         return (
-                <nav className="b_nav clearfix">
                     <div className="page-not-found">
                         <h1 className="title">
                             404
@@ -17,7 +16,6 @@ class NotFound extends Component {
                         </div>
                         <Link to="/"><button className="go-back-btn btn btn-primary" type="button">Вернуться...</button></Link>
                     </div>
-                </nav>
         );
     }
 }
