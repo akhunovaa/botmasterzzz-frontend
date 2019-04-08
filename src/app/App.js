@@ -6,6 +6,7 @@ import {
 import { loadReCaptcha } from 'react-recaptcha-google'
 import AppHeader from '../common/AppHeader';
 import Home from '../home/Home'
+import Tools from '../admin/Tools'
 import Login from '../user/login/Login';
 import Feedback from '../feedback/Feedback';
 import Signup from '../user/signup/Signup';
@@ -81,6 +82,8 @@ class App extends Component {
                         <Route exact path="/feedback" component={Feedback}/>
                         <PrivateRoute path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser}
                                       component={Profile}/>
+                        <PrivateRoute path="/tools" authenticated={this.state.authenticated} currentUser={this.state.currentUser}
+                                      component={Tools}/>
                         <Route path="/login"
                                render={(props) => <Login authenticated={this.state.authenticated} {...props} />}/>
                         <Route path="/signup"

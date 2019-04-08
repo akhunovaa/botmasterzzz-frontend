@@ -28,6 +28,12 @@ class AppHeader extends Component {
                                 <li>
                                         <NavLink className="active" to="/profile">Профиль</NavLink>
                                 </li>
+                                 <li>
+                                        <NavLink className="active" to="/tools">Панель управления</NavLink>
+                                </li>
+                                <li>
+                                        <NavLink className="active" to="/feedback">Обратная связь</NavLink>
+                                </li>
                                 <li>
                                         <a className="active" onClick={this.props.onLogout}>Выйти</a>
                                 </li>
