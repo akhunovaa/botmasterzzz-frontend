@@ -5,7 +5,6 @@
 }
 
 .header-bottom {
-    width: 40%;
     display: table;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -134,7 +133,6 @@
     }
 
     .header-bottom {
-        width: 85%; /* Try setting this to 400px or something */
         display: table;
         padding-top: 10px;
         padding-bottom: 10px;
