@@ -5,7 +5,7 @@
 }
 
 .header-bottom {
-    width: 40%; /* Try setting this to 400px or something */
+    width: 40%;
     display: table;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -131,6 +131,13 @@
 @media screen and (max-width: 400px) {
     .tabs>label {
         padding: 15px;
+    }
+
+    .header-bottom {
+        width: 85%; /* Try setting this to 400px or something */
+        display: table;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 }
 

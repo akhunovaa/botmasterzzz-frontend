@@ -28,14 +28,14 @@ class Tools extends Component {
 
                 </div>
                 <div className="tabs">
-                    <input id="tab1" type="radio" name="tabs" checked/>
+                    <input id="tab1" type="radio" name="tabs"/>
                         <label htmlFor="tab1" title="Настройки">Настройки</label>
-                        <input id="tab2" type="radio" name="tabs"/>
+                        <input id="tab2" type="radio" name="tabs" checked/>
                             <label htmlFor="tab2" title="Детализация">Детализация</label>
 
                                     <section id="content-tab1">
                                         <p>
-                                            1содержание....
+                                            Настройки
                                         </p>
                                     </section>
                                     <section id="content-tab2">
