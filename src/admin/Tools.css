@@ -140,6 +140,9 @@
 }
 
 .toggle {
+    bottom: 0px;
+    top: 10px;
+    left: 10px;
     position: relative;
     display: block;
     width: 40px;
