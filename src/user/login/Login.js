@@ -40,8 +40,6 @@ class Login extends Component {
             <div className="login-container">
                 <div className="login-content">
                     <h1 className="login-title">Авторизация на портале Botmasterzzz</h1>
-                    {/*<SocialLogin />*/}
-                        {/*<span>или</span>*/}
                     <LoginForm {...this.props} />
                     <span className="signup-link">Нет аккаунта? <Link to="/signup">Зарегистрироваться!</Link></span>
                 </div>
@@ -49,19 +47,19 @@ class Login extends Component {
         );
     }
 }
-
-class SocialLogin extends Component {
-    render() {
-        return (
-            <div className="socials">
-                <a className="facebook" href={GOOGLE_AUTH_URL}>
-                    <img src={googleLogo} alt="Google" /></a>
-                <a className="google" href={FACEBOOK_AUTH_URL}>
-                    <img src={fbLogo} alt="Facebook" /></a>
-            </div>
-        );
-    }
-}
+//
+// class SocialLogin extends Component {
+//     render() {
+//         return (
+//             <div className="socials">
+//                 <a className="facebook" href={GOOGLE_AUTH_URL}>
+//                     <img src={googleLogo} alt="Google" /></a>
+//                 <a className="google" href={FACEBOOK_AUTH_URL}>
+//                     <img src={fbLogo} alt="Facebook" /></a>
+//             </div>
+//         );
+//     }
+// }
 
 
 class LoginForm extends Component {
