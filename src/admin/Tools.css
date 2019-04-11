@@ -5,7 +5,7 @@
 }
 
 .header-bottom {
-    display: table;
+    display: inline-table;
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -133,7 +133,7 @@
     }
 
     .header-bottom {
-        display: table;
+        display: inline-table;
         padding-top: 10px;
         padding-bottom: 10px;
     }
