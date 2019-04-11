@@ -17,42 +17,38 @@ class Tools extends Component {
     render() {
         return (
             <div className="tools-container">
-                <p>
-                   Next project
-                </p>
-                <div className="tabs">
-                    <input id="tab1" type="radio" name="tabs"/>
-                        <label htmlFor="tab1" title="Настройки">Настройки</label>
+                <div className="header-bottom">
+                    <div className="header-bottom child">
+                        <h3>BotMasterzzz project</h3>
+                    </div>
+                    <div className="header-bottom child">
+                        <input type="checkbox" id="cbx" style={{display: "none"}} />
+                        <label htmlFor="cbx" className="toggle"><span/></label>
+                    </div>
 
+                </div>
+                <div className="tabs">
+                    <input id="tab1" type="radio" name="tabs" checked/>
+                        <label htmlFor="tab1" title="Настройки">Настройки</label>
                         <input id="tab2" type="radio" name="tabs"/>
                             <label htmlFor="tab2" title="Детализация">Детализация</label>
 
-                            <input id="tab3" type="radio" name="tabs"/>
-                                <label htmlFor="tab3" title="Управление">Управление</label>
-
                                     <section id="content-tab1">
                                         <p>
-                                            1Здесь размещаете любое содержание....
+                                            1содержание....
                                         </p>
                                     </section>
                                     <section id="content-tab2">
                                         <p>
-                                            2Здесь размещаете любое содержание....
+                                            Регистрация людей на мероприятия
+                                            При необходимости регистрации людей на массовые (и не очень) мероприятия гораздо удобнее, если заниматься оповещением Участников буду я, а не Вы. Что я могу в рамках данной задачи:
+                                            ✔️ Сбор заявок на регистрацию
+                                            ✔️ Рассылка уведомлений о начале/завершении регистрации
+                                            ✔️ Предоставление «Карты мероприятия» - тема, место, время, участники, спикеры и многое другое
+                                            ✔️ Рассылка уведомлений во время мероприятия (презентация/раздаточные материалы)
+                                            ✔️ Рассылка благодарности, достижений, записи мероприятия
+                                            ✔️ Оповещение участников о следующем мероприятии (см. пункт 1)
                                         </p>
-                                    </section>
-                                    <section id="content-tab3">
-                                        <div className="side-nav">
-                                            <ul className="side-nav-menu scrollable ps-container ps-theme-default" data-ps-id="ae692c4c-deaf-e421-4f24-483a61d7381d">
-                                                <li className="nav-item">
-                                                    <a className="mrg-top-30" href="index.html">
-                                <span className="icon-holder">
-									     <i className="fas fa-home"></i>
-									</span>
-                                                        <span className="title">Dashboard</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
                                     </section>
                 </div>
             </div>

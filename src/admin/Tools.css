@@ -1,13 +1,30 @@
 @import url("../styles/min.css");
 
 .tools-container {
-    padding-top: 30px;
+    padding-top: 10px;
 }
 
+.header-bottom {
+    width: 40%; /* Try setting this to 400px or something */
+    display: table;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.header-bottom.child {
+    display: table-cell;
+}
+.header-bottom.child.childinner {
+    margin-left: 25px;
+    /* Decorative .. */
+    min-height: 40px;
+}
+.child:first-child .childinner {
+    margin-left: 0;
+}
 .tabs {
     min-width: 320px;
-
-    padding: 0px;
+    padding: 10px 0px 0px;
     margin: 0 auto;
 }
 /* Стили секций с содержанием */
@@ -77,9 +94,7 @@
 .tabs>label[for*="2"]:before {
     content: "\f05a";
 }
-.tabs>label[for*="3"]:before {
-    content: "\f11b";
-}
+
 /* Изменения стиля переключателей вкладок при наведении */
 
 .tabs>label:hover {
@@ -117,4 +132,66 @@
     .tabs>label {
         padding: 15px;
     }
+}
+
+.toggle {
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 20px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transform: translate3d(0, 0, 0);
+}
+.toggle:before {
+    content: "";
+    position: relative;
+    top: 3px;
+    left: 3px;
+    width: 34px;
+    height: 14px;
+    display: block;
+    background: #9A9999;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+.toggle span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    display: block;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(154, 153, 153, 0.5);
+    transition: all 0.2s ease;
+}
+.toggle span:before {
+    content: "";
+    position: absolute;
+    display: block;
+    margin: -18px;
+    width: 56px;
+    height: 56px;
+    background: rgba(20, 125, 220, 0.5);
+    border-radius: 50%;
+    transform: scale(0);
+    opacity: 1;
+    pointer-events: none;
+}
+
+#cbx:checked + .toggle:before {
+    background: #1ad2f6;;
+}
+#cbx:checked + .toggle span {
+    background: #0f96f6;
+    transform: translateX(20px);
+    transition: all 0.2s cubic-bezier(0.8, 0.4, 0.3, 1.25), background 0.15s ease;
+    box-shadow: 0 3px 8px rgba(79, 46, 220, 0.2);
+}
+#cbx:checked + .toggle span:before {
+    transform: scale(1);
+    opacity: 0;
+    transition: all 0.4s ease;
 }
