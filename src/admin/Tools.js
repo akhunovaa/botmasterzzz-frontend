@@ -22,10 +22,10 @@ class Tools extends Component {
                     <div className="divTableHeaderBody">
                         <div className="divTableHeaderRow">
                             <div className="divTableHeaderCellX"><h3>BotMasterzzz project</h3></div>
-                            <div className="divTableHeaderCell">Опубликовать</div>
-                            <div className="divTableHeaderCell">Аналитика</div>
-                            <div className="divTableHeaderCell">Предосмотр</div>
-                            <div className="divTableHeaderCell">Удалить</div>
+                            <div className="divTableHeaderCell"><i className="far fa-share-alt"></i> Опубликовать</div>
+                            <div className="divTableHeaderCell"><i className="far fa-bookmark-o"></i> Аналитика</div>
+                            <div className="divTableHeaderCell"><i className="far fa-search"></i> Предосмотр</div>
+                            <div className="divTableHeaderCell"><i className="far fa-trash-o"></i> Удалить</div>
                         </div>
                     </div>
                 </div>
@@ -34,7 +34,7 @@ class Tools extends Component {
                     <div className="divTable paleBlueRows">
                     <div className="divTableBody">
                         <div className="divTableRow">
-                            <div className="divTableCell">Статус: Вкл./Выкл.</div>
+                            <div className="divTableCell">Статус: </div>
                             <div className="divTableCell">
                                 <input type="checkbox" id="cbx" style={{display: "none"}} />
                                 <label htmlFor="cbx" className="toggle"><span/></label>
@@ -46,18 +46,45 @@ class Tools extends Component {
                 <div className="tabs">
                     <input id="tab1" type="radio" name="tabs"/>
                         <label htmlFor="tab1" title="Настройки">Настройки</label>
-                        <input id="tab2" type="radio" name="tabs" checked/>
+                        <input id="tab2" type="radio" name="tabs" defaultChecked/>
                             <label htmlFor="tab2" title="Детализация">Детализация</label>
 
                                     <section id="content-tab1">
-                                        <div id="a">
-                                            <div className="col1">testing col1</div>
-                                            <div className="col2">testing col2</div>
+
+                                        <div className="tabs-preference">
+
+                                            <input id="tab1-preference" type="radio" name="tabs-preference" defaultChecked/>
+                                            <label htmlFor="tab1-preference" title="Главное">Главное</label>
+
+                                            <input id="tab2-preference" type="radio" name="tabs-preference"/>
+                                            <label htmlFor="tab2-preference" title="Настройки доступа">Настройки доступа</label>
+
+                                            <input id="tab3-preference" type="radio" name="tabs-preference"/>
+                                            <label htmlFor="tab3-preference" title="ID"> ID</label>
+
+                                            <section id="content-tab1-preference">
+                                                <p>
+                                                    tab1-preference
+                                                </p>
+                                            </section>
+
+                                            <section id="content-tab2-preference">
+                                                <p>
+                                                    tab2-preference
+                                                </p>
+                                            </section>
+
+                                            <section id="content-tab3-preference">
+                                                <p>
+                                                    tab3-preference
+                                                </p>
+                                            </section>
+
                                         </div>
-                                        <div id="b">
-                                            Test test test.
-                                        </div>
+
                                     </section>
+
+
                                     <section id="content-tab2">
                                         <p>
                                             Регистрация людей на мероприятия

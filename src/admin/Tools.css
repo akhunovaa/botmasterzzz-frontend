@@ -101,11 +101,38 @@ div.paleBlueRows {
 .child:first-child .childinner {
     margin-left: 0;
 }
+
 .tabs {
     min-width: 320px;
     padding: 10px 0px 0px;
     margin: 0 auto;
 }
+
+.tabs-preference {
+    min-width: 320px;
+    padding: 10px 0px 0px;
+    margin: 0 auto;
+}
+
+.tabs-preference>section {
+    display: none;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+.tabs-preference>section>p {
+    margin: 0 0 5px;
+    line-height: 1.5;
+    color: #383838;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
+
 /* Стили секций с содержанием */
 .tabs>section {
     display: none;
@@ -125,8 +152,8 @@ div.paleBlueRows {
     -webkit-animation-name: fadeIn;
     animation-name: fadeIn;
 }
-/* Описываем анимацию свойства opacity */
 
+/* Описываем анимацию свойства opacity */
 @-webkit-keyframes fadeIn {
     from {
         opacity: 0;
@@ -148,6 +175,11 @@ div.paleBlueRows {
     display: none;
     position: absolute;
 }
+
+.tabs-preference>input {
+    display: none;
+    position: absolute;
+}
 /* Стили переключателей вкладок (табов) */
 .tabs>label {
     display: inline-block;
@@ -161,6 +193,20 @@ div.paleBlueRows {
     background: #f1f1f1;
     border-radius: 3px 3px 0 0;
 }
+
+.tabs-preference>label {
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 15px 25px;
+    font-weight: 600;
+    text-align: center;
+    color: #aaa;
+    border: 0px solid #ddd;
+    border-width: 1px 1px 1px 1px;
+    background: #f1f1f1;
+    border-radius: 3px 3px 0 0;
+}
+
 /* Шрифт-иконки от Font Awesome в формате Unicode */
 .tabs>label:before {
     font-family: fontawesome;
@@ -174,12 +220,32 @@ div.paleBlueRows {
     content: "\f05a ";
 }
 
-/* Изменения стиля переключателей вкладок при наведении */
+.tabs-preference>label:before {
+    font-family: fontawesome;
+    font-weight: normal;
+    margin-right: 10px;
+}
+.tabs-preference>label[for*="1"]:before {
+    content: "\f085 ";
+}
+.tabs-preference>label[for*="2"]:before {
+    content: "\f05a ";
+}
+.tabs-preference>label[for*="3"]:before {
+    content: "\f2c2 ";
+}
 
+/* Изменения стиля переключателей вкладок при наведении */
 .tabs>label:hover {
     color: #888;
     cursor: pointer;
 }
+
+.tabs-preference>label:hover {
+    color: #888;
+    cursor: pointer;
+}
+
 /* Стили для активной вкладки */
 .tabs>input:checked+label {
     color: #555;
@@ -187,28 +253,57 @@ div.paleBlueRows {
     border-bottom: 1px solid #fff;
     background: #fff;
 }
+
+.tabs-preference>input:checked+label {
+    color: #555;
+    border-top: 1px solid #009933;
+    border-bottom: 1px solid #fff;
+    background: #fff;
+}
+
 /* Активация секций с помощью псевдокласса :checked */
-#tab1:checked~#content-tab1, #tab2:checked~#content-tab2, #tab3:checked~#content-tab3, #tab4:checked~#content-tab4 {
+#tab1:checked~#content-tab1, #tab2:checked~#content-tab2{
     display: block;
 }
+
+#tab1-preference:checked~#content-tab1-preference, #tab2-preference:checked~#content-tab2-preference, #tab3-preference:checked~#content-tab3-preference{
+    display: block;
+}
+
 /* Убираем текст с переключателей
 * и оставляем иконки на малых экранах
 */
 
 @media screen and (max-width: 680px) {
+
     .tabs>label {
 
     }
+
     .tabs>label:before {
         margin: 0;
         font-size: 18px;
     }
+
+    .tabs-preference>label {
+
+    }
+
+    .tabs-preference>label:before {
+        margin: 0;
+        font-size: 18px;
+    }
 }
+
 /* Изменяем внутренние отступы
 *  переключателей для малых экранов
 */
 @media screen and (max-width: 400px) {
     .tabs>label {
+        padding: 15px;
+    }
+
+    .tabs-preference>label {
         padding: 15px;
     }
 
