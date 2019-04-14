@@ -17,16 +17,32 @@ class Tools extends Component {
     render() {
         return (
             <div className="tools-container">
-                <div className="header-bottom">
-                    <div className="header-bottom child">
-                        <h3>BotMasterzzz project</h3>
-                    </div>
-                    <div className="header-bottom child">
-                        <input type="checkbox" id="cbx" style={{display: "none"}} />
-                        <label htmlFor="cbx" className="toggle"><span/></label>
-                    </div>
 
+                <div className="divTable-header header-bottom">
+                    <div className="divTableHeaderBody">
+                        <div className="divTableHeaderRow">
+                            <div className="divTableHeaderCellX"><h3>BotMasterzzz project</h3></div>
+                            <div className="divTableHeaderCell">Опубликовать</div>
+                            <div className="divTableHeaderCell">Аналитика</div>
+                            <div className="divTableHeaderCell">Предосмотр</div>
+                            <div className="divTableHeaderCell">Удалить</div>
+                        </div>
+                    </div>
                 </div>
+
+
+                    <div className="divTable paleBlueRows">
+                    <div className="divTableBody">
+                        <div className="divTableRow">
+                            <div className="divTableCell">Статус: Вкл./Выкл.</div>
+                            <div className="divTableCell">
+                                <input type="checkbox" id="cbx" style={{display: "none"}} />
+                                <label htmlFor="cbx" className="toggle"><span/></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div className="tabs">
                     <input id="tab1" type="radio" name="tabs"/>
                         <label htmlFor="tab1" title="Настройки">Настройки</label>
@@ -34,9 +50,13 @@ class Tools extends Component {
                             <label htmlFor="tab2" title="Детализация">Детализация</label>
 
                                     <section id="content-tab1">
-                                        <p>
-                                            Настройки
-                                        </p>
+                                        <div id="a">
+                                            <div className="col1">testing col1</div>
+                                            <div className="col2">testing col2</div>
+                                        </div>
+                                        <div id="b">
+                                            Test test test.
+                                        </div>
                                     </section>
                                     <section id="content-tab2">
                                         <p>

@@ -4,18 +4,74 @@
     padding-top: 10px;
 }
 
-.header-bottom {
-    display: inline-table;
-    padding-top: 10px;
+div.header-bottom {
+    text-align: left;
+}
+.divTable-header.header-bottom .divTableHeaderCell, .divTable.header-bottom .divTableHead {
+    border: 3px solid #FFFFFF;
+    padding: 10px 10px;
+}
+.divTable-header.header-bottom .divTableHeaderBody .divTableHeaderCellX {
+    font-weight: bold;
+    width: 600px;
+}
+
+.divTable-header.header-bottom .divTableHeaderBody .divTableHeaderCell {
+    font-weight: bold;
+}
+.divTable-header.header-bottom .divTableHeaderRow:nth-child(even) {
+    background: #D0E4F5;
+}
+.divTable-header.header-bottom .divTableHeaderCell:nth-child(even) {
+    background: #EBEBEB;
+}
+.header-bottom .tableFootStyle {
+    font-size: 14px;
+}
+/* DivTable.com */
+.divTable-header{ display: table; }
+.divTableHeaderRow { display: table-row; }
+.divTableHeading { display: table-header-group;}
+.divTableHeaderCellX, .divTableHead { display: table-cell;}
+.divTableHeaderCell, .divTableHead { display: table-cell;}
+.divTableHeading { display: table-header-group;}
+.divTableFoot { display: table-footer-group;}
+.divTableHeaderBody { display: table-row-group;}
+
+div.paleBlueRows {
+    top: 99px;
+    left: 99px;
+    text-align: left;
     padding-bottom: 10px;
 }
 
-.header-bottom.child {
-    display: table-cell;
+.divTable.paleBlueRows .divTableCell, .divTable.paleBlueRows .divTableHead {
+    border: 1px solid #FFFFFF;
+    font-weight: bold;
+    padding: 3px 2px;
 }
+
+.paleBlueRows .tableFootStyle {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+    background: #D0E4F5;
+    border-top: 3px solid #444444;
+}
+
+.paleBlueRows .tableFootStyle {
+    font-size: 14px;
+}
+.divTable{ display: table; }
+.divTableRow { display: table-row; }
+.divTableHeading { display: table-header-group;}
+.divTableCell, .divTableHead { display: table-cell;}
+.divTableHeading { display: table-header-group;}
+.divTableFoot { display: table-footer-group;}
+.divTableBody { display: table-row-group;}
+
 .header-bottom.child.childinner {
     margin-left: 25px;
-    /* Decorative .. */
     min-height: 40px;
 }
 .child:first-child .childinner {
