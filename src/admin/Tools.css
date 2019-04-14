@@ -13,7 +13,6 @@ div.header-bottom {
 }
 .divTable-header.header-bottom .divTableHeaderBody .divTableHeaderCellX {
     font-weight: bold;
-    width: 400px;
 }
 
 .divTable-header.header-bottom .divTableHeaderBody .divTableHeaderCell {
@@ -165,10 +164,10 @@ div.paleBlueRows {
     margin-right: 10px;
 }
 .tabs>label[for*="1"]:before {
-    content: "\f085";
+    content: "\f085 ";
 }
 .tabs>label[for*="2"]:before {
-    content: "\f05a";
+    content: "\f05a ";
 }
 
 /* Изменения стиля переключателей вкладок при наведении */
@@ -194,7 +193,7 @@ div.paleBlueRows {
 
 @media screen and (max-width: 680px) {
     .tabs>label {
-        font-size: 0;
+
     }
     .tabs>label:before {
         margin: 0;
