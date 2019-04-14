@@ -13,7 +13,7 @@ div.header-bottom {
 }
 .divTable-header.header-bottom .divTableHeaderBody .divTableHeaderCellX {
     font-weight: bold;
-    width: 600px;
+    width: 400px;
 }
 
 .divTable-header.header-bottom .divTableHeaderBody .divTableHeaderCell {
@@ -38,6 +38,21 @@ div.header-bottom {
 .divTableFoot { display: table-footer-group;}
 .divTableHeaderBody { display: table-row-group;}
 
+@media screen and (max-width: 600px) {
+    .divTable-header.header-bottom .divTableHeaderCell, .divTable.header-bottom .divTableHead {
+        border: 3px solid #FFFFFF;
+        display: block;
+    }
+    .divTable-header.header-bottom .divTableHeaderCellX, .divTable.header-bottom .divTableHead {
+
+        border: 3px solid #FFFFFF;
+        display: block;
+    }
+    .divTable-header.header-bottom .divTableHeaderBody .divTableHeaderCellX {
+        font-weight: bold;
+        width: 400px;
+    }
+}
 div.paleBlueRows {
     top: 99px;
     left: 99px;
