@@ -13,6 +13,7 @@ div.header-bottom {
 }
 .divTable-header.header-bottom .divTableHeaderBody .divTableHeaderCellX {
     font-weight: bold;
+    width: 400px;
 }
 
 .divTable-header.header-bottom .divTableHeaderBody .divTableHeaderCell {
@@ -49,14 +50,17 @@ div.header-bottom {
         display: block;
         align-items: center;
     }
+
     .divTable-header.header-bottom .divTableHeaderCellX, .divTable.header-bottom .divTableHead {
         border: 3px solid #FFFFFF;
         display: block;
     }
+
     .divTable-header.header-bottom .divTableHeaderBody .divTableHeaderCellX {
         font-weight: bold;
-
+        width: 100%;
     }
+
 }
 div.paleBlueRows {
     top: 99px;
