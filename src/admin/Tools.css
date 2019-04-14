@@ -39,18 +39,24 @@ div.header-bottom {
 .divTableHeaderBody { display: table-row-group;}
 
 @media screen and (max-width: 600px) {
+
+    div.header-bottom {
+        text-align: center;
+        width: 100%;
+    }
+
     .divTable-header.header-bottom .divTableHeaderCell, .divTable.header-bottom .divTableHead {
         border: 3px solid #FFFFFF;
         display: block;
+        align-items: center;
     }
     .divTable-header.header-bottom .divTableHeaderCellX, .divTable.header-bottom .divTableHead {
-
         border: 3px solid #FFFFFF;
         display: block;
     }
     .divTable-header.header-bottom .divTableHeaderBody .divTableHeaderCellX {
         font-weight: bold;
-        width: 400px;
+
     }
 }
 div.paleBlueRows {
