@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './Tools.css';
 import '../styles/min.css';
+import { Tabs, Tab, TabPanel, TabList } from 'react-web-tabs';
+import 'react-web-tabs/dist/react-web-tabs.css';
 
 class Tools extends Component {
 
@@ -11,7 +13,6 @@ class Tools extends Component {
             currentUser: null,
             loading: false
         };
-
     }
 
     render() {
@@ -51,36 +52,37 @@ class Tools extends Component {
 
                                     <section id="content-tab1">
 
-                                        <div className="tabs-preference">
+                                        <Tabs defaultTab="vertical-tab-one" vertical>
 
-                                            <input id="tab1-preference" type="radio" name="tabs-preference" defaultChecked/>
-                                            <label htmlFor="tab1-preference" title="Главное">Главное</label>
+                                            <TabList>
+                                                <Tab className="rwt__tab_1" tabFor="vertical-tab-one">Главное</Tab>
+                                                <Tab className="rwt__tab_2" tabFor="vertical-tab-two">Настройки доступа</Tab>
+                                                <Tab className="rwt__tab_3" tabFor="vertical-tab-three">ID</Tab>
+                                            </TabList>
 
-                                            <input id="tab2-preference" type="radio" name="tabs-preference"/>
-                                            <label htmlFor="tab2-preference" title="Настройки доступа">Настройки доступа</label>
-
-                                            <input id="tab3-preference" type="radio" name="tabs-preference"/>
-                                            <label htmlFor="tab3-preference" title="ID"> ID</label>
-
-                                            <section id="content-tab1-preference">
+                                            <TabPanel tabId="vertical-tab-one">
                                                 <p>
-                                                    tab1-preference
-                                                </p>
-                                            </section>
+                                                    Регистрация людей на мероприятия
+                                                    При необходимости регистрации людей на массовые (и не очень) мероприятия гораздо удобнее, если заниматься оповещением Участников буду я, а не Вы. Что я могу в рамках данной задачи:
 
-                                            <section id="content-tab2-preference">
+                                                </p>
+                                            </TabPanel>
+
+                                            <TabPanel tabId="vertical-tab-two">
                                                 <p>
-                                                    tab2-preference
+                                                    -️ Рассылка уведомлений о начале/завершении регистрации
+                                                    - Предоставление «Карты мероприятия» - тема, место, время, участники, спикеры и многое другое
+                                                    - Рассылка уведомлений во время мероприятия (презентация/раздаточные материалы)
                                                 </p>
-                                            </section>
+                                            </TabPanel>
 
-                                            <section id="content-tab3-preference">
+                                            <TabPanel tabId="vertical-tab-three">
                                                 <p>
-                                                    tab3-preference
+                                                    - Рассылка благодарности, достижений, записи мероприятия
+                                                    -️ Оповещение участников о следующем мероприятии (см. пункт 1)
                                                 </p>
-                                            </section>
-
-                                        </div>
+                                            </TabPanel>
+                                        </Tabs>
 
                                     </section>
 
@@ -101,6 +103,8 @@ class Tools extends Component {
             </div>
         );
     }
+
+
 }
 
 export default Tools

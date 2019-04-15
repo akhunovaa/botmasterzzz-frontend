@@ -109,21 +109,17 @@ div.paleBlueRows {
 }
 
 .tabs-preference {
-    min-width: 320px;
-    padding: 10px 0px 0px;
-    margin: 0 auto;
+    max-width: 240px;
+    display: block;
 }
 
 .tabs-preference>section {
     display: none;
-    padding: 15px;
     background: #fff;
-    border: 1px solid #ddd;
+    margin-right: 240px;
 }
 
 .tabs-preference>section>p {
-    margin: 0 0 5px;
-    line-height: 1.5;
     color: #383838;
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
@@ -131,6 +127,22 @@ div.paleBlueRows {
     animation-fill-mode: both;
     -webkit-animation-name: fadeIn;
     animation-name: fadeIn;
+}
+
+#tab1-preference:checked~#content-tab1-preference, #tab2-preference:checked~#content-tab2-preference, #tab3-preference:checked~#content-tab3-preference{
+    display: inline-block;
+    padding: 10px 10px 10px;
+
+}
+
+.tabs-preference>label {
+    display: block;
+    margin: 0 0 0 0;
+    padding: 15px;
+    text-align: left;
+    color: #aaa;
+    border: 1px solid #ddd;
+    background: #f1f1f1;
 }
 
 /* Стили секций с содержанием */
@@ -188,28 +200,12 @@ div.paleBlueRows {
     font-weight: 600;
     text-align: center;
     color: #aaa;
-    border: 0px solid #ddd;
-    border-width: 1px 1px 1px 1px;
     background: #f1f1f1;
-    border-radius: 3px 3px 0 0;
-}
-
-.tabs-preference>label {
-    display: inline-block;
-    margin: 0 0 -1px;
-    padding: 15px 25px;
-    font-weight: 600;
-    text-align: center;
-    color: #aaa;
-    border: 0px solid #ddd;
-    border-width: 1px 1px 1px 1px;
-    background: #f1f1f1;
-    border-radius: 3px 3px 0 0;
 }
 
 /* Шрифт-иконки от Font Awesome в формате Unicode */
 .tabs>label:before {
-    font-family: fontawesome;
+    font-family: fontawesome, sans-serif;
     font-weight: normal;
     margin-right: 10px;
 }
@@ -220,28 +216,31 @@ div.paleBlueRows {
     content: "\f05a ";
 }
 
-.tabs-preference>label:before {
-    font-family: fontawesome;
-    font-weight: normal;
-    margin-right: 10px;
+
+.tablinks-pref-main:before {
+    content: "\f015 ";
 }
-.tabs-preference>label[for*="1"]:before {
-    content: "\f085 ";
+.tablinks-pref-privacy:before {
+    content: "\f21b ";
 }
-.tabs-preference>label[for*="2"]:before {
-    content: "\f05a ";
+.tablinks-pref-id:before {
+    content: "\f2c2 ";
 }
-.tabs-preference>label[for*="3"]:before {
+
+.rwt__tab_1:before  {
+    content: "\f015 ";
+}
+
+.rwt__tab_2:before  {
+    content: "\f21b ";
+}
+
+.rwt__tab_3:before  {
     content: "\f2c2 ";
 }
 
 /* Изменения стиля переключателей вкладок при наведении */
 .tabs>label:hover {
-    color: #888;
-    cursor: pointer;
-}
-
-.tabs-preference>label:hover {
     color: #888;
     cursor: pointer;
 }
@@ -256,17 +255,11 @@ div.paleBlueRows {
 
 .tabs-preference>input:checked+label {
     color: #555;
-    border-top: 1px solid #009933;
-    border-bottom: 1px solid #fff;
     background: #fff;
 }
 
 /* Активация секций с помощью псевдокласса :checked */
 #tab1:checked~#content-tab1, #tab2:checked~#content-tab2{
-    display: block;
-}
-
-#tab1-preference:checked~#content-tab1-preference, #tab2-preference:checked~#content-tab2-preference, #tab3-preference:checked~#content-tab3-preference{
     display: block;
 }
 
