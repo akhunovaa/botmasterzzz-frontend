@@ -1,3 +1,5 @@
+@import "../build/static/styles/awesome-bootstrap-checkbox.css";
+
 html,
 body {
   font-family: "Open Sans", sans-serif, Roboto, Arial, Georgia, FontAwesome;

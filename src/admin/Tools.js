@@ -23,10 +23,10 @@ class Tools extends Component {
                     <div className="divTableHeaderBody">
                         <div className="divTableHeaderRow">
                             <div className="divTableHeaderCellX"><h3>BotMasterzzz project</h3></div>
-                            <div className="divTableHeaderCell"><i className="far fa-share-alt"></i> Опубликовать</div>
-                            <div className="divTableHeaderCell"><i className="far fa-bookmark-o"></i> Аналитика</div>
-                            <div className="divTableHeaderCell"><i className="far fa-search"></i> Предосмотр</div>
-                            <div className="divTableHeaderCell"><i className="far fa-trash-o"></i> Удалить</div>
+                            <div className="divTableHeaderCell"><i className="fa fa-share-alt"/> Опубликовать</div>
+                            <div className="divTableHeaderCell"><i className="fa fa-bookmark-o"/> Аналитика</div>
+                            <div className="divTableHeaderCell"><i className="fa fa-search"/> Предосмотр</div>
+                            <div className="divTableHeaderCell"><i className="fa fa-trash-o"/> Удалить</div>
                         </div>
                     </div>
                 </div>
