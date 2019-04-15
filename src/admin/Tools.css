@@ -262,8 +262,8 @@ div.paleBlueRows {
 
 @media screen and (max-width: 680px) {
 
-    .tabs>label {
-
+    .rwt__tab {
+        width: 100%;
     }
 
     .tabs>label:before {
@@ -297,6 +297,10 @@ div.paleBlueRows {
         display: inline-table;
         padding-top: 10px;
         padding-bottom: 10px;
+    }
+
+    .rwt__tablist{
+        width: 150px;
     }
 }
 
