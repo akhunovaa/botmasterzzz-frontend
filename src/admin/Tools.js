@@ -55,9 +55,9 @@ class Tools extends Component {
                                         <Tabs defaultTab="vertical-tab-one" vertical>
 
                                             <TabList>
-                                                <Tab className="fa rwt__tab_1" tabFor="vertical-tab-one">Главное</Tab>
-                                                <Tab className="fa rwt__tab_2" tabFor="vertical-tab-two">Настройки доступа</Tab>
-                                                <Tab className="fa rwt__tab_3" tabFor="vertical-tab-three">ID</Tab>
+                                                <Tab tabFor="vertical-tab-one"><i className="fa fa-home"/> Главное</Tab>
+                                                <Tab tabFor="vertical-tab-two"><i className="fa fa-user-secret"/> Настройки доступа</Tab>
+                                                <Tab tabFor="vertical-tab-three"><i className="fa fa-id-card"/> ID</Tab>
                                             </TabList>
 
                                             <TabPanel tabId="vertical-tab-one">
