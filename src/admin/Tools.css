@@ -227,17 +227,10 @@ div.paleBlueRows {
     content: "\f2c2 ";
 }
 
-.rwt__tab_1:before  {
-    content: "\f015 ";
+.rwt__tab {
+    width: 100%;
 }
 
-.rwt__tab_2:before  {
-    content: "\f21b ";
-}
-
-.rwt__tab_3:before  {
-    content: "\f2c2 ";
-}
 
 /* Изменения стиля переключателей вкладок при наведении */
 .tabs>label:hover {
