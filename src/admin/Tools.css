@@ -1,6 +1,7 @@
 @import url("../styles/min.css");
 
 .tools-container {
+    width: 100%;
     padding-top: 10px;
 }
 
@@ -103,6 +104,7 @@ div.paleBlueRows {
 }
 
 .tabs {
+    width: 100%;
     min-width: 320px;
     padding: 10px 0px 0px;
     margin: 0 auto;
@@ -132,6 +134,7 @@ div.paleBlueRows {
 #tab1-preference:checked~#content-tab1-preference, #tab2-preference:checked~#content-tab2-preference, #tab3-preference:checked~#content-tab3-preference{
     display: inline-block;
     padding: 10px 10px 10px;
+    width: 100%;
 
 }
 
@@ -231,7 +234,6 @@ div.paleBlueRows {
     width: 100%;
 }
 
-
 /* Изменения стиля переключателей вкладок при наведении */
 .tabs>label:hover {
     color: #888;
@@ -294,6 +296,7 @@ div.paleBlueRows {
     }
 
     .header-bottom {
+        width: 100%;
         display: inline-table;
         padding-top: 10px;
         padding-bottom: 10px;

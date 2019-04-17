@@ -3,6 +3,7 @@ import './Tools.css';
 import '../styles/min.css';
 import { Tabs, Tab, TabPanel, TabList } from 'react-web-tabs';
 import 'react-web-tabs/dist/react-web-tabs.css';
+import MainSetupForm from "./MainSetupForm";
 
 class Tools extends Component {
 
@@ -61,11 +62,7 @@ class Tools extends Component {
                                             </TabList>
 
                                             <TabPanel tabId="vertical-tab-one">
-                                                <p>
-                                                    Регистрация людей на мероприятия
-                                                    При необходимости регистрации людей на массовые (и не очень) мероприятия гораздо удобнее, если заниматься оповещением Участников буду я, а не Вы. Что я могу в рамках данной задачи:
-
-                                                </p>
+                                                <MainSetupForm {...this.props} />
                                             </TabPanel>
 
                                             <TabPanel tabId="vertical-tab-two">

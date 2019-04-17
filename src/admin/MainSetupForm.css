@@ -1,0 +1,53 @@
+@import url("../styles/min.css");
+
+.main-form-container {
+}
+
+.main-form-content {
+    text-align: left;
+}
+
+.dropdown-helper {
+    pointer-events:all;
+}
+
+.form-name>input:before {
+    font-family: fontawesome, sans-serif;
+    font-weight: normal;
+    margin-right: 10px;
+    content: 'Наименование бота :';
+}
+
+.main-form-content {
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+
+div.main-setup-form {
+    background-color: #EEEEEE;
+    text-align: center;
+}
+.divTable.main-setup-form .divTableCell, .divTable.main-setup-form .divTableHead {
+    border: 4px solid #FFFFFF;
+    padding: 5px 0px;
+}
+.divTable.main-setup-form .divTableBody .divTableCell {
+    font-size: 17px;
+    font-weight: bold;
+}
+.divTable.main-setup-form .divTableRow:nth-child(even) {
+    background: #D0E4F5;
+}
+.main-setup-form .tableFootStyle {
+    font-size: 14px;
+}
+/* DivTable.com */
+.divTable{ display: table; }
+.divTableRow { display: table-row; }
+.divTableHeading { display: table-header-group;}
+.divTableCell, .divTableHead { display: table-cell;}
+.divTableHeading { display: table-header-group;}
+.divTableFoot { display: table-footer-group;}
+.divTableBody { display: table-row-group;}
