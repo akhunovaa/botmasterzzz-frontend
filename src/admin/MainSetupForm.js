@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import '../feedback/Feedback.css';
 import './MainSetupForm.css';
 import Alert from "react-s-alert";
-import {feedback, form} from '../util/APIUtils';
-import { ReCaptcha } from 'react-recaptcha-google'
-import {TextArea, Checkbox,  Dropdown} from 'semantic-ui-react'
+import Private from '../img/padlock-7-32.jpg';
+import Public from '../img/padlock-5-32.jpg';
+import {feedback} from '../util/APIUtils';
+import botm from '../img/botmasterzzz.png';
+import {TextArea, Button, Dropdown, Input, Image, Grid} from 'semantic-ui-react'
 
 class MainSetupForm  extends Component {
 
@@ -13,111 +15,75 @@ class MainSetupForm  extends Component {
         this.state = {
             name: '',
             description: '',
-            type: 1,
-            secret: '',
-            start: '',
-            stop: '',
-            captchaToken: ''
+            type: '',
+            secret: ''
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.onLoadRecaptcha = this.onLoadRecaptcha.bind(this);
-        this.verifyCallback = this.verifyCallback.bind(this);
-    }
-
-
-    componentDidMount() {
-        if (this.captcha) {
-            this.captcha.reset();
-        }
-    }
-    onLoadRecaptcha() {
-        if (this.captcha) {
-            this.captcha.reset();
-        }
-    }
-
-    verifyCallback(recaptchaToken) {
-        this.setState({
-            captchaToken : recaptchaToken
-        })
     }
 
     render() {
-        const options = [
-            { key: 1, text: 'Публичный', value: 1 },
-            { key: 2, text: 'Приватный', value: 2 }];
+        const friendOptions = [
+            {
+                key: 'Публичный',
+                text: 'Публичный',
+                value: 'Публичный',
+                image: { avatar: true, src: Public },
+            },
+            {
+                key: 'Приватный',
+                text: 'Приватный',
+                value: 'Приватный',
+                image: { avatar: true, src: Private },
+            }
+        ];
 
         return (
             <div className="main-form-container">
-                <div className="main-form-content divTableBody">
-                    <form onSubmit={this.handleSubmit}>
-                        <div className="divTableRow form-item">
-                            <div className="divTableCell">
-                                <label form="name">Наименование бота</label>
-                            </div>
-                            <div className="divTableCell">
-                                <input type="text" id="name" name="name"
-                                                                 className="form-control"
-                                       placeholder="BotMasterzzz project" value={this.state.name} onChange={this.handleInputChange} required/>
-                            </div>
-                        </div>
-                        <div className="divTableRow form-item">
-                            <div className="divTableCell"><label form="description">Описание</label></div>
-                            <div className="divTableCell">
-                                    <TextArea className="form-control" rows={1} placeholder='BotMasterzzz_project'
-                                              id="description" name="description" value={this.state.description} onChange={this.handleInputChange}/>
-                            </div>
-                        </div>
-                        <div className="divTableRow form-item">
-                            <div className="divTableCell"><label form="type">Тип бота</label></div>
-                            <div className="divTableCell">
-                                <Dropdown className="form-control" id="type" name="type" value={this.state.type}
-                                          onChange={this.handleInputChange} clearable options={options} selection />
-                            </div>
-                        </div>
-                        <div className="divTableRow form-item">
-                            <div className="divTableCell"><label form="secret">Кодовое слово</label>
-                            </div>
-                            <div className="divTableCell">
-                                <input type="text" id="secret" name="secret"
-                                       className="form-control"
-                                value={this.state.secret} onChange={this.handleInputChange} required/>
-                            </div>
-                        </div>
+                        <form onSubmit={this.handleSubmit}>
+                            <fieldset className="fieldsetx">
+                                <legend className="legendx">
+                                    Основные настройки
+                                </legend>
+                                <Grid columns={2} verticalAlign="left" stretched relaxed textAlign="left">
+                                <Grid.Column width="seven">
+                                <ol className="olx">
+                                    <li className="lix">
+                                        <label className="labelx" form="name">Наименование бота</label>
+                                        <Input className="inputx" type="text" id="name" name="name"
+                                               placeholder="BotMasterzzz project" value={this.state.name} onChange={this.handleInputChange} required/>
+                                    </li>
+                                    <li className="lix">
+                                        <label className="labelx" form="description">Описание</label>
+                                        <TextArea className="text-area"
+                                                  id="description" name="description" value={this.state.description} onChange={this.handleInputChange}/>
+                                    </li>
+                                    <li className="lix">
+                                        <label className="labelx" form="type">Тип бота</label>
+                                        <Dropdown placeholder='Тип бота' fluid selection id="type" name="type" options={friendOptions}/>
+                                    </li>
+                                    <li className="lix">
+                                        <label className="labelx" form="secret">Кодовое слово</label>
+                                        <Input  className="inputx" id="secret" name="secret"
+                                                value={this.state.secret} onChange={this.handleInputChange} required/>
+                                    </li>
+                                    <Button id="button" type="submit" className="btn confirm-button btn-primary">Сохранить</Button>
+                                </ol>
+                                    </Grid.Column>
+                                    <Grid.Column width={5} verticalAlign='middle'>
+                                        <Image className="field-logo" src={botm} size='medium' floated='right' fluid circular />
+                                    </Grid.Column>
+                                </Grid>
 
-                        <div className="divTableRow form-item">
-                            <div className="divTableCell"><label form="start">Действие</label>
-                            </div>
-                            <div className="divTableCell">
-                                <Checkbox className="form-control" label='Приостановить' id="stop" name="stop"
-                                          value={this.state.start} onChange={this.handleInputChange}/>
-                                <Checkbox className="form-control" label='Запустить' id="start" name="start"
-                                          value={this.state.stop} onChange={this.handleInputChange}/>
-                            </div>
-                        </div>
-                    </form>
-                        <div className="form-item">
-                            <ReCaptcha
-                                ref={(el) => {this.captcha = el;}}
-                                size="normal"
-                                data-theme="light"
-                                render="explicit"
-                                sitekey="6LeulZwUAAAAAA07OHdhKen90gZauyUDCBe8GDEn"
-                                onloadCallback={this.onLoadRecaptcha}
-                                verifyCallback={this.verifyCallback}
-                                hl="ru"
-                            />
-                        </div>
-                        <div className="form-item">
-                            <button id="button" type="submit" className="btn confirm-button btn-primary">Отправить</button>
-                        </div>
+                            </fieldset>
 
-                </div>
+
+
+                        </form>
             </div>
         );
-                        }
+}
 
     handleSubmit(event) {
         event.preventDefault();

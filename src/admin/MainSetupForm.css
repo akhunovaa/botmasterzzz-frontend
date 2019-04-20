@@ -1,53 +1,97 @@
 @import url("../styles/min.css");
 
-.main-form-container {
-}
-
-.main-form-content {
-    text-align: left;
+.main-form-container{
+    width: inherit;
 }
 
 .dropdown-helper {
     pointer-events:all;
 }
 
-.form-name>input:before {
-    font-family: fontawesome, sans-serif;
-    font-weight: normal;
-    margin-right: 10px;
-    content: 'Наименование бота :';
+.control-label {
+    display: inline;
 }
 
-.main-form-content {
-    max-width: 600px;
-    padding: 20px;
-    border-radius: 4px;
-    vertical-align: middle;
+.fieldsetx {
+    border-width: 2px;
+    border-style: groove;
+    border-color: threedface;
+    border-image: initial;
+    float: inside;
+    clear: left;
+    margin: 0 0 1.5em 0;
+    padding: 0;
+    width: 100%;
 }
 
-div.main-setup-form {
-    background-color: #EEEEEE;
-    text-align: center;
+.olx {
+    padding: 1em 1em 0 1em;
+    list-style: none;
+    zoom: 1;
 }
-.divTable.main-setup-form .divTableCell, .divTable.main-setup-form .divTableHead {
-    border: 4px solid #FFFFFF;
-    padding: 5px 0px;
+
+.lix {
+    float: left;
+    clear: left;
+    width: 100%;
+    padding-bottom: 1em;
 }
-.divTable.main-setup-form .divTableBody .divTableCell {
-    font-size: 17px;
+
+.legendx {
+    width: 225.5px;
+    margin-left: 1em;
+    color: #000000;
     font-weight: bold;
 }
-.divTable.main-setup-form .divTableRow:nth-child(even) {
-    background: #D0E4F5;
+
+.labelx {
+    float: left;
+    width: 10em;
+    margin-right: 1em;
 }
-.main-setup-form .tableFootStyle {
-    font-size: 14px;
+
+.inputx {
+    width: 280px;
 }
-/* DivTable.com */
-.divTable{ display: table; }
-.divTableRow { display: table-row; }
-.divTableHeading { display: table-header-group;}
-.divTableCell, .divTableHead { display: table-cell;}
-.divTableHeading { display: table-header-group;}
-.divTableFoot { display: table-footer-group;}
-.divTableBody { display: table-row-group;}
+
+.ui.fluid.dropdown {
+    display: inline-block;
+    width: 280px;
+    min-width: 0;
+}
+
+.ui.button{
+    width: 456px;
+    font-size: initial;
+    color: #fff;
+    background-color: #2098f3;
+    border-color: #2098f3;
+}
+
+.text-area {
+    margin: 0;
+    width: 280px;
+    max-width: 100%;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    outline: 0;
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+    text-align: left;
+    line-height: 1.21428571em;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    padding: .67857143em 1em;
+    background: #fff;
+    border: 1px solid rgba(34,36,38,.15);
+    border-radius: .28571429rem;
+    -webkit-transition: border-color .1s ease,-webkit-box-shadow .1s ease;
+    transition: border-color .1s ease,-webkit-box-shadow .1s ease;
+    transition: box-shadow .1s ease,border-color .1s ease;
+    transition: box-shadow .1s ease,border-color .1s ease,-webkit-box-shadow .1s ease;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.field-logo{
+    width: 200px;
+}

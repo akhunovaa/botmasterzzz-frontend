@@ -219,7 +219,6 @@ div.paleBlueRows {
     content: "\f05a ";
 }
 
-
 .tablinks-pref-main:before {
     content: "\f015 ";
 }
@@ -231,7 +230,11 @@ div.paleBlueRows {
 }
 
 .rwt__tab {
-    width: 100%;
+    text-align: right;
+}
+
+.rwt__tablist {
+    width: 220px;
 }
 
 /* Изменения стиля переключателей вкладок при наведении */
@@ -370,4 +373,8 @@ div.paleBlueRows {
     transform: scale(1);
     opacity: 0;
     transition: all 0.4s ease;
+}
+
+.form-control {
+    width: 100%;
 }
