@@ -31,21 +31,25 @@ class PrivacySetupForm extends Component {
                                 <Grid.Column >
                                 <ol className="olp">
                                     <li className="lip">
+                                        <form onSubmit={this.handleSubmit}>
                                         <Input className="inputp" type="text" id="userLogin" name="userLogin"
                                                placeholder="Логин пользователя" value={this.state.userLogin} onChange={this.handleInputChange} required/>
                                         <Button.Group className="privacy-apply">
                                             <Button color="blue">Выдать доступ</Button>
-                                            <Button.Or className="privacy-apply" text="или"/>
+                                            <Button.Or className="privacy-apply" text="or"/>
                                             <Button color="red">Запретить доступ</Button>
                                         </Button.Group>
+                                        </form>
                                     </li>
                                     <li>
                                         <label className="bottom-text inner">Пользователь не зарегистрирован?</label>
                                     </li>
                                     <li className="lip">
+                                        <form onSubmit={this.handleSubmit}>
                                         <Input className="inputp" type="email" id="userMail" name="userMail"
                                                placeholder="Введите email для приглашения" value={this.state.name} onChange={this.handleInputChange} required/>
                                         <Button color="blue" className="invite-submit" content='Пригласить' />
+                                        </form>
                                     </li>
                                 </ol>
                                     </Grid.Column>
