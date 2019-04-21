@@ -1,0 +1,56 @@
+@import url("../../styles/min.css");
+
+.menu-form-containe{
+
+}
+.control-label {
+    display: inline;
+}
+
+.fieldset-menu {
+    border-width: 2px;
+    border-style: groove;
+    border-color: threedface;
+    border-image: initial;
+    margin: 0 0 1.5em 0;
+    width: 700px;
+}
+
+.ol-menu {
+    padding: 1em 1em 0 1em;
+    list-style: none;
+    zoom: 1;
+}
+
+.li-menu {
+    padding-bottom: 1em;
+    padding-right: 1em;
+    font-size: 1rem;
+}
+
+.legend-main {
+    width: 176px;
+    margin-left: 1em;
+    color: #000000;
+    font-weight: bold;
+}
+
+.label-menu {
+    float: left;
+    width: 10em;
+}
+
+.checkbox-menu {
+    padding-right: 1em;
+}
+
+.ui.button.menu-save{
+    width: 626px;
+    font-size: initial;
+    margin-top: 28px;
+}
+
+.ui.basic.black.button.group-button-menu {
+    right: 0px;
+    left: 328px;
+}

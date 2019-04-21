@@ -72,7 +72,7 @@ class MainSetupForm  extends Component {
                                 </ol>
                                     </Grid.Column>
                                     <Grid.Column verticalAlign='middle'>
-                                        <Image className="field-logo" src={botm} size='medium' floated='middle' fluid circular />
+                                        <Image className="field-logo" src={botm} size='medium' floated='right' circular />
                                     </Grid.Column>
                                 </Grid>
 
@@ -86,9 +86,6 @@ class MainSetupForm  extends Component {
         event.preventDefault();
 
         const setupRequest = Object.assign({}, this.state);
-        if (setupRequest.name.length >= 3000){
-            Alert.warning('Наименование для сохраняемого бота слишком длинное.');
-        }
 
         if (setupRequest.captchaToken !== ""){
             feedback(setupRequest).then(response => {

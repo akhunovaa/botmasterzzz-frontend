@@ -5,6 +5,7 @@ import { Tabs, Tab, TabPanel, TabList } from 'react-web-tabs';
 import 'react-web-tabs/dist/react-web-tabs.css';
 import MainSetupForm from "./preference/MainSetupForm";
 import PrivacySetupForm from "./preference/PrivacySetupForm";
+import MenuSetupForm from "./detail/MenuSetupForm";
 
 class Tools extends Component {
 
@@ -53,9 +54,7 @@ class Tools extends Component {
                             <label htmlFor="tab2" title="Детализация">Детализация</label>
 
                                     <section id="content-tab1">
-
                                         <Tabs defaultTab="vertical-tab-one" vertical>
-
                                             <TabList>
                                                 <Tab tabFor="vertical-tab-one">Основные настройки</Tab>
                                                 <Tab tabFor="vertical-tab-two">Настройки доступа</Tab>
@@ -82,16 +81,32 @@ class Tools extends Component {
 
 
                                     <section id="content-tab2">
-                                        <p>
-                                            Регистрация людей на мероприятия
-                                            При необходимости регистрации людей на массовые (и не очень) мероприятия гораздо удобнее, если заниматься оповещением Участников буду я, а не Вы. Что я могу в рамках данной задачи:
-                                            -️ Сбор заявок на регистрацию
-                                            -️ Рассылка уведомлений о начале/завершении регистрации
-                                            - Предоставление «Карты мероприятия» - тема, место, время, участники, спикеры и многое другое
-                                            - Рассылка уведомлений во время мероприятия (презентация/раздаточные материалы)
-                                            - Рассылка благодарности, достижений, записи мероприятия
-                                            -️ Оповещение участников о следующем мероприятии (см. пункт 1)
-                                        </p>
+                                        <Tabs defaultTab="vertical-tab-one" vertical>
+                                            <TabList>
+                                                <Tab tabFor="vertical-tab-one">Настройка меню</Tab>
+                                                <Tab tabFor="vertical-tab-two">Адреса и контакты</Tab>
+                                                <Tab tabFor="vertical-tab-three">Автопостинг</Tab>
+                                            </TabList>
+
+                                            <TabPanel tabId="vertical-tab-one">
+                                                <MenuSetupForm {...this.props} />
+                                            </TabPanel>
+
+                                            <TabPanel tabId="vertical-tab-two">
+                                                {/*<PrivacySetupForm {...this.props} />*/}
+                                                <p>
+                                                    - Рассылка благодарности, достижений, записи мероприятия
+                                                    -️ Оповещение участников о следующем мероприятии (см. пункт 1)
+                                                </p>
+                                            </TabPanel>
+
+                                            <TabPanel tabId="vertical-tab-three">
+                                                <p>
+                                                    - Рассылка благодарности, достижений, записи мероприятия
+                                                    -️ Оповещение участников о следующем мероприятии (см. пункт 1)
+                                                </p>
+                                            </TabPanel>
+                                        </Tabs>
                                     </section>
                 </div>
             </div>
