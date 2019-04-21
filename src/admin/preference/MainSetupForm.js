@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import '../feedback/Feedback.css';
+import '../../feedback/Feedback.css';
 import './MainSetupForm.css';
 import Alert from "react-s-alert";
-import Private from '../img/padlock-7-32.jpg';
-import Public from '../img/padlock-5-32.jpg';
-import {feedback} from '../util/APIUtils';
-import botm from '../img/botmasterzzz.png';
+import Private from '../../img/padlock-7-32.jpg';
+import Public from '../../img/padlock-5-32.jpg';
+import {feedback} from '../../util/APIUtils';
+import botm from '../../img/botmasterzzz.png';
 import {TextArea, Button, Dropdown, Input, Image, Grid} from 'semantic-ui-react'
 
 class MainSetupForm  extends Component {
@@ -77,9 +77,6 @@ class MainSetupForm  extends Component {
                                 </Grid>
 
                             </fieldset>
-
-
-
                         </form>
             </div>
         );

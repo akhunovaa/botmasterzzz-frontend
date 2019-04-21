@@ -3,7 +3,8 @@ import './Tools.css';
 import '../styles/min.css';
 import { Tabs, Tab, TabPanel, TabList } from 'react-web-tabs';
 import 'react-web-tabs/dist/react-web-tabs.css';
-import MainSetupForm from "./MainSetupForm";
+import MainSetupForm from "./preference/MainSetupForm";
+import PrivacySetupForm from "./preference/PrivacySetupForm";
 
 class Tools extends Component {
 
@@ -66,11 +67,7 @@ class Tools extends Component {
                                             </TabPanel>
 
                                             <TabPanel tabId="vertical-tab-two">
-                                                <p>
-                                                    -️ Рассылка уведомлений о начале/завершении регистрации
-                                                    - Предоставление «Карты мероприятия» - тема, место, время, участники, спикеры и многое другое
-                                                    - Рассылка уведомлений во время мероприятия (презентация/раздаточные материалы)
-                                                </p>
+                                                <PrivacySetupForm {...this.props} />
                                             </TabPanel>
 
                                             <TabPanel tabId="vertical-tab-three">

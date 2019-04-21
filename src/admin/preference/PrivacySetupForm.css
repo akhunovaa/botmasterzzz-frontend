@@ -1,7 +1,7 @@
-@import url("../styles/min.css");
+@import url("../../styles/min.css");
 
-.main-form-container{
-    width: inherit;
+.privacy-form-container{
+    width: 600px;
 }
 
 .dropdown-helper {
@@ -24,6 +24,17 @@
     width: 100%;
 }
 
+.bottom-text {
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    color: #000000;
+    font-weight: normal;
+    font-style: italic;
+    font-variant: small-caps;
+}
+
 .olx {
     padding: 1em 1em 0 1em;
     list-style: none;
@@ -31,6 +42,7 @@
 }
 
 .lix {
+    display: inline-block;
     float: left;
     clear: left;
     width: 100%;
@@ -38,7 +50,7 @@
 }
 
 .legendx {
-    width: 225.5px;
+    width: 205px;
     margin-left: 1em;
     color: #000000;
     font-weight: bold;
