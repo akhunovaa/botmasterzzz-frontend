@@ -1,7 +1,7 @@
 @import url("../../styles/min.css");
 
 .main-form-container{
-    width: inherit;
+
 }
 
 .dropdown-helper {
@@ -17,11 +17,8 @@
     border-style: groove;
     border-color: threedface;
     border-image: initial;
-    float: inside;
-    clear: left;
     margin: 0 0 1.5em 0;
-    padding: 0;
-    width: 100%;
+    width: 700px;
 }
 
 .olx {
@@ -31,10 +28,8 @@
 }
 
 .lix {
-    float: left;
-    clear: left;
-    width: 100%;
     padding-bottom: 1em;
+    font-size: 1rem;
 }
 
 .legendmain {
@@ -60,12 +55,10 @@
     min-width: 0;
 }
 
-.ui.button{
-    width: 456px;
+.ui.button.setup-save{
+    width: 280px;
     font-size: initial;
-    color: #fff;
-    background-color: #2098f3;
-    border-color: #2098f3;
+    margin-top: 28px;
 }
 
 .text-area {

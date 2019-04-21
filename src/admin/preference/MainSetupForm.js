@@ -46,8 +46,8 @@ class MainSetupForm  extends Component {
                                 <legend className="legendmain">
                                     Основные настройки
                                 </legend>
-                                <Grid columns={2} verticalAlign="left" stretched relaxed textAlign="left">
-                                <Grid.Column width="seven">
+                                <Grid columns={2} textAlign="left">
+                                <Grid.Column>
                                 <ol className="olx">
                                     <li className="lix">
                                         <label className="labelx" form="name">Наименование бота</label>
@@ -68,11 +68,11 @@ class MainSetupForm  extends Component {
                                         <Input  className="inputx" id="secret" name="secret"
                                                 value={this.state.secret} onChange={this.handleInputChange} required/>
                                     </li>
-                                    <Button id="button" type="submit" className="btn confirm-button btn-primary">Сохранить</Button>
+                                    <Button color="blue" id="button" type="submit" className="setup-save">Сохранить</Button>
                                 </ol>
                                     </Grid.Column>
-                                    <Grid.Column width={5} verticalAlign='middle'>
-                                        <Image className="field-logo" src={botm} size='medium' floated='right' fluid circular />
+                                    <Grid.Column verticalAlign='middle'>
+                                        <Image className="field-logo" src={botm} size='medium' floated='middle' fluid circular />
                                     </Grid.Column>
                                 </Grid>
 

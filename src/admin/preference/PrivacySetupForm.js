@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../../feedback/Feedback.css';
 import './PrivacySetupForm.css';
+
 import Alert from "react-s-alert";
 import {feedback} from '../../util/APIUtils';
 import {TextArea, Button, Dropdown, Input, Image, Grid} from 'semantic-ui-react'
@@ -27,18 +27,25 @@ class PrivacySetupForm extends Component {
                                     Настройки доступа
                                 </legend>
                                 <label className="bottom-text">Проект доступен для</label>
-                                <Grid columns={1} width="seven" verticalAlign="left" stretched relaxed textAlign="left">
+                                <Grid textAlign="left">
                                 <Grid.Column >
-                                <ol className="olx">
-                                    <li className="lix">
-                                        <Input className="inputx" type="text" id="name" name="name"
+                                <ol className="olp">
+                                    <li className="lip">
+                                        <Input className="inputp" type="text" id="userLogin" name="userLogin"
                                                placeholder="Логин пользователя" value={this.state.userLogin} onChange={this.handleInputChange} required/>
-                                        <Button size="medium" fluid content='Выдать доступ' />
+                                        <Button.Group className="privacy-apply">
+                                            <Button color="blue">Выдать доступ</Button>
+                                            <Button.Or className="privacy-apply" text="или"/>
+                                            <Button color="red">Запретить доступ</Button>
+                                        </Button.Group>
                                     </li>
-                                    <li className="lix">
-                                        <Input className="inputx" type="text" id="name" name="name"
+                                    <li>
+                                        <label className="bottom-text inner">Пользователь не зарегистрирован?</label>
+                                    </li>
+                                    <li className="lip">
+                                        <Input className="inputp" type="email" id="userMail" name="userMail"
                                                placeholder="Введите email для приглашения" value={this.state.name} onChange={this.handleInputChange} required/>
-                                        <Button size="medium" fluid content='Пригласить' />
+                                        <Button color="blue" className="invite-submit" content='Пригласить' />
                                     </li>
                                 </ol>
                                     </Grid.Column>
