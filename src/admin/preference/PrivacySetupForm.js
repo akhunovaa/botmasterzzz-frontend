@@ -23,7 +23,7 @@ class PrivacySetupForm extends Component {
         return (
             <div className="privacy-form-container">
                             <fieldset className="fieldsetx">
-                                <legend className="legendx">
+                                <legend className="legendprivacy">
                                     Настройки доступа
                                 </legend>
                                 <label className="bottom-text">Проект доступен для</label>

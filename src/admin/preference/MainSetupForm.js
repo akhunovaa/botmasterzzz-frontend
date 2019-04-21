@@ -43,7 +43,7 @@ class MainSetupForm  extends Component {
             <div className="main-form-container">
                         <form onSubmit={this.handleSubmit}>
                             <fieldset className="fieldsetx">
-                                <legend className="legendx">
+                                <legend className="legendmain">
                                     Основные настройки
                                 </legend>
                                 <Grid columns={2} verticalAlign="left" stretched relaxed textAlign="left">
