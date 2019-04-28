@@ -6,6 +6,7 @@ import 'react-web-tabs/dist/react-web-tabs.css';
 import MainSetupForm from "./preference/MainSetupForm";
 import PrivacySetupForm from "./preference/PrivacySetupForm";
 import MenuSetupForm from "./detail/MenuSetupForm";
+import TokenSetupForm from "./preference/TokenSetupForm";
 
 class Tools extends Component {
 
@@ -58,7 +59,7 @@ class Tools extends Component {
                                             <TabList>
                                                 <Tab tabFor="vertical-tab-one">Основные настройки</Tab>
                                                 <Tab tabFor="vertical-tab-two">Настройки доступа</Tab>
-                                                <Tab tabFor="vertical-tab-three">ID</Tab>
+                                                <Tab tabFor="vertical-tab-three">Token</Tab>
                                             </TabList>
 
                                             <TabPanel tabId="vertical-tab-one">
@@ -70,10 +71,7 @@ class Tools extends Component {
                                             </TabPanel>
 
                                             <TabPanel tabId="vertical-tab-three">
-                                                <p>
-                                                    - Рассылка благодарности, достижений, записи мероприятия
-                                                    -️ Оповещение участников о следующем мероприятии (см. пункт 1)
-                                                </p>
+                                                <TokenSetupForm {...this.props} />
                                             </TabPanel>
                                         </Tabs>
 

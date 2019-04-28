@@ -3,7 +3,7 @@ import './PrivacySetupForm.css';
 
 import Alert from "react-s-alert";
 import {feedback} from '../../util/APIUtils';
-import {TextArea, Button, Dropdown, Input, Image, Grid} from 'semantic-ui-react'
+import {Button, Input, Grid} from 'semantic-ui-react'
 
 class PrivacySetupForm extends Component {
 

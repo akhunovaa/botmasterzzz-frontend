@@ -1,0 +1,19 @@
+.token-form-container{
+
+}
+
+.fieldset-token-container {
+    border-width: 2px;
+    border-style: groove;
+    border-color: threedface;
+    border-image: initial;
+    margin: 0 0 1.5em 0;
+    width: 700px;
+}
+
+.legend-token-container {
+    width: 191px;
+    margin-left: 1em;
+    color: #000000;
+    font-weight: bold;
+}
