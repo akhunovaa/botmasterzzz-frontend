@@ -72,9 +72,8 @@
     margin-top: 28px;
 }
 
-.ui.basic.black.button.group-button-menu {
-    right: 0px;
-    left: 328px;
+.ui.basic.black.button.group-button-menu{
+    float: right;
 }
 
 .ui.modal.modal-conf {
