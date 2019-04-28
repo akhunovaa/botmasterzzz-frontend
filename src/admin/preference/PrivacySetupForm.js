@@ -35,7 +35,7 @@ class PrivacySetupForm extends Component {
                                         <Input className="inputp" type="text" id="userLogin" name="userLogin"
                                                placeholder="Логин пользователя" value={this.state.userLogin} onChange={this.handleInputChange} required/>
                                         <Button.Group className="privacy-apply">
-                                            <Button color="blue">Выдать доступ</Button>
+                                            <Button color="vk">Выдать доступ</Button>
                                             <Button.Or className="privacy-apply" text="or"/>
                                             <Button color="red">Запретить доступ</Button>
                                         </Button.Group>
@@ -48,7 +48,7 @@ class PrivacySetupForm extends Component {
                                         <form onSubmit={this.handleSubmit}>
                                         <Input className="inputp" type="email" id="userMail" name="userMail"
                                                placeholder="Введите email для приглашения" value={this.state.name} onChange={this.handleInputChange} required/>
-                                        <Button color="blue" className="invite-submit" content='Пригласить' />
+                                        <Button color="vk" className="invite-submit" content='Пригласить' />
                                         </form>
                                     </li>
                                 </ol>
