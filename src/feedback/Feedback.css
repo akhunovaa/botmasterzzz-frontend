@@ -75,9 +75,10 @@
     display: none;
 }
 
-.text-area {
+.text-area.feedback {
     resize:vertical;
     height: 100px;
+    width: 100%;
 }
 
 @media screen and (max-width: 600px) {

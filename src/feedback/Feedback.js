@@ -57,9 +57,9 @@ class Feedback extends Component {
                             <input type="text" id="phone" name="phone"
                                    className="form-control" placeholder="+7 (800) 000-00-00" value={this.state.phone} onChange={this.handleInputChange} required/>
                         </div>
-                        <div className="form-item text-area">
-                            <textarea id="message" name="message"
-                                   className="form-control text-area" placeholder="Ваше сообщение" value={this.state.message} onChange={this.handleInputChange} required/>
+                        <div className="form-item">
+                            <textarea id="message"
+                                      className="form-control text-area feedback" name="message" placeholder="Ваше сообщение" value={this.state.message} onChange={this.handleInputChange} required/>
                         </div>
                         <div className="form-item">
                             <ReCaptcha
