@@ -14,11 +14,11 @@ body {
 .header_shadow {
   box-shadow: 0px 1px 5px 0px #b3b3b3;
 }
-.header {
-  width: 100%;
-  background: #569acf;
-  border-bottom: 1px solid #5caae6;
-}
+/*.header {*/
+  /*width: 100%;*/
+  /*background: #569acf;*/
+  /*border-bottom: 1px solid #5caae6;*/
+/*}*/
 .b_nav {
   width: 100%;
   max-width: 1400px;
@@ -124,9 +124,9 @@ body {
 .b_nav_links li.active a {
   border-bottom: 2px solid #fff;
 }
-.active {
-  border-bottom: 3px solid #ff1c23;
-}
+/*.active {*/
+  /*border-bottom: 3px solid #ff1c23;*/
+/*}*/
 .call_to_action {
   background: #569acf;
 padding-top: 60px;

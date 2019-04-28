@@ -68,7 +68,7 @@ class MainSetupForm  extends Component {
                                         <Input  className="inputx" id="secret" name="secret"
                                                 value={this.state.secret} onChange={this.handleInputChange} required/>
                                     </li>
-                                    <Button color="blue" id="button" type="submit" className="setup-save">Сохранить</Button>
+                                    <Button color="vk" id="button" type="submit" className="setup-save">Сохранить</Button>
                                 </ol>
                                     </Grid.Column>
                                     <Grid.Column verticalAlign='middle'>
