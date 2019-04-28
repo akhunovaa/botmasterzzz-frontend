@@ -230,7 +230,7 @@ class MainSetupForm  extends Component {
 
                 <Modal centered={false} dimmer="blurring" open={openGroup} onClose={this.close} closeOnDimmerClick={true} size="tiny" className="modal-conf-group">
                     <Modal.Header className="modal-header">Сгруппировать пункты меню</Modal.Header>
-                    <Modal.Content className="modal-content" scrollable>
+                    <Modal.Content className="modal-content">
                         <fieldset className="fieldset-modal-menu">
                             <Grid columns={1} textAlign="left">
                                 <Grid.Column>
