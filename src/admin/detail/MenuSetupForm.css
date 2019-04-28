@@ -78,8 +78,8 @@
 
 .ui.modal.modal-conf {
     top: 270px;
-    min-height: 420px;
-    max-height: 420px;
+    min-height: 365px;
+    max-height: 365px;
     alignment: left;
 }
 
@@ -119,4 +119,22 @@
 .li-modal-menu{
     padding-bottom: 1em;
     font-size: 1rem;
+}
+
+.ui.modal.modal-conf-group {
+    top: 270px;
+    min-height: 370px;
+    max-height: 370px;
+    alignment: left;
+}
+
+.li-modal-menu-checkbox{
+    padding-bottom: 3em;
+    font-size: 1rem;
+    alignment: right;
+}
+
+.checkbox-modal-menu{
+    padding-right: 1em;
+    float: right;
 }

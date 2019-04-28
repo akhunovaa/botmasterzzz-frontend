@@ -1,31 +1,37 @@
 import React, { Component } from 'react';
 import './MenuSetupForm.css';
-import {Table, Button, Modal, Checkbox, Grid, Input, TextArea, Container} from 'semantic-ui-react'
+import {Table, Button, Modal, Checkbox, Grid, Input, TextArea, Container, List} from 'semantic-ui-react'
 
 class MainSetupForm  extends Component {
 
     show = () => () => this.setState({ open: true });
     showEdit = () => () => this.setState({ openEdit: true });
     showDelete = () => () => this.setState({ openDelete: true });
-    close = () => this.setState({ open: false, openEdit: false, openDelete: false });
+    showGroup = () => () => this.setState({ openGroup: true });
+    checkList = () => this.setState({ list: true});
+    checkBlock = () => this.setState({ block: true});
+    close = () => this.setState({ open: false, openEdit: false, openDelete: false, openGroup: false});
     handleConfirm = () => this.setState({ result: 'confirmed', openDelete: false });
     handleCancel = () => this.setState({ result: 'cancelled', openDelete: false });
 
     constructor(props, context) {
         super(props, context);
-
         this.state = {
-            list: '',
-            block: '',
+            list: false,
+            block: false,
             type: '',
             open: false,
             openEdit: false,
             openDelete: false,
+            openGroup: false,
             info: '',
             answer: '',
             privacy: '',
             menuCommand: '',
-            result: ''
+            result: '',
+            menuName:'',
+            newChild:'',
+            childMenu:''
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -33,7 +39,7 @@ class MainSetupForm  extends Component {
     }
 
     render() {
-        const { open, openEdit, openDelete, result } = this.state;
+        const { open, openEdit, openDelete, result, openGroup } = this.state;
         return (
             <div className="menu-form-container">
                             <fieldset className="fieldset-menu">
@@ -45,14 +51,14 @@ class MainSetupForm  extends Component {
                                 <ol className="ol-menu">
                                     <li className="li-menu">
                                         <label className="label-menu" form="name">Настройка меню:</label>
-                                        <Checkbox className="checkbox-menu" id="list" name="list" label={{ children: 'Список' }} onChange={this.handleInputChange} defaultChecked fitted/>
-                                        <Checkbox className="checkbox-menu" id="block" name="block" label={{ children: 'Блок' }} onChange={this.handleInputChange} fitted/>
+                                        <Checkbox className="checkbox-menu" id="list" name="list" label={{ children: 'Список' }} onChange={this.checkList} value={this.state.list} fitted/>
+                                        <Checkbox className="checkbox-menu" id="block" name="block" label={{ children: 'Блок' }} onChange={this.checkBlock} value={this.state.block} fitted/>
                                     </li>
                                     <li className="li-menu">
                                         <Button onClick={this.show()} icon="plus" circular basic color="black" />
                                         <Button onClick={this.showEdit()} icon="pencil" circular basic color="black"/>
                                         <Button onClick={this.showDelete()} icon="trash" circular basic color="black"/>
-                                        <Button content='Сгруппировать' icon='object group outline' circular basic color="black" labelPosition='left' className="group-button-menu"/>
+                                        <Button onClick={this.showGroup()}  content='Сгруппировать' icon='object group outline' circular basic color="black" labelPosition='left' className="group-button-menu"/>
                                     </li>
                                     <li className="li-menu">
                                         <Table celled selectable>
@@ -222,6 +228,51 @@ class MainSetupForm  extends Component {
                     </Modal.Actions>
                 </Modal>
 
+                <Modal centered={false} dimmer="blurring" open={openGroup} onClose={this.close} closeOnDimmerClick={true} size="tiny" className="modal-conf-group">
+                    <Modal.Header className="modal-header">Сгруппировать пункты меню</Modal.Header>
+                    <Modal.Content className="modal-content" scrollable>
+                        <fieldset className="fieldset-modal-menu">
+                            <Grid columns={1} textAlign="left">
+                                <Grid.Column>
+                                    <ol className="ol-modal-menu">
+                                        <li className="li-modal-menu-checkbox">
+                                            <Checkbox className="checkbox-modal-menu" id="list-modal" name="list-modal" label={{ children: 'Список' }} onChange={this.checkList} value={this.state.list} fitted/>
+                                            <Checkbox className="checkbox-modal-menu" id="block-modal" name="block-modal" label={{ children: 'Блок' }} onChange={this.checkBlock} value={this.state.block} fitted/>
+                                        </li>
+                                        <li className="li-modal-menu">
+                                            <label className="labelx" form="menuName">Главное меню</label>
+                                            <Input className="inputx" type="text" id="menuName" name="menuName"
+                                                   placeholder="/about_us" value={this.state.menuName} onChange={this.handleInputChange} required/>
+                                        </li>
+                                        <li className="li-modal-menu">
+                                            <label className="labelx" form="childMenu">Добавить подменю</label>
+                                            <Input className="inputx" type="text" id="childMenu" name="childMenu"
+                                                   placeholder="/contacts" value={this.state.childMenu} onChange={this.handleInputChange} required/>
+                                        </li>
+                                        <li className="li-modal-menu">
+                                            <List bulleted>
+                                                <List.Item>/info<List.List>
+                                                        <List.Item>/faq</List.Item>
+                                                        <List.Item>/news</List.Item>
+                                                </List.List>
+                                                </List.Item>
+                                            </List>
+                                        </li>
+                                    </ol>
+                                </Grid.Column>
+                            </Grid>
+
+                        </fieldset>
+                    </Modal.Content>
+                    <Modal.Actions>
+                        <Button
+                            className="menu-group"
+                            color='vk'
+                            content="Сгруппировать"
+                            onClick={this.close}
+                        />
+                    </Modal.Actions>
+                </Modal>
             </div>
         );
 }
