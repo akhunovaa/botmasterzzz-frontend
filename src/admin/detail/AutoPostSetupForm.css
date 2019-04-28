@@ -1,0 +1,12 @@
+@import url("../../styles/min.css");
+
+.auto-post-form-container-label{
+    width: 260px;
+    margin-left: 1em;
+    color: #000000;
+    font-weight: bold;
+}
+
+.menu-update {
+    width: 626px;
+}

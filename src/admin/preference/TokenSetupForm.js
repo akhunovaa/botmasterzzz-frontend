@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './TokenSetupForm.css';
 import {Button, Input, Grid} from 'semantic-ui-react'
-import Alert from "react-s-alert";
-import {feedback} from "../../util/APIUtils";
 
 class TokenSetupForm extends Component {
 
@@ -47,21 +45,6 @@ class TokenSetupForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-
-        const setupRequest = Object.assign({}, this.state);
-        if (setupRequest.name.length >= 3000){
-            Alert.warning('Наименование для сохраняемого бота слишком длинное.');
-        }
-
-        if (setupRequest.captchaToken !== ""){
-            feedback(setupRequest).then(response => {
-                Alert.success("Настройки для бота удачно сохранены'" + response.message + "'");
-                this.onLoadRecaptcha();
-                this.props.history.push("/tools");
-            }).catch(error => {
-                Alert.error((error && error.message) || 'Что-то пошло не так! Попробуйте заново.');
-            });
-        }
     }
 
 

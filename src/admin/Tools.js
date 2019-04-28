@@ -6,6 +6,7 @@ import 'react-web-tabs/dist/react-web-tabs.css';
 import MainSetupForm from "./preference/MainSetupForm";
 import PrivacySetupForm from "./preference/PrivacySetupForm";
 import MenuSetupForm from "./detail/MenuSetupForm";
+import AutoPostSetupForm from "./detail/AutoPostSetupForm";
 import TokenSetupForm from "./preference/TokenSetupForm";
 
 class Tools extends Component {
@@ -99,10 +100,7 @@ class Tools extends Component {
                                             </TabPanel>
 
                                             <TabPanel tabId="vertical-tab-three">
-                                                <p>
-                                                    - Рассылка благодарности, достижений, записи мероприятия
-                                                    -️ Оповещение участников о следующем мероприятии (см. пункт 1)
-                                                </p>
+                                                <AutoPostSetupForm {...this.props} />
                                             </TabPanel>
                                         </Tabs>
                                     </section>
