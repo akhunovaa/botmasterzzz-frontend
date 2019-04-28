@@ -209,13 +209,13 @@ class MainSetupForm  extends Component {
                     </Modal.Content>
                     <Modal.Actions>
                         <Button
-                            negative
+                            color='vk'
                             content="Отменить"
                             onClick={this.handleCancel}
                         />
                         <Button
                             className="menu-update"
-                            color='vk'
+                            negative
                             content="Удалить"
                             onClick={this.handleConfirm}
                         />
