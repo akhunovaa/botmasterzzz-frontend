@@ -37,7 +37,7 @@ class AutoPostSetupForm  extends Component {
                                 <ol className="ol-menu">
                                     <li className="li-menu">
                                         <Input
-                                            className="menu-update"
+                                            className="autopost-form-save"
                                             icon='vk'
                                             iconPosition='left'
                                             label={{ tag: true, content: 'vk.com' }}
@@ -48,7 +48,7 @@ class AutoPostSetupForm  extends Component {
                                     </li>
                                     <li className="li-menu">
                                         <Input
-                                            className="menu-update"
+                                            className="autopost-form-save"
                                             icon='twitter'
                                             iconPosition='left'
                                             label={{ tag: true, content: 'twitter.com' }}
@@ -59,7 +59,7 @@ class AutoPostSetupForm  extends Component {
                                     </li>
                                     <li className="li-menu">
                                         <Input
-                                            className="menu-update"
+                                            className="autopost-form-save"
                                             icon='facebook'
                                             iconPosition='left'
                                             label={{ tag: true, content: 'facebook.com' }}
@@ -70,7 +70,7 @@ class AutoPostSetupForm  extends Component {
                                     </li>
                                     <li className="li-menu">
                                         <Input
-                                            className="menu-update"
+                                            className="autopost-form-save"
                                             icon='youtube'
                                             iconPosition='left'
                                             label={{ tag: true, content: 'youtube.com' }}
