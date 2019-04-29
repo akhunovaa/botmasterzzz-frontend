@@ -61,12 +61,12 @@ class MainSetupForm  extends Component {
                                     </li>
                                     <li className="lix">
                                         <label className="labelx" form="type">Тип бота</label>
-                                        <Dropdown placeholder='Тип бота' fluid selection id="type" name="type" options={friendOptions}/>
+                                        <Dropdown placeholder='Тип бота' fluid selection id="type" name="type" options={friendOptions} defaultValue='Публичный'/>
                                     </li>
                                     <li className="lix">
                                         <label className="labelx" form="secret">Кодовое слово</label>
                                         <Input  className="inputx" id="secret" name="secret"
-                                                value={this.state.secret} onChange={this.handleInputChange} required/>
+                                                value={this.state.secret} onChange={this.handleInputChange}/>
                                     </li>
                                     <Button color="vk" id="button" type="submit" className="setup-save">Сохранить</Button>
                                 </ol>
