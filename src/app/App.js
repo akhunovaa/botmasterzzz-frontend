@@ -22,6 +22,7 @@ import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 import './App.css';
 import '../styles/style.css';
+import dc from "../logo.svg";
 
 class App extends Component {
     constructor(props) {
@@ -80,6 +81,7 @@ class App extends Component {
                     <Switch>
                         <Route exact path="/" component={Home}/>
                         <Route exact path="/feedback" component={Feedback}/>
+                        {/*<Route exact path="/profile" component={Profile} />*/}
                         <PrivateRoute path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser}
                                       component={Profile}/>
                         <PrivateRoute path="/tools" authenticated={this.state.authenticated} currentUser={this.state.currentUser}

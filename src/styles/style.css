@@ -12,7 +12,7 @@ body {
 .header_shadow {
   box-shadow: 0px 1px 5px 0px #b3b3b3;
 }
-.header {
+.header-main {
   background: #569acf;
   border-bottom: 1px solid #5caae6;
 }

@@ -1,23 +1,109 @@
 .profile-container {
-    padding-top: 30px;
+    text-align: left;
+    border-top: 5px solid transparent;
+    border-image:  linear-gradient(to right, #f5f3f2 14%, #4c8fc8 30%,  #f5f3f2 100%);
+    border-image-slice: 1;
+    display: table;
+}
+
+.profile-header {
+    font-weight: 700;
+    font-size: 1.28571429rem;
+    margin-top: 12px;
+    margin-left: 22px;
+    margin-bottom: 12px;
+}
+
+.profile-avatar {
+    margin-left:  22px;
+    display: inline-block;
+    width: 200px;
+    height: 200px;
 }
 
 .profile-info {
-    text-align: center;
+    display: inline-flex;
+    margin-bottom: 12px;
 }
 
-.profile-info .profile-avatar img {
-    border-radius: 50%;
-    max-width: 250px;
+.profile-description{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    margin-left: 86px;
 }
 
-.profile-info .profile-name {
-    font-weight: 500;
-    font-size: 18px;
+.avatar-loader-button.avatar-loader-button {
+    margin-top: 10px;
 }
 
-.profile-info .profile-email {
-    font-weight: 400;
+.profile-input{
+    margin-top: 12px;
+    margin-bottom: 12px;
+    display: flex;
+    text-align-last: center;
+}
+
+.profile-form-input{
+    flex: 1;
+    border-top: initial;
+    border-left: initial;
+    border-right: initial;
+    border-bottom: 1px solid ;
+    border-image:  linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
+    border-image-slice: 1;
+    font-size: 16px;
+}
+
+.input-form-label{
+    margin-right: 12px;
+    margin-bottom: initial;
+}
+
+.profile-form-input>input {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.profile-form-input>input::-webkit-input-placeholder {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.profile-form-input>input::-ms-input-placeholder {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.profile-form-input>input::-moz-placeholder {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.profile-form-input>input::-moz-placeholder {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.profile-save-button{
+    margin-top: 24px;
+}
+
+
+.password-change{
+    width: 50%;
+    margin-top:  22px;
+    margin-left:  22px;
+    display: table;
+}
+
+
+.password-input{
+    border-top: initial;
+    border-left: initial;
+    border-right: initial;
+    border-bottom: 1px solid ;
+    border-image:  linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
+    border-image-slice: 1;
+    font-size: 16px;
+}
+
+.password-update-button{
+    margin-top: 12px;
+    display: block;
 }
 
 .text-avatar {

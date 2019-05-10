@@ -6,7 +6,7 @@ import { signup } from '../../util/APIUtils';
 import Alert from 'react-s-alert';
 import { ReCaptcha } from 'react-recaptcha-google'
 
-class Signup extends Component {
+class SignUp extends Component {
     render() {
         if(this.props.authenticated) {
             return <Redirect
@@ -20,7 +20,7 @@ class Signup extends Component {
             <section className="signup-container">
                 <div className="signup-content">
                     <h1 className="signup-title">Регистрация на портале Botmasterzzz</h1>
-                    <SignupForm {...this.props} />
+                    <SignUpForm {...this.props} />
                     <span className="login-link">Уже зарегистрированы? <Link to="/login">Авторизоваться!</Link></span>
                 </div>
                 </section>
@@ -28,7 +28,7 @@ class Signup extends Component {
     }
 }
 
-class SignupForm extends Component {
+class SignUpForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -126,4 +126,4 @@ class SignupForm extends Component {
     }
 }
 
-export default Signup
+export default SignUp

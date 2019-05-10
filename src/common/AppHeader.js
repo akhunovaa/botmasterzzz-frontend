@@ -8,7 +8,7 @@ class AppHeader extends Component {
     render() {
         return (
             <nav className="b_nav">
-            <section className="header">
+            <section className="header-main">
                 <div className="b_nav_contacts pull-xs-right">
                         <a href="mailto:admin@botmasterzzz.com">admin@botmasterzzz.com</a>
                         <p><a href="https://t.me/balsakas">@balsakas</a></p>
