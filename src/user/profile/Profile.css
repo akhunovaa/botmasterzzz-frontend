@@ -1,11 +1,11 @@
 .profile-container {
     text-align: left;
     border-top: 5px solid transparent;
-    border-image:  linear-gradient(to right, #f5f3f2 14%, #4c8fc8 30%,  #f5f3f2 100%);
-    border-image:  -ms-linear-gradient(to right, #f5f3f2 14%, #4c8fc8 30%,  #f5f3f2 100%);
-    border-image:  -moz-linear-gradient(to right, #f5f3f2 14%, #4c8fc8 30%,  #f5f3f2 100%);
-    border-image:  -o-linear-gradient(to right, #f5f3f2 14%, #4c8fc8 30%,  #f5f3f2 100%);
-    border-image:  -webkit-linear-gradient(to right, #f5f3f2 14%, #4c8fc8 30%,  #f5f3f2 100%);
+    border-image:  linear-gradient(to right, #f5f3f2 15%, #4c8fc8 70%,  #f5f3f2 100%);
+    border-image:  -ms-linear-gradient(to right, #f5f3f2 15%, #4c8fc8 70%,  #f5f3f2 100%);
+    border-image:  -moz-linear-gradient(to right, #f5f3f2 15%, #4c8fc8 70%,  #f5f3f2 100%);
+    border-image:  -o-linear-gradient(to right, #f5f3f2 15%, #4c8fc8 70%,  #f5f3f2 100%);
+    border-image:  -webkit-linear-gradient(to right, #f5f3f2 15%, #4c8fc8 70%,  #f5f3f2 100%);
     border-image-slice: 2;
 }
 
