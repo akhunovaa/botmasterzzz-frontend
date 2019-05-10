@@ -7,16 +7,27 @@ class Profile extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            name: this.props.currentUser.name,
-            imageUrl: this.props.currentUser.imageUrl,
-            email: this.props.currentUser.email,
-            login: this.props.currentUser.login,
-            surname: this.props.currentUser.surname,
-            patrName: this.props.currentUser.patrName,
-            phone: this.props.currentUser.phone,
-            password: this.props.currentUser.password
+            name: 'test_name',
+            imageUrl: '',
+            email: 'test_email@botmasterzzz.com',
+            login: 'test_login',
+            surname: 'test_surname',
+            patrName: 'test_patr_name',
+            phone: '+7(917)286063082',
+            password: 'test_password'
         };
-
+        if(this.props.currentUser){
+            this.state = {
+                name: this.props.currentUser.name,
+                imageUrl: this.props.currentUser.imageUrl,
+                email: this.props.currentUser.email,
+                login: this.props.currentUser.login,
+                surname: this.props.currentUser.surname,
+                patrName: this.props.currentUser.patrName,
+                phone: this.props.currentUser.phone,
+                password: this.props.currentUser.password
+            };
+        }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
     }

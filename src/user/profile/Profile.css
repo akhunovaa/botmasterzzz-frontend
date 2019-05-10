@@ -2,8 +2,11 @@
     text-align: left;
     border-top: 5px solid transparent;
     border-image:  linear-gradient(to right, #f5f3f2 14%, #4c8fc8 30%,  #f5f3f2 100%);
-    border-image-slice: 1;
-    display: table;
+    border-image:  -ms-linear-gradient(to right, #f5f3f2 14%, #4c8fc8 30%,  #f5f3f2 100%);
+    border-image:  -moz-linear-gradient(to right, #f5f3f2 14%, #4c8fc8 30%,  #f5f3f2 100%);
+    border-image:  -o-linear-gradient(to right, #f5f3f2 14%, #4c8fc8 30%,  #f5f3f2 100%);
+    border-image:  -webkit-linear-gradient(to right, #f5f3f2 14%, #4c8fc8 30%,  #f5f3f2 100%);
+    border-image-slice: 2;
 }
 
 .profile-header {
@@ -49,7 +52,11 @@
     border-right: initial;
     border-bottom: 1px solid ;
     border-image:  linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
-    border-image-slice: 1;
+    border-image:  -ms-linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
+    border-image:  -moz-linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
+    border-image:  -o-linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
+    border-image:  -webkit-linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
+    border-image-slice: 2;
     font-size: 16px;
 }
 
@@ -85,9 +92,8 @@
 
 .password-change{
     width: 50%;
-    margin-top:  22px;
-    margin-left:  22px;
-    display: table;
+    display: table-cell;
+    padding-left: 22px;
 }
 
 
@@ -97,7 +103,11 @@
     border-right: initial;
     border-bottom: 1px solid ;
     border-image:  linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
-    border-image-slice: 1;
+    border-image:  -ms-linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
+    border-image:  -moz-linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
+    border-image:  -o-linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
+    border-image:  -webkit-linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
+    border-image-slice: 2;
     font-size: 16px;
 }
 
