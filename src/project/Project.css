@@ -1,0 +1,23 @@
+.project-container {
+    border-top: 5px solid transparent;
+    border-image:  linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);
+    border-image:  -webkit-linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);
+    border-image-slice: 1;
+}
+
+.project-header {
+    font-weight: 700;
+    font-size: 1.28571429rem;
+    display: inline-block;
+    width: 100%;
+    border: 1px solid rgba(34,36,38,.15);
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.header-title {
+
+}
+
+.project-header-right-group {
+}

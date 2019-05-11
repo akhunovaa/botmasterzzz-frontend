@@ -3,7 +3,6 @@ import {
     Route,
     Switch
 } from 'react-router-dom';
-import { loadReCaptcha } from 'react-recaptcha-google'
 import AppHeader from '../common/AppHeader';
 import Home from '../home/Home'
 import Tools from '../admin/Tools'
@@ -11,6 +10,7 @@ import Login from '../user/login/Login';
 import Feedback from '../feedback/Feedback';
 import Signup from '../user/signup/Signup';
 import Profile from '../user/profile/Profile';
+import Project from '../project/Project';
 import NotFound from '../common/NotFound';
 import OAuth2RedirectHandler from '../user/oauth2/OAuth2RedirectHandler';
 import LoadingIndicator from '../common/LoadingIndicator';
@@ -22,7 +22,6 @@ import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 import './App.css';
 import '../styles/style.css';
-import dc from "../logo.svg";
 
 class App extends Component {
     constructor(props) {
@@ -66,7 +65,6 @@ class App extends Component {
     }
 
     componentDidMount() {
-        loadReCaptcha();
         this.loadCurrentlyLoggedInUser();
     }
 
@@ -81,11 +79,14 @@ class App extends Component {
                     <Switch>
                         <Route exact path="/" component={Home}/>
                         <Route exact path="/feedback" component={Feedback}/>
-                        {/*<Route exact path="/profile" component={Profile} />*/}
+                        {/*<Route exact path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Profile} />*/}
+                        {/*<Route path="/project" component={Project}/>*/}
                         <PrivateRoute path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser}
                                       component={Profile}/>
                         <PrivateRoute path="/tools" authenticated={this.state.authenticated} currentUser={this.state.currentUser}
                                       component={Tools}/>
+                        <PrivateRoute path="/project" authenticated={this.state.authenticated} currentUser={this.state.currentUser}
+                                      component={Project}/>
                         <Route path="/login"
                                render={(props) => <Login authenticated={this.state.authenticated} {...props} />}/>
                         <Route path="/signup"

@@ -1,15 +1,19 @@
 .profile-container {
-    text-align: left;
     border-top: 5px solid transparent;
-    border-image:  linear-gradient(to right, #f5f3f2 15%, #4c8fc8 70%,  #f5f3f2 100%);
+    border-image:  linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);
+    border-image:  -webkit-linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);
     border-image-slice: 1;
 }
 
 .profile-header {
     font-weight: 700;
     font-size: 1.28571429rem;
-    margin-top: 12px;
-    margin-left: 22px;
+    display: inline-block;
+    width: 100%;
+    border: 1px solid rgba(34,36,38,.15);
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 12px;
     margin-bottom: 12px;
 }
 

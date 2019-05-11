@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './Profile.css';
-import {Button, Image, Input} from 'semantic-ui-react'
+import {Button, Header, Icon, Image, Input, Segment} from 'semantic-ui-react'
 
 class Profile extends Component {
 
@@ -37,7 +37,15 @@ class Profile extends Component {
         return (
             <div className="profile-container">
                 <div className="profile-header">
-                    <h3>Профиль</h3>
+                    <Segment vertical>
+                        <Header floated='left'>
+                            <Icon name='user'/>
+                            <Header.Content>
+                                Профиль
+                                <Header.Subheader>Панель управление профилем</Header.Subheader>
+                            </Header.Content>
+                        </Header>
+                    </Segment>
                 </div>
 
                 <div className="profile-info">
