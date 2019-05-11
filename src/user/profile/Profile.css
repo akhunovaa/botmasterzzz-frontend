@@ -2,11 +2,7 @@
     text-align: left;
     border-top: 5px solid transparent;
     border-image:  linear-gradient(to right, #f5f3f2 15%, #4c8fc8 70%,  #f5f3f2 100%);
-    border-image:  -ms-linear-gradient(to right, #f5f3f2 15%, #4c8fc8 70%,  #f5f3f2 100%);
-    border-image:  -moz-linear-gradient(to right, #f5f3f2 15%, #4c8fc8 70%,  #f5f3f2 100%);
-    border-image:  -o-linear-gradient(to right, #f5f3f2 15%, #4c8fc8 70%,  #f5f3f2 100%);
-    border-image:  -webkit-linear-gradient(to right, #f5f3f2 15%, #4c8fc8 70%,  #f5f3f2 100%);
-    border-image-slice: 2;
+    border-image-slice: 1;
 }
 
 .profile-header {
@@ -26,6 +22,7 @@
 
 .profile-info {
     display: inline-flex;
+    /*display: -webkit-inline-flex;*/
     margin-bottom: 12px;
 }
 
@@ -42,21 +39,18 @@
     margin-top: 12px;
     margin-bottom: 12px;
     display: flex;
+    /*display: -webkit-flex;*/
     text-align-last: center;
 }
 
 .profile-form-input{
     flex: 1;
-    border-top: initial;
-    border-left: initial;
-    border-right: initial;
+    border-top: none;
+    border-left: none;
+    border-right: none;
     border-bottom: 1px solid ;
-    border-image:  linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
-    border-image:  -ms-linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
-    border-image:  -moz-linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
-    border-image:  -o-linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
     border-image:  -webkit-linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
-    border-image-slice: 2;
+    border-image-slice: 1;
     font-size: 16px;
 }
 
@@ -98,14 +92,10 @@
 
 
 .password-input{
-    border-top: initial;
-    border-left: initial;
-    border-right: initial;
+    border-top: none;
+    border-left: none;
+    border-right: none;
     border-bottom: 1px solid ;
-    border-image:  linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
-    border-image:  -ms-linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
-    border-image:  -moz-linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
-    border-image:  -o-linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
     border-image:  -webkit-linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
     border-image-slice: 2;
     font-size: 16px;
@@ -129,7 +119,6 @@
     background-image: -moz-linear-gradient(45deg,#46b5e5 1%,#1e88e5 64%,#40baf5 97%);
     background-image: -o-linear-gradient(45deg,#46b5e5 1%,#1e88e5 64%,#40baf5 97%);
     background-image: -webkit-linear-gradient(45deg,#46b5e5 1%,#1e88e5 64%,#40baf5 97%);
-    background-image: linear-gradient(45deg,#46b5e5 1%,#1e88e5 64%,#40baf5 97%);
 }
 
 .text-avatar span {
