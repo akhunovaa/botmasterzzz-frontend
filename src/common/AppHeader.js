@@ -28,6 +28,9 @@ class AppHeader extends Component {
                                 <li>
                                         <NavLink className="active" to="/profile">Профиль</NavLink>
                                 </li>
+                                <li>
+                                        <NavLink className="active" to="/project">Мои боты</NavLink>
+                                </li>
                                  <li>
                                         <NavLink className="active" to="/tools">Панель управления</NavLink>
                                 </li>
