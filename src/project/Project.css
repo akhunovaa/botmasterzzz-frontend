@@ -13,11 +13,28 @@
     border: 1px solid rgba(34,36,38,.15);
     padding-left: 12px;
     padding-right: 12px;
+    margin-bottom: 12px;
 }
 
-.header-title {
-
+.project-layer {
+    margin: 24px 24px 24px 24px;
 }
 
-.project-header-right-group {
+.project-cell-header {
+    width: 100%;
+    display: inline-block;
+}
+
+.project-cell-ico-body {
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(34,36,38,.15);
+    text-align: right;
+    margin-bottom: 12px;
+}
+
+.project-cell-update-body {
+    display: inline-block;
+    width: 100%;
 }
