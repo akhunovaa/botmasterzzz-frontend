@@ -9,11 +9,11 @@ class Profile extends Component {
         this.state = {
             name: 'test_name',
             imageUrl: '',
-            email: 'test_email@botmasterzzz.com',
-            login: 'test_login',
+            email: 'secondary_test_email@botmasterzzz.com',
+            login: 'test_email@botmasterzzz.com',
             surname: 'test_surname',
             patrName: 'test_patr_name',
-            phone: '+7(917)286063082',
+            phone: '+7917286063082',
             password: 'test_password'
         };
         if(this.props.currentUser){
@@ -66,9 +66,11 @@ class Profile extends Component {
                     </div>
 
                     <div className="profile-description">
+
+                        <form onSubmit={this.handleSubmit}>
                         <div className="profile-input">
                             <label className='input-form-label' form='login'>Логин:</label>
-                            <Input transparent className='profile-form-input' type='text' id='login' name="login" placeholder="Логин"
+                            <Input transparent className='profile-form-input' type='email' id='login' name="login" placeholder="Логин"
                                    value={this.state.login} onChange={this.handleInputChange} required/>
                         </div>
                         <div className="profile-input">
@@ -83,7 +85,7 @@ class Profile extends Component {
                         </div>
                         <div className="profile-input">
                             <label className='input-form-label' form='patrname'>Отчество:</label>
-                            <Input  transparent className='profile-form-input' type='text' id='patrname' name="patrname" placeholder="Отчество"
+                            <Input  transparent className='profile-form-input' type='text' id='patrname' name="patrName" placeholder="Отчество"
                                     value={this.state.patrName} onChange={this.handleInputChange}/>
                         </div>
                         <div className="profile-input">
@@ -93,13 +95,16 @@ class Profile extends Component {
                         </div>
                         <div className="profile-input">
                             <label className='input-form-label' form='phone'>Номер телефона:</label>
-                            <Input transparent className='profile-form-input' type='text' id='phone' name="phone" placeholder="+7 (800) 000-00-00"
-                                   value={this.state.phone} onChange={this.handleInputChange}/>
+                            <Input transparent className='profile-form-input' type='tel' id='phone' name="phone" placeholder="+78000000000"
+                                   value={this.state.phone} onChange={this.handleInputChange} pattern="(\+?\d[- .]*){7,13}"
+                                   title="Международный, государственный или местный телефонный номер"/>
                         </div>
 
                         <div className="profile-save-button">
-                            <Button color="vk" content='Сохранить изменения' floated='right' onClick={this.handleSubmit}/>
+                            <Button color="vk" content='Сохранить изменения' floated='right'/>
                         </div>
+                        </form>
+
                     </div>
 
 
