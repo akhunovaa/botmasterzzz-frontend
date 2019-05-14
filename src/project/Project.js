@@ -3,25 +3,25 @@ import './Project.css';
 import TestLogo from '../img/github-logo.png';
 import TestLogo2 from '../img/google-logo.png';
 import TestLogo3 from '../img/fb-logo.png';
-import {Button, Header, Icon, Segment, Grid, Placeholder, Image, Item} from "semantic-ui-react";
+import {Button, Header, Icon, Segment, Grid, Image, Modal, Input} from "semantic-ui-react";
 
 
 class Project extends Component {
 
-    showCreate = () => () => this.setState({createdButtonText: true});
-    showDeleted = () => () => this.setState({deletedButtonText: true});
-
     constructor(props) {
         super(props);
         this.state = {
+            newProjectName: 'Test project',
+            newBotName: 'Test_project_bot',
             loading: false,
-            createdButtonText: false,
-            deletedButtonText: false
+            projectCreateModal: false,
+            projectCreateModalClose: true
         };
-
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.showProjectCreateModal = this.showProjectCreateModal.bind(this);
+        this.closeProjectCreateModal = this.closeProjectCreateModal.bind(this);
     }
 
     render() {
@@ -39,9 +39,9 @@ class Project extends Component {
                                 </Header.Content>
                             </Header>
                             <Header floated='right'>
-                                <Button onClick={this.showCreate()} icon="plus" circular basic color="black"
+                                <Button onClick={this.showProjectCreateModal} icon="plus" circular basic color="black"
                                         content='Создать нового бота'/>
-                                <Button onClick={this.showDeleted()} icon="trash" circular basic color="black"
+                                <Button icon="trash" circular basic color="black"
                                         content='Удаленные'/>
                             </Header>
                         </Segment>
@@ -66,9 +66,9 @@ class Project extends Component {
                                     <Icon size='big' color='blue' name='vk'/>
                                 </div>
                                 <div className='project-cell-update-body'>
-                                    <Button size='big' basic onClick={this.showCreate()} icon="pencil"
+                                    <Button size='big' basic icon="pencil"
                                             content='Настроить'/>
-                                    <Button size='big' basic onClick={this.showCreate()} icon="group"
+                                    <Button size='big' basic icon="group"
                                             content='15к'/>
                                 </div>
                             </Segment>
@@ -91,9 +91,9 @@ class Project extends Component {
                                     <Icon size='big' color='green' name='whatsapp'/>
                                 </div>
                                 <div className='project-cell-update-body'>
-                                    <Button size='big' basic onClick={this.showCreate()} icon="pencil"
+                                    <Button size='big' basic icon="pencil"
                                             content='Настроить'/>
-                                    <Button size='big' basic onClick={this.showCreate()} icon="group"
+                                    <Button size='big' basic icon="group"
                                              content='134'/>
                                 </div>
                             </Segment>
@@ -114,15 +114,49 @@ class Project extends Component {
                                     <Icon size='big' color='blue' name='telegram'/>
                                 </div>
                                 <div className='project-cell-update-body'>
-                                    <Button size='big' basic onClick={this.showCreate()} icon="pencil"
+                                    <Button size='big' basic icon="pencil"
                                             content='Настроить'/>
-                                    <Button size='big' basic onClick={this.showCreate()} icon="group"
+                                    <Button size='big' basic icon="group"
                                             content='567'/>
                                 </div>
                             </Segment>
                         </Grid.Column>
                     </Grid>
                 </div>
+
+                <Modal open={this.state.projectCreateModal} onClose={this.closeProjectCreateModal} dimmer="blurring" size="tiny" className="project-modal-conf">
+                    <Modal.Header className="modal-header">Создать новый проект</Modal.Header>
+                    <Modal.Content className="modal-content">
+                            <div className='project-modal-input-line'>
+                                <label className='input-form-label' form='newProjectName'>Наименование проекта:</label>
+                                <Input fluid transparent className='profile-form-input' type='text' id='newProjectName' name="newProjectName"
+                                       value={this.state.newProjectName} onChange={this.handleInputChange} required/>
+                            </div>
+
+                            <div className='project-modal-input-line'>
+                                <label className='input-form-label' form='newBotName'>Наименование бота:</label>
+                                <Input fluid transparent className='profile-form-input' type='text' id='newBotName' name="newBotName"
+                                       value={this.state.newBotName} onChange={this.handleInputChange} required/>
+                            </div>
+
+                            <div className='project-modal-helper-message'>
+                                <label>название бота должно заканчиваться на "bot", например testbot или test_bot</label>
+                            </div>
+                    </Modal.Content>
+                    <Modal.Actions>
+                        <Button
+                            basic
+                            content="Отменить"
+                            onClick={this.closeProjectCreateModal}
+                        />
+                        <Button
+                            className="menu-update"
+                            color='vk'
+                            content="Добавить"
+                            onClick={this.closeProjectCreateModal}
+                        />
+                    </Modal.Actions>
+                </Modal>
             </div>
         );
     }
@@ -145,6 +179,14 @@ class Project extends Component {
 
     componentDidMount() {
 
+    }
+
+    showProjectCreateModal() {
+        this.setState({ projectCreateModalClose: false, projectCreateModal: true });
+    }
+
+    closeProjectCreateModal() {
+        this.setState({ projectCreateModalClose: true, projectCreateModal: false });
     }
 
 }

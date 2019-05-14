@@ -10,7 +10,7 @@ import semy from '../img/b397dfcefc6da0dc70.jpg';
 class Home extends Component {
     render() {
         return (
-            <section>
+            <div>
                 <section className="call_to_action">
                     <div className="container">
                         <div className="row">
@@ -145,7 +145,7 @@ class Home extends Component {
                         </div>
                     </div>
                 </section>
-    </section>
+            </div>
         )
     }
 }

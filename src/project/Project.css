@@ -38,3 +38,21 @@
     display: inline-block;
     width: 100%;
 }
+.project-modal-conf {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.project-modal-input-line {
+    display: flex;
+    text-align-last: center;
+    margin-bottom: 12px;
+}
+
+.project-modal-helper-message {
+    color: #d4d4d5;
+    font-size: 12px;
+    float: right;
+    margin-bottom: 12px;
+}
+
+.ui.modal { position: relative;}

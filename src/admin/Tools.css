@@ -1,5 +1,7 @@
 @import url("../styles/min.css");
 
+.ui.modal { position: relative;}
+
 .tools-container {
     width: 100%;
     padding-top: 10px;
