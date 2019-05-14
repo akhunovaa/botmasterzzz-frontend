@@ -42,7 +42,7 @@ class Profile extends Component {
                             <Icon name='user'/>
                             <Header.Content>
                                 Профиль
-                                <Header.Subheader>Панель управление профилем</Header.Subheader>
+                                <Header.Subheader>Панель управления профилем</Header.Subheader>
                             </Header.Content>
                         </Header>
                     </Segment>
