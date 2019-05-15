@@ -33,8 +33,12 @@ class SignUpForm extends Component {
         super(props);
         this.state = {
             name: '',
+            surname: '',
+            patrName: '',
+            login: '',
             email: '',
             password: '',
+            phone: '',
             captchaToken: ''
         };
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -74,7 +78,7 @@ class SignUpForm extends Component {
         event.preventDefault();
 
         const signUpRequest = Object.assign({}, this.state);
-        if (signUpRequest.captchaToken !== ""){
+        if (signUpRequest.captchaToken != null){
             signup(signUpRequest)
                 .then(response => {
                     Alert.success("Вы успешно зарегистрировались! Пожалуйста авторизуйтесь заново.");
@@ -91,20 +95,47 @@ class SignUpForm extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <div className="form-item">
+                    <input type="text" name="login"
+                           className="form-control" placeholder="Логин"
+                           value={this.state.login} onChange={this.handleInputChange} required/>
+                </div>
+
+                <div className="form-item">
                     <input type="text" name="name"
                            className="form-control" placeholder="Имя"
-                           value={this.state.name} onChange={this.handleInputChange} required/>
+                           value={this.state.name} onChange={this.handleInputChange}/>
                 </div>
+
+                <div className="form-item">
+                    <input type="text" name="surname"
+                           className="form-control" placeholder="Фамилия"
+                           value={this.state.surname} onChange={this.handleInputChange}/>
+                </div>
+
+                <div className="form-item">
+                    <input type="text" name="patrName"
+                           className="form-control" placeholder="Отчество"
+                           value={this.state.patrName} onChange={this.handleInputChange}/>
+                </div>
+
+                <div className="form-item">
+                    <input type="text" name="phone"
+                           className="form-control" placeholder="Номер телефона"
+                           value={this.state.phone} onChange={this.handleInputChange}/>
+                </div>
+
                 <div className="form-item">
                     <input type="email" name="email"
                            className="form-control" placeholder="Email"
-                           value={this.state.email} onChange={this.handleInputChange} required/>
+                           value={this.state.email} onChange={this.handleInputChange}/>
                 </div>
+
                 <div className="form-item">
                     <input type="password" name="password"
                            className="form-control" placeholder="Пароль"
                            value={this.state.password} onChange={this.handleInputChange} required/>
                 </div>
+
                 <div className="form-item">
                     <ReCaptcha
                         ref={(el) => {this.captcha = el;}}

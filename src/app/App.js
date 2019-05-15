@@ -16,6 +16,7 @@ import OAuth2RedirectHandler from '../user/oauth2/OAuth2RedirectHandler';
 import LoadingIndicator from '../common/LoadingIndicator';
 import { getCurrentUser } from '../util/APIUtils';
 import { ACCESS_TOKEN } from '../constants';
+import { loadReCaptcha } from 'react-recaptcha-google'
 import PrivateRoute from '../common/PrivateRoute';
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
@@ -65,6 +66,7 @@ class App extends Component {
     }
 
     componentDidMount() {
+        loadReCaptcha();
         this.loadCurrentlyLoggedInUser();
     }
 
