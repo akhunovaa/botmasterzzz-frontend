@@ -10,7 +10,6 @@ class Profile extends Component {
             name: 'test_name',
             imageUrl: '',
             email: 'secondary_test_email@botmasterzzz.com',
-            login: 'test_email@botmasterzzz.com',
             surname: 'test_surname',
             patrName: 'test_patr_name',
             phone: '+7917286063082',
@@ -21,7 +20,6 @@ class Profile extends Component {
                 name: this.props.currentUser.name,
                 imageUrl: this.props.currentUser.imageUrl,
                 email: this.props.currentUser.email,
-                login: this.props.currentUser.login,
                 surname: this.props.currentUser.surname,
                 patrName: this.props.currentUser.patrName,
                 phone: this.props.currentUser.phone,
@@ -68,11 +66,6 @@ class Profile extends Component {
                     <div className="profile-description">
 
                         <form onSubmit={this.handleSubmit}>
-                        <div className="profile-input">
-                            <label className='input-form-label' form='login'>Логин:</label>
-                            <Input transparent className='profile-form-input' type='email' id='login' name="login" placeholder="Логин"
-                                   value={this.state.login} onChange={this.handleInputChange} required/>
-                        </div>
                         <div className="profile-input">
                             <label className='input-form-label' form='name'>Имя:</label>
                             <Input  transparent className='profile-form-input' type='text' id='name' name="name" placeholder="Имя"
