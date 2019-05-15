@@ -27,7 +27,7 @@
 .profile-info {
     display: inline-flex;
     /*display: -webkit-inline-flex;*/
-    margin-bottom: 12px;
+    margin-bottom: 24px;
 }
 
 .profile-description{
