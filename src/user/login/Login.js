@@ -101,7 +101,7 @@ class LoginForm extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <div className="form-item">
-                    <input type="email" name="email"
+                    <input type="email" name="login"
                            className="form-control" placeholder="Логин"
                            value={this.state.login} onChange={this.handleInputChange} required/>
                 </div>
