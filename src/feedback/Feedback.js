@@ -6,9 +6,9 @@ import { ReCaptcha } from 'react-recaptcha-google'
 
 class Feedback extends Component {
 
-    constructor(props, context) {
+    constructor(props) {
 
-        super(props, context);
+        super(props);
 
         this.state = {
             name: '',
@@ -18,11 +18,12 @@ class Feedback extends Component {
             captchaToken: ''
         };
 
-        if(this.props.currentUser){
+        if(props.authenticated){
+            const fullName = props.currentUser.surname + ' ' + props.currentUser.name + ' ' + props.currentUser.patrName;
             this.state = {
-                name: this.props.currentUser.surname + ' ' + this.props.currentUser.name + ' ' + this.props.currentUser.patrName,
-                email: this.props.currentUser.email,
-                phone: this.props.currentUser.phone,
+                name: fullName,
+                email: props.currentUser.email,
+                phone: props.currentUser.phone,
                 message: '',
                 captchaToken: ''
             };
