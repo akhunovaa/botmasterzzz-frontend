@@ -1,0 +1,33 @@
+.component-button {
+    display: inline-flex;
+    width: 25%;
+    flex: 1 0 auto;
+}
+
+.component-button.wide {
+    width: 50%;
+}
+
+.component-button button {
+    background-color: #e3e7ea;
+    color: #778188;
+    border-radius: 7px 7px 7px 7px;
+    -moz-border-radius: 7px 7px 7px 7px;
+    -webkit-border-radius: 7px 7px 7px 7px;
+    border: 0px solid #000000;
+    font-size: 1.5rem;
+    margin: 4px 4px 4px 4px;
+    flex: 1 0 auto;
+    padding: 10px 10px 10px 10px;
+}
+
+.component-button:last-child button {
+    margin-right: 0;
+}
+
+.btn-telegram:active{
+    color: #fff;
+    background-color: #2AA5E0;
+    border-color: rgba(0, 0, 0, 0.2)
+}
+

@@ -5,9 +5,22 @@ import botm from '../img/botmasterzzz.png';
 import dc from '../img/5ba3f7d7fd5c6c28dc.png';
 import a4 from '../img/17a804837802700ea4.jpg';
 import a9 from '../img/50d0312845a05e6da9.png';
-import semy from '../img/b397dfcefc6da0dc70.jpg';
+import pan from '../img/pan.png';
+import Display from "./calc/Display";
+import ButtonPanel from "./calc/ButtonPanel";
+import calculate from "./calc/logic/calculate";
 
 class Home extends Component {
+    state = {
+        total: null,
+        next: null,
+        operation: null,
+    };
+
+    handleClick = buttonName => {
+        this.setState(calculate(this.state, buttonName));
+    };
+
     render() {
         return (
             <div>
@@ -70,9 +83,15 @@ class Home extends Component {
 
                         <div className="card-columns">
                             <div className="card text-xs-center">
-                                <img alt="card" className="card-img-top" src={semy}/>
 
-                                    <div className="card-block">
+                                <div className="card-img-top">
+                                    <Display value={this.state.next || this.state.total || "0"} />
+                                    <img alt="card" className="card-img-top" src={pan}/>
+                                    <ButtonPanel clickHandler={this.handleClick} />
+                                </div>
+
+
+                                 <div className="card-block">
                                         <h4 className="card-title">Удобная клавиатура</h4>
 
                                         <p className="card-text">Все, что нужно для управления ботом - простые команды
