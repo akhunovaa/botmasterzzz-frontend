@@ -42,6 +42,14 @@ export function login(loginRequest) {
     });
 }
 
+export function profileInfoUpdate(mainInfoRequest) {
+    return request({
+        url: API_BASE_URL + "/admin/user/update",
+        method: 'POST',
+        body: JSON.stringify(mainInfoRequest)
+    });
+}
+
 export function signup(signupRequest) {
     return request({
         url: API_BASE_URL + "/auth/signup",

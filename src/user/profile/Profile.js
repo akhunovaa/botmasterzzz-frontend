@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './Profile.css';
 import {Button, Header, Icon, Image, Input, Segment} from 'semantic-ui-react'
+import {profileInfoUpdate} from "../../util/APIUtils";
+import Alert from "react-s-alert";
 
 class Profile extends Component {
 
@@ -12,8 +14,7 @@ class Profile extends Component {
             email: 'secondary_test_email@botmasterzzz.com',
             surname: 'test_surname',
             patrName: 'test_patr_name',
-            phone: '+7917286063082',
-            password: 'test_password'
+            phone: '+7917286063082'
         };
         if(this.props.currentUser){
             this.state = {
@@ -23,10 +24,10 @@ class Profile extends Component {
                 surname: this.props.currentUser.surname,
                 patrName: this.props.currentUser.patrName,
                 phone: this.props.currentUser.phone,
-                password: this.props.currentUser.password
             };
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleMainInformationSubmit = this.handleMainInformationSubmit.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
@@ -65,7 +66,7 @@ class Profile extends Component {
 
                     <div className="profile-description">
 
-                        <form onSubmit={this.handleSubmit}>
+                        <form onSubmit={this.handleMainInformationSubmit}>
                         <div className="profile-input">
                             <label className='input-form-label' form='name'>Имя:</label>
                             <Input  transparent className='profile-form-input' type='text' id='name' name="name" placeholder="Имя"
@@ -105,8 +106,7 @@ class Profile extends Component {
 
 
                     <form className="password-change" onSubmit={this.handleSubmit}>
-                        <Input fluid className='password-input' icon='lock' iconPosition='left' transparent type='password' id='password' name="password" placeholder="**********"
-                                value={this.state.password} onChange={this.handleInputChange} required/>
+                        <Input fluid className='password-input' icon='lock' iconPosition='left' transparent type='password' id='password' name="password" placeholder="**********" required/>
 
                         <div className="password-update-button">
                             <Button floated='right' color="vk" content='Изменить пароль' onClick={this.handleSubmit}/>
@@ -117,6 +117,26 @@ class Profile extends Component {
         );
     }
 
+
+    handleMainInformationSubmit(event) {
+        event.preventDefault();
+
+        const mainInfoRequest = Object.assign({}, this.state);
+
+        profileInfoUpdate(mainInfoRequest)
+            .then(response => {
+                console.log(response);
+                Alert.success('Данные успешно сохранены', {
+                    position: 'top-right',
+                    effect: 'bouncyflip',
+                    offset: 150
+                });
+                console.log(response);
+
+            }).catch(error => {
+            Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
+        });
+    }
 
     handleSubmit(event) {
         event.preventDefault();
