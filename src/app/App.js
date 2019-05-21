@@ -80,7 +80,7 @@ class App extends Component {
                     <AppHeader authenticated={this.state.authenticated} onLogout={this.handleLogout} />
                     <Switch>
                         <Route exact path="/" component={Home}/>
-                        <Route exact path="/feedback" currentUser={this.state.currentUser} component={Feedback}/>
+                        <Route exact path="/feedback" render={(props) => <Feedback {...props} currentUser={this.state.currentUser} /> } />
                         {/*<Route exact path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Profile} />*/}
                         {/*<Route path="/project" component={Project}/>*/}
                         {/*<Route path="/tools" component={Tools}/>*/}

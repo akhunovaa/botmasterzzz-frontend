@@ -18,12 +18,12 @@ class Feedback extends Component {
             captchaToken: ''
         };
 
-        if(props.authenticated){
-            const fullName = props.currentUser.surname + ' ' + props.currentUser.name + ' ' + props.currentUser.patrName;
+        if(this.props.currentUser){
+            const fullName = this.props.currentUser.surname + ' ' + this.props.currentUser.name + ' ' + this.props.currentUser.patrName;
             this.state = {
                 name: fullName,
-                email: props.currentUser.email,
-                phone: props.currentUser.phone,
+                email: this.props.currentUser.email,
+                phone: this.props.currentUser.phone,
                 message: '',
                 captchaToken: ''
             };
