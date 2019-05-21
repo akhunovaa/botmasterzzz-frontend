@@ -50,6 +50,14 @@ export function profileInfoUpdate(mainInfoRequest) {
     });
 }
 
+export function profilePasswordUpdate(passDataRequest) {
+    return request({
+        url: API_BASE_URL + "/admin/user/password",
+        method: 'POST',
+        body: JSON.stringify(passDataRequest)
+    });
+}
+
 export function signup(signupRequest) {
     return request({
         url: API_BASE_URL + "/auth/signup",

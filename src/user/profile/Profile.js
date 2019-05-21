@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './Profile.css';
 import {Button, Header, Icon, Image, Input, Segment} from 'semantic-ui-react'
-import {profileInfoUpdate} from "../../util/APIUtils";
+import {profileInfoUpdate, profilePasswordUpdate} from "../../util/APIUtils";
 import Alert from "react-s-alert";
 
 class Profile extends Component {
@@ -27,6 +27,7 @@ class Profile extends Component {
             };
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handlePasswordSubmit = this.handlePasswordSubmit.bind(this);
         this.handleMainInformationSubmit = this.handleMainInformationSubmit.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
     }
@@ -103,13 +104,10 @@ class Profile extends Component {
 
 
                 </div>
-
-
-                    <form className="password-change" onSubmit={this.handleSubmit}>
+                    <form className="password-change" onSubmit={this.handlePasswordSubmit}>
                         <Input fluid className='password-input' icon='lock' iconPosition='left' transparent type='password' id='password' name="password" placeholder="**********" required/>
-
                         <div className="password-update-button">
-                            <Button floated='right' color="vk" content='Изменить пароль' onClick={this.handleSubmit}/>
+                            <Button floated='right' color="vk" content='Изменить пароль'/>
                         </div>
                     </form>
 
@@ -135,9 +133,27 @@ class Profile extends Component {
         });
     }
 
+    handlePasswordSubmit(event) {
+        event.preventDefault();
+        const data = new FormData(event.target);
+        const passData = data.get('password');
+        const passDataRequest = Object.assign({}, {'password': passData});
+        profilePasswordUpdate(passDataRequest)
+            .then(response => {
+                if (response.error) {
+                    Alert.warning(response.error + '. Необходимо заново авторизоваться.');
+                }else {
+                    Alert.success('Данные успешно сохранены');
+                }
+            }).catch(error => {
+            Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
+        });
+    }
+
     handleSubmit(event) {
         event.preventDefault();
-        console.log(event.action)
+        const data = new FormData(event.target);
+        console.log(data)
     }
 
     handleInputChange(event) {
