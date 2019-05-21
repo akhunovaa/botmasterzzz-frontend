@@ -125,14 +125,11 @@ class Profile extends Component {
 
         profileInfoUpdate(mainInfoRequest)
             .then(response => {
-                console.log(response);
-                Alert.success('Данные успешно сохранены', {
-                    position: 'top-right',
-                    effect: 'bouncyflip',
-                    offset: 150
-                });
-                console.log(response);
-
+                if (response.error) {
+                    Alert.warning(response.error + '. Необходимо заново авторизоваться.');
+                }else {
+                    Alert.success('Данные успешно сохранены');
+                }
             }).catch(error => {
             Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
         });
