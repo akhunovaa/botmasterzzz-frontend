@@ -7,7 +7,9 @@ import { ReCaptcha } from 'react-recaptcha-google'
 class Feedback extends Component {
 
     constructor(props, context) {
+
         super(props, context);
+
         this.state = {
             name: '',
             email: '',
@@ -15,6 +17,16 @@ class Feedback extends Component {
             message: '',
             captchaToken: ''
         };
+
+        if(this.props.currentUser){
+            this.state = {
+                name: this.props.currentUser.surname + ' ' + this.props.currentUser.name + ' ' + this.props.currentUser.patrName,
+                email: this.props.currentUser.email,
+                phone: this.props.currentUser.phone,
+                message: '',
+                captchaToken: ''
+            };
+        }
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
