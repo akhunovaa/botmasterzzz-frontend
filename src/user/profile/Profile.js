@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './Profile.css';
 import {Button, Header, Icon, Image, Input, Segment} from 'semantic-ui-react'
+import ReactPhoneInput from 'react-phone-input-2'
 import {profileInfoUpdate, profilePasswordUpdate} from "../../util/APIUtils";
 import Alert from "react-s-alert";
 
@@ -30,6 +31,7 @@ class Profile extends Component {
         this.handlePasswordSubmit = this.handlePasswordSubmit.bind(this);
         this.handleMainInformationSubmit = this.handleMainInformationSubmit.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleOnPhoneChange = this.handleOnPhoneChange.bind(this);
     }
 
 
@@ -88,13 +90,23 @@ class Profile extends Component {
                             <Input transparent className='profile-form-input' type='text' id='email' name="email" placeholder="E-mail"
                                    value={this.state.email} onChange={this.handleInputChange}/>
                         </div>
-                        <div className="profile-input">
+                            <div className="profile-input">
                             <label className='input-form-label' form='phone'>Номер телефона:</label>
-                            <Input transparent className='profile-form-input' type='tel' id='phone' name="phone" placeholder="+78000000000"
-                                   value={this.state.phone} onChange={this.handleInputChange} pattern="(\+?\d[- .]*){7,13}"
-                                   title="Международный, государственный или местный телефонный номер"/>
-                        </div>
-
+                                <ReactPhoneInput
+                                    defaultCountry='ru'
+                                    preferredCountries={['ua','kz','cz']}
+                                    regions={'europe'}
+                                    disableDropdown={true}
+                                    id='phone'
+                                    name='phone'
+                                    placeholder='+7(800)000-00-00'
+                                    value={this.state.phone}
+                                    onChange={this.handleOnPhoneChange}
+                                    inputClass='profile-form-input'
+                                    containerStyle={{width: '452.5px'}}
+                                    countryCodeEditable={false}
+                                />
+                              </div>
                         <div className="profile-save-button">
                             <Button color="vk" content='Сохранить изменения' floated='right'/>
                         </div>
@@ -163,6 +175,12 @@ class Profile extends Component {
 
         this.setState({
             [inputName]: inputValue
+        });
+    }
+
+    handleOnPhoneChange(value) {
+        this.setState({
+            phone: value
         });
     }
 }

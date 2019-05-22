@@ -33,6 +33,7 @@
 .profile-description{
     font-family: "Comic Sans MS", cursive, sans-serif;
     margin-left: 86px;
+    width: 600px;
 }
 
 .avatar-loader-button.avatar-loader-button {
@@ -56,6 +57,47 @@
     border-image:  -webkit-linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
     border-image-slice: 1;
     font-size: 16px;
+    height: 25px;
+    background: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border-radius: initial;
+    outline: none;
+}
+.profile-form-input:focus{
+    flex: 1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid ;
+    border-image:  -webkit-linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
+    border-image-slice: 1;
+    font-size: 16px;
+    height: 25px;
+    background: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border-radius: initial;
+    outline: none;
+}
+.profile-form-input:hover {
+    flex: 1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid ;
+    border-image:  -webkit-linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
+    border-image-slice: 1;
+    font-size: 16px;
+    height: 25px;
+    background: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border-radius: initial;
+    outline: none;
 }
 
 .input-form-label{
