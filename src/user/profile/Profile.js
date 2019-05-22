@@ -15,7 +15,8 @@ class Profile extends Component {
             email: 'secondary_test_email@botmasterzzz.com',
             surname: 'test_surname',
             patrName: 'test_patr_name',
-            phone: '+7917286063082'
+            phone: '+7917286063082',
+            note: 'тестовое примечание'
         };
         if(this.props.currentUser){
             this.state = {
@@ -25,6 +26,7 @@ class Profile extends Component {
                 surname: this.props.currentUser.surname,
                 patrName: this.props.currentUser.patrName,
                 phone: this.props.currentUser.phone,
+                note: this.props.currentUser.note
             };
         }
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -107,6 +109,11 @@ class Profile extends Component {
                                     countryCodeEditable={false}
                                 />
                               </div>
+                            <div className="profile-input">
+                                <label className='input-form-label' form='note'>Примечание:</label>
+                                <Input  transparent className='profile-form-input' type='text' id='note' name="note" placeholder="note"
+                                        value={this.state.note} onChange={this.handleInputChange}/>
+                            </div>
                         <div className="profile-save-button">
                             <Button color="vk" content='Сохранить изменения' floated='right'/>
                         </div>
