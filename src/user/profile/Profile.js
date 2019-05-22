@@ -111,7 +111,7 @@ class Profile extends Component {
                               </div>
                             <div className="profile-input">
                                 <label className='input-form-label' form='note'>Примечание:</label>
-                                <Input  transparent className='profile-form-input' type='text' id='note' name="note" placeholder="note"
+                                <Input  transparent className='profile-form-input' type='text' id='note' name="note" placeholder="Примечание"
                                         value={this.state.note} onChange={this.handleInputChange}/>
                             </div>
                         <div className="profile-save-button">
