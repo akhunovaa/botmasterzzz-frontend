@@ -5,6 +5,7 @@ import { Link, Redirect } from 'react-router-dom'
 import { signup } from '../../util/APIUtils';
 import Alert from 'react-s-alert';
 import { ReCaptcha } from 'react-recaptcha-google'
+import ReactPhoneInput from 'react-phone-input-2'
 
 class SignUp extends Component {
     render() {
@@ -38,10 +39,11 @@ class SignUpForm extends Component {
             login: '',
             email: '',
             password: '',
-            phone: '',
+            phone: '+78000000000',
             captchaToken: ''
         };
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleOnPhoneChange = this.handleOnPhoneChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onLoadRecaptcha = this.onLoadRecaptcha.bind(this);
         this.verifyCallback = this.verifyCallback.bind(this);
@@ -71,6 +73,12 @@ class SignUpForm extends Component {
 
         this.setState({
             [inputName] : inputValue
+        });
+    }
+
+    handleOnPhoneChange(value) {
+        this.setState({
+            phone: value
         });
     }
 
@@ -119,9 +127,19 @@ class SignUpForm extends Component {
                 </div>
 
                 <div className="form-item">
-                    <input type="text" name="phone"
-                           className="form-control" placeholder="Номер телефона"
-                           value={this.state.phone} onChange={this.handleInputChange}/>
+                    <ReactPhoneInput
+                        defaultCountry='ru'
+                        preferredCountries={['ua','kz','cz']}
+                        regions={'europe'}
+                        disableDropdown={true}
+                        id='phone'
+                        name='phone'
+                        placeholder='+7(800)000-00-00'
+                        value={this.state.phone}
+                        onChange={this.handleOnPhoneChange}
+                        inputClass='form-control'
+                        countryCodeEditable={false}
+                    />
                 </div>
 
                 <div className="form-item">
