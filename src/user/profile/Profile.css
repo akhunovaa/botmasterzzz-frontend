@@ -101,6 +101,7 @@
 }
 
 .input-form-label{
+    font-family: "Comic Sans MS", cursive, sans-serif;
     margin-right: 12px;
     margin-bottom: initial;
 }
@@ -131,7 +132,7 @@
 
 
 .password-change{
-    width: 50%;
+    width: 75%;
     display: table-cell;
     padding-left: 22px;
 }
@@ -145,6 +146,8 @@
     border-image:  -webkit-linear-gradient(to right, rgba(176,176,176,1) 20%, rgba(0,0,0,1) 50%, rgba(176,176,176,1) 100%);
     border-image-slice: 2;
     font-size: 16px;
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
 
 .password-update-button{

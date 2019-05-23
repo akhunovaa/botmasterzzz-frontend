@@ -124,7 +124,12 @@ class Profile extends Component {
 
                 </div>
                     <form className="password-change" onSubmit={this.handlePasswordSubmit}>
+                        <label className='input-form-label' form='password'>Новый пароль:</label>
                         <Input fluid className='password-input' icon='lock' iconPosition='left' transparent type='password' id='password' name="password" placeholder="**********" required/>
+                        <label className='input-form-label' form='password'>Подтвердить новый пароль:</label>
+                        <Input fluid className='password-input' icon='lock' iconPosition='left' transparent type='password' id='password_two' name="password_two" placeholder="**********" required/>
+                        <label className='input-form-label' form='password'>Старый пароль:</label>
+                        <Input fluid className='password-input' icon='lock' iconPosition='left' transparent type='password' id='password_old' name="password_old" placeholder="**********" required/>
                         <div className="password-update-button">
                             <Button floated='right' color="vk" content='Изменить пароль'/>
                         </div>
@@ -156,12 +161,20 @@ class Profile extends Component {
         event.preventDefault();
         const data = new FormData(event.target);
         const passData = data.get('password');
-        const passDataRequest = Object.assign({}, {'password': passData});
+        const passData_two = data.get('password_two');
+        const passData_old = data.get('password_old');
+        if (passData !== passData_two){
+            Alert.warning('Пароли должны совпадать.');
+            return
+        }
+        const passDataRequest = Object.assign({}, {'password': passData, 'passwordVerifier': passData_two, 'passwordMain': passData_old });
         profilePasswordUpdate(passDataRequest)
             .then(response => {
                 if (response.error) {
                     Alert.warning(response.error + '. Необходимо заново авторизоваться.');
-                }else {
+                }else if (response.success === false) {
+                    Alert.warning(response.message);
+                } else {
                     Alert.success('Данные успешно сохранены');
                 }
             }).catch(error => {
