@@ -156,10 +156,12 @@ class Profile extends Component {
                     <form onSubmit={this.handlePasswordSubmit}>
                         <label className='input-form-label' form='password'>Новый пароль:</label>
                         <Input fluid className='password-input' icon='lock' iconPosition='left' transparent type='password' id='password' name="password" placeholder="**********" required/>
+                        <div className="password-change-retype" >
                         <label className='input-form-label' form='password'>Подтвердить новый пароль:</label>
                         <Input fluid className='password-input' icon='lock' iconPosition='left' transparent type='password' id='password_two' name="password_two" placeholder="**********" required/>
                         <label className='input-form-label' form='password'>Старый пароль:</label>
                         <Input fluid className='password-input' icon='lock' iconPosition='left' transparent type='password' id='password_old' name="password_old" placeholder="**********" required/>
+                        </div>
                         <div className="password-update-button">
                             <Button floated='right' color="vk" content='Изменить пароль'/>
                         </div>
@@ -189,6 +191,16 @@ class Profile extends Component {
 
     handlePasswordSubmit(event) {
         event.preventDefault();
+        let elements = document.getElementsByClassName('password-change-retype');
+        if(elements) {
+            for (let item of elements) {
+                if (item) {
+                    setTimeout(function () {
+                        item.style.display = 'inherit';
+                    }, 3000);
+                }
+            }
+        }
         const data = new FormData(event.target);
         const passData = data.get('password');
         const passData_two = data.get('password_two');
@@ -213,16 +225,15 @@ class Profile extends Component {
     }
 
     handleImageUpload(event) {
-        var element = document.getElementsByClassName('errorMessage');
+        let element = document.getElementsByClassName('errorMessage');
         if(element){
         for (let item of element) {
             if (item) {
-                item.style.animation = 'cssAnimation 3s forwards';
-                item.style.webkitAnimation = 'cssAnimation 3s forwards';
-                var millisecondsToWait = 3000;
+                item.style.animation = 'cssAnimation 6s forwards';
+                item.style.webkitAnimation = 'cssAnimation 6s forwards';
                 setTimeout(function() {
                     item.style.display = 'none';
-                }, millisecondsToWait);
+                }, 6000);
             }
         }
         }
