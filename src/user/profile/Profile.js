@@ -35,6 +35,7 @@ class Profile extends Component {
         this.onDrop = this.onDrop.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handlePasswordSubmit = this.handlePasswordSubmit.bind(this);
+        this.handlePasswordInputsShow = this.handlePasswordInputsShow.bind(this);
         this.handleMainInformationSubmit = this.handleMainInformationSubmit.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleOnPhoneChange = this.handleOnPhoneChange.bind(this);
@@ -163,7 +164,7 @@ class Profile extends Component {
                         <Input fluid className='password-input' icon='lock' iconPosition='left' transparent type='password' id='password_old' name="password_old" placeholder="**********" required/>
                         </div>
                         <div className="password-update-button">
-                            <Button floated='right' color="vk" content='Изменить пароль'/>
+                            <Button floated='right' color="vk" content='Изменить пароль' onClick={this.handlePasswordInputsShow}/>
                         </div>
                     </form>
                 </div>
@@ -222,6 +223,18 @@ class Profile extends Component {
             }).catch(error => {
             Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
         });
+    }
+
+    handlePasswordInputsShow(event) {
+        event.preventDefault();
+        let elements = document.getElementsByClassName('password-change-retype');
+        if(elements) {
+            for (let item of elements) {
+                if (item) {
+                    item.style.display = 'inherit';
+                }
+            }
+        }
     }
 
     handleImageUpload(event) {
