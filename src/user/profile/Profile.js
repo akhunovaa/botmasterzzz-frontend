@@ -4,6 +4,7 @@ import {Button, Header, Icon, Image, Input, Segment} from 'semantic-ui-react'
 import ReactPhoneInput from 'react-phone-input-2'
 import {profileInfoUpdate, profilePasswordUpdate} from "../../util/APIUtils";
 import Alert from "react-s-alert";
+import ImageUploader from 'react-images-upload';
 
 class Profile extends Component {
 
@@ -16,7 +17,8 @@ class Profile extends Component {
             surname: 'test_surname',
             patrName: 'test_patr_name',
             phone: '+7917286063082',
-            note: 'тестовое примечание'
+            note: 'тестовое примечание',
+            picture: []
         };
         if(this.props.currentUser){
             this.state = {
@@ -29,11 +31,14 @@ class Profile extends Component {
                 note: this.props.currentUser.note
             };
         }
+
+        this.onDrop = this.onDrop.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handlePasswordSubmit = this.handlePasswordSubmit.bind(this);
         this.handleMainInformationSubmit = this.handleMainInformationSubmit.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleOnPhoneChange = this.handleOnPhoneChange.bind(this);
+        this.handleImageUpload = this.handleImageUpload.bind(this);
     }
 
 
@@ -65,8 +70,31 @@ class Profile extends Component {
                                 </div>
                             )
                         }
-                        <Button className='avatar-loader-button' fluid color='vk' content="Загрузить фото"
-                                onClick={this.handleCancel}/>
+
+                        <div className='profile-helper-message'>
+                            <label>
+                                Максимальный объем 500 кб
+                                <p>Допустимые форматы - jpg, png</p>
+                            </label>
+                        </div>
+                        <ImageUploader
+                            buttonText='Загрузить фото'
+                            onChange={this.handleImageUpload}
+                            imgExtension={['.jpg', '.png']}
+                            maxFileSize={512000}
+                            withIcon={false}
+                            withLabel={false}
+                            label={'Максимальный объем 500 кб. Допустимые форматы - jpg, png.'}
+                            singleImage={true}
+                            withPreview={false}
+                            name={'file'}
+                            fileSizeError={'размер файла первышает допустимые нормы'}
+                            fileTypeError={'тип файла не соответствует допустимым нормам'}
+                            buttonStyles={{fontWeight: 700, borderRadius: '.28571429rem', width: '100%', backgroundColor: '#4d7198', padding: '.78571429em 1.5em .78571429em', marginTop: '0px'}}
+                            fileContainerStyle={{boxShadow: 'none', display: 'flex', flexDirection: 'column-reverse', paddingTop: '0px', marginTop: '0px'}}
+                            errorStyle={{}}
+                            labelStyle={{color: '#d4d4d5', fontSize: '12px', textAlign: 'center', marginTop: '6px'}}
+                        />
                     </div>
 
                     <div className="profile-description">
@@ -123,7 +151,9 @@ class Profile extends Component {
 
 
                 </div>
-                    <form className="password-change" onSubmit={this.handlePasswordSubmit}>
+
+                <div className="password-change" >
+                    <form onSubmit={this.handlePasswordSubmit}>
                         <label className='input-form-label' form='password'>Новый пароль:</label>
                         <Input fluid className='password-input' icon='lock' iconPosition='left' transparent type='password' id='password' name="password" placeholder="**********" required/>
                         <label className='input-form-label' form='password'>Подтвердить новый пароль:</label>
@@ -134,7 +164,7 @@ class Profile extends Component {
                             <Button floated='right' color="vk" content='Изменить пароль'/>
                         </div>
                     </form>
-
+                </div>
             </div>
         );
     }
@@ -182,6 +212,42 @@ class Profile extends Component {
         });
     }
 
+    handleImageUpload(event) {
+        var element = document.getElementsByClassName('errorMessage');
+        if(element){
+        for (let item of element) {
+            if (item) {
+                item.style.animation = 'cssAnimation 3s forwards';
+                item.style.webkitAnimation = 'cssAnimation 3s forwards';
+                var millisecondsToWait = 3000;
+                setTimeout(function() {
+                    item.style.display = 'none';
+                }, millisecondsToWait);
+            }
+        }
+        }
+       // event.preventDefault();
+        const data = new FormData(event.target);
+        //const fileData = URL.createObjectURL(event.target.file);
+        // this.setState({
+        //     picture: this.state.picture.concat(fileData),
+        // });
+        // const passDataRequest = Object.assign({}, {'password': passData, 'passwordVerifier': passData_two, 'passwordMain': passData_old });
+        // profilePasswordUpdate(passDataRequest)
+        //     .then(response => {
+        //         if (response.error) {
+        //             Alert.warning(response.error + '. Необходимо заново авторизоваться.');
+        //         }else if (response.success === false) {
+        //             Alert.warning(response.message);
+        //         } else {
+        //             Alert.success('Данные успешно сохранены');
+        //         }
+        //     }).catch(error => {
+        //     Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
+        // });
+    }
+
+
     handleSubmit(event) {
         event.preventDefault();
         const data = new FormData(event.target);
@@ -201,6 +267,13 @@ class Profile extends Component {
     handleOnPhoneChange(value) {
         this.setState({
             phone: value
+        });
+    }
+
+
+    onDrop(picture) {
+        this.setState({
+            picture: this.state.picture.concat(picture),
         });
     }
 }
