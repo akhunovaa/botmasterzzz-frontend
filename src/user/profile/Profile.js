@@ -255,9 +255,11 @@ class Profile extends Component {
                     this.setState({
                         imageUrl :reader.result
                     });
-                    const data = new FormData();
-                    data.append('file', item.files[0]);
-                    profileImageUpdate(data)
+
+                    const formData = new FormData();
+                    formData.append('file', this.state.imageUrl);
+
+                    profileImageUpdate(formData)
                         .then(response => {
                             if (response.error) {
                                 Alert.warning(response.error + '. Необходимо заново авторизоваться');
