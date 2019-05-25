@@ -18,7 +18,6 @@ class Profile extends Component {
             patrName: 'test_patr_name',
             phone: '+7917286063082',
             note: 'тестовое примечание',
-            picture: []
         };
         if(this.props.currentUser){
             this.state = {
@@ -28,7 +27,7 @@ class Profile extends Component {
                 surname: this.props.currentUser.surname,
                 patrName: this.props.currentUser.patrName,
                 phone: this.props.currentUser.phone,
-                note: this.props.currentUser.note
+                note: this.props.currentUser.note,
             };
         }
 
@@ -88,7 +87,7 @@ class Profile extends Component {
                             label={'Максимальный объем 1 мб. Допустимые форматы - jpg, jpeg, png.'}
                             singleImage={true}
                             withPreview={false}
-                            name={'file'}
+                            name={'photo'}
                             fileSizeError={'размер файла первышает допустимые нормы'}
                             fileTypeError={'тип файла не соответствует допустимым нормам'}
                             buttonStyles={{fontWeight: 700, borderRadius: '.28571429rem', width: '100%', backgroundColor: '#4d7198', padding: '.78571429em 1.5em .78571429em', marginTop: '0px'}}
@@ -176,7 +175,7 @@ class Profile extends Component {
     handleMainInformationSubmit(event) {
         event.preventDefault();
 
-        const mainInfoRequest = Object.assign({}, this.state);
+        const mainInfoRequest = Object.assign({}, {'name': this.state.name, 'email': this.state.email, 'surname': this.state.surname, 'patrName': this.state.patrName, 'phone': this.state.phone, 'note': this.state.note });
 
         profileInfoUpdate(mainInfoRequest)
             .then(response => {
@@ -192,16 +191,6 @@ class Profile extends Component {
 
     handlePasswordSubmit(event) {
         event.preventDefault();
-        let elements = document.getElementsByClassName('password-change-retype');
-        if(elements) {
-            for (let item of elements) {
-                if (item) {
-                    setTimeout(function () {
-                        item.style.display = 'inherit';
-                    }, 3000);
-                }
-            }
-        }
         const data = new FormData(event.target);
         const passData = data.get('password');
         const passData_two = data.get('password_two');
@@ -237,7 +226,7 @@ class Profile extends Component {
         }
     }
 
-    handleImageUpload(event) {
+    handleImageUpload() {
         let element = document.getElementsByClassName('errorMessage');
         if(element){
         for (let item of element) {
@@ -250,25 +239,31 @@ class Profile extends Component {
             }
         }
         }
-       // event.preventDefault();
-        const data = new FormData(event.target);
-        //const fileData = URL.createObjectURL(event.target.file);
-        // this.setState({
-        //     picture: this.state.picture.concat(fileData),
-        // });
-        // const passDataRequest = Object.assign({}, {'password': passData, 'passwordVerifier': passData_two, 'passwordMain': passData_old });
-        // profilePasswordUpdate(passDataRequest)
-        //     .then(response => {
-        //         if (response.error) {
-        //             Alert.warning(response.error + '. Необходимо заново авторизоваться.');
-        //         }else if (response.success === false) {
-        //             Alert.warning(response.message);
-        //         } else {
-        //             Alert.success('Данные успешно сохранены');
-        //         }
-        //     }).catch(error => {
-        //     Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
-        // });
+
+
+        let photo = document.getElementsByName('photo');
+        if(photo){
+            for (let item of photo) {
+                if (item) {
+                    const reader = new FileReader();
+                    reader.onloadend = () => {
+                        this.setState({
+                            imageUrl: reader.result
+                        })
+                    };
+                    if (item) {
+                       reader.readAsDataURL(item.files[0]);
+                        this.setState({
+                            imageUrl :reader.result
+                        });
+                    }else {
+                        this.setState({
+                            imageUrl: ""
+                        })
+                    }
+                }
+            }
+        }
     }
 
 
@@ -297,7 +292,7 @@ class Profile extends Component {
 
     onDrop(picture) {
         this.setState({
-            picture: this.state.picture.concat(picture),
+            photo: this.state.photo.concat(picture),
         });
     }
 }
