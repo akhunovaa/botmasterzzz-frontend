@@ -58,6 +58,14 @@ export function profilePasswordUpdate(passDataRequest) {
     });
 }
 
+export function profileImageUpdate(formData) {
+    return request({
+        url: API_BASE_URL + "/admin/user/image/upload",
+        method: 'POST',
+        body: formData
+    });
+}
+
 export function signup(signupRequest) {
     return request({
         url: API_BASE_URL + "/auth/signup",

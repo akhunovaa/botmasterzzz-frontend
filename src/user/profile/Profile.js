@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './Profile.css';
 import {Button, Header, Icon, Image, Input, Segment} from 'semantic-ui-react'
 import ReactPhoneInput from 'react-phone-input-2'
-import {profileInfoUpdate, profilePasswordUpdate} from "../../util/APIUtils";
+import {profileInfoUpdate, profilePasswordUpdate, profileImageUpdate} from "../../util/APIUtils";
 import Alert from "react-s-alert";
 import ImageUploader from 'react-images-upload';
 
@@ -251,16 +251,29 @@ class Profile extends Component {
                             imageUrl: reader.result
                         })
                     };
-                    if (item) {
-                       reader.readAsDataURL(item.files[0]);
-                        this.setState({
-                            imageUrl :reader.result
-                        });
-                    }else {
-                        this.setState({
-                            imageUrl: ""
-                        })
-                    }
+                    reader.readAsDataURL(item.files[0]);
+                    this.setState({
+                        imageUrl :reader.result
+                    });
+                    const data = new FormData();
+                    data.append('file', item.files[0]);
+                    profileImageUpdate(data)
+                        .then(response => {
+                            if (response.error) {
+                                Alert.warning(response.error + '. Необходимо заново авторизоваться');
+                            }else if (response.success === false) {
+                                Alert.warning(response.message);
+                            } else {
+                                Alert.success('Данные успешно сохранены');
+                            }
+                        }).catch(error => {
+                        Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
+                    });
+
+                }else {
+                    this.setState({
+                        imageUrl: ""
+                    })
                 }
             }
         }
