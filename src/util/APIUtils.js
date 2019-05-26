@@ -24,9 +24,9 @@ const request = (options) => {
 };
 
 const requestImage = (options) => {
-    const headers = new Headers({
-        'Content-Type': 'multipart/form-data',
-    });
+    // const headers = new Headers({
+    //     'Content-Type': 'multipart/form-data',
+    // });
 
     if(localStorage.getItem(ACCESS_TOKEN)) {
         headers.append('Authorization', 'Bearer ' + localStorage.getItem(ACCESS_TOKEN))
