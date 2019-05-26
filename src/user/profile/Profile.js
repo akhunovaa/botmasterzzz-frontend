@@ -256,8 +256,9 @@ class Profile extends Component {
                         imageUrl :reader.result
                     });
 
+                    const imageData = item.files[0];
                     const formData = new FormData();
-                    formData.append('file', item.files[0]);
+                    formData.append('file', imageData);
 
                     profileImageUpdate(formData)
                         .then(response => {
