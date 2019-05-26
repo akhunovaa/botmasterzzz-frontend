@@ -257,7 +257,7 @@ class Profile extends Component {
                     });
 
                     const formData = new FormData();
-                    formData.append('file', this.state.imageUrl);
+                    formData.append('file', item.files[0]);
 
                     profileImageUpdate(formData)
                         .then(response => {
