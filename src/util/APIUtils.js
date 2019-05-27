@@ -26,7 +26,7 @@ const request = (options) => {
 const requestImage = (options) => {
 
     const headers = new Headers({
-        'Content-Type': 'multipart/*'
+        'Content-Type': ''
     });
 
     if(localStorage.getItem(ACCESS_TOKEN)) {
