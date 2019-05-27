@@ -26,7 +26,7 @@ const request = (options) => {
 const requestImage = (options) => {
 
     const headers = new Headers({
-        'Content-Type': 'image/jpeg'
+        'Accept': 'application/json'
     });
 
     if(localStorage.getItem(ACCESS_TOKEN)) {
