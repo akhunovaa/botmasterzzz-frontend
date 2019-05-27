@@ -73,18 +73,18 @@ class Profile extends Component {
 
                         <div className='profile-helper-message'>
                             <label>
-                                Максимальный объем 1 мб
-                                <p>Допустимые форматы - jpg, jpeg, png</p>
+                                Максимальный объем 5 мб
+                                <p>Допустимые форматы - jpg, jpeg</p>
                             </label>
                         </div>
                         <ImageUploader
                             buttonText='Загрузить фото'
                             onChange={this.handleImageUpload}
-                            imgExtension={['.jpg', '.png', '.jpeg']}
-                            maxFileSize={1024000}
+                            imgExtension={['.jpg', '.jpeg']}
+                            maxFileSize={5242880}
                             withIcon={false}
                             withLabel={false}
-                            label={'Максимальный объем 1 мб. Допустимые форматы - jpg, jpeg, png.'}
+                            label={'Максимальный объем 5 мб. Допустимые форматы - jpg, jpeg'}
                             singleImage={true}
                             withPreview={false}
                             name={'photo'}
