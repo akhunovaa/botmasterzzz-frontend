@@ -159,12 +159,9 @@ class Profile extends Component {
                         <div className="password-change-retype" >
                         <label className='input-form-label' form='password'>Новый пароль:</label>
                         <Input fluid className='password-input' icon='lock' iconPosition='left' transparent type='password' id='password' name="password" placeholder="**********" required/>
-
                         <label className='input-form-label' form='password'>Подтвердить новый пароль:</label>
                         <Input fluid className='password-input' icon='lock' iconPosition='left' transparent type='password' id='password_two' name="password_two" placeholder="**********" required/>
-                        <label className='input-form-label' form='password'>Старый пароль:</label>
-                        <Input fluid className='password-input' icon='lock' iconPosition='left' transparent type='password' id='password_old' name="password_old" placeholder="**********" required/>
-                        </div>
+                          </div>
                         <div className="password-update-button">
                             <Button floated='right' color="vk" content='Изменить пароль'/>
                         </div>
