@@ -154,9 +154,12 @@ class Profile extends Component {
 
                 <div className="password-change" >
                     <form onSubmit={this.handlePasswordSubmit}>
-                        <label className='input-form-label' form='password'>Новый пароль:</label>
-                        <Input fluid className='password-input' icon='lock' iconPosition='left' transparent type='password' id='password' name="password" placeholder="**********" onChange={this.handlePasswordInputsShow} required/>
+                        <label className='input-form-label' form='password'>Старый пароль:</label>
+                        <Input onChange={this.handlePasswordInputsShow} fluid className='password-input' icon='lock' iconPosition='left' transparent type='password' id='password_old' name="password_old" placeholder="**********" required/>
                         <div className="password-change-retype" >
+                        <label className='input-form-label' form='password'>Новый пароль:</label>
+                        <Input fluid className='password-input' icon='lock' iconPosition='left' transparent type='password' id='password' name="password" placeholder="**********" required/>
+
                         <label className='input-form-label' form='password'>Подтвердить новый пароль:</label>
                         <Input fluid className='password-input' icon='lock' iconPosition='left' transparent type='password' id='password_two' name="password_two" placeholder="**********" required/>
                         <label className='input-form-label' form='password'>Старый пароль:</label>
