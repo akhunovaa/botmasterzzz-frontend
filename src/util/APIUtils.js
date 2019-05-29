@@ -105,3 +105,11 @@ export function feedback(feedbackRequest) {
         body: JSON.stringify(feedbackRequest)
     });
 }
+
+export function projectCreateRequestSend(projectCreateRequest) {
+    return request({
+        url: API_BASE_URL + "/project/create",
+        method: 'POST',
+        body: JSON.stringify(projectCreateRequest)
+    });
+}
