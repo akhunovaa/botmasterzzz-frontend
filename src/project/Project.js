@@ -4,7 +4,7 @@ import TestLogo from '../img/github-logo.png';
 import TestLogo2 from '../img/google-logo.png';
 import TestLogo3 from '../img/fb-logo.png';
 import {Button, Grid, Header, Icon, Image, Input, Modal, Segment} from "semantic-ui-react";
-import {projectCreateRequestSend} from "../util/APIUtils";
+import {projectCreateRequestSend, projectListGet} from "../util/APIUtils";
 import Alert from "react-s-alert";
 
 
@@ -18,7 +18,8 @@ class Project extends Component {
             newProjectNote: '',
             loading: false,
             projectCreateModal: false,
-            projectCreateModalClose: true
+            projectCreateModalClose: true,
+            projects: []
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,6 +30,35 @@ class Project extends Component {
     }
 
     render() {
+
+        const projects = this.state.projects.map(function(item){
+            return  <Grid.Column>
+                <Segment>
+                    <div className='project-cell-header'>
+                        <Header floated='left'>
+                            <Image size='mini' src={item.imageUrl} circular/>
+                            <Header.Content>
+                                {item.name}
+                                <Header.Subheader>{item.description}</Header.Subheader>
+                                <Header.Subheader>{item.note}</Header.Subheader>
+                            </Header.Content>
+                        </Header>
+                    </div>
+                    <div className='project-cell-ico-body'>
+                        <Icon size='big' color='blue' name='telegram'/>
+                        <Icon size='big' color='green' name='whatsapp'/>
+                        <Icon size='big' color='blue' name='vk'/>
+                    </div>
+                    <div className='project-cell-update-body'>
+                        <Button size='big' basic icon="pencil"
+                                content='Настроить'/>
+                        <Button size='big' basic icon="group"
+                                content='15к'/>
+                    </div>
+                </Segment>
+
+            </Grid.Column>;
+        });
 
         return (
             <div className="project-container">
@@ -52,79 +82,80 @@ class Project extends Component {
                 </div>
 
                 <div className='project-layer'>
-                    <Grid columns={3} stackable>
-                        <Grid.Column>
-                            <Segment>
-                                <div className='project-cell-header'>
-                                    <Header floated='left'>
-                                        <Image size='mini' src={TestLogo} circular/>
-                                        <Header.Content>
-                                            Noname project
-                                            <Header.Subheader>Noname_bot</Header.Subheader>
-                                        </Header.Content>
-                                    </Header>
-                                </div>
-                                <div className='project-cell-ico-body'>
-                                    <Icon size='big' color='blue' name='telegram'/>
-                                    <Icon size='big' color='green' name='whatsapp'/>
-                                    <Icon size='big' color='blue' name='vk'/>
-                                </div>
-                                <div className='project-cell-update-body'>
-                                    <Button size='big' basic icon="pencil"
-                                            content='Настроить'/>
-                                    <Button size='big' basic icon="group"
-                                            content='15к'/>
-                                </div>
-                            </Segment>
+                    <Grid columns={this.state.projects.size} stackable>
+                        {projects}
+                        {/*<Grid.Column>*/}
+                            {/*<Segment>*/}
+                                {/*<div className='project-cell-header'>*/}
+                                    {/*<Header floated='left'>*/}
+                                        {/*<Image size='mini' src={TestLogo} circular/>*/}
+                                        {/*<Header.Content>*/}
+                                            {/*Noname project*/}
+                                            {/*<Header.Subheader>Noname_bot</Header.Subheader>*/}
+                                        {/*</Header.Content>*/}
+                                    {/*</Header>*/}
+                                {/*</div>*/}
+                                {/*<div className='project-cell-ico-body'>*/}
+                                    {/*<Icon size='big' color='blue' name='telegram'/>*/}
+                                    {/*<Icon size='big' color='green' name='whatsapp'/>*/}
+                                    {/*<Icon size='big' color='blue' name='vk'/>*/}
+                                {/*</div>*/}
+                                {/*<div className='project-cell-update-body'>*/}
+                                    {/*<Button size='big' basic icon="pencil"*/}
+                                            {/*content='Настроить'/>*/}
+                                    {/*<Button size='big' basic icon="group"*/}
+                                            {/*content='15к'/>*/}
+                                {/*</div>*/}
+                            {/*</Segment>*/}
 
-                        </Grid.Column>
+                        {/*</Grid.Column>*/}
 
-                        <Grid.Column>
-                            <Segment>
-                                <div className='project-cell-header'>
-                                    <Header floated='left'>
-                                        <Image size='small' src={TestLogo2} circular/>
-                                        <Header.Content>
-                                            Second project
-                                            <Header.Subheader>Second_bot</Header.Subheader>
-                                        </Header.Content>
-                                    </Header>
-                                </div>
-                                <div className='project-cell-ico-body'>
-                                    <Icon size='big' color='blue' name='telegram'/>
-                                    <Icon size='big' color='green' name='whatsapp'/>
-                                </div>
-                                <div className='project-cell-update-body'>
-                                    <Button size='big' basic icon="pencil"
-                                            content='Настроить'/>
-                                    <Button size='big' basic icon="group"
-                                            content='134'/>
-                                </div>
-                            </Segment>
-                        </Grid.Column>
+                        {/*<Grid.Column>*/}
+                            {/*<Segment>*/}
+                                {/*<div className='project-cell-header'>*/}
+                                    {/*<Header floated='left'>*/}
+                                        {/*<Image size='small' src={TestLogo2} circular/>*/}
+                                        {/*<Header.Content>*/}
+                                            {/*Second project*/}
+                                            {/*<Header.Subheader>Second_bot</Header.Subheader>*/}
+                                        {/*</Header.Content>*/}
+                                    {/*</Header>*/}
+                                {/*</div>*/}
+                                {/*<div className='project-cell-ico-body'>*/}
+                                    {/*<Icon size='big' color='blue' name='telegram'/>*/}
+                                    {/*<Icon size='big' color='green' name='whatsapp'/>*/}
+                                {/*</div>*/}
+                                {/*<div className='project-cell-update-body'>*/}
+                                    {/*<Button size='big' basic icon="pencil"*/}
+                                            {/*content='Настроить'/>*/}
+                                    {/*<Button size='big' basic icon="group"*/}
+                                            {/*content='134'/>*/}
+                                {/*</div>*/}
+                            {/*</Segment>*/}
+                        {/*</Grid.Column>*/}
 
-                        <Grid.Column>
-                            <Segment>
-                                <div className='project-cell-header'>
-                                    <Header floated='left'>
-                                        <Image size='small' src={TestLogo3} circular/>
-                                        <Header.Content>
-                                            Test project
-                                            <Header.Subheader>Test_bot</Header.Subheader>
-                                        </Header.Content>
-                                    </Header>
-                                </div>
-                                <div className='project-cell-ico-body'>
-                                    <Icon size='big' color='blue' name='telegram'/>
-                                </div>
-                                <div className='project-cell-update-body'>
-                                    <Button size='big' basic icon="pencil"
-                                            content='Настроить'/>
-                                    <Button size='big' basic icon="group"
-                                            content='567'/>
-                                </div>
-                            </Segment>
-                        </Grid.Column>
+                        {/*<Grid.Column>*/}
+                            {/*<Segment>*/}
+                                {/*<div className='project-cell-header'>*/}
+                                    {/*<Header floated='left'>*/}
+                                        {/*<Image size='small' src={TestLogo3} circular/>*/}
+                                        {/*<Header.Content>*/}
+                                            {/*Test project*/}
+                                            {/*<Header.Subheader>Test_bot</Header.Subheader>*/}
+                                        {/*</Header.Content>*/}
+                                    {/*</Header>*/}
+                                {/*</div>*/}
+                                {/*<div className='project-cell-ico-body'>*/}
+                                    {/*<Icon size='big' color='blue' name='telegram'/>*/}
+                                {/*</div>*/}
+                                {/*<div className='project-cell-update-body'>*/}
+                                    {/*<Button size='big' basic icon="pencil"*/}
+                                            {/*content='Настроить'/>*/}
+                                    {/*<Button size='big' basic icon="group"*/}
+                                            {/*content='567'/>*/}
+                                {/*</div>*/}
+                            {/*</Segment>*/}
+                        {/*</Grid.Column>*/}
                     </Grid>
                 </div>
 
@@ -190,9 +221,16 @@ class Project extends Component {
         });
     }
 
-
     componentDidMount() {
-
+        if (!this.state.projects) return;
+        projectListGet()
+            .then(response => {
+                this.setState({
+                    projects : response.project
+                })
+            }).catch(error => {
+            Alert.error('Ошибка получения списка проектов' || (error && error.message));
+        });
     }
 
     showProjectCreateModal() {

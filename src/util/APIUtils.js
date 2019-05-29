@@ -113,3 +113,10 @@ export function projectCreateRequestSend(projectCreateRequest) {
         body: JSON.stringify(projectCreateRequest)
     });
 }
+
+export function projectListGet() {
+    return request({
+        url: API_BASE_URL + "/project/list",
+        method: 'POST'
+    });
+}
