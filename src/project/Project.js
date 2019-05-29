@@ -44,9 +44,10 @@ class Project extends Component {
                                         <Image size='mini' src={TestLogo} circular inline/>
                                         <Header.Content>
                                             {item.name}
-                                            <Header.Subheader>{item.description ? item.description :  "____________________________________________________________________________________________________________"}</Header.Subheader>
-                                            <Header.Subheader>{item.note ? item.note :  "____________________________________________________________________________________________________________"}</Header.Subheader>
+                                            <Header.Subheader>{item.description ? item.description : <span>&emsp;</span>}</Header.Subheader>
+                                            <Header.Subheader>{item.note ? item.note : <span>&emsp;</span>}</Header.Subheader>
                                         </Header.Content>
+                                        <input id="projectId" name="projectId" type="hidden" value={item.id}/>
                                     </Header>
                                 </div>
                                 <div className='project-cell-ico-body'>
