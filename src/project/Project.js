@@ -10,6 +10,8 @@ import Alert from "react-s-alert";
 
 class Project extends Component {
 
+    _isMounted = false;
+
     constructor(props) {
         super(props);
         this.state = {
@@ -31,34 +33,38 @@ class Project extends Component {
 
     render() {
 
-        const projects = this.state.projects.map(function(item){
-            return  <Grid.Column>
-                <Segment>
-                    <div className='project-cell-header'>
-                        <Header floated='left'>
-                            <Image size='mini' src={item.imageUrl} circular/>
-                            <Header.Content>
-                                {item.name}
-                                <Header.Subheader>{item.description}</Header.Subheader>
-                                <Header.Subheader>{item.note}</Header.Subheader>
-                            </Header.Content>
-                        </Header>
-                    </div>
-                    <div className='project-cell-ico-body'>
-                        <Icon size='big' color='blue' name='telegram'/>
-                        <Icon size='big' color='green' name='whatsapp'/>
-                        <Icon size='big' color='blue' name='vk'/>
-                    </div>
-                    <div className='project-cell-update-body'>
-                        <Button size='big' basic icon="pencil"
-                                content='Настроить'/>
-                        <Button size='big' basic icon="group"
-                                content='15к'/>
-                    </div>
-                </Segment>
-
-            </Grid.Column>;
-        });
+        const Projects = ({items}) => (
+            <>
+                {
+                    items.map(item => (
+                        <Grid.Column key={item.id}>
+                            <Segment>
+                                <div className='project-cell-header'>
+                                    <Header sub floated='left'>
+                                        <Image size='mini' src={TestLogo} circular inline/>
+                                        <Header.Content>
+                                            {item.name}
+                                            <Header.Subheader>{item.description ? item.description :  "____________________________________________________________________________________________________________"}</Header.Subheader>
+                                            <Header.Subheader>{item.note ? item.note :  "____________________________________________________________________________________________________________"}</Header.Subheader>
+                                        </Header.Content>
+                                    </Header>
+                                </div>
+                                <div className='project-cell-ico-body'>
+                                    <Icon size='big' color='blue' name='telegram'/>
+                                    <Icon size='big' color='green' name='whatsapp'/>
+                                    <Icon size='big' color='blue' name='vk'/>
+                                </div>
+                                <div className='project-cell-update-body'>
+                                    <Button size='big' basic icon="pencil"
+                                            content='Настроить'/>
+                                    <Button size='big' basic icon="group"
+                                            content='15к'/>
+                                </div>
+                            </Segment>
+                        </Grid.Column>
+                ))}
+            </>
+        );
 
         return (
             <div className="project-container">
@@ -80,83 +86,17 @@ class Project extends Component {
                         </Header>
                     </Segment>
                 </div>
-
                 <div className='project-layer'>
-                    <Grid columns={this.state.projects.size} stackable>
-                        {projects}
-                        {/*<Grid.Column>*/}
-                            {/*<Segment>*/}
-                                {/*<div className='project-cell-header'>*/}
-                                    {/*<Header floated='left'>*/}
-                                        {/*<Image size='mini' src={TestLogo} circular/>*/}
-                                        {/*<Header.Content>*/}
-                                            {/*Noname project*/}
-                                            {/*<Header.Subheader>Noname_bot</Header.Subheader>*/}
-                                        {/*</Header.Content>*/}
-                                    {/*</Header>*/}
-                                {/*</div>*/}
-                                {/*<div className='project-cell-ico-body'>*/}
-                                    {/*<Icon size='big' color='blue' name='telegram'/>*/}
-                                    {/*<Icon size='big' color='green' name='whatsapp'/>*/}
-                                    {/*<Icon size='big' color='blue' name='vk'/>*/}
-                                {/*</div>*/}
-                                {/*<div className='project-cell-update-body'>*/}
-                                    {/*<Button size='big' basic icon="pencil"*/}
-                                            {/*content='Настроить'/>*/}
-                                    {/*<Button size='big' basic icon="group"*/}
-                                            {/*content='15к'/>*/}
-                                {/*</div>*/}
-                            {/*</Segment>*/}
+                    {
+                        this.state.projects.length === 0 ? (
+                            <label>Проекты отстутствуют</label>
+                        ) : (
+                            <Grid columns='4' stackable>
+                                <Projects items={this.state.projects}/>
+                            </Grid>
+                        )
+                    }
 
-                        {/*</Grid.Column>*/}
-
-                        {/*<Grid.Column>*/}
-                            {/*<Segment>*/}
-                                {/*<div className='project-cell-header'>*/}
-                                    {/*<Header floated='left'>*/}
-                                        {/*<Image size='small' src={TestLogo2} circular/>*/}
-                                        {/*<Header.Content>*/}
-                                            {/*Second project*/}
-                                            {/*<Header.Subheader>Second_bot</Header.Subheader>*/}
-                                        {/*</Header.Content>*/}
-                                    {/*</Header>*/}
-                                {/*</div>*/}
-                                {/*<div className='project-cell-ico-body'>*/}
-                                    {/*<Icon size='big' color='blue' name='telegram'/>*/}
-                                    {/*<Icon size='big' color='green' name='whatsapp'/>*/}
-                                {/*</div>*/}
-                                {/*<div className='project-cell-update-body'>*/}
-                                    {/*<Button size='big' basic icon="pencil"*/}
-                                            {/*content='Настроить'/>*/}
-                                    {/*<Button size='big' basic icon="group"*/}
-                                            {/*content='134'/>*/}
-                                {/*</div>*/}
-                            {/*</Segment>*/}
-                        {/*</Grid.Column>*/}
-
-                        {/*<Grid.Column>*/}
-                            {/*<Segment>*/}
-                                {/*<div className='project-cell-header'>*/}
-                                    {/*<Header floated='left'>*/}
-                                        {/*<Image size='small' src={TestLogo3} circular/>*/}
-                                        {/*<Header.Content>*/}
-                                            {/*Test project*/}
-                                            {/*<Header.Subheader>Test_bot</Header.Subheader>*/}
-                                        {/*</Header.Content>*/}
-                                    {/*</Header>*/}
-                                {/*</div>*/}
-                                {/*<div className='project-cell-ico-body'>*/}
-                                    {/*<Icon size='big' color='blue' name='telegram'/>*/}
-                                {/*</div>*/}
-                                {/*<div className='project-cell-update-body'>*/}
-                                    {/*<Button size='big' basic icon="pencil"*/}
-                                            {/*content='Настроить'/>*/}
-                                    {/*<Button size='big' basic icon="group"*/}
-                                            {/*content='567'/>*/}
-                                {/*</div>*/}
-                            {/*</Segment>*/}
-                        {/*</Grid.Column>*/}
-                    </Grid>
                 </div>
 
                 <Modal open={this.state.projectCreateModal} onClose={this.closeProjectCreateModal} dimmer="blurring"
@@ -222,15 +162,22 @@ class Project extends Component {
     }
 
     componentDidMount() {
+        this._isMounted = true;
         if (!this.state.projects) return;
         projectListGet()
             .then(response => {
-                this.setState({
-                    projects : response.project
-                })
+                if (this._isMounted) {
+                    this.setState({
+                        projects : response.project
+                    })
+                }
             }).catch(error => {
             Alert.error('Ошибка получения списка проектов' || (error && error.message));
         });
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     showProjectCreateModal() {
@@ -263,7 +210,18 @@ class Project extends Component {
             }).catch(error => {
             Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
         });
+        this.closeProjectCreateModal();
+        this.reload();
     }
+
+    reload = ()=>{
+        const current = this.props.location.pathname;
+        this.props.history.replace(`/reload`);
+        setTimeout(() => {
+            this.props.history.replace(current);
+        });
+    }
+
 }
 
 export default Project
