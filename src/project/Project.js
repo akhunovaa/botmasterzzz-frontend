@@ -254,7 +254,6 @@ class Project extends Component {
             'note': this.state.newProjectNote
         });
         this.closeProjectCreateModal();
-        this.reload();
         projectCreateRequestSend(projectCreateRequest)
             .then(response => {
                 if (response.error) {
@@ -267,8 +266,7 @@ class Project extends Component {
             }).catch(error => {
             Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
         });
-
-
+        this.reload();
     }
 
     projectDelete(event) {
@@ -278,7 +276,6 @@ class Project extends Component {
             'id': this.state.targetProjectId
         });
         this.closeProjectDeleteModal();
-        this.reload();
         projectDeleteRequestSend(projectDeleteRequest)
             .then(response => {
                 if (response.error) {
@@ -291,11 +288,12 @@ class Project extends Component {
             }).catch(error => {
             Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
         });
+        this.reload();
     }
 
     reload = () =>{
         const current = this.props.location.pathname;
-        this.props.history.replace(`/reload`);
+        window.location.reload();
         setTimeout(() => {
             this.props.history.replace(current);
         });
