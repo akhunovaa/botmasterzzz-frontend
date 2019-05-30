@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import './Project.css';
 import TestLogo from '../img/github-logo.png';
-import TestLogo2 from '../img/google-logo.png';
-import TestLogo3 from '../img/fb-logo.png';
 import {Button, Container, Grid, Header, Icon, Image, Input, Modal, Segment} from "semantic-ui-react";
 import {projectCreateRequestSend, projectListGet, projectDeleteRequestSend} from "../util/APIUtils";
 import Alert from "react-s-alert";
