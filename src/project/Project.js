@@ -294,10 +294,10 @@ class Project extends Component {
     }
 
     reload = () =>{
+        this._isMounted = false;
         const current = this.props.location.pathname;
         this.props.history.replace(`/reload`);
         setTimeout(() => {
-            this.state.projects = [];
             this.props.history.replace(current);
         });
     }
