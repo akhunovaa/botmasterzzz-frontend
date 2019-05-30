@@ -3,6 +3,7 @@ import { API_BASE_URL, ACCESS_TOKEN } from '../constants';
 const request = (options) => {
     const headers = new Headers({
         'Content-Type': 'application/json;charset=UTF-8',
+        'Accept': 'application/json;charset=UTF-8'
     });
 
     if(localStorage.getItem(ACCESS_TOKEN)) {
@@ -118,5 +119,13 @@ export function projectListGet() {
     return request({
         url: API_BASE_URL + "/project/list",
         method: 'POST'
+    });
+}
+
+export function projectDeleteRequestSend(projectDeleteRequest) {
+    return request({
+        url: API_BASE_URL + "/project/delete",
+        method: 'POST',
+        body: JSON.stringify(projectDeleteRequest)
     });
 }

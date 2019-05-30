@@ -3,14 +3,15 @@ import './Project.css';
 import TestLogo from '../img/github-logo.png';
 import TestLogo2 from '../img/google-logo.png';
 import TestLogo3 from '../img/fb-logo.png';
-import {Button, Grid, Header, Icon, Image, Input, Modal, Segment} from "semantic-ui-react";
-import {projectCreateRequestSend, projectListGet} from "../util/APIUtils";
+import {Button, Container, Grid, Header, Icon, Image, Input, Modal, Segment} from "semantic-ui-react";
+import {projectCreateRequestSend, projectListGet, projectDeleteRequestSend} from "../util/APIUtils";
 import Alert from "react-s-alert";
 
 
 class Project extends Component {
 
     _isMounted = false;
+    currentProjectId = React.createRef();
 
     constructor(props) {
         super(props);
@@ -20,7 +21,10 @@ class Project extends Component {
             newProjectNote: '',
             loading: false,
             projectCreateModal: false,
+            projectDeleteModal: false,
             projectCreateModalClose: true,
+            projectDeleteModalClose: true,
+            targetProjectId:'',
             projects: []
         };
 
@@ -28,7 +32,11 @@ class Project extends Component {
         this.handleInputChange = this.handleInputChange.bind(this);
         this.showProjectCreateModal = this.showProjectCreateModal.bind(this);
         this.closeProjectCreateModal = this.closeProjectCreateModal.bind(this);
+        this.showProjectDeleteModal = this.showProjectDeleteModal.bind(this);
+        this.closeProjectDeleteModal = this.closeProjectDeleteModal.bind(this);
         this.projectCreate = this.projectCreate.bind(this);
+        this.projectDelete = this.projectDelete.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     render() {
@@ -47,7 +55,6 @@ class Project extends Component {
                                             <Header.Subheader>{item.description ? item.description : <span>&emsp;</span>}</Header.Subheader>
                                             <Header.Subheader>{item.note ? item.note : <span>&emsp;</span>}</Header.Subheader>
                                         </Header.Content>
-                                        <input id="projectId" name="projectId" type="hidden" value={item.id}/>
                                     </Header>
                                 </div>
                                 <div className='project-cell-ico-body'>
@@ -60,6 +67,11 @@ class Project extends Component {
                                             content='Настроить'/>
                                     <Button size='big' basic icon="group"
                                             content='15к'/>
+                                    <form onSubmit={this.showProjectDeleteModal}>
+                                        <input ref={this.currentProjectId} id="projectId" name="projectId" type="hidden" value={item.id}/>
+                                        <Button size='big' basic icon="trash" />
+                                    </form>
+
                                 </div>
                             </Segment>
                         </Grid.Column>
@@ -143,6 +155,31 @@ class Project extends Component {
                         />
                     </Modal.Actions>
                 </Modal>
+
+                <Modal  open={this.state.projectDeleteModal} onClose={this.closeProjectDeleteModal} dimmer="blurring"
+                        size="tiny" className="project-modal-conf">
+                    <Modal.Header className="modal-header">Удалить проект</Modal.Header>
+                    <Modal.Content>
+                        <Container className="modal-container">
+                            <p>
+                                Вы уверены что хотите удалить данный проект?
+                            </p>
+                        </Container>
+                    </Modal.Content>
+                    <Modal.Actions>
+                        <Button
+                            color='vk'
+                            content="Отменить"
+                            onClick={this.closeProjectDeleteModal}
+                        />
+                        <Button
+                            className="menu-update"
+                            negative
+                            content="Удалить"
+                            onClick={this.projectDelete}
+                        />
+                    </Modal.Actions>
+                </Modal>
             </div>
         );
     }
@@ -150,6 +187,10 @@ class Project extends Component {
     handleSubmit(event) {
         event.preventDefault();
         console.log(event.action)
+    }
+
+    handleClick() {
+        console.log(this.currentProjectId.current.value);
     }
 
     handleInputChange(event) {
@@ -185,14 +226,28 @@ class Project extends Component {
         this.setState({projectCreateModalClose: false, projectCreateModal: true});
     }
 
+    showProjectDeleteModal(event) {
+        event.preventDefault();
+        const data = new FormData(event.target);
+        const projectId = data.get('projectId');
+        this.setState({projectDeleteModalClose: false, projectDeleteModal: true, targetProjectId: projectId});
+    }
+
     closeProjectCreateModal() {
         this.setState({projectCreateModalClose: true, projectCreateModal: false});
     }
 
 
+    closeProjectDeleteModal() {
+        this.setState({projectDeleteModalClose: true, projectDeleteModal: false});
+    }
+
+
     projectCreate(event) {
         event.preventDefault();
-
+        if (!this.state.newProjectName) {
+            return
+        }
         const projectCreateRequest = Object.assign({}, {
             'name': this.state.newProjectName,
             'description': this.state.newProjectDescription,
@@ -202,11 +257,11 @@ class Project extends Component {
         projectCreateRequestSend(projectCreateRequest)
             .then(response => {
                 if (response.error) {
-                    Alert.warning(response.error + '. Необходимо заново авторизоваться.');
+                    Alert.warning(response.error + '. Необходимо заново авторизоваться');
                 }else if (response.success === false) {
                     Alert.warning(response.message);
                 } else {
-                    Alert.success('Проект успешно создан');
+                    Alert.success('Проект "' + response.project.name + '" успешно создан');
                 }
             }).catch(error => {
             Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
@@ -215,10 +270,34 @@ class Project extends Component {
         this.reload();
     }
 
-    reload = ()=>{
+    projectDelete(event) {
+        event.preventDefault();
+
+        const projectDeleteRequest = Object.assign({}, {
+            'id': this.state.targetProjectId
+        });
+
+        projectDeleteRequestSend(projectDeleteRequest)
+            .then(response => {
+                if (response.error) {
+                    Alert.warning(response.error + '. Необходимо заново авторизоваться.');
+                }else if (response.success === false) {
+                    Alert.warning(response.message);
+                } else {
+                    Alert.success('Проект  "' + response.project.name + '" успешно удален');
+                }
+            }).catch(error => {
+            Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
+        });
+        this.closeProjectDeleteModal();
+        this.reload();
+    }
+
+    reload = () =>{
         const current = this.props.location.pathname;
         this.props.history.replace(`/reload`);
         setTimeout(() => {
+            this.state.projects = [];
             this.props.history.replace(current);
         });
     }

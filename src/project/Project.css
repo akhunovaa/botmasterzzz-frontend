@@ -37,7 +37,7 @@
 }
 
 .project-cell-update-body {
-    display: inline-block;
+    display: inline-flex;
     width: 100%;
 }
 .project-modal-conf {
