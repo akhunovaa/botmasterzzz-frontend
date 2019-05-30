@@ -59,14 +59,12 @@ class Project extends Component {
                                 </div>
                                 <div className='project-cell-ico-body'>
                                     <Icon size='big' color='blue' name='telegram'/>
-                                    <Icon size='big' color='green' name='whatsapp'/>
-                                    <Icon size='big' color='blue' name='vk'/>
                                 </div>
                                 <div className='project-cell-update-body'>
                                     <Button size='big' basic icon="pencil"
                                             content='Настроить'/>
                                     <Button size='big' basic icon="group"
-                                            content='15к'/>
+                                            content='0'/>
                                     <form onSubmit={this.showProjectDeleteModal}>
                                         <input ref={this.currentProjectId} id="projectId" name="projectId" type="hidden" value={item.id}/>
                                         <Button size='big' basic icon="trash" />
