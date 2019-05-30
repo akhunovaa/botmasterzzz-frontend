@@ -261,17 +261,21 @@ class Project extends Component {
                 }else if (response.success === false) {
                     Alert.warning(response.message);
                 } else {
+                    this.reload();
                     Alert.success('Проект "' + response.project.name + '" успешно создан');
                 }
             }).catch(error => {
             Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
         });
-        this.reload();
+
+
     }
 
     projectDelete(event) {
         event.preventDefault();
-
+        if (!this.state.targetProjectId) {
+            return
+        }
         const projectDeleteRequest = Object.assign({}, {
             'id': this.state.targetProjectId
         });
@@ -283,17 +287,17 @@ class Project extends Component {
                 }else if (response.success === false) {
                     Alert.warning(response.message);
                 } else {
+                    this.reload();
                     Alert.success('Проект  "' + response.project.name + '" успешно удален');
                 }
             }).catch(error => {
             Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
         });
-        this.reload();
     }
 
     reload = () =>{
         const current = this.props.location.pathname;
-        window.location.reload();
+        this.props.history.replace(`/reload`);
         setTimeout(() => {
             this.props.history.replace(current);
         });
