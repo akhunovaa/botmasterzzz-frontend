@@ -110,7 +110,6 @@ export function feedback(feedbackRequest) {
 export function projectCreateRequestSend(projectCreateRequest) {
     return request({
         url: API_BASE_URL + "/project/create",
-        //url: "http://localhost:8063/project/create",
         method: 'POST',
         body: JSON.stringify(projectCreateRequest)
     });
@@ -119,7 +118,6 @@ export function projectCreateRequestSend(projectCreateRequest) {
 export function projectListGet() {
     return request({
         url: API_BASE_URL + "/project/list",
-        //url: "http://localhost:8063/project/list",
         method: 'POST'
     });
 }
@@ -127,7 +125,6 @@ export function projectListGet() {
 export function projectGet(project) {
     return request({
         url: API_BASE_URL + "/project/get",
-        //url: "http://localhost:8063/project/get",
         method: 'POST',
         body: JSON.stringify(project)
     });
@@ -136,7 +133,6 @@ export function projectGet(project) {
 export function projectUpdate(project) {
     return request({
         url: API_BASE_URL + "/project/update",
-        //url: "http://localhost:8063/project/update",
         method: 'POST',
         body: JSON.stringify(project)
     });
@@ -145,7 +141,6 @@ export function projectUpdate(project) {
 export function projectDeleteRequestSend(projectDeleteRequest) {
     return request({
         url: API_BASE_URL + "/project/delete",
-        //url: "http://localhost:8063/project/delete",
         method: 'POST',
         body: JSON.stringify(projectDeleteRequest)
     });
