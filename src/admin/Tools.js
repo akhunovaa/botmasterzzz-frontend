@@ -17,6 +17,7 @@ class Tools extends Component {
             projectId: props.projectId,
             project: props.project
         };
+        this.onClick = this.onClick.bind(this);
     }
 
     render() {
