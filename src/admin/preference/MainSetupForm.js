@@ -111,6 +111,7 @@ class MainSetupForm  extends Component {
             }).catch(error => {
             Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
         });
+        return this.props.handler(false, this.state.project.id);
     }
 
 
