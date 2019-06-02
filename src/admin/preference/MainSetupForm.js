@@ -5,7 +5,7 @@ import Private from '../../img/padlock-7-32.jpg';
 import Public from '../../img/padlock-5-32.jpg';
 import botm from '../../img/botmasterzzz.png';
 import {TextArea, Button, Dropdown, Input, Image, Grid} from 'semantic-ui-react'
-import {profileImageUpdate, projectUpdate} from "../../util/APIUtils";
+import {projectUpdate, projectmageUpdate} from "../../util/APIUtils";
 import Alert from "react-s-alert";
 import ImageUploader from 'react-images-upload';
 
@@ -18,7 +18,7 @@ class MainSetupForm  extends Component {
             description: '',
             type: '',
             secret: '',
-            botAvatarUrl: botm,
+            botAvatarUrl: props.project.imageUrl ? props.project.imageUrl  : botm,
             project: props.project
         };
 
@@ -181,23 +181,24 @@ class MainSetupForm  extends Component {
                     this.setState({
                         botAvatarUrl :reader.result
                     });
-                    //
-                    // const imageData = item.files[0];
-                    // const formData = new FormData();
-                    // formData.append('file', imageData);
-                    //
-                    // profileImageUpdate(formData)
-                    //     .then(response => {
-                    //         if (response.error) {
-                    //             Alert.warning(response.error + '. Необходимо заново авторизоваться');
-                    //         }else if (response.success === false) {
-                    //             Alert.warning(response.message);
-                    //         } else {
-                    //             Alert.success('Данные успешно сохранены');
-                    //         }
-                    //     }).catch(error => {
-                    //     Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
-                    // });
+
+                    const imageData = item.files[0];
+                    const formData = new FormData();
+                    formData.append('file', imageData);
+                    formData.append('projectId', this.state.project.id);
+
+                    projectmageUpdate(formData)
+                        .then(response => {
+                            if (response.error) {
+                                Alert.warning(response.error + '. Необходимо заново авторизоваться');
+                            }else if (response.success === false) {
+                                Alert.warning(response.message);
+                            } else {
+                                Alert.success('Данные успешно сохранены');
+                            }
+                        }).catch(error => {
+                        Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
+                    });
 
                 }else {
                     this.setState({

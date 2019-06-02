@@ -145,3 +145,11 @@ export function projectDeleteRequestSend(projectDeleteRequest) {
         body: JSON.stringify(projectDeleteRequest)
     });
 }
+
+export function projectmageUpdate(formData) {
+    return requestImage({
+        url: API_BASE_URL + "/project/image/upload",
+        method: 'POST',
+        body: formData
+    });
+}
