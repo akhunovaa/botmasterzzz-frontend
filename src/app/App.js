@@ -83,10 +83,10 @@ class App extends Component {
                         <Route exact path="/feedback" render={(props) => <Feedback {...props} currentUser={this.state.currentUser} /> } />
                         {/*<Route exact path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Profile} />*/}
                         {/*<Route path="/project" component={Project}/>*/}
-                        {/*<Route path="/tools" component={Tools}/>*/}
+                        {/*<Route exact path="/project/tools" render={(props) => <Tools {...props} project={this.state.targetProjectId}/> } />*/}
                         <PrivateRoute path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Profile}/>
-                        <PrivateRoute path="/tools" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Tools}/>
                         <PrivateRoute path="/project" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Project}/>
+                        <PrivateRoute exact path="/project/tools" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Project}/>
                         <Route path="/login" render={(props) => <Login authenticated={this.state.authenticated} {...props} />}/>
                         <Route path="/signup" render={(props) => <Signup authenticated={this.state.authenticated} {...props} />}/>
                         <Route path="/oauth2/redirect" component={OAuth2RedirectHandler}/>

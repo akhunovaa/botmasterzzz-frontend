@@ -51,8 +51,8 @@ class MainSetupForm  extends Component {
                                 <ol className="ol-menu">
                                     <li className="li-menu">
                                         <label className="label-menu" form="name">Настройка меню:</label>
-                                        <Checkbox className="checkbox-menu" id="list" name="list" label={{ children: 'Список' }} onChange={this.checkList} value={this.state.list} fitted/>
-                                        <Checkbox className="checkbox-menu" id="block" name="block" label={{ children: 'Блок' }} onChange={this.checkBlock} value={this.state.block} fitted/>
+                                        <Checkbox className="checkbox-menu" id="list" name="list" label={{ children: 'Список' }} onChange={this.checkList} fitted/>
+                                        <Checkbox className="checkbox-menu" id="block" name="block" label={{ children: 'Блок' }} onChange={this.checkBlock} fitted/>
                                     </li>
                                     <li className="li-menu">
                                         <Button onClick={this.show()} icon="plus" circular basic color="black" />
@@ -236,8 +236,8 @@ class MainSetupForm  extends Component {
                                 <Grid.Column>
                                     <ol className="ol-modal-menu">
                                         <li className="li-modal-menu-checkbox">
-                                            <Checkbox className="checkbox-modal-menu" id="list-modal" name="list-modal" label={{ children: 'Список' }} onChange={this.checkList} value={this.state.list} fitted/>
-                                            <Checkbox className="checkbox-modal-menu" id="block-modal" name="block-modal" label={{ children: 'Блок' }} onChange={this.checkBlock} value={this.state.block} fitted/>
+                                            <Checkbox className="checkbox-modal-menu" id="list-modal" name="list-modal" label={{ children: 'Список' }} onChange={this.checkList} fitted/>
+                                            <Checkbox className="checkbox-modal-menu" id="block-modal" name="block-modal" label={{ children: 'Блок' }} onChange={this.checkBlock} fitted/>
                                         </li>
                                         <li className="li-modal-menu">
                                             <label className="labelx" form="menuName">Главное меню</label>

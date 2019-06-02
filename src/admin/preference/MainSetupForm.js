@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import '../../feedback/Feedback.css';
 import './MainSetupForm.css';
-import Alert from "react-s-alert";
 import Private from '../../img/padlock-7-32.jpg';
 import Public from '../../img/padlock-5-32.jpg';
-import {feedback} from '../../util/APIUtils';
 import botm from '../../img/botmasterzzz.png';
 import {TextArea, Button, Dropdown, Input, Image, Grid} from 'semantic-ui-react'
+import {projectUpdate} from "../../util/APIUtils";
+import Alert from "react-s-alert";
 
 class MainSetupForm  extends Component {
 
@@ -16,7 +16,8 @@ class MainSetupForm  extends Component {
             name: '',
             description: '',
             type: '',
-            secret: ''
+            secret: '',
+            project: props.project
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -39,63 +40,77 @@ class MainSetupForm  extends Component {
             }
         ];
 
-        return (
-            <div className="main-form-container">
+        const Project = ({item}) => (
+            <>
+                {
+                    <div className="main-form-container">
                         <form onSubmit={this.handleSubmit}>
                             <fieldset className="fieldsetx">
                                 <legend className="legendmain">
                                     Основные настройки
                                 </legend>
                                 <Grid columns={2} textAlign="left">
-                                <Grid.Column>
-                                <ol className="olx">
-                                    <li className="lix">
-                                        <label className="labelx" form="name">Наименование бота</label>
-                                        <Input className="inputx" type="text" id="name" name="name"
-                                               placeholder="BotMasterzzz project" value={this.state.name} onChange={this.handleInputChange} required/>
-                                    </li>
-                                    <li className="lix">
-                                        <label className="labelx" form="description">Описание</label>
-                                        <TextArea className="text-area"
-                                                  id="description" name="description" value={this.state.description} onChange={this.handleInputChange}/>
-                                    </li>
-                                    <li className="lix">
-                                        <label className="labelx" form="type">Тип бота</label>
-                                        <Dropdown placeholder='Тип бота' fluid selection id="type" name="type" options={friendOptions} defaultValue='Публичный'/>
-                                    </li>
-                                    <li className="lix">
-                                        <label className="labelx" form="secret">Кодовое слово</label>
-                                        <Input  className="inputx" id="secret" name="secret"
-                                                value={this.state.secret} onChange={this.handleInputChange}/>
-                                    </li>
-                                    <Button color="vk" id="button" type="submit" className="setup-save">Сохранить</Button>
-                                </ol>
+                                    <Grid.Column>
+                                        <ol className="olx">
+                                            <li className="lix">
+                                                <label className="labelx" form="name">Наименование бота</label>
+                                                <Input className="inputx" type="text" id="name" name="name"
+                                                       placeholder="BotMasterzzz project" defaultValue={item.name} required/>
+                                            </li>
+                                            <li className="lix">
+                                                <label className="labelx" form="description">Описание</label>
+                                                <TextArea className="text-area"
+                                                          id="description" name="description" defaultValue={item.description} />
+                                            </li>
+                                            <li className="lix">
+                                                <label className="labelx" form="type">Тип бота</label>
+                                                <Dropdown placeholder='Тип бота' fluid selection id="type" name="type" options={friendOptions} defaultValue='Публичный'/>
+                                            </li>
+                                            <li className="lix">
+                                                <label className="labelx" form="secret">Кодовое слово</label>
+                                                <Input  className="inputx" id="secret" name="secret" defaultValue={item.note}/>
+                                            </li>
+                                            <Button color="vk" id="button" type="submit" className="setup-save">Сохранить</Button>
+                                        </ol>
                                     </Grid.Column>
                                     <Grid.Column verticalAlign='middle'>
-                                        <Image className="field-logo" src={botm} size='medium' floated='right' circular />
+                                        <Image className="field-logo" src={item.imageUrl ? item.imageUrl : botm} size='medium' floated='right' circular />
                                     </Grid.Column>
                                 </Grid>
 
                             </fieldset>
                         </form>
-            </div>
+                    </div>
+                }
+            </>
+        );
+
+        return (
+            <Project item={this.state.project}/>
         );
 }
 
     handleSubmit(event) {
         event.preventDefault();
+        event.preventDefault();
+        const data = new FormData(event.target);
+        const name = data.get('name');
+        const description = data.get('description');
+        const note = data.get('secret');
+        const propjectDataRequest = Object.assign({}, {id: this.state.project.id, name, 'description': description, 'note': note });
 
-        const setupRequest = Object.assign({}, this.state);
-
-        if (setupRequest.captchaToken !== ""){
-            feedback(setupRequest).then(response => {
-                Alert.success("Настройки для бота удачно сохранены'" + response.message + "'");
-                this.onLoadRecaptcha();
-                this.props.history.push("/tools");
+        projectUpdate(propjectDataRequest)
+            .then(response => {
+                if (response.error) {
+                    Alert.warning(response.error + '. Необходимо заново авторизоваться.');
+                }else if (response.success === false) {
+                    Alert.warning(response.message);
+                } else {
+                    Alert.success('Данные успешно сохранены');
+                }
             }).catch(error => {
-                Alert.error((error && error.message) || 'Что-то пошло не так! Попробуйте заново.');
-            });
-        }
+            Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
+        });
     }
 
 
