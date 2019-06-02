@@ -305,11 +305,7 @@ class ProjectForms extends Component {
 
 
     reload (){
-        const current = this.props.location.pathname;
-        this.props.history.replace(`/reload`);
-        setTimeout(() => {
-            this.props.history.replace(current);
-        });
+        this.componentDidMount()
     };
 
 }
