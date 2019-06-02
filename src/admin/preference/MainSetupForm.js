@@ -5,8 +5,9 @@ import Private from '../../img/padlock-7-32.jpg';
 import Public from '../../img/padlock-5-32.jpg';
 import botm from '../../img/botmasterzzz.png';
 import {TextArea, Button, Dropdown, Input, Image, Grid} from 'semantic-ui-react'
-import {projectUpdate} from "../../util/APIUtils";
+import {profileImageUpdate, projectUpdate} from "../../util/APIUtils";
 import Alert from "react-s-alert";
+import ImageUploader from 'react-images-upload';
 
 class MainSetupForm  extends Component {
 
@@ -17,10 +18,12 @@ class MainSetupForm  extends Component {
             description: '',
             type: '',
             secret: '',
+            botAvatarUrl: botm,
             project: props.project
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleImageUpload = this.handleImageUpload.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -74,7 +77,32 @@ class MainSetupForm  extends Component {
                                         </ol>
                                     </Grid.Column>
                                     <Grid.Column verticalAlign='middle'>
-                                        <Image className="field-logo" src={item.imageUrl ? item.imageUrl : botm} size='medium' floated='right' circular />
+                                            <Image className="field-logo" src={this.state.botAvatarUrl} size='medium' floated='right' circular />
+
+                                            <div className='tools-helper-message'>
+                                                <label>
+                                                    Максимальный объем 5 мб
+                                                    <p>Допустимые форматы - jpg, jpeg</p>
+                                                </label>
+                                            </div>
+                                            <ImageUploader
+                                                buttonText='Загрузить аватар'
+                                                onChange={this.handleImageUpload}
+                                                imgExtension={['.jpg', '.jpeg']}
+                                                maxFileSize={5242880}
+                                                withIcon={false}
+                                                withLabel={false}
+                                                label={'Максимальный объем 5 мб. Допустимые форматы - jpg, jpeg'}
+                                                singleImage={true}
+                                                withPreview={false}
+                                                name={'photo'}
+                                                fileSizeError={'размер файла первышает допустимые нормы'}
+                                                fileTypeError={'тип файла не соответствует допустимым нормам'}
+                                                buttonStyles={{fontWeight: 700, borderRadius: '.28571429rem', backgroundColor: '#4d7198', padding: '.78571429em 1.5em .78571429em', marginTop: '0px'}}
+                                                fileContainerStyle={{boxShadow: 'none', display: 'flex', flexDirection: 'column-reverse', paddingTop: '0px', marginTop: '0px'}}
+                                                errorStyle={{}}
+                                                labelStyle={{color: '#d4d4d5', fontSize: '12px', textAlign: 'center', marginTop: '6px'}}
+                                            />
                                     </Grid.Column>
                                 </Grid>
 
@@ -122,6 +150,62 @@ class MainSetupForm  extends Component {
         this.setState({
             [inputName] : inputValue
         });
+    }
+
+    handleImageUpload() {
+        let element = document.getElementsByClassName('errorMessage');
+        if(element){
+            for (let item of element) {
+                if (item) {
+                    item.style.animation = 'cssAnimation 6s forwards';
+                    item.style.webkitAnimation = 'cssAnimation 6s forwards';
+                    setTimeout(function() {
+                        item.style.display = 'none';
+                    }, 6000);
+                }
+            }
+        }
+
+
+        let photo = document.getElementsByName('photo');
+        if(photo){
+            for (let item of photo) {
+                if (item) {
+                    const reader = new FileReader();
+                    reader.onloadend = () => {
+                        this.setState({
+                            botAvatarUrl: reader.result
+                        })
+                    };
+                    reader.readAsDataURL(item.files[0]);
+                    this.setState({
+                        botAvatarUrl :reader.result
+                    });
+                    //
+                    // const imageData = item.files[0];
+                    // const formData = new FormData();
+                    // formData.append('file', imageData);
+                    //
+                    // profileImageUpdate(formData)
+                    //     .then(response => {
+                    //         if (response.error) {
+                    //             Alert.warning(response.error + '. Необходимо заново авторизоваться');
+                    //         }else if (response.success === false) {
+                    //             Alert.warning(response.message);
+                    //         } else {
+                    //             Alert.success('Данные успешно сохранены');
+                    //         }
+                    //     }).catch(error => {
+                    //     Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
+                    // });
+
+                }else {
+                    this.setState({
+                        imageUrl: ""
+                    })
+                }
+            }
+        }
     }
 }
 

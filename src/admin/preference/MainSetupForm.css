@@ -88,3 +88,10 @@
 .field-logo{
     width: 200px;
 }
+
+.tools-helper-message{
+    color: #d4d4d5;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 6px;
+}

@@ -4,7 +4,6 @@
 
 .tools-container {
     width: 100%;
-    padding-top: 10px;
     border-top: 5px solid transparent;
     border-image:  linear-gradient(to right, #f5f3f2 15%, #4c8fc8 70%,  #f5f3f2 100%);
     border-image:  -ms-linear-gradient(to right, #f5f3f2 15%, #4c8fc8 70%,  #f5f3f2 100%);
@@ -12,6 +11,19 @@
     border-image:  -o-linear-gradient(to right, #f5f3f2 15%, #4c8fc8 70%,  #f5f3f2 100%);
     border-image:  -webkit-linear-gradient(to right, #f5f3f2 15%, #4c8fc8 70%,  #f5f3f2 100%);
     border-image-slice: 2;
+}
+
+
+.tools-header {
+    font-weight: 700;
+    font-size: 1.28571429rem;
+    display: inline-block;
+    width: 100%;
+    border: 1px solid rgba(34,36,38,.15);
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
 }
 
 div.header-bottom {

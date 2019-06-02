@@ -8,6 +8,7 @@ import PrivacySetupForm from "./preference/PrivacySetupForm";
 import MenuSetupForm from "./detail/MenuSetupForm";
 import AutoPostSetupForm from "./detail/AutoPostSetupForm";
 import TokenSetupForm from "./preference/TokenSetupForm";
+import {Icon, Segment, Header} from "semantic-ui-react";
 class Tools extends Component {
 
     constructor(props) {
@@ -25,18 +26,17 @@ class Tools extends Component {
             <>
                 {
                     <div className="tools-container">
-                        <div className="divTable-header header-bottom">
-                            <div className="divTableHeaderBody">
-                                <div className="divTableHeaderRow">
-                                    <div className="divTableHeaderCellX"><h3>{item.name}</h3></div>
-                                    <div className="divTableHeaderCell"><i className="fa fa-share-alt"/> Опубликовать</div>
-                                    <div className="divTableHeaderCell"><i className="fa fa-bookmark-o"/> Аналитика</div>
-                                    <div className="divTableHeaderCell"><i className="fa fa-search"/> Предосмотр</div>
-                                    <div className="divTableHeaderCell"><i className="fa fa-trash-o"/> Удалить</div>
-                                </div>
-                            </div>
+                        <div className="tools-header">
+                            <Segment vertical>
+                                <Header floated='left'>
+                                    <Icon name='cog'/>
+                                    <Header.Content>
+                                        {item.name}
+                                        <Header.Subheader>Панель настройки проекта</Header.Subheader>
+                                    </Header.Content>
+                                </Header>
+                            </Segment>
                         </div>
-
 
                         <div className="divTable paleBlueRows">
                             <div className="divTableBody">
