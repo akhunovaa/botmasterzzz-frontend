@@ -17,7 +17,6 @@ class Tools extends Component {
             projectId: props.projectId,
             project: props.project
         };
-        this.onClick = this.onClick.bind(this);
     }
 
     render() {
@@ -66,7 +65,7 @@ class Tools extends Component {
                                     </TabList>
 
                                     <TabPanel tabId="vertical-tab-one">
-                                        <MainSetupForm project = {item} handler = {this.onClick} />
+                                        <MainSetupForm project = {item} />
                                     </TabPanel>
 
                                     <TabPanel tabId="vertical-tab-two">
@@ -115,10 +114,6 @@ class Tools extends Component {
             <Project item={this.state.project}/>
         );
     }
-
-    onClick(value, projectId) {
-        return this.props.handler(value, projectId);
-    };
 
 
 
