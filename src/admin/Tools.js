@@ -73,7 +73,7 @@ class Tools extends Component {
                                     </TabPanel>
 
                                     <TabPanel tabId="vertical-tab-three">
-                                        <TokenSetupForm {...this.props} />
+                                        <TokenSetupForm project = {item} />
                                     </TabPanel>
                                 </Tabs>
 

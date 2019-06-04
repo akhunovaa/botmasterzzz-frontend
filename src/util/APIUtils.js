@@ -138,6 +138,14 @@ export function projectUpdate(project) {
     });
 }
 
+export function projectTokenUpdate(project) {
+    return request({
+        url: API_BASE_URL + "/project/token/save",
+        method: 'POST',
+        body: JSON.stringify(project)
+    });
+}
+
 export function projectDeleteRequestSend(projectDeleteRequest) {
     return request({
         url: API_BASE_URL + "/project/delete",

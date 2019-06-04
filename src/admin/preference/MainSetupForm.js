@@ -20,7 +20,7 @@ class MainSetupForm  extends Component {
             secret: '',
             botAvatarUrl: props.project.imageUrl ? props.project.imageUrl  : botm,
             project: props.project,
-            botType: 'Публичный'
+            botType: props.project.isPrivate === true ? 'Приватный' : 'Публичный'
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -72,7 +72,7 @@ class MainSetupForm  extends Component {
                                             </li>
                                             <li className="lix">
                                                 <label className="labelx" form="secret">Кодовое слово</label>
-                                                <Input  className="inputx" id="secret" name="secret" defaultValue={item.note}/>
+                                                <Input  className="inputx" id="secret" name="secret" defaultValue={item.secret}/>
                                             </li>
                                             <Button color="vk" id="button" type="submit" className="setup-save">Сохранить</Button>
                                         </ol>

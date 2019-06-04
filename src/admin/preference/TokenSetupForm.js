@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import './TokenSetupForm.css';
 import {Button, Input, Grid} from 'semantic-ui-react'
+import {projectTokenUpdate} from "../../util/APIUtils";
+import Alert from "react-s-alert";
 
 class TokenSetupForm extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            token: ''
+            project: props.project,
+            token: props.project.token ? props.project.token : ''
         };
 
 
@@ -28,8 +31,8 @@ class TokenSetupForm extends Component {
                                 <li className="lip">
                                     <form onSubmit={this.handleSubmit}>
                                         <Input className="inputp" type="text" id="token" name="token"
-                                               placeholder="Токен" value={this.state.token} onChange={this.handleInputChange} required/>
-                                            <Button color='vk' content="Применить" onClick={this.handleCancel}/>
+                                               placeholder="Токен" defaultValue={this.state.token} required/>
+                                            <Button color='vk' content="Применить"/>
                                     </form>
                                 </li>
                             </ol>
@@ -45,6 +48,22 @@ class TokenSetupForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
+        const data = new FormData(event.target);
+        const token = data.get('token');
+        const projectDataRequest = Object.assign({}, {id: this.state.project.id, 'token' : token});
+
+        projectTokenUpdate(projectDataRequest)
+            .then(response => {
+                if (response.error) {
+                    Alert.warning(response.error + '. Необходимо заново авторизоваться.');
+                }else if (response.success === false) {
+                    Alert.warning(response.message);
+                } else {
+                    Alert.success('Данные успешно сохранены');
+                }
+            }).catch(error => {
+            Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
+        });
     }
 
 
