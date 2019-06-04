@@ -19,7 +19,8 @@ class MainSetupForm  extends Component {
             type: '',
             secret: '',
             botAvatarUrl: props.project.imageUrl ? props.project.imageUrl  : botm,
-            project: props.project
+            project: props.project,
+            botType: 'Публичный'
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -67,7 +68,7 @@ class MainSetupForm  extends Component {
                                             </li>
                                             <li className="lix">
                                                 <label className="labelx" form="type">Тип бота</label>
-                                                <Dropdown placeholder='Тип бота' fluid selection id="type" name="type" options={friendOptions} defaultValue='Публичный'/>
+                                                <Dropdown onChange={this.handleDropdownChange} placeholder='Тип бота' fluid selection id="type" name="type" options={friendOptions} value={this.state.botType}/>
                                             </li>
                                             <li className="lix">
                                                 <label className="labelx" form="secret">Кодовое слово</label>
@@ -120,14 +121,14 @@ class MainSetupForm  extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        event.preventDefault();
         const data = new FormData(event.target);
         const name = data.get('name');
         const description = data.get('description');
-        const note = data.get('secret');
-        const propjectDataRequest = Object.assign({}, {id: this.state.project.id, name, 'description': description, 'note': note });
+        const secret = data.get('secret');
+        const aPrivate = this.state.botType === 'Приватный';
+        const projectDataRequest = Object.assign({}, {id: this.state.project.id, 'name' : name, 'description': description, 'secret': secret, 'isPrivate': aPrivate ? 'true' : 'false' });
 
-        projectUpdate(propjectDataRequest)
+        projectUpdate(projectDataRequest)
             .then(response => {
                 if (response.error) {
                     Alert.warning(response.error + '. Необходимо заново авторизоваться.');
@@ -151,6 +152,8 @@ class MainSetupForm  extends Component {
             [inputName] : inputValue
         });
     }
+
+    handleDropdownChange = (e, { value }) => this.setState({ botType: value });
 
     handleImageUpload() {
         let element = document.getElementsByClassName('errorMessage');
