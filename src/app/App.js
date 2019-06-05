@@ -8,6 +8,7 @@ import Home from '../home/Home'
 import Tools from '../admin/Tools'
 import Login from '../user/login/Login';
 import Feedback from '../feedback/Feedback';
+import Admin from '../admin/Admin'
 import Signup from '../user/signup/Signup';
 import Profile from '../user/profile/Profile';
 import Project from '../project/Project';
@@ -83,7 +84,9 @@ class App extends Component {
                         <Route exact path="/feedback" render={(props) => <Feedback {...props} currentUser={this.state.currentUser} /> } />
                         {/*<Route exact path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Profile} />*/}
                         {/*<Route path="/project" component={Project}/>*/}
-                        {/*<Route exact path="/project/tools" render={(props) => <Tools {...props} project={this.state.targetProjectId}/> } />*/}
+                        {/*<Route path="/administration" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Admin}/>*/}
+                        {/*<Route exact path="/project" render={(props) => <Tools {...props} project={this.state.targetProjectId}/> } />*/}
+                        <PrivateRoute path="/administration" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Admin}/>
                         <PrivateRoute path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Profile}/>
                         <PrivateRoute path="/project" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Project}/>
                         <PrivateRoute exact path="/project/tools" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Project}/>

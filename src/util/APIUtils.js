@@ -161,3 +161,10 @@ export function projectmageUpdate(formData) {
         body: formData
     });
 }
+
+export function systemLogListGet() {
+    return request({
+        url: API_BASE_URL + "/admin/system/log",
+        method: 'POST'
+    });
+}
