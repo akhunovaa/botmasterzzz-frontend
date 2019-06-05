@@ -26,15 +26,17 @@ class Admin extends Component {
                 {
                     items.map(item => (
                         <Table.Row key={item.audWhenUpdate}>
-                            <Table.Cell>{item.user.login}</Table.Cell>
+                            <Table.Cell selectable>
+                                <a href='#'>{item.user.login}</a>
+                            </Table.Cell>
                             <Table.Cell>{item.ipAddress}</Table.Cell>
                             <Table.Cell>{item.referer}</Table.Cell>
                             <Table.Cell>{item.fullUrl}</Table.Cell>
                             <Table.Cell>{item.clientOs}</Table.Cell>
                             <Table.Cell>{item.userAgent}</Table.Cell>
                             <Table.Cell>{item.clientBrowser}</Table.Cell>
-                            <Table.Cell>{new Date(item.audWhenCreate).getDate() + "-" + new Date(item.audWhenCreate).getMonth() + "-" + new Date(item.audWhenCreate).getFullYear()}</Table.Cell>
-                            <Table.Cell>{item.token}</Table.Cell>
+                            <Table.Cell>{new Date(item.audWhenCreate).toISOString()}</Table.Cell>
+                            <Table.Cell verticalAlign='top'>{item.token}</Table.Cell>
                             <Table.Cell>{item.note}</Table.Cell>
                         </Table.Row>
                     ))
@@ -54,9 +56,9 @@ class Admin extends Component {
                         </Header>
                     </Segment>
                 </div>
-                <Table celled fixed>
-                    <Table.Header>
-                        <Table.Row>
+                <Table celled fixed selectable padded sortable striped structured unstackable>
+                    <Table.Header fullWidth>
+                        <Table.Row active textAlign={'center'}>
                             <Table.HeaderCell>Пользователь</Table.HeaderCell>
                             <Table.HeaderCell>IP адрес</Table.HeaderCell>
                             <Table.HeaderCell>Referrer</Table.HeaderCell>
@@ -91,7 +93,7 @@ class Admin extends Component {
             .then(response => {
                 if (this._isMounted) {
                     this.setState({
-                        projects : response.project
+                        log : response
                     })
                 }
             }).catch(error => {
