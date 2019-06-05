@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import '../styles/min.css';
 import 'react-web-tabs/dist/react-web-tabs.css';
-import {Icon, Segment, Header, Table, Image, Button} from "semantic-ui-react";
+import {Icon, Segment, Header, Table, Popup} from "semantic-ui-react";
 import {systemLogListGet} from "../util/APIUtils";
 import Alert from "react-s-alert";
-import {Grid} from "semantic-ui-react/dist/commonjs/collections/Grid";
 
 class Admin extends Component {
 
@@ -19,25 +18,22 @@ class Admin extends Component {
     }
 
     render() {
-
         const Adm = ({items}) => (
 
             <>
                 {
                     items.map(item => (
-                        <Table.Row key={item.audWhenUpdate}>
-                            <Table.Cell selectable>
-                                <a href='#'>{item.user.login}</a>
-                            </Table.Cell>
-                            <Table.Cell>{item.ipAddress}</Table.Cell>
-                            <Table.Cell>{item.referer}</Table.Cell>
-                            <Table.Cell>{item.fullUrl}</Table.Cell>
-                            <Table.Cell>{item.clientOs}</Table.Cell>
-                            <Table.Cell>{item.userAgent}</Table.Cell>
-                            <Table.Cell>{item.clientBrowser}</Table.Cell>
-                            <Table.Cell>{new Date(item.audWhenCreate).toISOString()}</Table.Cell>
-                            <Table.Cell verticalAlign='top'>{item.token}</Table.Cell>
-                            <Table.Cell>{item.note}</Table.Cell>
+                        <Table.Row textAlign={'center'} key={item.audWhenUpdate}>
+                            <Popup content={item.user.login} trigger={<Table.Cell selectable>{item.user.login}</Table.Cell>} />
+                            <Popup content={item.ipAddress} trigger={<Table.Cell selectable>{item.ipAddress}</Table.Cell>} />
+                            <Popup content={item.referer} trigger={<Table.Cell selectable>{item.referer}</Table.Cell>} />
+                            <Popup content={item.fullUrl} trigger={<Table.Cell selectable>{item.fullUrl}</Table.Cell>} />
+                            <Popup content={item.clientOs} trigger={<Table.Cell selectable>{item.clientOs}</Table.Cell>} />
+                            <Popup content={item.userAgent} trigger={<Table.Cell selectable>{item.userAgent}</Table.Cell>} />
+                            <Popup content={item.clientBrowser} trigger={<Table.Cell selectable>{item.clientBrowser}</Table.Cell>} />
+                            <Popup content={new Date(item.audWhenCreate).toISOString()} trigger={<Table.Cell selectable>{new Date(item.audWhenCreate).toISOString()}</Table.Cell>} />
+                            <Popup content={item.token} trigger={<Table.Cell selectable>{item.token}</Table.Cell>} />
+                            <Popup content={item.note} trigger={<Table.Cell selectable>{item.note}</Table.Cell>} />
                         </Table.Row>
                     ))
                 }
