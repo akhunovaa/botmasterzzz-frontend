@@ -93,7 +93,7 @@ class Admin extends Component {
                     })
                 }
             }).catch(error => {
-            Alert.error('Ошибка получения списка проектов' || (error && error.message));
+            Alert.error('У Вас недостаточно прав для просмотра данной страницы');
         });
     }
 
