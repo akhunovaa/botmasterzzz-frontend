@@ -25,7 +25,7 @@ class Admin extends Component {
             <>
                 {
                     items.map(item => (
-                        <Table.Row>
+                        <Table.Row key={item.audWhenUpdate}>
                             <Table.Cell>{item.user.login}</Table.Cell>
                             <Table.Cell>{item.ipAddress}</Table.Cell>
                             <Table.Cell>{item.referer}</Table.Cell>
