@@ -22,7 +22,7 @@ class Project extends Component {
         projectGet(mainInfoRequest)
             .then(response => {
                this.setState({
-                       edit: true,
+                       edit: value,
                        projectId: response.project.id ? response.project.id : projectId,
                        project: response.project
                })

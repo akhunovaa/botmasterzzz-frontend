@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import '../styles/min.css';
 import 'react-web-tabs/dist/react-web-tabs.css';
-import {Icon, Segment, Header, Table, Popup} from "semantic-ui-react";
+import {Icon, Segment, Header, Table, Popup, Breadcrumb} from "semantic-ui-react";
 import {systemLogListGet} from "../util/APIUtils";
 import Alert from "react-s-alert";
+import {NavLink} from 'react-router-dom'
 
 class Admin extends Component {
 
@@ -18,6 +19,7 @@ class Admin extends Component {
     }
 
     render() {
+
         const Adm = ({items}) => (
 
             <>
@@ -51,6 +53,14 @@ class Admin extends Component {
                             </Header.Content>
                         </Header>
                     </Segment>
+                    <Breadcrumb>
+                        <Breadcrumb.Section as={NavLink} to={'/'} link>Главная страница</Breadcrumb.Section>
+                        <Breadcrumb.Divider icon='right chevron' />
+                        <Breadcrumb.Section as={NavLink} to={'/administration'} link>Администраторская панель</Breadcrumb.Section>
+                        <Breadcrumb.Divider icon='right arrow' />
+                        <Breadcrumb.Section active>Панель просмотра журнала авторизаций</Breadcrumb.Section>
+                    </Breadcrumb>
+
                 </div>
                 <Table celled fixed selectable padded sortable striped structured unstackable>
                     <Table.Header fullWidth>

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import {Button, Container, Grid, Header, Icon, Image, Input, Modal, Segment} from "semantic-ui-react";
+import {Button, Container, Grid, Header, Icon, Image, Input, Modal, Segment, Breadcrumb} from "semantic-ui-react";
 import TestLogo from "../img/github-logo.png";
 import {projectCreateRequestSend, projectDeleteRequestSend, projectListGet} from "../util/APIUtils";
 import Alert from "react-s-alert";
+import {NavLink} from "react-router-dom";
 
 class ProjectForms extends Component {
 
@@ -96,6 +97,13 @@ class ProjectForms extends Component {
                             {/*content='Удаленные'/>*/}
                         </Header>
                     </Segment>
+                    <Breadcrumb>
+                        <Breadcrumb.Section as={NavLink} to={'/'} link>Главная страница</Breadcrumb.Section>
+                        <Breadcrumb.Divider icon='right chevron' />
+                        <Breadcrumb.Section as={NavLink} to={'/project'} link>Панель управления проектами</Breadcrumb.Section>
+                        <Breadcrumb.Divider icon='right arrow' />
+                        <Breadcrumb.Section active>Мои боты</Breadcrumb.Section>
+                    </Breadcrumb>
                 </div>
                 <div className='project-layer'>
                     {

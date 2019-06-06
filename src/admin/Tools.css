@@ -17,13 +17,11 @@
 .tools-header {
     font-weight: 700;
     font-size: 1.28571429rem;
-    display: inline-block;
+    display: grid;
     width: 100%;
     border: 1px solid rgba(34,36,38,.15);
     padding-left: 12px;
     padding-right: 12px;
-    padding-bottom: 12px;
-    margin-bottom: 12px;
 }
 
 div.header-bottom {

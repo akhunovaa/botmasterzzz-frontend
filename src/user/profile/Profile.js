@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import './Profile.css';
-import {Button, Header, Icon, Image, Input, Segment} from 'semantic-ui-react'
+import {Button, Header, Icon, Image, Input, Segment, Breadcrumb} from 'semantic-ui-react'
 import ReactPhoneInput from 'react-phone-input-2'
 import {profileInfoUpdate, profilePasswordUpdate, profileImageUpdate} from "../../util/APIUtils";
 import Alert from "react-s-alert";
 import ImageUploader from 'react-images-upload';
+import {NavLink} from "react-router-dom";
 
 class Profile extends Component {
 
@@ -55,6 +56,13 @@ class Profile extends Component {
                             </Header.Content>
                         </Header>
                     </Segment>
+                    <Breadcrumb>
+                        <Breadcrumb.Section as={NavLink} to={'/'} link>Главная страница</Breadcrumb.Section>
+                        <Breadcrumb.Divider icon='right chevron' />
+                        <Breadcrumb.Section as={NavLink} to={'/profile'} link>Панель управления профилем</Breadcrumb.Section>
+                        <Breadcrumb.Divider icon='right arrow' />
+                        <Breadcrumb.Section active>Редактирование профиля</Breadcrumb.Section>
+                    </Breadcrumb>
                 </div>
 
                 <div className="profile-info">
