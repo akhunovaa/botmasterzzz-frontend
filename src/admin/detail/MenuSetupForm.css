@@ -124,3 +124,7 @@
     padding-right: 1em;
     float: right;
 }
+
+.clicked {
+    background-color: rgba(76, 143, 200, 0.47);
+}

@@ -271,8 +271,7 @@ class ProjectForms extends Component {
                     Alert.success('Проект "' + response.project.name + '" успешно создан');
                 }
             }).catch(error => {
-                console.log(error)
-            // Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
+            Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
         });
 
 

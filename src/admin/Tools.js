@@ -96,7 +96,7 @@ class Tools extends Component {
                             </TabList>
 
                             <TabPanel tabId="vertical-tab-one">
-                                <MenuSetupForm {...this.props} />
+                                <MenuSetupForm project = {this.state.project} />
                             </TabPanel>
 
                             <TabPanel tabId="vertical-tab-two">

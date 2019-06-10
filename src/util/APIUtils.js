@@ -24,6 +24,29 @@ const request = (options) => {
         );
 };
 
+const requestGet = (options) => {
+    const headers = new Headers({
+        'Accept': 'application/json;charset=UTF-8'
+    });
+
+    if(localStorage.getItem(ACCESS_TOKEN)) {
+        headers.append('Authorization', 'Bearer ' + localStorage.getItem(ACCESS_TOKEN))
+    }
+
+    const defaults = {headers: headers};
+    options = Object.assign({}, defaults, options);
+
+    return fetch(options.url, options)
+        .then(response =>
+            response.json().then(json => {
+                if(!response.ok) {
+                    return Promise.reject(json);
+                }
+                return json;
+            })
+        );
+};
+
 const requestImage = (options) => {
 
     const headers = new Headers({
@@ -165,6 +188,40 @@ export function projectmageUpdate(formData) {
 export function systemLogListGet() {
     return request({
         url: API_BASE_URL + "/admin/system/log",
+        //url: "http://localhost:8062" + "/admin/system/log",
         method: 'POST'
+    });
+}
+
+export function commandListGet(paramData) {
+    let query = Object.keys(paramData)
+        .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(paramData[k]))
+        .join('&');
+    return requestGet({
+        url: API_BASE_URL + "/project/command/list?"  + query,
+        method: 'GET',
+    });
+}
+export function commandCreateRequestSend(projectCreateRequest) {
+    return request({
+        url: API_BASE_URL + "/project/command/add",
+        method: 'POST',
+        body: JSON.stringify(projectCreateRequest)
+    });
+}
+
+export function commandUpdateRequestSend(projectUpdateRequest) {
+    return request({
+        url: API_BASE_URL + "/project/command/update",
+        method: 'POST',
+        body: JSON.stringify(projectUpdateRequest)
+    });
+}
+
+export function commandDeleteRequestSend(projectDeleteRequest) {
+    return request({
+        url: API_BASE_URL + "/project/command/delete",
+        method: 'POST',
+        body: JSON.stringify(projectDeleteRequest)
     });
 }
