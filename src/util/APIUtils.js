@@ -225,3 +225,30 @@ export function commandDeleteRequestSend(projectDeleteRequest) {
         body: JSON.stringify(projectDeleteRequest)
     });
 }
+
+export function projectBotStatusGet(projectBot) {
+    return request({
+        url: API_BASE_URL + "/telegram/status",
+        //url: "http://localhost:8064" + "/telegram/status",
+        method: 'POST',
+        body: JSON.stringify(projectBot)
+    });
+}
+
+export function projectBotStart(projectBot) {
+    return request({
+        url: API_BASE_URL + "/telegram/start",
+        //url: "http://localhost:8064" + "/telegram/start",
+        method: 'POST',
+        body: JSON.stringify(projectBot)
+    });
+}
+
+export function projectBotStop(projectBot) {
+    return request({
+        url: API_BASE_URL + "/telegram/stop",
+        //url: "http://localhost:8064" + "/telegram/stop",
+        method: 'POST',
+        body: JSON.stringify(projectBot)
+    });
+}

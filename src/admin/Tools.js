@@ -8,20 +8,31 @@ import PrivacySetupForm from "./preference/PrivacySetupForm";
 import MenuSetupForm from "./detail/MenuSetupForm";
 import AutoPostSetupForm from "./detail/AutoPostSetupForm";
 import TokenSetupForm from "./preference/TokenSetupForm";
-import {Icon, Segment, Header, Breadcrumb} from "semantic-ui-react";
+import {Icon, Segment, Header, Breadcrumb, Button} from "semantic-ui-react";
 import {NavLink} from "react-router-dom";
+import {projectBotStatusGet, projectBotStart, projectBotStop} from "../util/APIUtils";
+import Alert from "react-s-alert";
 class Tools extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
             loading: false,
+            loaded: false,
+            botStatus: false,
+            errorMessage: '',
+            updatedTime: '',
+            createdTime: '',
             projectId: props.projectId,
             project: props.project
         };
+        this.getProjectBotStatus = this.getProjectBotStatus.bind(this);
+        this.botProjectStart = this.botProjectStart.bind(this);
+        this.botProjectStop = this.botProjectStop.bind(this);
     }
 
     render() {
+
         return (
             <div className="tools-container">
                 <div className="tools-header">
@@ -46,17 +57,25 @@ class Tools extends Component {
                     </Breadcrumb>
                 </div>
 
-                <div className="divTable paleBlueRows">
-                    <div className="divTableBody">
-                        <div className="divTableRow">
-                            <div className="divTableCell">Статус: </div>
-                            <div className="divTableCell">
-                                <input type="checkbox" id="cbx" style={{display: "none"}} />
-                                <label htmlFor="cbx" className="toggle"><span/></label>
-                            </div>
-                        </div>
+                <div className="subheader">
+                    <Button.Group>
+                    <Button icon='play' size={'mini'} color={'vk'} onClick={this.botProjectStart}/>
+                    <Button icon='pause' size={'mini'} color={'vk'} onClick={this.botProjectStop}/>
+                    </Button.Group>
+                    <div className="status-activity">
+                        <label style={{marginRight: '12px'}}>Статус бота: {this.state.botStatus ? 'Запущен' : 'Остановлен'}</label>
+                    </div>
+                    <div className="status-activity">
+                        <label style={{marginRight: '12px'}}>Системное сообщение: {this.state.errorMessage ? this.state.errorMessage : 'неизвестно'}</label>
+                    </div>
+                    <div className="status-activity">
+                        <label style={{marginRight: '12px'}}>Первый запуск: {this.state.createdTime ? new Date(this.state.createdTime).toLocaleString() : 'неизвестно'}</label>
+                    </div>
+                    <div className="status-activity">
+                        <label style={{marginRight: '12px'}}>Последний запуск: {this.state.updatedTime ? new Date(this.state.updatedTime).toLocaleString() : 'неизвестно'}</label>
                     </div>
                 </div>
+
                 <div className="tabs">
                     <input id="tab1" type="radio" name="tabs" defaultChecked/>
                     <label htmlFor="tab1" title="Настройки">Настройки</label>
@@ -117,6 +136,77 @@ class Tools extends Component {
         );
     }
 
+    componentDidMount() {
+        this.getProjectBotStatus()
+    }
+
+    getProjectBotStatus(){
+        if (this.state.loaded) return;
+        let projectId = this.state.project.id;
+        let data = {
+            "projectId": projectId
+        };
+        projectBotStatusGet(data)
+            .then(response => {
+                this.setState({
+                    botStatus: response.telegram.status,
+                    errorMessage: response.telegram.lastError,
+                    createdTime: response.telegram.created,
+                    updatedTime: response.telegram.updated,
+                    loaded: true
+                });
+            }).catch(error => {
+            Alert.error('У Вас недостаточно прав для просмотра данной страницы');
+        });
+    }
+
+    botProjectStart (){
+        if (this.state.botStatus) {
+            Alert.warning('Экземпляр бота уже запущен');
+            return;
+        }
+        let projectId = this.state.project.id;
+        let data = {
+            "projectId": projectId
+        };
+
+            projectBotStart(data)
+                .then(response => {
+                    this.setState({
+                        botStatus: response.telegram.status,
+                        errorMessage: response.telegram.lastError,
+                        createdTime: response.telegram.created,
+                        updatedTime: response.telegram.updated
+                    })
+                }).catch(error => {
+                Alert.error('У Вас недостаточно прав для просмотра данной страницы');
+            });
+
+    };
+
+    botProjectStop (){
+        if (!this.state.botStatus) {
+            Alert.warning('Экземпляр бота остановлен');
+            return;
+        }
+        let projectId = this.state.project.id;
+        let data = {
+            "projectId": projectId
+        };
+
+            projectBotStop(data)
+                .then(response => {
+                    this.setState({
+                        botStatus: response.telegram.status,
+                        errorMessage: response.telegram.lastError,
+                        createdTime: response.telegram.created,
+                        updatedTime: response.telegram.updated
+                    })
+                }).catch(error => {
+                Alert.error('У Вас недостаточно прав для просмотра данной страницы');
+            });
+
+    };
 
 
 }

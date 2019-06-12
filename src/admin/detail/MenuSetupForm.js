@@ -244,7 +244,6 @@ class MainSetupForm  extends Component {
                     })
                 }
             }).catch(error => {
-                console.log(error)
             Alert.error('У Вас недостаточно прав для просмотра данной страницы');
         });
     }

@@ -33,7 +33,7 @@ class Admin extends Component {
                             <Popup content={item.clientOs} trigger={<Table.Cell selectable>{item.clientOs}</Table.Cell>} />
                             <Popup content={item.userAgent} trigger={<Table.Cell selectable>{item.userAgent}</Table.Cell>} />
                             <Popup content={item.clientBrowser} trigger={<Table.Cell selectable>{item.clientBrowser}</Table.Cell>} />
-                            <Popup content={new Date(item.audWhenCreate).toISOString()} trigger={<Table.Cell selectable>{new Date(item.audWhenCreate).toISOString()}</Table.Cell>} />
+                            <Popup content={new Date(item.audWhenCreate).toISOString()} trigger={<Table.Cell selectable>{new Date(item.audWhenCreate).toLocaleString()}</Table.Cell>} />
                             <Popup content={item.token} trigger={<Table.Cell selectable>{item.token}</Table.Cell>} />
                             <Popup content={item.note} trigger={<Table.Cell selectable>{item.note}</Table.Cell>} />
                         </Table.Row>
