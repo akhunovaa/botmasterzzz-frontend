@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Checkbox, Grid, Input, Modal, TextArea} from 'semantic-ui-react'
+import {Button, Checkbox, Dropdown, Grid, Input, Modal, TextArea} from 'semantic-ui-react'
 import Alert from "react-s-alert";
 import {commandUpdateRequestSend} from "../../../util/APIUtils";
 
@@ -13,6 +13,7 @@ class MenuCommandEditModal extends Component {
             command: '',
             commandName: '',
             answer: '',
+            commandType: '',
             privacy: false
         };
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -50,6 +51,10 @@ class MenuCommandEditModal extends Component {
                                             <TextArea className="text-area text-area-modal" rows={4}
                                                       id="answer" name="answer" defaultValue={this.props.selectedRow.answer}
                                                       onChange={this.handleInputChange} required/>
+                                        </li>
+                                        <li className="li-modal-menu">
+                                            <label className="labelx" form="answer">Тип возвращаемого ответа</label>
+                                            <Dropdown onChange={this.handleDropdownChange} placeholder='Тип ответа' defaultValue={this.props.selectedCommandType.value} fluid selection id="commandType" name="commandType" options={this.props.options}/>
                                         </li>
                                         <li className="li-modal-menu">
                                             <label className="labelx" form="privacy">Видимость</label>
@@ -100,6 +105,7 @@ class MenuCommandEditModal extends Component {
         const projectUpdateRequest = Object.assign({}, {
             'command': this.state.command ? this.state.command : this.props.selectedRow.command,
             'commandName': this.state.commandName ? this.state.commandName : this.props.selectedRow.commandName,
+            'commandType': this.state.commandType ? this.state.commandType : this.props.selectedRow.commandType,
             'answer': this.state.answer ? this.state.answer : this.props.selectedRow.answer,
             'projectId': this.props.project.id,
             'id': this.props.selectedRow.id,
@@ -130,6 +136,22 @@ class MenuCommandEditModal extends Component {
     handleToggleChange(e, {checked}) {
         this.setState({
             privacy: checked
+        });
+    };
+
+
+    handleDropdownChange = (e, { value }) => {
+        let id;
+        for (let i = 0; i < this.props.options.length; i++) {
+            let iterValue = this.props.options[i].value;
+            if (iterValue === value){
+                id = this.props.options[i].key;
+            }
+        }
+        this.setState({
+            commandType: {
+                id: id
+            }
         });
     };
 

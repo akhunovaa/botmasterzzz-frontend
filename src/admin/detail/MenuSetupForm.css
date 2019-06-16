@@ -13,7 +13,7 @@
     border-color: threedface;
     border-image: initial;
     margin: 0 0 0 0;
-    width: 700px;
+    display: inline-block;
 }
 
 .fieldset-modal-menu {
@@ -42,12 +42,14 @@
     padding: 1em 1em 0 1em;
     list-style: none;
     zoom: 1;
+    display: inline-block;
 }
 
 .li-menu {
     padding-bottom: 1em;
     padding-right: 1em;
     font-size: 1rem;
+    width: 100%;
 }
 
 .legend-main {

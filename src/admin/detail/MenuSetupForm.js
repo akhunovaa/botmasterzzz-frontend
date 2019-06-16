@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './MenuSetupForm.css';
-import {Button, Checkbox, Grid, Input, List, Modal, Popup, Table, TextArea} from 'semantic-ui-react'
+import {Button, Checkbox, Dropdown, Grid, Input, List, Modal, Popup, Table, TextArea} from 'semantic-ui-react'
 import {commandCreateRequestSend, commandListGet} from "../../util/APIUtils";
 import Alert from "react-s-alert";
 import MenuCommandEditModal from "./modals/MenuCommandEditModal";
@@ -30,6 +30,7 @@ class MainSetupForm  extends Component {
             openDelete: false,
             openGroup: false,
             commandName: '',
+            commandType: '',
             answer: '',
             privacy: false,
             command: '',
@@ -42,9 +43,32 @@ class MainSetupForm  extends Component {
                 id: '',
                 command: '',
                 commandName: '',
+                commandType: '',
                 answer: '',
                 privacy: ''
-            }
+            },
+            commandAnswerType: [
+                {
+                    key: 1,
+                    text: 'Текст',
+                    value: 'Текст',
+                },
+                {
+                    key: 2,
+                    text: 'Внутренняя кнопка чата',
+                    value: 'Внутренняя кнопка чата',
+                },
+                {
+                    key: 3,
+                    text: 'Внешняя кнопка чата',
+                    value: 'Внешняя кнопка чата',
+                },
+                {
+                    key: 4,
+                    text: 'Отправка изображения',
+                    value: 'Отправка изображения',
+                }
+            ]
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -60,11 +84,12 @@ class MainSetupForm  extends Component {
             <>
                 {
                     items.map(item => (
-                        <Table.Row onClick={(e) => this.handleRowClicked(item.id, e)} textAlign='center' id={item.id} key={item.id}>
+                        <Table.Row onClick={(e) => this.handleRowClicked(item.id, item.commandType, e)} textAlign='center' id={item.id} key={item.id}>
                             <Popup content={item.command} trigger={<Table.Cell>{item.command}</Table.Cell>} />
                             <Popup content={item.commandName} trigger={<Table.Cell>{item.commandName}</Table.Cell>} />
                             <Popup content={item.answer} trigger={<Table.Cell>{item.answer}</Table.Cell>} />
-                            <Table.Cell> <Checkbox fitted slider defaultChecked = {item.privacy}/></Table.Cell>
+                            <Table.Cell><Dropdown placeholder='Тип ответа' fluid selection id={item.commandType.id} name="type" options={this.state.commandAnswerType} defaultValue={item.commandType.name}/></Table.Cell>
+                            <Table.Cell><Checkbox fitted slider defaultChecked = {item.privacy}/></Table.Cell>
                             <Table.Cell style={{display: 'none'}}>{item.id}</Table.Cell>
                         </Table.Row>
                     ))}
@@ -98,6 +123,7 @@ class MainSetupForm  extends Component {
                                                     <Table.HeaderCell>Команда</Table.HeaderCell>
                                                     <Table.HeaderCell>Название</Table.HeaderCell>
                                                     <Table.HeaderCell>Ответ</Table.HeaderCell>
+                                                    <Table.HeaderCell>Тип ответа</Table.HeaderCell>
                                                     <Table.HeaderCell>Видимость</Table.HeaderCell>
                                                 </Table.Row>
                                             </Table.Header>
@@ -126,21 +152,25 @@ class MainSetupForm  extends Component {
                                         <li className="li-modal-menu">
                                             <label className="labelx" form="name">Наименование пункта меню</label>
                                             <Input className="inputx" type="text" id="commandName" name="commandName"
-                                                   placeholder="Наименование пункта меню" value={this.state.commandName} onChange={this.handleInputChange} required/>
+                                                   placeholder="Наименование пункта меню" onChange={this.handleInputChange} required/>
                                         </li>
                                         <li className="li-modal-menu">
                                             <label className="labelx" form="menuCommand">Команда</label>
                                             <Input className="inputx" type="text" id="command" name="command"
-                                                   placeholder="/help" value={this.state.command} onChange={this.handleInputChange} required/>
+                                                   placeholder="/help" onChange={this.handleInputChange} required/>
                                         </li>
                                         <li className="li-modal-menu">
                                             <label className="labelx" form="answer">Ответ</label>
                                             <TextArea className="text-area text-area-modal" rows={2}
-                                                      id="answer" name="answer" value={this.state.answer} onChange={this.handleInputChange} required/>
+                                                      id="answer" name="answer" onChange={this.handleInputChange} required/>
+                                        </li>
+                                        <li className="li-modal-menu">
+                                            <label className="labelx" form="answer">Тип возвращаемого ответа</label>
+                                            <Dropdown onChange={this.handleDropdownChange} placeholder='Тип ответа' fluid selection id="commandType" name="commandType" options={this.state.commandAnswerType}/>
                                         </li>
                                         <li className="li-modal-menu">
                                             <label className="labelx" form="privacy">Видимость</label>
-                                            <Checkbox slider id="privacy" name="privacy" defaultChecked={this.state.privacy} onChange={this.handleToggleChange}/>
+                                            <Checkbox slider id="privacy" name="privacy" onChange={this.handleToggleChange}/>
                                         </li>
                                     </ol>
                                 </Grid.Column>
@@ -172,7 +202,7 @@ class MainSetupForm  extends Component {
                     </Modal.Actions>
                 </Modal>
 
-                <MenuCommandEditModal selectedRow={this.state.selectedRow} project={this.state.project} open={openEdit} onClose={this.close} refresh={this.refresh}/>
+                <MenuCommandEditModal options={this.state.commandAnswerType} selectedCommandType={this.state.commandType} selectedRow={this.state.selectedRow} project={this.state.project} open={openEdit} onClose={this.close} refresh={this.refresh}/>
                 <MenuCommandDeleteModal selectedRow={this.state.selectedRow} project={this.state.project} open={openDelete} onClose={this.close} refresh={this.refresh}/>
 
 
@@ -262,6 +292,27 @@ class MainSetupForm  extends Component {
         });
     }
 
+    handleDropdownChange = (e, { value }) => {
+        let id;
+        let iValue;
+        let text;
+        for (let i = 0; i < this.state.commandAnswerType.length; i++) {
+            let iterValue = this.state.commandAnswerType[i].value;
+            if (iterValue === value){
+                id = this.state.commandAnswerType[i].key;
+                iValue = this.state.commandAnswerType[i].value;
+                text = this.state.commandAnswerType[i].text;
+            }
+        }
+        console.log(value)
+        this.setState({
+            commandType: {
+                id: id,
+                value: iValue,
+                text: text
+            }
+        });
+    };
 
     commandCreate(event) {
         event.preventDefault();
@@ -278,9 +329,12 @@ class MainSetupForm  extends Component {
             Alert.warning('Необходимо ввести ответ для пункта меню');
             return
         }
+
+
         const projectCreateRequest = Object.assign({}, {
             'command': this.state.command,
             'commandName': this.state.commandName,
+            'commandType':  this.state.commandType,
             'answer': this.state.answer,
             'projectId': this.state.project.id,
             'privacy': this.state.privacy
@@ -310,7 +364,7 @@ class MainSetupForm  extends Component {
         });
     };
 
-    handleRowClicked = (key, event) => {
+    handleRowClicked = (key, commandType, event) => {
         if ('THEAD' === event.target.parentNode.parentNode.tagName) {
             return;
         }
@@ -333,15 +387,32 @@ class MainSetupForm  extends Component {
         }
 
         let selectedElementChildNodes = element.childNodes;
-        var command = selectedElementChildNodes[0].innerHTML;
-        var commandName = selectedElementChildNodes[1].innerHTML;
-        var answer = selectedElementChildNodes[2].innerHTML;
-        var privacy = selectedElementChildNodes[3].childNodes[1].classList.contains('checked');
+        let command = selectedElementChildNodes[0].innerHTML;
+        let commandName = selectedElementChildNodes[1].innerHTML;
+        let answer = selectedElementChildNodes[2].innerHTML;
+        let selectedValue = selectedElementChildNodes[3].lastChild.childNodes[0].innerHTML;
+
+        let id;
+        let iValue;
+        let text;
+        for (let i = 0; i < this.state.commandAnswerType.length; i++) {
+            let iterValue = this.state.commandAnswerType[i].value;
+            if (iterValue === selectedValue){
+                id = this.state.commandAnswerType[i].key;
+                iValue = this.state.commandAnswerType[i].value;
+                text = this.state.commandAnswerType[i].text;
+            }
+        }
+        let commandiType = {id: id, value: iValue, text: text};
+
+        let privacy = selectedElementChildNodes[4].childNodes[0].classList.contains('checked');
+        this.state.commandType = commandiType;
 
         this.state.selectedRow = {
             id: key,
             command: command,
             commandName: commandName,
+            commandType: commandiType,
             answer: answer,
             privacy: privacy
         };
