@@ -133,7 +133,6 @@ class MainSetupForm  extends Component {
                                             </Table.Body>
                                         </Table>
                                     </li>
-                                    <Button color="vk" id="button" type="submit" className="menu-save">Сохранить</Button>
                                 </ol>
                                     </Grid.Column>
                                     <Grid.Column verticalAlign='middle'>
