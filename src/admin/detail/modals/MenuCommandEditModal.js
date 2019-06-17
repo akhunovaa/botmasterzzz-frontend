@@ -34,16 +34,16 @@ class MenuCommandEditModal extends Component {
                                 <Grid.Column>
                                     <ol className="ol-modal-menu">
                                         <li className="li-modal-menu">
-                                            <label className="labelx" form="name">Наименование пункта меню</label>
-                                            <Input className="inputx" type="text" id="commandName" name="commandName"
-                                                   placeholder="Наименование пункта меню"
-                                                   defaultValue={this.props.selectedRow.commandName}
-                                                   onChange={this.handleInputChange} required/>
-                                        </li>
-                                        <li className="li-modal-menu">
                                             <label className="labelx" form="menuCommand">Команда</label>
                                             <Input className="inputx" type="text" id="command" name="command"
                                                    placeholder="/help" defaultValue={this.props.selectedRow.command}
+                                                   onChange={this.handleInputChange} required/>
+                                        </li>
+                                        <li className="li-modal-menu">
+                                            <label className="labelx" form="name">Команда для кнопки</label>
+                                            <Input className="inputx" type="text" id="commandName" name="commandName"
+                                                   placeholder="Команда для кнопки"
+                                                   defaultValue={this.props.selectedRow.commandName}
                                                    onChange={this.handleInputChange} required/>
                                         </li>
                                         <li className="li-modal-menu">

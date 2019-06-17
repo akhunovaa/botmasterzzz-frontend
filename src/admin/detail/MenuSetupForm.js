@@ -121,7 +121,7 @@ class MainSetupForm  extends Component {
                                             <Table.Header>
                                                 <Table.Row textAlign={'center'}>
                                                     <Table.HeaderCell>Команда</Table.HeaderCell>
-                                                    <Table.HeaderCell>Название</Table.HeaderCell>
+                                                    <Table.HeaderCell>Команда для кнопки</Table.HeaderCell>
                                                     <Table.HeaderCell>Ответ</Table.HeaderCell>
                                                     <Table.HeaderCell>Тип ответа</Table.HeaderCell>
                                                     <Table.HeaderCell>Видимость</Table.HeaderCell>
@@ -149,14 +149,14 @@ class MainSetupForm  extends Component {
                                 <Grid.Column>
                                     <ol className="ol-modal-menu">
                                         <li className="li-modal-menu">
-                                            <label className="labelx" form="name">Наименование пункта меню</label>
-                                            <Input className="inputx" type="text" id="commandName" name="commandName"
-                                                   placeholder="Наименование пункта меню" onChange={this.handleInputChange} required/>
-                                        </li>
-                                        <li className="li-modal-menu">
                                             <label className="labelx" form="menuCommand">Команда</label>
                                             <Input className="inputx" type="text" id="command" name="command"
                                                    placeholder="/help" onChange={this.handleInputChange} required/>
+                                        </li>
+                                        <li className="li-modal-menu">
+                                            <label className="labelx" form="name">Команда для кнопки</label>
+                                            <Input className="inputx" type="text" id="commandName" name="commandName"
+                                                   placeholder="Команда для кнопки" onChange={this.handleInputChange} required/>
                                         </li>
                                         <li className="li-modal-menu">
                                             <label className="labelx" form="answer">Ответ</label>
