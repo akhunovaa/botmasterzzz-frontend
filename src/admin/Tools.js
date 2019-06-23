@@ -6,6 +6,7 @@ import 'react-web-tabs/dist/react-web-tabs.css';
 import MainSetupForm from "./preference/MainSetupForm";
 import PrivacySetupForm from "./preference/PrivacySetupForm";
 import MenuSetupForm from "./detail/MenuSetupForm";
+import CustomSetupMenuForm from "./detail/CustomSetupMenuForm";
 import AutoPostSetupForm from "./detail/AutoPostSetupForm";
 import TokenSetupForm from "./preference/TokenSetupForm";
 import {Icon, Segment, Header, Breadcrumb, Button} from "semantic-ui-react";
@@ -110,7 +111,7 @@ class Tools extends Component {
                         <Tabs defaultTab="vertical-tab-one" vertical>
                             <TabList>
                                 <Tab tabFor="vertical-tab-one">Настройка меню</Tab>
-                                <Tab tabFor="vertical-tab-two">Адреса и контакты</Tab>
+                                <Tab tabFor="vertical-tab-two">Дополнительные пункты меню</Tab>
                                 <Tab tabFor="vertical-tab-three">Автопостинг</Tab>
                             </TabList>
 
@@ -119,11 +120,7 @@ class Tools extends Component {
                             </TabPanel>
 
                             <TabPanel tabId="vertical-tab-two">
-                                {/*<PrivacySetupForm {...this.props} />*/}
-                                <p>
-                                    - Рассылка благодарности, достижений, записи мероприятия
-                                    -️ Оповещение участников о следующем мероприятии (см. пункт 1)
-                                </p>
+                                <CustomSetupMenuForm project = {this.state.project} />
                             </TabPanel>
 
                             <TabPanel tabId="vertical-tab-three">
