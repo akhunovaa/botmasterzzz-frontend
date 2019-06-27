@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
-import {
-    Route,
-    Switch
-} from 'react-router-dom';
+import React, {Component} from 'react';
+import {Route, Switch} from 'react-router-dom';
 import AppHeader from '../common/AppHeader';
+import AppFooter from '../common/AppFooter';
 import Home from '../home/Home'
-import Tools from '../admin/Tools'
+import PrivateRoute from '../common/PrivateRoute'
 import Login from '../user/login/Login';
 import Feedback from '../feedback/Feedback';
 import Admin from '../admin/Admin'
@@ -15,10 +13,9 @@ import Project from '../project/Project';
 import NotFound from '../common/NotFound';
 import OAuth2RedirectHandler from '../user/oauth2/OAuth2RedirectHandler';
 import LoadingIndicator from '../common/LoadingIndicator';
-import { getCurrentUser } from '../util/APIUtils';
-import { ACCESS_TOKEN } from '../constants';
-import { loadReCaptcha } from 'react-recaptcha-google'
-import PrivateRoute from '../common/PrivateRoute';
+import {getCurrentUser} from '../util/APIUtils';
+import {ACCESS_TOKEN} from '../constants';
+import {loadReCaptcha} from 'react-recaptcha-google'
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/slide.css';
@@ -72,32 +69,39 @@ class App extends Component {
     }
 
     render() {
-        if(this.state.loading) {
-            return <LoadingIndicator />
+        if (this.state.loading) {
+            return <LoadingIndicator/>
         }
 
         return (
             <div>
-                    <AppHeader authenticated={this.state.authenticated} onLogout={this.handleLogout} />
-                    <Switch>
-                        <Route exact path="/" component={Home}/>
-                        <Route exact path="/feedback" render={(props) => <Feedback {...props} currentUser={this.state.currentUser} /> } />
-                        {/*<Route exact path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Profile} />*/}
-                        {/*<Route path="/project" component={Project}/>*/}
-                        {/*<Route path="/administration" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Admin}/>*/}
-                        {/*<Route exact path="/project" render={(props) => <Tools {...props} project={this.state.targetProjectId}/> } />*/}
-                        <PrivateRoute path="/administration" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Admin}/>
-                        <PrivateRoute path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Profile}/>
-                        <PrivateRoute path="/project" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Project}/>
-                        <PrivateRoute exact path="/project/tools" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Project}/>
-                        <Route path="/login" render={(props) => <Login authenticated={this.state.authenticated} {...props} />}/>
-                        <Route path="/signup" render={(props) => <Signup authenticated={this.state.authenticated} {...props} />}/>
-                        <Route path="/oauth2/redirect" component={OAuth2RedirectHandler}/>
-                        <Route component={NotFound}/>
-                    </Switch>
+                <AppHeader authenticated={this.state.authenticated} onLogout={this.handleLogout}/>
+                <Switch>
+                    <Route exact path="/" component={Home}/>
+                    <Route exact path="/feedback"
+                           render={(props) => <Feedback {...props} currentUser={this.state.currentUser}/>}/>
+                    {/*<Route exact path="/profile" authenticated={this.state.authenticated}*/}
+                           {/*currentUser={this.state.currentUser} component={Profile}/>*/}
+                    {/*<Route path="/project" component={Project}/>*/}
+                    {/*<Route path="/administration" authenticated={this.state.authenticated}*/}
+                           {/*currentUser={this.state.currentUser} component={Admin}/>*/}
+                    {/*<Route exact path="/project/tools"*/}
+                           {/*render={(props) => <Tools {...props} project={this.state.targetProjectId}/>}/>*/}
+                    <PrivateRoute path="/administration" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Admin}/>
+                    <PrivateRoute path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Profile}/>
+                    <PrivateRoute path="/project" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Project}/>
+                    <PrivateRoute exact path="/project/tools" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Project}/>
+                    <Route path="/login"
+                           render={(props) => <Login authenticated={this.state.authenticated} {...props} />}/>
+                    <Route path="/signup"
+                           render={(props) => <Signup authenticated={this.state.authenticated} {...props} />}/>
+                    <Route path="/oauth2/redirect" component={OAuth2RedirectHandler}/>
+                    <Route component={NotFound}/>
+                </Switch>
+                <AppFooter authenticated={this.state.authenticated} onLogout={this.handleLogout}/>
                 <Alert stack={{limit: 3}}
-                       timeout = {3000}
-                       position='top-right' effect='slide' offset={65} />
+                       timeout={3000}
+                       position='top-right' effect='slide' offset={65}/>
             </div>
         );
     }

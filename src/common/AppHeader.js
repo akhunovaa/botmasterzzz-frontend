@@ -1,63 +1,36 @@
 import React, {Component} from 'react';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './AppHeader.css';
-import '../styles/style.css';
-import mainLogo from '../img/logo.png';
+import logo from '../img/global/logo.png';
 
 class AppHeader extends Component {
     render() {
         return (
-            <div className="b_nav">
-                <div className="header-main">
-                    <div className="b_nav_contacts pull-xs-right">
-                        <a href="mailto:admin@botmasterzzz.com">admin@botmasterzzz.com</a>
-                        <p><a href="https://t.me/balsakas">@balsakas</a></p>
-                    </div>
-                    <a href="/" className="b_nav_link_home pull-xs-left">
-                        <div className="b_nav_logo pull-xs-left">
-                            <img src={mainLogo} alt="Botmasterzzz Logo"/>
-                        </div>
-                        <div className="b_nav_brand pull-xs-left">
-                            Botmasterzzz
-                        </div>
-                    </a>
-                    <div className="b_nav_box">
-                        <nav className="b_nav_links">
+                <div id="header">
+                    <div id="header-center">
+                        <a href="/">
+                            <img src={logo} className="logo" alt='Botmasterzzz.com logo picture'/>
+                        </a>
+                        <ul>
+                            <li><a href="#">RU</a></li>
+                            <li><a href="#">О ПРОЕКТЕ</a></li>
                             {this.props.authenticated ? (
                                 <div>
-                                    <li>
-                                        <NavLink className="active" to="/profile">Профиль</NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink className="active" to="/project">Мои боты</NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink className="active" to="/feedback">Обратная связь</NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink className="active" to="/administration">Администраторская панель</NavLink>
-                                    </li>
-                                    <li>
-                                        <a className="active" onClick={this.props.onLogout}>Выйти</a>
-                                    </li>
+                                    <NavLink style={{float: 'right'}} to="/profile">Профиль</NavLink>
+                                    <NavLink style={{float: 'right'}} to="/project">Мои боты</NavLink>
+                                    <NavLink style={{float: 'right'}} to="/feedback">Обратная связь</NavLink>
+                                    <NavLink style={{float: 'right'}} to="/administration">Администраторская панель</NavLink>
+                                    <a style={{float: 'right'}} onClick={this.props.onLogout}>Выйти</a>
                                 </div>
                             ) : (
                                 <div>
-                                    <li>
-                                        <NavLink className="active" to="/login">Авторизация</NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink className="active" to="/signup">Регистрация</NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink className="active" to="/feedback">Обратная связь</NavLink>
-                                    </li>
+                                    <NavLink style={{float: 'right'}} to="/signup">РЕГИСТРАЦИЯ</NavLink>
+                                    <NavLink style={{float: 'right'}} to="/login">ВХОД</NavLink>
                                 </div>
                             )}
-                        </nav>
+                        </ul>
                     </div>
                 </div>
-            </div>
         )
     }
 }

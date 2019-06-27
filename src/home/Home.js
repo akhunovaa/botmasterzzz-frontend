@@ -1,172 +1,144 @@
-import React, { Component } from 'react';
-import '../styles/style.css';
-import preview from '../img/preview.png';
-import botm from '../img/botmasterzzz.png';
-import dc from '../img/5ba3f7d7fd5c6c28dc.png';
-import a4 from '../img/17a804837802700ea4.jpg';
-import a9 from '../img/50d0312845a05e6da9.png';
-import pan from '../img/pan.png';
-import Display from "./calc/Display";
-import ButtonPanel from "./calc/ButtonPanel";
-import calculate from "./calc/logic/calculate";
+import React, {Component} from 'react';
+import './Home.css';
+import createAllLeft from '../img/global/creat-all-left.png';
+import createAllRight from '../img/global/creat-all-right.png';
+import createButton from '../img/global/creat_btn.png';
+import createAdvantageOne from '../img/global/advantage1.png';
+import createAdvantageTwo from '../img/global/advantage2.png';
+import createAdvantageThree from '../img/global/advantage3.png';
 
 class Home extends Component {
-    state = {
-        total: null,
-        next: null,
-        operation: null,
-    };
 
-    handleClick = buttonName => {
-        this.setState(calculate(this.state, buttonName));
-    };
+    state = {};
 
     render() {
         return (
             <div>
-                <section className="call_to_action">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-md-4">
-                                <img src={botm} className="cta_logo" alt="BOTMASTERZZZ Logo"/>
-                            </div>
-                            <div className="col-md-8">
-                                <h1>Разрабатываем удобных ботов для Telegram</h1>
-
-                                <p>Бот — это аккаунт в мессенджере Telegram, выполняющий запрограммированные действия
-                                    при получении
-                                    определенных команд.</p>
-                            </div>
-
+                <div id="main">
+                    <div id="main-center">
+                        <div id="main-left">
+                            <b>Разрабатываем удобных<br/><br/>ботов для Telegram</b>
+                            <span>
+   	 			Мы знаем, как производить ботов, которые станут неотъемлемой частью Вашего бизнеса и Вашей жизни
+   	 			<hr/>
+   	 		</span>
+                        </div>
+                        <div id="main-right">
+                            <span>Создайте своего уникального бота, научите его командам и позвольте ему решать рутинные задачи за Вас</span>
+                            <b>КАКОГО БОТА ВЫ ХОТИТЕ СОЗДАТЬ?</b>
                         </div>
                     </div>
-                </section>
-
-                <section className="what_they_can_do">
-                    <div className="container">
-                        <h1 className="text-xs-center">Зачем боты пришли в этот мир</h1>
-
-                        <div className="row">
-                            <div className="col-md-5">
-                                <img src={preview} width="95%" alt="Telegram Bot Preview in Botmasterzzz"/>
+                </div>
+                <div id="work">
+                    <div id="work-center">
+                        <h2>КАК ЭТО РАБОТАЕТ?</h2>
+                        <div id="work-block">
+                            <div>
+                                <b>Регистрация</b>
+                                <span>
+   	 		   	  Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
+   	 		   </span>
                             </div>
-                            <div className="col-md-7 text">
-                                <p><b>Гуманность</b> — Я был создан для того, чтобы Люди имели возможность избавиться от
-                                    рутинных дел, отвлечься и проводить как можно больше времени с семьей/друзьями/за
-                                    любимыми делами.
-                                    Я люблю Людей, ценю Их время и готов всячески им помогать.</p>
-
-                                <p><b>Экологичность</b> Экологи́чность — качество бота, отражающее его способность не
-                                    наносить вреда окружающей природе.</p>
-
-                                <p><b>Что мы можем</b><br/>
-                                    <b> - </b> Регистрация людей на мероприятия<br/>
-                                    <b> - </b> Отвечать на вопросы клиентов, оформлять заказы<br/>
-                                    <b> - </b> Выставлять счета на оплату, принимать платежи<br/>
-                                    <b> - </b> Быть полноценным интернет-магазином<br/>
-                                    <b> - </b> Агрегировать информацию из различных источников<br/>
-                                    <b> - </b> Вести учет деятельности Вашего бизнеса<br/>
-                                    <b> - </b> Предоставлять скрипты для Ваших сотрудников<br/>
-                                </p>
-
-                                <p>Боты будут выполнять <b>любые поручения</b>, которые вы им дадите.</p>
+                            <div>
+                                <b>Создайте проект</b>
+                                <span>
+   	 		   	  Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
+   	 		   </span>
                             </div>
-                        </div>
-                        <h3 className="text-xs-center">Мы знаем, как производить ботов, которые станут неотъемлемой
-                            частью Вашего бизнеса и Вашей жизни</h3>
-                    </div>
-                </section>
-
-                <section className="features">
-                    <div className="container">
-                        <h1 className="text-xs-center">Восхитительные возможности ботов</h1>
-
-                        <div className="card-columns">
-                            <div className="card text-xs-center">
-
-                                <div className="card-img-top">
-                                    <Display value={this.state.next || this.state.total || "0"} />
-                                    <img alt="card" className="card-img-top" src={pan}/>
-                                    <ButtonPanel clickHandler={this.handleClick} />
-                                </div>
-
-
-                                 <div className="card-block">
-                                        <h4 className="card-title">Удобная клавиатура</h4>
-
-                                        <p className="card-text">Все, что нужно для управления ботом - простые команды
-                                            или
-                                            универсальная клавиатура, которая создается ботом.</p>
-                                    </div>
+                            <div>
+                                <b>Настройте бота</b>
+                                <span>
+   	 		   	  Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
+   	 		   </span>
                             </div>
-                            <div className="card text-xs-center">
-                                <div className="card-block">
-                                    <h4 className="card-title">Доступ с любого устройства</h4>
-
-                                    <p className="card-text">Все операции и диалоги с ботами синхронизируются на всех
-                                        устройствах. А это
-                                        значит, что обязательный доступ к конкретному устройству не нужен.</p>
-                                </div>
+                            <div>
+                                <b>Делитесь доступом</b>
+                                <span>
+   	 		   	  Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
+   	 		   </span>
                             </div>
-                            <div className="card card-block text-xs-center">
-                                <h4 className="card-title">Мгновенные ответы</h4>
-
-                                <p className="card-text">Клиенты получают мгновенные ответы от бота.</p>
-                            </div>
-                            <div className="card text-xs-center">
-                                <img alt="dc" className="card-img-top" src={dc}/>
-
-                                    <div className="card-block">
-                                        <h4 className="card-title">Местоположение и номер телефона</h4>
-
-                                        <p className="card-text">Боты позволяют мгновенно делиться своим номером
-                                            телефона и местоположением.</p>
-                                    </div>
-                            </div>
-                            <div className="card text-xs-center">
-                                <img  alt="a9" className="card-img-top" src={a9}/>
-
-                                    <div className="card-block">
-                                        <h4 className="card-title">Встроенный режим</h4>
-
-                                        <p className="card-text">Позволяет запускать бота прямо в чате. Можно
-                                            использовать для
-                                            мгновенного уточнения цен на услуги или стоимость товара.</p>
-                                    </div>
-                            </div>
-                            <div className="card text-xs-center">
-                                <img  alt="a4" className="card-img-top" src={a4}/>
-
-                                    <div className="card-block">
-                                        <h4 className="card-title">Встроенная клавиатура</h4>
-
-                                        <p className="card-text">Позволяет мгновенно обновлять информацию изменяя лишь
-                                            сообщение.
-                                            Отлично подойдет для просмотра списка товаров или услуг.</p>
-                                    </div>
-                            </div>
-                            <div className="card text-xs-center">
-                                <div className="card-block">
-                                    <h4 className="card-title">Каналы и чаты</h4>
-
-                                    <p className="card-text">Боты могут работать в каналах и чатах, что дает потрясающие
-                                        возможности для упрощения работы.</p>
-                                </div>
-                            </div>
-                            <div className="card text-xs-center">
-                                <div className="card-block">
-                                    <h4 className="card-title">Статистика</h4>
-
-                                    <p className="card-text">Вы будете иметь полную информацию о текущем использовании
-                                        Вашего бота.</p>
-                                </div>
+                            <div>
+                                <b>Наблюдайте за результатом </b>
+                                <span>
+   	 		   	  Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.
+   	 		   </span>
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
+                <div id="creat-all">
+                    <div id="creat-all-center">
+                        <h2>СОЗДАЙТЕ БОТА ПО СВОИМ ПОТРЕБНОСТЯМ</h2>
+                        <div id="creat-all-controler">
+                            <img src={createAllLeft} alt='create all left'/>
+                                <img src={createAllRight} alt='create all right'/>
+                        </div>
+                        <div id="creat-all-block">
+                            <div>
+                                <b>Обучение</b>
+                            </div>
+                            <div>
+                                <b>Работа с заказами</b>
+                            </div>
+                            <div>
+                                <b>Учет и анализ</b>
+                            </div>
+                            <div>
+                                <b>Рассылка новостей</b>
+                            </div>
+                            <div>
+                                <b>Помощник для клиентов</b>
+                            </div>
+                            <div>
+                                <b>Поисковик</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="creat">
+                    <div id="creat-center">
+   	  	 <span>
+   	  	 	ПРИДУМАЙ, СПРОЕКТИРУЙ И ОЖИВИ СВОЕГО ИНДИВИДУАЛЬНОГО БОТА БЕЗ<br/>
+   	  	 	СПЕЦИАЛЬНЫХ ЗНАНИЙ И НАВЫКОВ В ПРОГРАММИРОВАНИИ
+   	  	 </span>
+                        <a href="#">
+                            <img src={createButton} class="creat_btn" alt="Create button"/>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="advantage">
+                    <div id="advantage-center">
+                        <h2>НАШИ ПРЕИМУЩЕСТВА</h2>
+                        <div id="advantage-block">
+                            <div>
+                                <img src={createAdvantageOne} alt='Advantage create'/>
+                                <b>ГРАФИК РАБОТЫ</b>
+                                <span>
+   	 		   	 Бот с радостью готов работать с полной отдачей 168 часов в неделю без сна, отдыха и внезапных больничных
+   	 		   </span>
+                            </div>
+                            <div>
+                                <img src={createAdvantageTwo} alt='Advantage two'/>
+                                <b>СТАБИЛЬНОСТЬ</b>
+                                <span>
+   	 		   	 Бот не допустит опечатку, не сообщит клиенту ошибочную информацию и не даст недостоверной отчетности
+   	 		   </span>
+                            </div>
+                            <div>
+                                <img src={createAdvantageThree} alt='Advantage three'/>
+                                <b>СТРЕССОУСТОЙЧИВОСТЬ </b>
+                                <span>
+   	 		   	 Бот обладает иммунитетом к человеческим эмоциям. Он всегда дружелюбен, вежлив и счастлив заниматься тем, что ему поручат.
+   	 		   </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        )
+    )
     }
-}
+    }
 
-export default Home;
+    export default Home;

@@ -53,11 +53,7 @@
     /*padding-top: 68px;*/
   /*}*/
 /*}*/
-.b_nav_links {
-  padding: 0;
-  margin: 0 auto;
-  list-style: none;
-}
+
 @media screen and (min-width: 450px) {
   .b_nav_links {
     display: flex;
