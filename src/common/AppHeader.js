@@ -16,10 +16,10 @@ class AppHeader extends Component {
                             <li><a href="#">О ПРОЕКТЕ</a></li>
                             {this.props.authenticated ? (
                                 <div>
-                                    <NavLink style={{float: 'right'}} to="/profile">Профиль</NavLink>
-                                    <NavLink style={{float: 'right'}} to="/project">Мои боты</NavLink>
-                                    <NavLink style={{float: 'right'}} to="/feedback">Обратная связь</NavLink>
-                                    <a style={{float: 'right'}} onClick={this.props.onLogout}>Выйти</a>
+                                    <NavLink style={{float: 'right'}} to="/profile">ПРОФИЛЬ</NavLink>
+                                    <NavLink style={{float: 'right'}} to="/project">МОИ БОТЫ</NavLink>
+                                    <NavLink style={{float: 'right'}} to="/feedback">ОБРАТНАЯ СВЯЗЬ</NavLink>
+                                    <a style={{float: 'right'}} onClick={this.props.onLogout}>ВЫЙТИ</a>
                                 </div>
                             ) : (
                                 <div>
