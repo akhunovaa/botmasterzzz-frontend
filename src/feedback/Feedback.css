@@ -1,19 +1,18 @@
 .feedback-container {
     text-align: center;
-    background: #569acf;
-    border-bottom: 1px solid #5caae6;
     height: 100%;
     padding-top: 50px;
     color: #fff;
     box-shadow: 0px 1px 5px 0px #ad9e9e;
+    background-image: url('../img/global/bg.png');
+    background-size: cover;
+    background-position: initial;
 }
 
 .feedback-content {
     text-align: center;
-    background: #569acf;
     font-family: "Open Sans", sans-serif, Roboto, Arial, Georgia, FontAwesome;
     font-size: 16px;
-    border-bottom: 1px solid #5caae6;
     height: 100%;
 }
 .feedback-content {
