@@ -19,7 +19,6 @@ class AppHeader extends Component {
                                     <NavLink style={{float: 'right'}} to="/profile">Профиль</NavLink>
                                     <NavLink style={{float: 'right'}} to="/project">Мои боты</NavLink>
                                     <NavLink style={{float: 'right'}} to="/feedback">Обратная связь</NavLink>
-                                    <NavLink style={{float: 'right'}} to="/administration">Администраторская панель</NavLink>
                                     <a style={{float: 'right'}} onClick={this.props.onLogout}>Выйти</a>
                                 </div>
                             ) : (
