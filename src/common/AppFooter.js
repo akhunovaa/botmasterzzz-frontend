@@ -43,7 +43,7 @@ class AppFooter extends Component {
                     <ul>
                         <li><a href="#">О ПРОЕКТЕ</a></li>
                         <li><a href="#">О НАС</a></li>
-                        <li><a href="/feedback">Обратная связь</a></li>
+                        <li><a href="/feedback">ОБРАТНАЯ СВЯЗЬ</a></li>
                         <li><a href="#">КОНТАКТЫ</a></li>
 
                         {this.props.authenticated ? (
