@@ -41,15 +41,15 @@ class CommandRow extends Component {
                 {
                         <Table.Row onClick={(e) => this.props.handleRowClicked(item.id, item.commandType, e)}
                                    textAlign='center' id={item.id} >
-                            <Popup content={item.command} trigger={<Table.Cell contentEditable
+                            <Popup content={item.command} trigger={<Table.Cell
                                                                                onChange={this.emitChange}
                                                                                onBlur={this.emitChange}
                                                                                suppressContentEditableWarning>{item.command}</Table.Cell>}/>
-                            <Popup content={item.commandName} trigger={<Table.Cell contentEditable
+                            <Popup content={item.commandName} trigger={<Table.Cell
                                                                                    onChange={this.emitChange}
                                                                                    onBlur={this.emitChange}
                                                                                    suppressContentEditableWarning>{item.commandName}</Table.Cell>}/>
-                            <Popup content={item.answer} trigger={<Table.Cell contentEditable
+                            <Popup content={item.answer} trigger={<Table.Cell
                                                                               onChange={this.emitChange}
                                                                               onBlur={this.emitChange}
                                                                               suppressContentEditableWarning>{item.answer}</Table.Cell>}/>
