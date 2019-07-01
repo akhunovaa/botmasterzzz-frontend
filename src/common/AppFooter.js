@@ -12,8 +12,9 @@ import footer3 from '../img/global/footer3.png';
 class AppFooter extends Component {
     render() {
         return (
-            <div id="footer">
+            <div>
                 {this.props.authenticated ? (
+                    <div id="footer" style={{position: 'absolute'}}>
                         <div id="footer-center">
                             <ul>
                                 <li><a href="#">О ПРОЕКТЕ</a></li>
@@ -24,7 +25,9 @@ class AppFooter extends Component {
 
                             </ul>
                         </div>
+                    </div>
                 ) : (
+                    <div id="footer" style={{position: 'relative'}}>
                         <div id="footer-center">
                             <div id="footer-block">
                                 <div>
@@ -60,6 +63,7 @@ class AppFooter extends Component {
                                 <NavLink style={{float: 'right'}} to="/login">ВХОД</NavLink>
                             </ul>
                         </div>
+                    </div>
                 )}
 
             </div>
