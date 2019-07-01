@@ -20,7 +20,7 @@ h2{
     height: 860px;
     float: left;
     background-image: url('../img/global/bg.png');
-    background-position: center;
+    background-position: bottom;
     background-size: cover;
     /*margin-top: -70px;*/
 }
