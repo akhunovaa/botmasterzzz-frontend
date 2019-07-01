@@ -4,7 +4,6 @@
     border-image:  -webkit-linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);
     border-image-slice: 1;
     margin-bottom: 24px;
-    height: -webkit-fill-available;
 }
 
 .profile-header {
