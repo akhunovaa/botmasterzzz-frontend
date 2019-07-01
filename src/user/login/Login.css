@@ -8,6 +8,7 @@
     background-image: url('../../img/global/bg.png');
     background-size: cover;
     background-position: initial;
+    height: -webkit-fill-available;
 }
 
 .login-content {
