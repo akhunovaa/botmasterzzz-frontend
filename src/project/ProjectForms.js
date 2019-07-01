@@ -109,7 +109,7 @@ class ProjectForms extends Component {
                         this.state.projects.length === 0 ? (
                             <label>Проекты отстутствуют</label>
                         ) : (
-                            <Grid columns='4' stackable>
+                            <Grid columns='3' stackable>
                                 <Projects items={this.state.projects}/>
                             </Grid>
                         )
