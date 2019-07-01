@@ -20,7 +20,7 @@ class CustomSetupMenuForm extends Component {
     render() {
 
         return (
-            <div className="menu-form-container">
+            <div className="custom-menu-form-container">
                 <fieldset className="fieldset-menu">
                     <legend className="legend-custom-main">
                         Дополнительные пункты меню

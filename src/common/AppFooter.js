@@ -14,7 +14,7 @@ class AppFooter extends Component {
         return (
             <div>
                 {this.props.authenticated ? (
-                    <div id="footer" style={{position: 'absolute'}}>
+                    <div id="footer">
                         <div id="footer-center">
                             <ul>
                                 <li><a href="#">О ПРОЕКТЕ</a></li>
@@ -27,7 +27,7 @@ class AppFooter extends Component {
                         </div>
                     </div>
                 ) : (
-                    <div id="footer" style={{position: 'relative'}}>
+                    <div id="footer">
                         <div id="footer-center">
                             <div id="footer-block">
                                 <div>

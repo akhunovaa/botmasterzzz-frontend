@@ -1,5 +1,5 @@
 .token-form-container{
-
+    height: -webkit-fill-available;
 }
 
 .fieldset-token-container {

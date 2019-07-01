@@ -5,8 +5,7 @@
     padding-bottom: 35px;
     padding-top: 15px;
     background: #363f44;
-    left: 0;
-    bottom: 0;
+    position: relative;
 }
 #footer-center{
     width: 1170px;

@@ -4,3 +4,7 @@
     color: #000000;
     font-weight: bold;
 }
+
+.custom-menu-form-container{
+    height: -webkit-fill-available;
+}

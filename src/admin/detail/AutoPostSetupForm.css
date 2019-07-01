@@ -1,7 +1,7 @@
 @import url("../../styles/min.css");
 
 .auto-post-form-container-label{
-    width: 260px;
+    width: 265px;
     margin-left: 1em;
     color: #000000;
     font-weight: bold;
@@ -9,4 +9,15 @@
 
 .autopost-form-save {
     width: 626px;
+}
+
+.fieldset-autopost-menu {
+    height: -webkit-fill-available;
+    width: 100%;
+    border-width: 2px;
+    border-style: groove;
+    border-color: threedface;
+    border-image: initial;
+    margin: 0 0 0 0;
+    display: inline-block;
 }

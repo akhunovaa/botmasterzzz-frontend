@@ -1,5 +1,8 @@
 @import url("../../styles/min.css");
 
+.privacy-form-container {
+    height: -webkit-fill-available;
+}
 .bottom-text {
     padding-left: 20px;
     padding-top: 10px;

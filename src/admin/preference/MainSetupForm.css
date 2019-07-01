@@ -1,7 +1,7 @@
 @import url("../../styles/min.css");
 
 .main-form-container{
-
+    height: -webkit-fill-available;
 }
 
 .dropdown-helper {

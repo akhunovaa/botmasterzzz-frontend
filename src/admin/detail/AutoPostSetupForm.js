@@ -27,8 +27,8 @@ class AutoPostSetupForm  extends Component {
     render() {
         const { open, result, openEdit, openDelete } = this.state;
         return (
-            <div className="auto-post-container">
-                            <fieldset className="fieldset-menu">
+            <div>
+                            <fieldset className="fieldset-autopost-menu">
                                 <legend className="auto-post-form-container-label">
                                     Настройка автопостинга
                                 </legend>
@@ -43,7 +43,6 @@ class AutoPostSetupForm  extends Component {
                                             label={{ tag: true, content: 'vk.com' }}
                                             labelPosition='right'
                                             placeholder='https://vk.com/botmasterzzz'
-                                            size={'large'}
                                         />
                                     </li>
                                     <li className="li-menu">
@@ -54,7 +53,6 @@ class AutoPostSetupForm  extends Component {
                                             label={{ tag: true, content: 'twitter.com' }}
                                             labelPosition='right'
                                             placeholder='https://twitter.com/botmasterzzz'
-                                            size={'large'}
                                         />
                                     </li>
                                     <li className="li-menu">
@@ -65,7 +63,6 @@ class AutoPostSetupForm  extends Component {
                                             label={{ tag: true, content: 'facebook.com' }}
                                             labelPosition='right'
                                             placeholder='https://facebook.com/botmasterzzz'
-                                            size={'large'}
                                         />
                                     </li>
                                     <li className="li-menu">
@@ -76,7 +73,6 @@ class AutoPostSetupForm  extends Component {
                                             label={{ tag: true, content: 'youtube.com' }}
                                             labelPosition='right'
                                             placeholder='https://youtube.com/botmasterzzz'
-                                            size={'large'}
                                         />
                                     </li>
                                     <Button color="vk" id="button" type="submit" className="menu-save">Сохранить</Button>
