@@ -27,18 +27,15 @@
 }
 
 #header{
-    float: left;
     width: 100%;
-    height: 70px;
-    background-image: url('../img/global/bg.png');
+    height: auto;
+    background-position: center;
     background-size: cover;
-    background-position: initial;
 
 }
 #header-center{
-    width: 1170px;
-    max-width: 1170px;
-    height: auto;
+    max-width: 1400px;
+    /*height: auto;*/
     margin: 0 auto;
 }
 .logo{

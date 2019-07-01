@@ -5,14 +5,17 @@
     padding-top: 100px;
     color: #fff;
     box-shadow: 0px 1px 5px 0px #ad9e9e;
-    background-image: url('../../img/global/bg.png');
+    background-image: url('../../img/global/bot.png');
     background-size: cover;
     background-position: bottom;
+    /*margin-top: -70px ;*/
     height: -webkit-fill-available;
     margin: 0 auto;
+
 }
 
 .login-content {
+    padding-top: 100px;
     text-align: center;
     font-size: 16px;
     height: 100%;

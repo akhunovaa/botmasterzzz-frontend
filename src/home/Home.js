@@ -3,6 +3,9 @@ import './Home.css';
 import createAllLeft from '../img/global/creat-all-left.png';
 import createAllRight from '../img/global/creat-all-right.png';
 import createButton from '../img/global/creat_btn.png';
+import firstAdv from '../img/first_advantage.png';
+import secondAdv from '../img/second_advantage.png';
+import thirdAdv from '../img/third_advantage.png';
 import createAdvantageOne from '../img/global/advantage1.png';
 import createAdvantageTwo from '../img/global/advantage2.png';
 import createAdvantageThree from '../img/global/advantage3.png';
@@ -20,14 +23,28 @@ class Home extends Component {
                             <b>Разрабатываем удобных<br/><br/>ботов для Telegram</b>
                             <span>
    	 			Мы знаем, как производить ботов, которые станут неотъемлемой частью Вашего бизнеса и Вашей жизни
-   	 			<hr/>
-   	 		</span>
+   	 			            <hr/>
+   	 		                </span>
                         </div>
                         <div id="main-right">
                             <span>Создайте своего уникального бота, научите его командам и позвольте ему решать рутинные задачи за Вас</span>
                             <b>КАКОГО БОТА ВЫ ХОТИТЕ СОЗДАТЬ?</b>
                         </div>
                     </div>
+                    <div id="adv-labels">
+                        <b>Бот-консультант</b>
+                        <b>Интернет магазин</b>
+                        <b>Новостной бот</b>
+                        {/*<span>*/}
+   	 			{/*Мы знаем, как производить ботов, которые станут неотъемлемой частью Вашего бизнеса и Вашей жизни*/}
+   	 		            {/*</span>*/}
+                    </div>
+                    <div id="adv-pictures">
+                        <img src={firstAdv} alt='Телеграм бот'/>
+                        <img src={secondAdv} alt='Телеграм бот'/>
+                        <img src={thirdAdv} alt='Телеграм бот'/>
+                    </div>
+
                 </div>
                 <div id="work">
                     <div id="work-center">
@@ -71,7 +88,7 @@ class Home extends Component {
                         <h2>СОЗДАЙТЕ БОТА ПО СВОИМ ПОТРЕБНОСТЯМ</h2>
                         <div id="creat-all-controler">
                             <img src={createAllLeft} alt='create all left'/>
-                                <img src={createAllRight} alt='create all right'/>
+                            <img src={createAllRight} alt='create all right'/>
                         </div>
                         <div id="creat-all-block">
                             <div>
@@ -137,8 +154,8 @@ class Home extends Component {
                     </div>
                 </div>
             </div>
-    )
+        )
     }
-    }
+}
 
-    export default Home;
+export default Home;
