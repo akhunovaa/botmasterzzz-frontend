@@ -62,16 +62,15 @@ class ProjectForms extends Component {
                                 <div className='project-cell-update-body'>
                                     <form onSubmit={this.redirectToToolsPage}>
                                         <input ref={this.currentProjectId} id="projectId" name="projectId" type="hidden" value={item.id}/>
-                                        <Button size='big' basic icon="pencil"
+                                        <Button basic icon="pencil"
                                                 content='Настроить'/>
                                     </form>
-                                    <Button size='big' basic icon="group"
+                                    <Button basic icon="group"
                                             content='0'/>
                                     <form onSubmit={this.showProjectDeleteModal}>
                                         <input ref={this.currentProjectId} id="projectId" name="projectId" type="hidden" value={item.id}/>
-                                        <Button size='big' basic icon="trash" />
+                                        <Button basic icon="trash" content='Удалить'/>
                                     </form>
-
                                 </div>
                             </Segment>
                         </Grid.Column>

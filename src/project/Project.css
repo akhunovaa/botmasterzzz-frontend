@@ -22,7 +22,6 @@
 .project-cell-header {
     width: 100%;
     display: inline-block;
-    overflow:hidden;
     white-space: nowrap;
 }
 
@@ -37,7 +36,12 @@
 
 .project-cell-update-body {
     display: inline-flex;
+    overflow: overlay;
     width: 100%;
+    justify-content: center;
+    text-align: center;
+    min-height: 40px;
+    align-items: center;
 }
 .project-modal-conf {
     font-family: "Comic Sans MS", cursive, sans-serif;
