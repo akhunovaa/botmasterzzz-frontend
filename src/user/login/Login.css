@@ -177,7 +177,7 @@
     .login-container {
         /*text-align: center;*/
         color: #fff;
-        width: 320px;
+        width: 480px;
         box-shadow: 0px 1px 5px 0px #ad9e9e;
         /*background-image: url('../../img/global/bot.png');*/
         margin-top: -40px;
@@ -187,7 +187,7 @@
     }
     .login-content {
         background-color: #ebebeb;
-        width: 320px;
+        width: 480px;
         margin: 50px auto;
         padding: 20px;
         border-radius: 4px;

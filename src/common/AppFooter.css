@@ -251,7 +251,7 @@
 
 @media (min-width: 320px) and (max-width: 480px) {
     #footer{
-        width:  max-content;
+        width:  480px;
         height: 100%;
         float: left;
         padding-bottom: 35px;
