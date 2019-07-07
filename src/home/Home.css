@@ -135,7 +135,7 @@ h2{
     margin: 0 auto;
 }
 #work-block{
-    width: 100%;
+    width:  max-content;
     height: 400px;
     background-image: url('../img/global/work.png');
     background-position: center;
@@ -224,7 +224,7 @@ h2{
     margin-top: 188px;
 }
 #creat{
-    width: 100%;
+    width:  100%;
     height: auto;
     float: left;
     background: #f8f9fa;
@@ -720,7 +720,7 @@ h2{
     }
 
     #creat{
-        /*width: 1024px;*/
+        width: max-content;
         height: auto;
         float: left;
         background: #f8f9fa;
