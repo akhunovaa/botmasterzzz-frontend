@@ -73,35 +73,128 @@
     color: rgba(0, 0, 0, 0.65);
 }
 
-@media screen and (max-width: 600px) {
+/*
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
 
+@media (min-width: 1281px) {
+
+
+}
+
+/*
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+
+}
+
+/*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
     .login-container {
         text-align: center;
-        height: 100%;
-        padding-top: 20px;
+
         color: #fff;
         box-shadow: 0px 1px 5px 0px #ad9e9e;
-        background-image: url('../../img/global/bg.png');
+        background-image: url('../../img/global/bot.png');
+        margin-top: -40px;
+        background-position: center;
         background-size: cover;
-        background-position: initial;
-    }
+        height: -webkit-fill-available;
 
-    .login-content {
-        text-align: center;
-        font-size: 16px;
-        height: 100%;
     }
     .login-content {
         background-color: #ebebeb;
-        max-width: 350px;
+
         margin: 50px auto;
         padding: 20px;
         border-radius: 4px;
         vertical-align: middle;
         box-shadow: 0 0 3px #666;
-        width: 350px;
+        width: 600px;
         margin-top: 30px;
         position: relative;
     }
 
+}
+
+/*
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+
+}
+
+/*
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .login-container {
+        /*text-align: center;*/
+        color: #fff;
+        box-shadow: 0px 1px 5px 0px #ad9e9e;
+        /*background-image: url('../../img/global/bot.png');*/
+        margin-top: -40px;
+        background-position: center;
+        background-size: cover;
+        height: -webkit-fill-available;
+    }
+    .login-content {
+        background-color: #ebebeb;
+
+        margin: 50px auto;
+        padding: 20px;
+        border-radius: 4px;
+        vertical-align: middle;
+        box-shadow: 0 0 3px #666;
+        width: 600px;
+        margin-top: 30px;
+        position: relative;
+    }
+
+}
+
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+    .login-container {
+        /*text-align: center;*/
+        color: #fff;
+        width: 320px;
+        box-shadow: 0px 1px 5px 0px #ad9e9e;
+        /*background-image: url('../../img/global/bot.png');*/
+        margin-top: -40px;
+        background-position: center;
+        background-size: cover;
+        height: -webkit-fill-available;
+    }
+    .login-content {
+        background-color: #ebebeb;
+        width: 320px;
+        margin: 50px auto;
+        padding: 20px;
+        border-radius: 4px;
+        vertical-align: middle;
+        box-shadow: 0 0 3px #666;
+        /*width: 600px;*/
+        margin-top: 30px;
+        position: relative;
+    }
 }
