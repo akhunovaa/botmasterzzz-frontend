@@ -6,6 +6,7 @@ import Alert from "react-s-alert";
 import MenuCommandEditModal from "./modals/MenuCommandEditModal";
 import MenuCommandDeleteModal from "./modals/MenuCommandDeleteModal";
 import Commands from "./TelegramCommands";
+import MenuCommandGroupModal from "./modals/MenuCommandGroupModal";
 
 class MainSetupForm extends Component {
 
@@ -121,6 +122,7 @@ class MainSetupForm extends Component {
                                     <Button onClick={this.commandUpdate} icon="save"
                                             disabled={this.state.buttonStates.saveButton} circular basic color="black"/>
                                     <Button onClick={this.showGroup()} content='Сгруппировать'
+                                            disabled={this.state.buttonStates.updateButton}
                                             icon='object group outline' circular basic color="black"
                                             labelPosition='left' className="group-button-menu"/>
                                 </li>
@@ -235,59 +237,10 @@ class MainSetupForm extends Component {
                                       refresh={this.refresh}/>
                 <MenuCommandDeleteModal selectedRow={this.state.selectedRow} project={this.state.project}
                                         open={openDelete} onClose={this.close} refresh={this.refresh}/>
+                <MenuCommandGroupModal selectedRow={this.state.selectedRow} project={this.state.project}
+                                        open={openGroup} onClose={this.close} refresh={this.refresh}/>
 
 
-                <Modal centered={false} dimmer="blurring" open={openGroup} onClose={this.close}
-                       closeOnDimmerClick={true} size="tiny" className="modal-conf-group">
-                    <Modal.Header className="modal-header">Сгруппировать пункты меню</Modal.Header>
-                    <Modal.Content className="modal-content">
-                        <fieldset className="fieldset-modal-menu">
-                            <Grid columns={1} textAlign="left">
-                                <Grid.Column>
-                                    <ol className="ol-modal-menu">
-                                        <li className="li-modal-menu-checkbox">
-                                            <Checkbox className="checkbox-modal-menu" id="list-modal" name="list-modal"
-                                                      label={{children: 'Список'}} onChange={this.checkList} fitted/>
-                                            <Checkbox className="checkbox-modal-menu" id="block-modal"
-                                                      name="block-modal" label={{children: 'Блок'}}
-                                                      onChange={this.checkBlock} fitted/>
-                                        </li>
-                                        <li className="li-modal-menu">
-                                            <label className="labelx" form="menuName">Главное меню</label>
-                                            <Input className="inputx" type="text" id="menuName" name="menuName"
-                                                   placeholder="/about_us" value={this.state.menuName}
-                                                   onChange={this.handleInputChange} required/>
-                                        </li>
-                                        <li className="li-modal-menu">
-                                            <label className="labelx" form="childMenu">Добавить подменю</label>
-                                            <Input className="inputx" type="text" id="childMenu" name="childMenu"
-                                                   placeholder="/contacts" value={this.state.childMenu}
-                                                   onChange={this.handleInputChange} required/>
-                                        </li>
-                                        <li className="li-modal-menu">
-                                            <List bulleted>
-                                                <List.Item>/info<List.List>
-                                                    <List.Item>/faq</List.Item>
-                                                    <List.Item>/news</List.Item>
-                                                </List.List>
-                                                </List.Item>
-                                            </List>
-                                        </li>
-                                    </ol>
-                                </Grid.Column>
-                            </Grid>
-
-                        </fieldset>
-                    </Modal.Content>
-                    <Modal.Actions>
-                        <Button
-                            className="menu-group"
-                            color='vk'
-                            content="Сгруппировать"
-                            onClick={this.close}
-                        />
-                    </Modal.Actions>
-                </Modal>
             </div>
         );
     }
