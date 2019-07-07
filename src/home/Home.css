@@ -24,7 +24,7 @@ h2{
     margin-top: -40px;
 }
 #main-center{
-    max-width: 1170px;
+    max-width: 1024px;
     height: auto;
     margin: 0 auto;
 }
@@ -129,8 +129,8 @@ h2{
     padding-top: 50px;
 }
 #work-center{
-    width: 1170px;
-    max-width: 1170px;
+    width: 1024px;
+    max-width: 1024px;
     height: auto;
     margin: 0 auto;
 }
@@ -176,8 +176,8 @@ h2{
     padding-top: 50px;
 }
 #creat-all-center{
-    width: 1170px;
-    max-width: 1170px;
+    width: 1024px;
+    max-width: 1024px;
     height: auto;
     margin: 0 auto;
 }
@@ -232,8 +232,8 @@ h2{
     padding-top: 80px;
 }
 #creat-center{
-    width: 1170px;
-    max-width: 1170px;
+    width: 1024px;
+    max-width: 1024px;
     height: auto;
     margin: 0 auto;
 }
@@ -260,8 +260,8 @@ h2{
     padding-top: 50px;
 }
 #advantage-center{
-    width: 1170px;
-    max-width: 1170px;
+    width: 1024px;
+    max-width: 1024px;
     height: auto;
     margin: 0 auto;
 }
@@ -507,8 +507,8 @@ h2{
         padding-top: 50px;
     }
     #advantage-center{
-        width: 1170px;
-        max-width: 1170px;
+        width: 1024px;
+        max-width: 1024px;
         height: auto;
         margin: 0 auto;
     }
@@ -599,7 +599,7 @@ h2{
 
     #adv-labels{
         display: inline-flex;
-        width:  1024px;
+        /*width:  1024px;*/
         margin-top: 500px;
         margin-left: 60px;
         margin-right: auto;
@@ -617,7 +617,7 @@ h2{
 
     #adv-pictures{
         display: inline-flex;
-        width:  1024px;
+        /*width:  1024px;*/
         margin-bottom: 80px;
         /*margin-top: 200px;*/
     }
@@ -632,7 +632,7 @@ h2{
     }
 
     #work{
-        width:  1024px;
+        /*width:  1024px;*/
         height: auto;
         float: left;
         padding-bottom: 0px;
@@ -645,7 +645,7 @@ h2{
         margin: 0 auto;
     }
     #work-block{
-        width:  1024px;
+        /*width:  1024px;*/
         height: 400px;
         background-image: url('../img/global/work.png');
         background-position: center;
@@ -680,7 +680,7 @@ h2{
     }
 
     #creat-all-controler{
-        width: 1024px;
+        /*width: 1024px;*/
         height: 40px;
         float: left;
         margin-top: 5px;
@@ -690,7 +690,7 @@ h2{
     }
 
     #creat-all-block{
-        width: 1024px;
+        /*width: 1024px;*/
         height: auto;
         float: left;
         display: flex;
@@ -720,7 +720,7 @@ h2{
     }
 
     #creat{
-        width: 1024px;
+        /*width: 1024px;*/
         height: auto;
         float: left;
         background: #f8f9fa;
@@ -756,8 +756,8 @@ h2{
         padding-top: 50px;
     }
     #advantage-center{
-        width: 1170px;
-        max-width: 1170px;
+
+        max-width: 1024px;
         height: auto;
         margin: 0 auto;
     }
