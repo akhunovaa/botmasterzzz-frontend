@@ -156,6 +156,7 @@ class MainSetupForm extends Component {
                                     <Button onClick={this.commandUpdate} icon="save"
                                             disabled={this.state.buttonStates.saveButton} circular basic color="black"/>
                                     <Button onClick={this.showGroup()} content='Сгруппировать'
+                                            disabled={this.state.buttonStates.updateButton}
                                             icon='object group outline' circular basic color="black"
                                             labelPosition='left' className="group-button-menu"/>
                                 </li>

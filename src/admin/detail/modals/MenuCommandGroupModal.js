@@ -11,7 +11,7 @@ class MenuCommandGroupModal extends Component {
             open: false,
             id: '',
             command: '',
-            commandName: '',
+            menuName: '',
             answer: '',
             commandType: '',
             privacy: false
@@ -40,10 +40,11 @@ class MenuCommandGroupModal extends Component {
                                                       onChange={this.checkBlock} fitted/>
                                         </li>
                                         <li className="li-modal-menu">
-                                            <label className="labelx" form="menuName">Главное меню</label>
+                                            <label className="labelx" form="menuName">Родительская команда</label>
                                             <Input className="inputx" type="text" id="menuName" name="menuName"
-                                                   placeholder="/about_us" value={this.state.menuName}
-                                                   onChange={this.handleInputChange} required/>
+                                                   placeholder="/about_us"
+                                                   defaultValue={this.props.selectedRow.command}
+                                                   onChange={this.handleInputChange} disabled/>
                                         </li>
                                         <li className="li-modal-menu">
                                             <label className="labelx" form="childMenu">Добавить подменю</label>
@@ -53,7 +54,7 @@ class MenuCommandGroupModal extends Component {
                                         </li>
                                         <li className="li-modal-menu">
                                             <List bulleted>
-                                                <List.Item>/info<List.List>
+                                                <List.Item>{this.props.selectedRow.command}<List.List>
                                                     <List.Item>/faq</List.Item>
                                                     <List.Item>/news</List.Item>
                                                 </List.List>
