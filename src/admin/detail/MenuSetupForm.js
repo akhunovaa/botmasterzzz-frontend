@@ -39,7 +39,15 @@ class MainSetupForm extends Component {
                 commandName: '',
                 commandType: '',
                 answer: '',
-                privacy: ''
+                privacy: '',
+                children: {
+                    parentCommand:'',
+                    firstChildCommand:'',
+                    secondChildCommand:'',
+                    thirdChildCommand:'',
+                    fourthChildCommand:'',
+                    fifthChildCommand:''
+                }
             },
             commandAnswerType: [
                 {
@@ -170,8 +178,6 @@ class MainSetupForm extends Component {
                 <Modal dimmer="blurring" open={open} onClose={this.close} size="tiny" className="modal-conf">
                     <Modal.Header className="modal-header">Добавить пункт меню</Modal.Header>
                     <Modal.Content className="modal-content">
-                        <fieldset className="fieldset-modal-menu"/>
-
                         <Grid columns={1} textAlign="left">
                             <Grid.Column>
                                 <ol className="ol-modal-menu">
@@ -238,7 +244,7 @@ class MainSetupForm extends Component {
                                       refresh={this.refresh}/>
                 <MenuCommandDeleteModal selectedRow={this.state.selectedRow} project={this.state.project}
                                         open={openDelete} onClose={this.close} refresh={this.refresh}/>
-                <MenuCommandGroupModal selectedRow={this.state.selectedRow} project={this.state.project}
+                <MenuCommandGroupModal selectedRow={this.state.selectedRow} project={this.state.project} commands={this.state.commands}
                                         open={openGroup} onClose={this.close} refresh={this.refresh}/>
 
 

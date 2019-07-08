@@ -26,47 +26,47 @@ class MenuCommandEditModal extends Component {
 
         if (this.props.selectedRow.id) {
             return (
-                <Modal dimmer="blurring" open={this.props.open} onClose={this.props.onClose} size="tiny" className="modal-conf">
+                <Modal dimmer="blurring" open={this.props.open} onClose={this.props.onClose} size="tiny"
+                       className="modal-conf">
                     <Modal.Header className="modal-header">Изменить пункт меню</Modal.Header>
                     <Modal.Content className="modal-content">
-                        <fieldset className="fieldset-modal-menu">
-                            <Grid columns={1} textAlign="left">
-                                <Grid.Column>
-                                    <ol className="ol-modal-menu">
-                                        <li className="li-modal-menu">
-                                            <label className="labelx" form="menuCommand">Команда</label>
-                                            <Input className="inputx" type="text" id="command" name="command"
-                                                   placeholder="/help" defaultValue={this.props.selectedRow.command}
-                                                   onChange={this.handleInputChange} required/>
-                                        </li>
-                                        <li className="li-modal-menu">
-                                            <label className="labelx" form="name">Команда для кнопки</label>
-                                            <Input className="inputx" type="text" id="commandName" name="commandName"
-                                                   placeholder="Команда для кнопки"
-                                                   defaultValue={this.props.selectedRow.commandName}
-                                                   onChange={this.handleInputChange} required/>
-                                        </li>
-                                        <li className="li-modal-menu">
-                                            <label className="labelx" form="answer">Ответ</label>
-                                            <TextArea className="text-area text-area-modal" rows={4}
-                                                      id="answer" name="answer" defaultValue={this.props.selectedRow.answer}
-                                                      onChange={this.handleInputChange} required/>
-                                        </li>
-                                        <li className="li-modal-menu">
-                                            <label className="labelx" form="answer">Тип возвращаемого ответа</label>
-                                            <Dropdown onChange={this.handleDropdownChange} placeholder='Тип ответа' defaultValue={this.props.selectedCommandType.value} fluid selection id="commandType" name="commandType" options={this.props.options}/>
-                                        </li>
-                                        <li className="li-modal-menu">
-                                            <label className="labelx" form="privacy">Видимость</label>
-                                            <Checkbox slider id="privacy" name="privacy"
-                                                      defaultChecked={this.props.selectedRow.privacy}
-                                                      onChange={this.handleToggleChange}/>
-                                        </li>
-                                    </ol>
-                                </Grid.Column>
-                            </Grid>
-
-                        </fieldset>
+                        <Grid columns={1} textAlign="left">
+                            <Grid.Column>
+                                <ol className="ol-modal-menu">
+                                    <li className="li-modal-menu">
+                                        <label className="labelx" form="menuCommand">Команда</label>
+                                        <Input className="inputx" type="text" id="command" name="command"
+                                               placeholder="/help" defaultValue={this.props.selectedRow.command}
+                                               onChange={this.handleInputChange} required/>
+                                    </li>
+                                    <li className="li-modal-menu">
+                                        <label className="labelx" form="name">Команда для кнопки</label>
+                                        <Input className="inputx" type="text" id="commandName" name="commandName"
+                                               placeholder="Команда для кнопки"
+                                               defaultValue={this.props.selectedRow.commandName}
+                                               onChange={this.handleInputChange} required/>
+                                    </li>
+                                    <li className="li-modal-menu">
+                                        <label className="labelx" form="answer">Ответ</label>
+                                        <TextArea className="text-area text-area-modal" rows={4}
+                                                  id="answer" name="answer" defaultValue={this.props.selectedRow.answer}
+                                                  onChange={this.handleInputChange} required/>
+                                    </li>
+                                    <li className="li-modal-menu">
+                                        <label className="labelx" form="answer">Тип возвращаемого ответа</label>
+                                        <Dropdown onChange={this.handleDropdownChange} placeholder='Тип ответа'
+                                                  defaultValue={this.props.selectedCommandType.value} fluid selection
+                                                  id="commandType" name="commandType" options={this.props.options}/>
+                                    </li>
+                                    <li className="li-modal-menu">
+                                        <label className="labelx" form="privacy">Видимость</label>
+                                        <Checkbox slider id="privacy" name="privacy"
+                                                  defaultChecked={this.props.selectedRow.privacy}
+                                                  onChange={this.handleToggleChange}/>
+                                    </li>
+                                </ol>
+                            </Grid.Column>
+                        </Grid>
                     </Modal.Content>
                     <Modal.Actions>
                         <Button
@@ -116,7 +116,7 @@ class MenuCommandEditModal extends Component {
             .then(response => {
                 if (response.error) {
                     Alert.warning(response.error + '. Необходимо заново авторизоваться');
-                }else if (response.success === false) {
+                } else if (response.success === false) {
                     Alert.warning(response.message);
                 } else {
                     this.props.onClose();
@@ -124,7 +124,7 @@ class MenuCommandEditModal extends Component {
                     Alert.success('Команда "' + response.command.command + '" успешно обновлена');
                 }
             }).catch(error => {
-             Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
+            Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
         });
 
     }
@@ -140,11 +140,11 @@ class MenuCommandEditModal extends Component {
     };
 
 
-    handleDropdownChange = (e, { value }) => {
+    handleDropdownChange = (e, {value}) => {
         let id;
         for (let i = 0; i < this.props.options.length; i++) {
             let iterValue = this.props.options[i].value;
-            if (iterValue === value){
+            if (iterValue === value) {
                 id = this.props.options[i].key;
             }
         }
