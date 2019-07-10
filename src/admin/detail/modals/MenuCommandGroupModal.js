@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Checkbox, Grid, Input, List, Modal} from 'semantic-ui-react'
+import {Button, Checkbox, Grid, Input, List, Modal, Dropdown} from 'semantic-ui-react'
 
 class MenuCommandGroupModal extends Component {
 
@@ -12,7 +12,8 @@ class MenuCommandGroupModal extends Component {
             menuName: '',
             answer: '',
             commandType: '',
-            privacy: false
+            privacy: false,
+            options: [{'1': "1"}]
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -153,9 +154,15 @@ class MenuCommandGroupModal extends Component {
                                     </li>
                                     <li className="li-modal-menu">
                                         <label className="labelx" form="childMenu">Добавить подменю</label>
-                                        <Input className="inputx" type="text" id="childMenu" name="childMenu"
-                                               placeholder="/contacts" value={this.state.childMenu}
-                                               onChange={this.handleInputChange} required/>
+                                        <Dropdown
+                                            placeholder='Команда'
+                                            fluid
+                                            noResultsMessage={'Командные меню не найдены'}
+                                            multiple
+                                            search
+                                            selection
+                                            options={this.state.options}
+                                        />
                                     </li>
                                     <li className="li-modal-menu">
                                         <List bulleted>
