@@ -77,26 +77,26 @@ class MenuCommandGroupModal extends Component {
                             }
                         } else {
                             this.props.selectedRow.children.parentCommand = e.parent;
-                                // this.props.commands.map((a, s) => {
-                                //     if (a.parent && e.parent.id === a.parent.id) {
-                                //         this.props.selectedRow.children.secondChildCommand = a;
-                                //         this.props.commands.map((z, x) => {
-                                //             if (z.parent && a.id === z.parent.id) {
-                                //                 this.props.selectedRow.children.thirdChildCommand = z;
-                                //                 this.props.commands.map((r, t) => {
-                                //                     if (r.parent && z.id === r.parent.id) {
-                                //                         this.props.selectedRow.children.fourthChildCommand = r;
-                                //                         this.props.commands.map((y, u) => {
-                                //                             if (y.parent && r.id === y.parent.id) {
-                                //                                 this.props.selectedRow.children.fifthChildCommand = y;
-                                //                             }
-                                //                         });
-                                //                     }
-                                //                 });
-                                //             }
-                                //         });
-                                //     }
-                                // });
+                                this.props.commands.map((a, s) => {
+                                    if (a.parent && e.parent.id === a.parent.id) {
+                                        this.props.selectedRow.children.secondChildCommand = a;
+                                        this.props.commands.map((z, x) => {
+                                            if (z.parent && a.id === z.parent.id) {
+                                                this.props.selectedRow.children.thirdChildCommand = z;
+                                                this.props.commands.map((r, t) => {
+                                                    if (r.parent && z.id === r.parent.id) {
+                                                        this.props.selectedRow.children.fourthChildCommand = r;
+                                                        this.props.commands.map((y, u) => {
+                                                            if (y.parent && r.id === y.parent.id) {
+                                                                this.props.selectedRow.children.fifthChildCommand = y;
+                                                            }
+                                                        });
+                                                    }
+                                                });
+                                            }
+                                        });
+                                    }
+                                });
                         }
                     } else {
                         this.props.selectedRow.children.parentCommand = e;
