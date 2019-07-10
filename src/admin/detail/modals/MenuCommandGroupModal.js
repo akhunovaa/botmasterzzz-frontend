@@ -27,34 +27,109 @@ class MenuCommandGroupModal extends Component {
                 if (this.props.selectedRow.id === e.id) {
                     if (e.parent) {
                         this.props.selectedRow.children.firstChildCommand = e.parent;
-                        if (e.parent.parent){
+                        if (e.parent.parent) {
                             this.props.selectedRow.children.secondChildCommand = e.parent.parent;
-                            if (e.parent.parent.parent){
+                            if (e.parent.parent.parent) {
                                 this.props.selectedRow.children.thirdChildCommand = e.parent.parent.parent;
-                                if (e.parent.parent.parent.parent){
+                                if (e.parent.parent.parent.parent) {
                                     this.props.selectedRow.children.fourthChildCommand = e.parent.parent.parent.parent;
-                                    if (e.parent.parent.parent.parent.parent){
+                                    if (e.parent.parent.parent.parent.parent) {
                                         this.props.selectedRow.children.fifthChildCommand = e.parent.parent.parent.parent.parent;
                                         this.props.selectedRow.children.parentCommand = e.parent.parent.parent.parent.parent;
-                                    }else{
+                                    } else {
                                         this.props.selectedRow.children.parentCommand = e.parent.parent.parent.parent;
+                                        // this.props.commands.map((y, u) => {
+                                        //     if (y.parent && e.parent.parent.parent.parent.id === y.parent.id) {
+                                        //         this.props.selectedRow.children.fifthChildCommand = y;
+                                        //     }
+                                        // });
                                     }
-                                }else {
+                                } else {
                                     this.props.selectedRow.children.parentCommand = e.parent.parent.parent;
+                                    // this.props.commands.map((r, t) => {
+                                    //     if (r.parent && e.parent.parent.parent.id === r.parent.id) {
+                                    //         this.props.selectedRow.children.fourthChildCommand = r;
+                                    //         this.props.commands.map((y, u) => {
+                                    //             if (y.parent && r.id === y.parent.id) {
+                                    //                 this.props.selectedRow.children.fifthChildCommand = y;
+                                    //             }
+                                    //         });
+                                    //     }
+                                    // });
                                 }
-                            }else {
+                            } else {
                                 this.props.selectedRow.children.parentCommand = e.parent.parent;
+                                // this.props.commands.map((z, x) => {
+                                //     if (z.parent && e.parent.parent.id === z.parent.id) {
+                                //         this.props.selectedRow.children.thirdChildCommand = z;
+                                //         this.props.commands.map((r, t) => {
+                                //             if (r.parent && z.id === r.parent.id) {
+                                //                 this.props.selectedRow.children.fourthChildCommand = r;
+                                //                 this.props.commands.map((y, u) => {
+                                //                     if (y.parent && r.id === y.parent.id) {
+                                //                         this.props.selectedRow.children.fifthChildCommand = y;
+                                //                     }
+                                //                 });
+                                //             }
+                                //         });
+                                //     }
+                                // });
                             }
-                        }else {
+                        } else {
                             this.props.selectedRow.children.parentCommand = e.parent;
+                                // this.props.commands.map((a, s) => {
+                                //     if (a.parent && e.parent.id === a.parent.id) {
+                                //         this.props.selectedRow.children.secondChildCommand = a;
+                                //         this.props.commands.map((z, x) => {
+                                //             if (z.parent && a.id === z.parent.id) {
+                                //                 this.props.selectedRow.children.thirdChildCommand = z;
+                                //                 this.props.commands.map((r, t) => {
+                                //                     if (r.parent && z.id === r.parent.id) {
+                                //                         this.props.selectedRow.children.fourthChildCommand = r;
+                                //                         this.props.commands.map((y, u) => {
+                                //                             if (y.parent && r.id === y.parent.id) {
+                                //                                 this.props.selectedRow.children.fifthChildCommand = y;
+                                //                             }
+                                //                         });
+                                //                     }
+                                //                 });
+                                //             }
+                                //         });
+                                //     }
+                                // });
                         }
-                    }else {
+                    } else {
                         this.props.selectedRow.children.parentCommand = e;
+                        this.props.commands.map((q, w) => {
+                            if (q.parent && e.id === q.parent.id) {
+                                this.props.selectedRow.children.firstChildCommand = q;
+                                this.props.commands.map((a, s) => {
+                                    if (a.parent && q.id === a.parent.id) {
+                                        this.props.selectedRow.children.secondChildCommand = a;
+                                        this.props.commands.map((z, x) => {
+                                            if (z.parent && a.id === z.parent.id) {
+                                                this.props.selectedRow.children.thirdChildCommand = z;
+                                                this.props.commands.map((r, t) => {
+                                                    if (r.parent && z.id === r.parent.id) {
+                                                        this.props.selectedRow.children.fourthChildCommand = r;
+                                                        this.props.commands.map((y, u) => {
+                                                            if (y.parent && r.id === y.parent.id) {
+                                                                this.props.selectedRow.children.fifthChildCommand = y;
+                                                            }
+                                                        });
+                                                    }
+                                                });
+                                            }
+                                        });
+                                    }
+                                });
+                            }
+                        });
                     }
                 }
             });
 
-                    return (
+            return (
                 <Modal dimmer="blurring" open={this.props.open} onClose={this.props.onClose} size="tiny"
                        className="modal-conf-group">
                     <Modal.Header className="modal-header">Сгруппировать пункты меню</Modal.Header>
@@ -84,15 +159,20 @@ class MenuCommandGroupModal extends Component {
                                     </li>
                                     <li className="li-modal-menu">
                                         <List bulleted>
-                                                <List.Item>{this.props.selectedRow.children.parentCommand.command + ' ' + this.props.selectedRow.children.parentCommand.commandName}
-                                                    <List.List>
-                                                        {this.props.selectedRow.children.firstChildCommand ? <List.Item>{this.props.selectedRow.children.firstChildCommand.command + ' | ' + this.props.selectedRow.children.firstChildCommand.commandName}</List.Item> : undefined}
-                                                        {this.props.selectedRow.children.secondChildCommand ? <List.Item>{this.props.selectedRow.children.secondChildCommand.command + ' | ' + this.props.selectedRow.children.secondChildCommand.commandName}</List.Item> : undefined}
-                                                        {this.props.selectedRow.children.thirdChildCommand ? <List.Item>{this.props.selectedRow.children.thirdChildCommand.command + ' | ' + this.props.selectedRow.children.thirdChildCommand.commandName}</List.Item> : undefined}
-                                                        {this.props.selectedRow.children.fourthChildCommand ? <List.Item>{this.props.selectedRow.children.fourthChildCommand.command + ' | ' + this.props.selectedRow.children.fourthChildCommand.commandName}</List.Item> : undefined}
-                                                        {this.props.selectedRow.children.fifthChildCommand ? <List.Item>{this.props.selectedRow.children.fifthChildCommand.command + ' | ' + this.props.selectedRow.children.fifthChildCommand.commandName}</List.Item> : undefined}
-                                                    </List.List>
-                                                </List.Item>
+                                            <List.Item>{this.props.selectedRow.children.parentCommand.command + ' ' + this.props.selectedRow.children.parentCommand.commandName}
+                                                <List.List>
+                                                    {this.props.selectedRow.children.firstChildCommand ?
+                                                        <List.Item>{this.props.selectedRow.children.firstChildCommand.command + ' | ' + this.props.selectedRow.children.firstChildCommand.commandName}</List.Item> : undefined}
+                                                    {this.props.selectedRow.children.secondChildCommand ?
+                                                        <List.Item>{this.props.selectedRow.children.secondChildCommand.command + ' | ' + this.props.selectedRow.children.secondChildCommand.commandName}</List.Item> : undefined}
+                                                    {this.props.selectedRow.children.thirdChildCommand ?
+                                                        <List.Item>{this.props.selectedRow.children.thirdChildCommand.command + ' | ' + this.props.selectedRow.children.thirdChildCommand.commandName}</List.Item> : undefined}
+                                                    {this.props.selectedRow.children.fourthChildCommand ?
+                                                        <List.Item>{this.props.selectedRow.children.fourthChildCommand.command + ' | ' + this.props.selectedRow.children.fourthChildCommand.commandName}</List.Item> : undefined}
+                                                    {this.props.selectedRow.children.fifthChildCommand ?
+                                                        <List.Item>{this.props.selectedRow.children.fifthChildCommand.command + ' | ' + this.props.selectedRow.children.fifthChildCommand.commandName}</List.Item> : undefined}
+                                                </List.List>
+                                            </List.Item>
                                         </List>
                                     </li>
                                 </ol>
