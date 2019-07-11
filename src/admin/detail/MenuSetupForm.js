@@ -7,6 +7,7 @@ import MenuCommandEditModal from "./modals/MenuCommandEditModal";
 import MenuCommandDeleteModal from "./modals/MenuCommandDeleteModal";
 import Commands from "./TelegramCommands";
 import MenuCommandGroupModal from "./modals/MenuCommandGroupModal";
+import MenuCommandUnGroupModal from "./modals/MenuCommandUnGroupModal";
 
 class MainSetupForm extends Component {
 
@@ -23,6 +24,7 @@ class MainSetupForm extends Component {
             openEdit: false,
             openDelete: false,
             openGroup: false,
+            openUnGroup: false,
             commandName: '',
             commandType: '',
             answer: '',
@@ -96,12 +98,14 @@ class MainSetupForm extends Component {
 
     showGroup = () => () => this.setState({openGroup: true});
 
+    showUnGroup = () => () => this.setState({openUnGroup: true});
+
     checkList = () => this.setState({list: true});
 
     checkBlock = () => this.setState({block: true});
 
     render() {
-        const {open, openEdit, openDelete, openGroup} = this.state;
+        const {open, openEdit, openDelete, openGroup, openUnGroup} = this.state;
 
         return (
             <div className="menu-form-container">
@@ -130,6 +134,10 @@ class MainSetupForm extends Component {
                                     <Button onClick={this.commandUpdate} icon="save"
                                             disabled={this.state.buttonStates.saveButton} circular basic color="black"/>
                                     <Button onClick={this.showGroup()} content='Сгруппировать'
+                                            disabled={this.state.buttonStates.updateButton}
+                                            icon='object group outline' circular basic color="black"
+                                            labelPosition='left' className="group-button-menu"/>
+                                    <Button onClick={this.showUnGroup()} content='Разгруппировать'
                                             disabled={this.state.buttonStates.updateButton}
                                             icon='object group outline' circular basic color="black"
                                             labelPosition='left' className="group-button-menu"/>
@@ -164,6 +172,10 @@ class MainSetupForm extends Component {
                                     <Button onClick={this.commandUpdate} icon="save"
                                             disabled={this.state.buttonStates.saveButton} circular basic color="black"/>
                                     <Button onClick={this.showGroup()} content='Сгруппировать'
+                                            disabled={this.state.buttonStates.updateButton}
+                                            icon='object group outline' circular basic color="black"
+                                            labelPosition='left' className="group-button-menu"/>
+                                    <Button onClick={this.showUnGroup()} content='Разгруппировать'
                                             disabled={this.state.buttonStates.updateButton}
                                             icon='object group outline' circular basic color="black"
                                             labelPosition='left' className="group-button-menu"/>
@@ -244,6 +256,10 @@ class MainSetupForm extends Component {
                                       refresh={this.refresh}/>
                 <MenuCommandDeleteModal selectedRow={this.state.selectedRow} project={this.state.project}
                                         open={openDelete} onClose={this.close} refresh={this.refresh}/>
+
+                <MenuCommandUnGroupModal selectedRow={this.state.selectedRow} project={this.state.project} commands={this.state.commands}
+                                        open={openUnGroup} onClose={this.close} refresh={this.refresh}/>
+
                 <MenuCommandGroupModal selectedRow={this.state.selectedRow} project={this.state.project} commands={this.state.commands}
                                         open={openGroup} onClose={this.close} refresh={this.refresh}/>
 
@@ -454,7 +470,7 @@ class MainSetupForm extends Component {
     };
 
     close() {
-        this.setState({open: false, openEdit: false, openDelete: false, openGroup: false});
+        this.setState({open: false, openEdit: false, openDelete: false, openGroup: false, openUnGroup: false});
     };
 
     commandUpdate(event) {

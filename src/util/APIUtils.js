@@ -260,3 +260,10 @@ export function commandGroupSaveRequest(commandGroupSaveRequest) {
         body: JSON.stringify(commandGroupSaveRequest)
     });
 }
+export function commandGroupUpdateRequest(commandGroupSaveRequest) {
+    return request({
+        url: API_BASE_URL + "/project/command/group?method=update",
+        method: 'POST',
+        body: JSON.stringify(commandGroupSaveRequest)
+    });
+}
