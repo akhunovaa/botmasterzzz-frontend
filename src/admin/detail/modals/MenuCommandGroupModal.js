@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {Button, Checkbox, Grid, Input, List, Modal, Dropdown} from 'semantic-ui-react'
+import {commandGroupSaveRequest} from "../../../util/APIUtils";
+import Alert from "react-s-alert";
 
 class MenuCommandGroupModal extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -242,32 +243,32 @@ class MenuCommandGroupModal extends Component {
                     element.innerText = 'Добавить подменю';
                 }, 100);
             }
+            let commandsGroupSave = [];
+            this.props.commands.map((x, i) => {
+            this.state.options.value.map((y, z) => {
+                if (x.commandName === y){
+                    commandsGroupSave.push(Object.assign({}, {
+                        'projectId': this.props.project.id,
+                        'id': x.id
+                    }));
+                }
+            })});
+
+            commandGroupSaveRequest(commandsGroupSave)
+                .then(response => {
+                    if (response.error) {
+                        Alert.warning(response.error + '. Необходимо заново авторизоваться');
+                    }else if (response.success === false) {
+                        Alert.warning(response.message);
+                    } else {
+                        this.props.onClose();
+                        this.props.refresh();
+                        Alert.success('Команды успешно сгруппированы');
+                    }
+                }).catch(error => {
+                 Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
+            });
         }
-        const commandGroupSave = Object.assign({}, {
-            'command': this.state.command ? this.state.command : this.props.selectedRow.command,
-            'commandName': this.state.commandName ? this.state.commandName : this.props.selectedRow.commandName,
-            'commandType': this.state.commandType ? this.state.commandType : this.props.selectedRow.commandType,
-            'answer': this.state.answer ? this.state.answer : this.props.selectedRow.answer,
-            'projectId': this.props.project.id,
-            'id': this.props.selectedRow.id,
-            'privacy': this.state.privacy !== 'undefined' ? this.state.privacy : this.props.selectedRow.privacy
-        });
-
-        // commandUpdateRequestSend(projectUpdateRequest)
-        //     .then(response => {
-        //         if (response.error) {
-        //             Alert.warning(response.error + '. Необходимо заново авторизоваться');
-        //         }else if (response.success === false) {
-        //             Alert.warning(response.message);
-        //         } else {
-        //             this.props.onClose();
-        //             this.props.refresh();
-        //             Alert.success('Команда "' + response.command.command + '" успешно обновлена');
-        //         }
-        //     }).catch(error => {
-        //      Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
-        // });
-
     }
 
     handleSubmit(event) {

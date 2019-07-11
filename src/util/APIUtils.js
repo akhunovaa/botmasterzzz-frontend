@@ -252,3 +252,11 @@ export function projectBotStop(projectBot) {
         body: JSON.stringify(projectBot)
     });
 }
+
+export function commandGroupSaveRequest(commandGroupSaveRequest) {
+    return request({
+        url: API_BASE_URL + "/project/command/group?method=save",
+        method: 'POST',
+        body: JSON.stringify(commandGroupSaveRequest)
+    });
+}
