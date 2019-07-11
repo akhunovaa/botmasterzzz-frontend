@@ -90,7 +90,7 @@ h2{
 }
 #adv-labels{
     display: inline-flex;
-    width: 100%;
+    /*width: 100%;*/
     margin-top: 500px;
     margin-left: auto;
     margin-right: auto;
