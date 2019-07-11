@@ -162,6 +162,10 @@ class Tools extends Component {
             Alert.warning('Экземпляр бота уже запущен');
             return;
         }
+        if (this.state.project.token === null){
+            Alert.warning('Токен для проекта не установлен. Пожалуйста получите токен у @BotFather и установите его для проекта.');
+            return;
+        }
         let projectId = this.state.project.id;
         let data = {
             "projectId": projectId
