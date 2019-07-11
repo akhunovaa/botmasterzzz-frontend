@@ -13,18 +13,21 @@ class MenuCommandGroupModal extends Component {
             answer: '',
             commandType: '',
             privacy: false,
-            options: [{'1': "1"}]
+            options: []
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.groupingSave = this.groupingSave.bind(this);
         this.handleToggleChange = this.handleToggleChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     render() {
         if (this.props.selectedRow.id) {
+            let opt = [];
             this.props.selectedRow.children = {};
             this.props.commands.map((e, i) => {
+                opt.push({key: e.id, text: e.command, value: e.commandName });
                 if (this.props.selectedRow.id === e.id) {
                     if (e.parent) {
                         this.props.selectedRow.children.firstChildCommand = e.parent;
@@ -153,15 +156,17 @@ class MenuCommandGroupModal extends Component {
                                                onChange={this.handleInputChange} disabled/>
                                     </li>
                                     <li className="li-modal-menu">
-                                        <label className="labelx" form="childMenu">Добавить подменю</label>
+                                        <label className="labelx" id="subMenu" form="childMenu">Добавить подменю</label>
                                         <Dropdown
                                             placeholder='Команда'
                                             fluid
+                                            basic
                                             noResultsMessage={'Командные меню не найдены'}
                                             multiple
                                             search
                                             selection
-                                            options={this.state.options}
+                                            options={opt}
+                                            onChange={this.handleChange}
                                         />
                                     </li>
                                     <li className="li-modal-menu">
@@ -219,7 +224,21 @@ class MenuCommandGroupModal extends Component {
 
     groupingSave(event) {
         event.preventDefault();
-        const projectUpdateRequest = Object.assign({}, {
+        let element = document.getElementById("subMenu");
+        if (this.state.options.value.length > 5){
+            if (!element.classList.contains('label-red')) {
+                element.classList.add('label-red');
+            }
+            element.innerText = 'Добавить подменю - кол-во меню больше чем 5';
+        }else {
+            if (element.classList.contains('label-red')) {
+                setTimeout(function () {
+                    element.classList.remove('label-red');
+                    element.innerText = 'Добавить подменю';
+                }, 100);
+            }
+        }
+        const commandGroupSave = Object.assign({}, {
             'command': this.state.command ? this.state.command : this.props.selectedRow.command,
             'commandName': this.state.commandName ? this.state.commandName : this.props.selectedRow.commandName,
             'commandType': this.state.commandType ? this.state.commandType : this.props.selectedRow.commandType,
@@ -248,6 +267,13 @@ class MenuCommandGroupModal extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
+    }
+
+
+    handleChange(e, {value}) {
+        this.setState({
+            options: {value}
+        });
     }
 
     handleToggleChange(e, {checked}) {
