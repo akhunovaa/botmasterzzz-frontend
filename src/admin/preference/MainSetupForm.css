@@ -44,6 +44,12 @@
     width: 10em;
     margin-right: 1em;
 }
+.label-red {
+    float: left;
+    width: 10em;
+    margin-right: 1em;
+    color: red;
+}
 
 .inputx {
     width: 280px;
