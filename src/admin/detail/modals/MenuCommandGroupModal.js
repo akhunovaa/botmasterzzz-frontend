@@ -27,7 +27,9 @@ class MenuCommandGroupModal extends Component {
             let opt = [];
             this.props.selectedRow.children = {};
             this.props.commands.map((e, i) => {
-                opt.push({key: e.id, text: e.command, value: e.commandName });
+                if (this.props.selectedRow.commandType.id === e.commandType.id) {
+                    opt.push({key: e.id, text: e.command, value: e.commandName });
+                }
                 if (this.props.selectedRow.id === e.id) {
                     if (e.parent) {
                         this.props.selectedRow.children.firstChildCommand = e.parent;
@@ -187,6 +189,9 @@ class MenuCommandGroupModal extends Component {
                                             </List.Item>
                                         </List>
                                     </li>
+                                    <div className='project-modal-helper-message'>
+                                        <label>Для группировки подменю действует ограничение в 5 шт.</label>
+                                    </div>
                                 </ol>
                             </Grid.Column>
                         </Grid>
@@ -229,7 +234,7 @@ class MenuCommandGroupModal extends Component {
             if (!element.classList.contains('label-red')) {
                 element.classList.add('label-red');
             }
-            element.innerText = 'Добавить подменю - кол-во меню больше чем 5';
+            element.innerText = 'Добавить подменю \n \n Кол-во подменю превышает допустимую норму';
         }else {
             if (element.classList.contains('label-red')) {
                 setTimeout(function () {
