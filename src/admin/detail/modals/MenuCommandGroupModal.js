@@ -262,7 +262,7 @@ class MenuCommandGroupModal extends Component {
                         Alert.warning(response.message);
                     } else {
                         this.props.onClose();
-                        this.componentDidMount()
+                        this.forceUpdate();
                         Alert.success('Команды успешно сгруппированы');
                     }
                 }).catch(error => {
