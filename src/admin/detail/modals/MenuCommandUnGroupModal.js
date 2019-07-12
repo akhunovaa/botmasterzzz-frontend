@@ -263,6 +263,7 @@ class MenuCommandUnGroupModal extends Component {
                     } else {
                         this.props.onClose();
                         this.props.refresh();
+                        this.componentDidMount()
                         Alert.success('Команды успешно разгруппированы');
                     }
                 }).catch(error => {

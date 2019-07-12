@@ -68,6 +68,7 @@ class MenuCommandDeleteModal extends Component {
                 } else {
                     this.props.onClose();
                     this.props.refresh();
+                    this.componentDidMount()
                     Alert.success('Команда "' + response.command.command + '" успешно удалена');
                 }
             }).catch(error => {
