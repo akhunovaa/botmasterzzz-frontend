@@ -120,7 +120,6 @@ class MenuCommandEditModal extends Component {
                     Alert.warning(response.message);
                 } else {
                     this.props.onClose();
-                    this.props.refresh();
                     this.componentDidMount()
                     Alert.success('Команда "' + response.command.command + '" успешно обновлена');
                 }
