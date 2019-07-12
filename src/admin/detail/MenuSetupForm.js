@@ -1,7 +1,12 @@
 import React, {Component} from 'react';
 import './MenuSetupForm.css';
-import {Button, Checkbox, Dropdown, Grid, Input, List, Modal, Table, TextArea} from 'semantic-ui-react'
-import {commandCreateRequestSend, commandListGet, commandUpdateRequestSend} from "../../util/APIUtils";
+import {Button, Checkbox, Container, Dropdown, Grid, Input, List, Modal, Table, TextArea} from 'semantic-ui-react'
+import {
+    commandCreateRequestSend,
+    commandDeleteRequestSend,
+    commandListGet,
+    commandUpdateRequestSend
+} from "../../util/APIUtils";
 import Alert from "react-s-alert";
 import MenuCommandEditModal from "./modals/MenuCommandEditModal";
 import MenuCommandDeleteModal from "./modals/MenuCommandDeleteModal";
@@ -88,6 +93,7 @@ class MainSetupForm extends Component {
         this.handleUpdateButton = this.handleUpdateButton.bind(this);
         this.handleDeleteButton = this.handleDeleteButton.bind(this);
         this.commandUpdate = this.commandUpdate.bind(this);
+        this.commandDelete = this.commandDelete.bind(this);
     }
 
     show = () => () => this.setState({open: true});
@@ -254,8 +260,31 @@ class MainSetupForm extends Component {
                                       selectedCommandType={this.state.commandType} selectedRow={this.state.selectedRow}
                                       project={this.state.project} open={openEdit} onClose={this.close}
                                       refresh={this.refresh}/>
-                <MenuCommandDeleteModal selectedRow={this.state.selectedRow} project={this.state.project}
-                                        open={openDelete} onClose={this.close} refresh={this.refresh}/>
+                {/*<MenuCommandDeleteModal selectedRow={this.state.selectedRow} project={this.state.project}*/}
+                                        {/*open={openDelete} onClose={this.close} refresh={this.refresh}/>*/}
+                <Modal size="tiny" dimmer="blurring" open={openDelete} onClose={this.close} className="modal-conf-delete">
+                    <Modal.Header className="modal-header">Удалить пункт меню</Modal.Header>
+                    <Modal.Content>
+                        <Container className="modal-container">
+                            <p>
+                                Вы уверены что хотите удалить данный пункт меню?
+                            </p>
+                        </Container>
+                    </Modal.Content>
+                    <Modal.Actions>
+                        <Button
+                            color='vk'
+                            content="Отменить"
+                            onClick={this.close}
+                        />
+                        <Button
+                            className="menu-update"
+                            negative
+                            content="Удалить"
+                            onClick={this.commandDelete}
+                        />
+                    </Modal.Actions>
+                </Modal>
 
                 <MenuCommandUnGroupModal selectedRow={this.state.selectedRow} project={this.state.project} commands={this.state.commands}
                                         open={openUnGroup} onClose={this.close} refresh={this.refresh}/>
@@ -494,6 +523,30 @@ class MainSetupForm extends Component {
                 } else {
                     this.refresh();
                     Alert.success('Команда "' + response.command.command + '" успешно обновлена');
+                }
+            }).catch(error => {
+            Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
+        });
+
+    }
+
+    commandDelete(event) {
+        event.preventDefault();
+        const projectDeleteRequest = Object.assign({}, {
+            'projectId': this.props.project.id,
+            'id': this.props.selectedRow.id,
+        });
+
+        commandDeleteRequestSend(projectDeleteRequest)
+            .then(response => {
+                if (response.error) {
+                    Alert.warning(response.error + '. Необходимо заново авторизоваться');
+                }else if (response.success === false) {
+                    Alert.warning(response.message);
+                } else {
+                    this.props.onClose();
+                    window.location.reload();
+                    Alert.success('Команда "' + response.command.command + '" успешно удалена');
                 }
             }).catch(error => {
             Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
