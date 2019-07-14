@@ -169,12 +169,14 @@ class MainSetupForm extends Component {
                                                            trigger={<Table.Cell>{item.commandName}</Table.Cell>}/>
                                                     <Popup content={item.answer}
                                                            trigger={<Table.Cell>{item.answer}</Table.Cell>}/>
-                                                    <Table.Cell><Dropdown placeholder='Тип ответа' fluid selection
-                                                                          id={item.commandType.id}
-                                                                          name="type" options={this.state.commandAnswerType}
-                                                                          defaultValue={item.commandType.name}/></Table.Cell>
+                                                    {/*<Table.Cell><Dropdown placeholder='Тип ответа' fluid selection*/}
+                                                                          {/*id={item.commandType.id}*/}
+                                                                          {/*name="type" options={this.state.commandAnswerType}*/}
+                                                                          {/*defaultValue={item.commandType.name} disabled/></Table.Cell>*/}
+                                                    <Popup content={item.answer}
+                                                           trigger={<Table.Cell>{item.commandType.name}</Table.Cell>}/>
                                                     <Table.Cell><Checkbox fitted slider
-                                                                          defaultChecked={item.privacy}/></Table.Cell>
+                                                                          defaultChecked={item.privacy} disabled/></Table.Cell>
                                                     <Table.Cell style={{display: 'none'}}>{item.id}</Table.Cell>
 
                                                 </Table.Row>
@@ -506,10 +508,10 @@ class MainSetupForm extends Component {
 
     handleDropdownUpdChange = (e, {value}) => {
         let id;
-        for (let i = 0; i < this.state.options.length; i++) {
-            let iterValue = this.state.options[i].value;
+        for (let i = 0; i < this.state.commandAnswerType.length; i++) {
+            let iterValue = this.state.commandAnswerType[i].value;
             if (iterValue === value) {
-                id = this.state.options[i].key;
+                id = this.state.commandAnswerType[i].key;
             }
         }
         this.setState({
@@ -550,7 +552,8 @@ class MainSetupForm extends Component {
         let command = selectedElementChildNodes[0].innerHTML;
         let commandName = selectedElementChildNodes[1].innerHTML;
         let answer = selectedElementChildNodes[2].innerHTML;
-        let selectedValue = selectedElementChildNodes[3].lastChild ? selectedElementChildNodes[3].lastChild.childNodes[0].innerHTML : 1;
+        let selectedValue = selectedElementChildNodes[3].innerHTML;
+        //let selectedValue = selectedElementChildNodes[3].lastChild ? selectedElementChildNodes[3].lastChild.childNodes[0].innerHTML : 1;
 
         let id;
         let iValue;
