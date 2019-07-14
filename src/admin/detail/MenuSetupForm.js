@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './MenuSetupForm.css';
-import {Button, Checkbox, Container, Dropdown, Grid, Input, List, Modal, Table, TextArea} from 'semantic-ui-react'
+import {Button, Checkbox, Container, Dropdown, Grid, Input, Modal, Popup, Table, TextArea} from 'semantic-ui-react'
 import {
     commandCreateRequestSend,
     commandDeleteRequestSend,
@@ -8,7 +8,6 @@ import {
     commandUpdateRequestSend
 } from "../../util/APIUtils";
 import Alert from "react-s-alert";
-import Commands from "./TelegramCommands";
 import MenuCommandGroupModal from "./modals/MenuCommandGroupModal";
 import MenuCommandUnGroupModal from "./modals/MenuCommandUnGroupModal";
 
@@ -46,12 +45,12 @@ class MainSetupForm extends Component {
                 answer: '',
                 privacy: false,
                 children: {
-                    parentCommand:'',
-                    firstChildCommand:'',
-                    secondChildCommand:'',
-                    thirdChildCommand:'',
-                    fourthChildCommand:'',
-                    fifthChildCommand:''
+                    parentCommand: '',
+                    firstChildCommand: '',
+                    secondChildCommand: '',
+                    thirdChildCommand: '',
+                    fourthChildCommand: '',
+                    fifthChildCommand: ''
                 }
             },
             commandAnswerType: [
@@ -158,10 +157,30 @@ class MainSetupForm extends Component {
                                             </Table.Row>
                                         </Table.Header>
                                         <Table.Body>
-                                            <Commands items={this.state.commands}
-                                                      handleRowClicked={this.handleRowClicked}
-                                                      commandTypes={this.state.commandAnswerType}
-                                                      handleSaveButton={this.handleSaveButton}/>
+                                            {
+                                                this.state.commands.map(item => (
+                                                <Table.Row
+                                                    onClick={(e) => this.handleRowClicked(item.id, item.commandType, e)}
+                                                    textAlign='center' key={item.id} id={item.id}>
+
+                                                    <Popup content={item.command}
+                                                           trigger={<Table.Cell>{item.command}</Table.Cell>}/>
+                                                    <Popup content={item.commandName}
+                                                           trigger={<Table.Cell>{item.commandName}</Table.Cell>}/>
+                                                    <Popup content={item.answer}
+                                                           trigger={<Table.Cell>{item.answer}</Table.Cell>}/>
+                                                    <Table.Cell><Dropdown placeholder='Тип ответа' fluid selection
+                                                                          id={item.commandType.id}
+                                                                          name="type" options={this.state.commandAnswerType}
+                                                                          defaultValue={item.commandType.name}/></Table.Cell>
+                                                    <Table.Cell><Checkbox fitted slider
+                                                                          defaultChecked={item.privacy}/></Table.Cell>
+                                                    <Table.Cell style={{display: 'none'}}>{item.id}</Table.Cell>
+
+                                                </Table.Row>
+
+                                            ))
+                                            }
                                         </Table.Body>
                                     </Table>
                                 </li>
@@ -254,12 +273,7 @@ class MainSetupForm extends Component {
                     </Modal.Actions>
                 </Modal>
 
-                {/*<MenuCommandEditModal options={this.state.commandAnswerType}*/}
-                                      {/*selectedCommandType={this.state.commandType} selectedRow={this.state.selectedRow}*/}
-                                      {/*project={this.state.project} open={openEdit} onClose={this.close}*/}
-                                      {/*refresh={this.refresh}/>*/}
-                {/*<MenuCommandDeleteModal selectedRow={this.state.selectedRow} project={this.state.project}*/}
-                                        {/*open={openDelete} onClose={this.close} refresh={this.refresh}/>*/}
+
                 <Modal dimmer="blurring" open={openEdit} onClose={this.close} size="tiny"
                        className="modal-conf">
                     <Modal.Header className="modal-header">Изменить пункт меню</Modal.Header>
@@ -290,7 +304,8 @@ class MainSetupForm extends Component {
                                         <label className="labelx" form="answer">Тип возвращаемого ответа</label>
                                         <Dropdown onChange={this.handleDropdownUpdChange} placeholder='Тип ответа'
                                                   defaultValue={this.state.commandType.value} fluid selection
-                                                  id="commandType" name="commandType" options={this.state.commandAnswerType}/>
+                                                  id="commandType" name="commandType"
+                                                  options={this.state.commandAnswerType}/>
                                     </li>
                                     <li className="li-modal-menu">
                                         <label className="labelx" form="privacy">Видимость</label>
@@ -318,7 +333,8 @@ class MainSetupForm extends Component {
                     </Modal.Actions>
                 </Modal>
 
-                <Modal size="tiny" dimmer="blurring" open={openDelete} onClose={this.close} className="modal-conf-delete">
+                <Modal size="tiny" dimmer="blurring" open={openDelete} onClose={this.close}
+                       className="modal-conf-delete">
                     <Modal.Header className="modal-header">Удалить пункт меню</Modal.Header>
                     <Modal.Content>
                         <Container className="modal-container">
@@ -342,11 +358,13 @@ class MainSetupForm extends Component {
                     </Modal.Actions>
                 </Modal>
 
-                <MenuCommandUnGroupModal selectedRow={this.state.selectedRow} project={this.state.project} commands={this.state.commands}
-                                        open={openUnGroup} onClose={this.close} refresh={this.refresh}/>
+                <MenuCommandUnGroupModal selectedRow={this.state.selectedRow} project={this.state.project}
+                                         commands={this.state.commands}
+                                         open={openUnGroup} onClose={this.close} refresh={this.refresh}/>
 
-                <MenuCommandGroupModal selectedRow={this.state.selectedRow} project={this.state.project} commands={this.state.commands}
-                                        open={openGroup} onClose={this.close} refresh={this.refresh}/>
+                <MenuCommandGroupModal selectedRow={this.state.selectedRow} project={this.state.project}
+                                       commands={this.state.commands}
+                                       open={openGroup} onClose={this.close} refresh={this.refresh}/>
 
 
             </div>
@@ -358,7 +376,7 @@ class MainSetupForm extends Component {
     }
 
     componentDidMount() {
-        if (!this.state.commands) return;
+        if (!this.state.commands && this.state.commands.length === 0) return;
         let projectId = this.state.project.id;
         let data = {
             "projectId": projectId
@@ -392,11 +410,11 @@ class MainSetupForm extends Component {
 
 
     handleSaveButton(value) {
-            this.setState({
-                buttonStates: {
-                    saveButton: value
-                }
-            });
+        this.setState({
+            buttonStates: {
+                saveButton: value
+            }
+        });
     }
 
     handleUpdateButton(value) {
@@ -514,9 +532,10 @@ class MainSetupForm extends Component {
         for (let item of childNodes) {
             let classes = item.classList;
             if (classes.contains('clicked')) {
-                setTimeout(function () {
-                    item.classList.remove('clicked');
-                }, 100);
+                // setTimeout(function () {
+                //     item.classList.remove('clicked');
+                // }, 100);
+                item.classList.remove('clicked');
             }
         }
         if (element.classList.contains('clicked')) {
@@ -567,7 +586,7 @@ class MainSetupForm extends Component {
     };
 
     refresh() {
-        this.componentDidMount()
+        this.componentDidMount();
     };
 
     close() {
@@ -613,7 +632,7 @@ class MainSetupForm extends Component {
             .then(response => {
                 if (response.error) {
                     Alert.warning(response.error + '. Необходимо заново авторизоваться');
-                }else if (response.success === false) {
+                } else if (response.success === false) {
                     Alert.warning(response.message);
                 } else {
                     this.close();
