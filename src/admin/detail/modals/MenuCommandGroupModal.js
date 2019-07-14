@@ -155,7 +155,7 @@ class MenuCommandGroupModal extends Component {
                                         <label className="labelx" form="menuName">Родительская команда</label>
                                         <Input className="inputx" type="text" id="menuName" name="menuName"
                                                placeholder="/about_us"
-                                               defaultValue={this.props.selectedRow.children.parentCommand.command}
+                                               defaultValue={this.props.selectedRow.children.parentCommand ? this.props.selectedRow.children.parentCommand.command : undefined}
                                                onChange={this.handleInputChange} disabled/>
                                     </li>
                                     <li className="li-modal-menu">
@@ -174,7 +174,7 @@ class MenuCommandGroupModal extends Component {
                                     </li>
                                     <li className="li-modal-menu">
                                         <List bulleted>
-                                            <List.Item>{this.props.selectedRow.children.parentCommand.command + ' ' + this.props.selectedRow.children.parentCommand.commandName}
+                                            <List.Item>{this.props.selectedRow.children.parentCommand ? this.props.selectedRow.children.parentCommand.command  + ' ' + this.props.selectedRow.children.parentCommand.commandName : undefined}
                                                 <List.List>
                                                     {this.props.selectedRow.children.firstChildCommand ?
                                                         <List.Item>{this.props.selectedRow.children.firstChildCommand.command + ' | ' + this.props.selectedRow.children.firstChildCommand.commandName}</List.Item> : undefined}
@@ -262,7 +262,6 @@ class MenuCommandGroupModal extends Component {
                         Alert.warning(response.message);
                     } else {
                         this.props.onClose();
-                        this.forceUpdate();
                         Alert.success('Команды успешно сгруппированы');
                     }
                 }).catch(error => {

@@ -8,8 +8,6 @@ import {
     commandUpdateRequestSend
 } from "../../util/APIUtils";
 import Alert from "react-s-alert";
-import MenuCommandEditModal from "./modals/MenuCommandEditModal";
-import MenuCommandDeleteModal from "./modals/MenuCommandDeleteModal";
 import Commands from "./TelegramCommands";
 import MenuCommandGroupModal from "./modals/MenuCommandGroupModal";
 import MenuCommandUnGroupModal from "./modals/MenuCommandUnGroupModal";
@@ -46,7 +44,7 @@ class MainSetupForm extends Component {
                 commandName: '',
                 commandType: '',
                 answer: '',
-                privacy: '',
+                privacy: false,
                 children: {
                     parentCommand:'',
                     firstChildCommand:'',
@@ -256,12 +254,70 @@ class MainSetupForm extends Component {
                     </Modal.Actions>
                 </Modal>
 
-                <MenuCommandEditModal options={this.state.commandAnswerType}
-                                      selectedCommandType={this.state.commandType} selectedRow={this.state.selectedRow}
-                                      project={this.state.project} open={openEdit} onClose={this.close}
-                                      refresh={this.refresh}/>
+                {/*<MenuCommandEditModal options={this.state.commandAnswerType}*/}
+                                      {/*selectedCommandType={this.state.commandType} selectedRow={this.state.selectedRow}*/}
+                                      {/*project={this.state.project} open={openEdit} onClose={this.close}*/}
+                                      {/*refresh={this.refresh}/>*/}
                 {/*<MenuCommandDeleteModal selectedRow={this.state.selectedRow} project={this.state.project}*/}
                                         {/*open={openDelete} onClose={this.close} refresh={this.refresh}/>*/}
+                <Modal dimmer="blurring" open={openEdit} onClose={this.close} size="tiny"
+                       className="modal-conf">
+                    <Modal.Header className="modal-header">Изменить пункт меню</Modal.Header>
+                    <Modal.Content className="modal-content">
+                        <Grid columns={1} textAlign="left">
+                            <Grid.Column>
+                                <ol className="ol-modal-menu">
+                                    <li className="li-modal-menu">
+                                        <label className="labelx" form="menuCommand">Команда</label>
+                                        <Input className="inputx" type="text" id="command" name="command"
+                                               placeholder="/help" defaultValue={this.state.selectedRow.command}
+                                               onChange={this.handleInputChange} required/>
+                                    </li>
+                                    <li className="li-modal-menu">
+                                        <label className="labelx" form="name">Команда для кнопки</label>
+                                        <Input className="inputx" type="text" id="commandName" name="commandName"
+                                               placeholder="Команда для кнопки"
+                                               defaultValue={this.state.selectedRow.commandName}
+                                               onChange={this.handleInputChange} required/>
+                                    </li>
+                                    <li className="li-modal-menu">
+                                        <label className="labelx" form="answer">Ответ</label>
+                                        <TextArea className="text-area text-area-modal" rows={4}
+                                                  id="answer" name="answer" defaultValue={this.state.selectedRow.answer}
+                                                  onChange={this.handleInputChange} required/>
+                                    </li>
+                                    <li className="li-modal-menu">
+                                        <label className="labelx" form="answer">Тип возвращаемого ответа</label>
+                                        <Dropdown onChange={this.handleDropdownUpdChange} placeholder='Тип ответа'
+                                                  defaultValue={this.state.commandType.value} fluid selection
+                                                  id="commandType" name="commandType" options={this.state.commandAnswerType}/>
+                                    </li>
+                                    <li className="li-modal-menu">
+                                        <label className="labelx" form="privacy">Видимость</label>
+                                        <Checkbox slider id="privacy" name="privacy"
+                                                  defaultChecked={this.state.selectedRow.privacy}
+                                                  onChange={this.handleToggleChange}/>
+                                    </li>
+                                </ol>
+                            </Grid.Column>
+                        </Grid>
+                    </Modal.Content>
+                    <Modal.Actions>
+                        <Button
+                            basic
+                            content="Отменить"
+                            onClick={this.close}
+                        />
+                        <Button
+                            className="menu-update"
+                            color='vk'
+                            content="Изменить"
+                            onClick={this.commandUpdate}
+                        />
+
+                    </Modal.Actions>
+                </Modal>
+
                 <Modal size="tiny" dimmer="blurring" open={openDelete} onClose={this.close} className="modal-conf-delete">
                     <Modal.Header className="modal-header">Удалить пункт меню</Modal.Header>
                     <Modal.Content>
@@ -430,6 +486,22 @@ class MainSetupForm extends Component {
         });
     };
 
+    handleDropdownUpdChange = (e, {value}) => {
+        let id;
+        for (let i = 0; i < this.state.options.length; i++) {
+            let iterValue = this.state.options[i].value;
+            if (iterValue === value) {
+                id = this.state.options[i].key;
+            }
+        }
+        this.setState({
+            commandType: {
+                id: id
+            }
+        });
+    };
+
+
     handleRowClicked = (key, commandType, event) => {
         if ('THEAD' === event.target.parentNode.parentNode.tagName) {
             return;
@@ -504,23 +576,24 @@ class MainSetupForm extends Component {
 
     commandUpdate(event) {
         event.preventDefault();
-
         const projectUpdateRequest = Object.assign({}, {
-            'command': this.state.selectedRow.command,
-            'commandName': this.state.selectedRow.commandName,
-            'commandType': this.state.selectedRow.commandType,
-            'answer': this.state.selectedRow.answer,
+            'command': this.state.command ? this.state.command : this.state.selectedRow.command,
+            'commandName': this.state.commandName ? this.state.commandName : this.state.selectedRow.commandName,
+            'commandType': this.state.commandType ? this.state.commandType : this.state.selectedRow.commandType,
+            'answer': this.state.answer ? this.state.answer : this.state.selectedRow.answer,
             'projectId': this.state.project.id,
             'id': this.state.selectedRow.id,
-            'privacy': this.state.selectedRow.privacy
+            'privacy': this.state.privacy !== 'undefined' ? this.state.privacy : this.state.selectedRow.privacy
         });
+
         commandUpdateRequestSend(projectUpdateRequest)
             .then(response => {
                 if (response.error) {
                     Alert.warning(response.error + '. Необходимо заново авторизоваться');
-                }else if (response.success === false) {
+                } else if (response.success === false) {
                     Alert.warning(response.message);
                 } else {
+                    this.close();
                     this.refresh();
                     Alert.success('Команда "' + response.command.command + '" успешно обновлена');
                 }
@@ -533,10 +606,9 @@ class MainSetupForm extends Component {
     commandDelete(event) {
         event.preventDefault();
         const projectDeleteRequest = Object.assign({}, {
-            'projectId': this.props.project.id,
-            'id': this.props.selectedRow.id,
+            'projectId': this.state.project.id,
+            'id': this.state.selectedRow.id,
         });
-
         commandDeleteRequestSend(projectDeleteRequest)
             .then(response => {
                 if (response.error) {
@@ -544,8 +616,8 @@ class MainSetupForm extends Component {
                 }else if (response.success === false) {
                     Alert.warning(response.message);
                 } else {
-                    this.props.onClose();
-                    window.location.reload();
+                    this.close();
+                    this.refresh();
                     Alert.success('Команда "' + response.command.command + '" успешно удалена');
                 }
             }).catch(error => {
