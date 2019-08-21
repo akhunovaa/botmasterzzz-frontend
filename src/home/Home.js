@@ -156,21 +156,21 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
-                <div id="cat">
-                    <div className="cat-paws"/>
-                    <div className="cat-itself-wrap">
-                        <div className="cat-itself">
-                            <div id="cat-eye-left" className="cat-eye" style={{display: 'block'}}>
-                                <div className="cat-eyeball"
-                                     style={{marginTop: '1.10618px', marginLeft: '-5.99906px'}}/>
-                            </div>
-                            <div id="cat-eye-right" className="cat-eye" style={{display: 'block'}}>
-                                <div className="cat-eyeball"
-                                     style={{marginTop: '-0.893822px', marginLeft: '-5.99906px'}}/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {/*<div id="cat">*/}
+                    {/*<div className="cat-paws"/>*/}
+                    {/*<div className="cat-itself-wrap">*/}
+                        {/*<div className="cat-itself">*/}
+                            {/*<div id="cat-eye-left" className="cat-eye" style={{display: 'block'}}>*/}
+                                {/*<div className="cat-eyeball"*/}
+                                     {/*style={{marginTop: '1.10618px', marginLeft: '-5.99906px'}}/>*/}
+                            {/*</div>*/}
+                            {/*<div id="cat-eye-right" className="cat-eye" style={{display: 'block'}}>*/}
+                                {/*<div className="cat-eyeball"*/}
+                                     {/*style={{marginTop: '-0.893822px', marginLeft: '-5.99906px'}}/>*/}
+                            {/*</div>*/}
+                        {/*</div>*/}
+                    {/*</div>*/}
+                {/*</div>*/}
             </div>
         )
     }
