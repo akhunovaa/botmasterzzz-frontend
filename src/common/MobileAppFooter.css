@@ -1,0 +1,230 @@
+#footer_container {
+    opacity: 1;
+    position: absolute;
+    width: 375px;
+    height: 297px;
+    left: 0px;
+    top: 515px;
+    overflow: visible;
+}
+#telegram {
+    opacity: 1;
+    position: absolute;
+    width: 375px;
+    height: 297px;
+    left: 0px;
+    top: 0px;
+    overflow: visible;
+}
+
+#footer_background {
+    opacity: 1;
+    fill: rgba(54,63,68,1);
+    stroke: rgb(112, 112, 112);
+    stroke-width: 1px;
+    stroke-linejoin: miter;
+    stroke-linecap: butt;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
+}
+.footer_background {
+    position: absolute;
+    overflow: visible;
+    width: 375px;
+    height: 297px;
+    left: 0px;
+    top: 0px;
+}
+#Path_9 {
+    opacity: 1;
+    fill: rgba(45,53,58,1);
+}
+.Path_9 {
+    transform: matrix(1,0,0,1,0,0);
+    overflow: visible;
+    position: absolute;
+    top: 215px;
+    left: 15px;
+    width: 48.994px;
+    height: 47px;
+}
+#Path_8 {
+    opacity: 1;
+    fill: rgba(45,53,58,1);
+}
+.Path_8 {
+    transform: matrix(1,0,0,1,0,0);
+    overflow: visible;
+    position: absolute;
+    top: 215px;
+    left: 64.554px;
+    width: 103.44px;
+    height: 47px;
+}
+#Telegram {
+    opacity: 1;
+    position: absolute;
+    left: 76px;
+    top: 228px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 93px;
+    height: 34px;
+    text-align: left;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: rgba(132,148,161,1);
+}
+#telegram_A0_Path_7 {
+    opacity: 1;
+    fill: rgba(132,148,161,1);
+}
+.telegram_A0_Path_7 {
+    transform: matrix(1,0,0,1,0,0);
+    overflow: visible;
+    position: absolute;
+    top: 223.96px;
+    left: 25.465px;
+    width: 29.04px;
+    height: 29.04px;
+}
+#facebook {
+    opacity: 1;
+    position: absolute;
+    width: 151.994px;
+    height: 47px;
+    left: 203px;
+    top: 215px;
+    overflow: visible;
+}
+#Path_7_A0_Path_8 {
+    opacity: 1;
+    fill: rgba(45,53,58,1);
+}
+.Path_7_A0_Path_8 {
+    transform: matrix(1,0,0,1,0,0);
+    overflow: visible;
+    position: absolute;
+    top: 0px;
+    left: 48.554px;
+    width: 103.44px;
+    height: 47px;
+}
+#Path_10 {
+    opacity: 1;
+    fill: rgba(45,53,58,1);
+}
+.Path_10 {
+    transform: matrix(1,0,0,1,0,0);
+    overflow: visible;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 48.994px;
+    height: 47px;
+}
+#Facebook {
+    opacity: 1;
+    position: absolute;
+    left: 54px;
+    top: 13px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 93px;
+    height: 34px;
+    text-align: left;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: rgba(132,148,161,1);
+}
+#facebook_square {
+    opacity: 1;
+    fill: rgba(132,148,161,1);
+}
+.facebook_square {
+    transform: matrix(1,0,0,1,0,0);
+    overflow: visible;
+    position: absolute;
+    top: 10.508px;
+    left: 12.424px;
+    width: 25px;
+    height: 25px;
+}
+#Botmasterzzz_A0_Text_7 {
+    opacity: 1;
+    position: absolute;
+    left: 100px;
+    top: 38px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    width: 177px;
+    white-space: nowrap;
+    line-height: 31px;
+    margin-top: -1.5px;
+    text-align: left;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 28px;
+    color: rgba(238,238,238,1);
+    letter-spacing: 0.2px;
+}
+#write_button {
+    opacity: 1;
+    position: absolute;
+    width: 242.047px;
+    height: 47px;
+    left: 66.784px;
+    top: 102px;
+    overflow: visible;
+}
+#Path_7_A0_Path_11 {
+    opacity: 1;
+    fill: rgba(146,158,169,1);
+    stroke: rgb(112, 112, 112);
+    stroke-width: 1px;
+    stroke-linejoin: miter;
+    stroke-linecap: butt;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
+}
+.Path_7_A0_Path_11 {
+    transform: matrix(1,0,0,1,0,0);
+    overflow: visible;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 242.047px;
+    height: 47px;
+}
+#____________ {
+    opacity: 1;
+    position: absolute;
+    left: 34px;
+    top: 12px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    width: 169px;
+    white-space: nowrap;
+    line-height: 30px;
+    margin-top: -2.5px;
+    text-align: center;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    color: rgba(238,238,238,1);
+    letter-spacing: 0.2px;
+}

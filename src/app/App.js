@@ -3,7 +3,10 @@ import {Route, Switch} from 'react-router-dom';
 import AppHeader from '../common/AppHeader';
 import AppFooter from '../common/AppFooter';
 import Home from '../home/Home'
-import PrivateRoute from '../common/PrivateRoute'
+import MobileHome from '../home/mobile/MobileHome'
+import MobileAppFooter from '../common/MobileAppFooter'
+import MobileAppHeader from '../common/MobileAppHeader'
+import Tools from '../admin/Tools'
 import Login from '../user/login/Login';
 import Feedback from '../feedback/Feedback';
 import Admin from '../admin/Admin'
@@ -21,14 +24,17 @@ import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 import './App.css';
 import '../styles/style.css';
+import PrivateRoute from '../common/PrivateRoute';
 
 class App extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
             authenticated: false,
             currentUser: null,
-            loading: false
+            loading: false,
+            width: window.innerWidth
         };
 
         this.loadCurrentlyLoggedInUser = this.loadCurrentlyLoggedInUser.bind(this);
@@ -68,42 +74,93 @@ class App extends Component {
         this.loadCurrentlyLoggedInUser();
     }
 
+    componentWillMount() {
+        window.addEventListener('resize', this.handleWindowSizeChange);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.handleWindowSizeChange);
+    }
+
+    handleWindowSizeChange = () => {
+        this.setState({ width: window.innerWidth });
+    };
+
+
     render() {
+
+        const { width } = this.state;
+        const isMobile = width <= 500;
+
         if (this.state.loading) {
             return <LoadingIndicator/>
         }
 
-        return (
-            <div>
-                <AppHeader authenticated={this.state.authenticated} onLogout={this.handleLogout}/>
-                <Switch>
-                    <Route exact path="/" component={Home}/>
-                    <Route exact path="/feedback"
-                           render={(props) => <Feedback {...props} currentUser={this.state.currentUser}/>}/>
-                    {/*<Route exact path="/profile" authenticated={this.state.authenticated}*/}
-                           {/*currentUser={this.state.currentUser} component={Profile}/>*/}
-                    {/*<Route path="/project" component={Project}/>*/}
-                    {/*<Route path="/administration" authenticated={this.state.authenticated}*/}
-                           {/*currentUser={this.state.currentUser} component={Admin}/>*/}
-                    {/*<Route exact path="/project/tools"*/}
-                           {/*render={(props) => <Tools {...props} project={this.state.targetProjectId}/>}/>*/}
-                    <PrivateRoute path="/administration" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Admin}/>
-                    <PrivateRoute path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Profile}/>
-                    <PrivateRoute path="/project" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Project}/>
-                    <PrivateRoute exact path="/project/tools" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Project}/>
-                    <Route path="/login"
-                           render={(props) => <Login authenticated={this.state.authenticated} {...props} />}/>
-                    <Route path="/signup"
-                           render={(props) => <Signup authenticated={this.state.authenticated} {...props} />}/>
-                    <Route path="/oauth2/redirect" component={OAuth2RedirectHandler}/>
-                    <Route component={NotFound}/>
-                </Switch>
-                <AppFooter authenticated={this.state.authenticated} onLogout={this.handleLogout}/>
-                <Alert stack={{limit: 3}}
-                       timeout={3000}
-                       position='top-right' effect='slide' offset={65}/>
-            </div>
-        );
+        if (isMobile) {
+            return (
+                <div>
+                    <MobileAppHeader authenticated={this.state.authenticated} onLogout={this.handleLogout}/>
+                    <Switch>
+                        <Route exact path="/" component={MobileHome}/>
+                        <Route exact path="/feedback"
+                               render={(props) => <Feedback {...props} currentUser={this.state.currentUser}/>}/>
+                        {/*<Route exact path="/profile" authenticated={this.state.authenticated}*/}
+                               {/*currentUser={this.state.currentUser} component={Profile}/>*/}
+                        {/*<Route path="/project" component={Project}/>*/}
+                        {/*<Route path="/administration" authenticated={this.state.authenticated}*/}
+                               {/*currentUser={this.state.currentUser} component={Admin}/>*/}
+                        {/*<Route exact path="/project/tools"*/}
+                               {/*render={(props) => <Tools {...props} project={this.state.targetProjectId}/>}/>*/}
+                        <PrivateRoute path="/administration" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Admin}/>
+                        <PrivateRoute path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Profile}/>
+                        <PrivateRoute path="/project" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Project}/>
+                        <PrivateRoute exact path="/project/tools" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Project}/>
+                        <Route path="/login"
+                               render={(props) => <Login authenticated={this.state.authenticated} {...props} />}/>
+                        <Route path="/signup"
+                               render={(props) => <Signup authenticated={this.state.authenticated} {...props} />}/>
+                        <Route path="/oauth2/redirect" component={OAuth2RedirectHandler}/>
+                        <Route component={NotFound}/>
+                    </Switch>
+                    <MobileAppFooter authenticated={this.state.authenticated} onLogout={this.handleLogout}/>
+                    <Alert stack={{limit: 3}}
+                           timeout={3000}
+                           position='top-right' effect='slide' offset={65}/>
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <AppHeader authenticated={this.state.authenticated} onLogout={this.handleLogout}/>
+                    <Switch>
+                        <Route exact path="/" component={Home}/>
+                        <Route exact path="/feedback"
+                               render={(props) => <Feedback {...props} currentUser={this.state.currentUser}/>}/>
+                        {/*<Route exact path="/profile" authenticated={this.state.authenticated}*/}
+                               {/*currentUser={this.state.currentUser} component={Profile}/>*/}
+                        {/*<Route path="/project" component={Project}/>*/}
+                        {/*<Route path="/administration" authenticated={this.state.authenticated}*/}
+                               {/*currentUser={this.state.currentUser} component={Admin}/>*/}
+                        {/*<Route exact path="/project/tools"*/}
+                               {/*render={(props) => <Tools {...props} project={this.state.targetProjectId}/>}/>*/}
+                        <PrivateRoute path="/administration" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Admin}/>
+                        <PrivateRoute path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Profile}/>
+                        <PrivateRoute path="/project" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Project}/>
+                        <PrivateRoute exact path="/project/tools" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Project}/>
+                        <Route path="/login"
+                               render={(props) => <Login authenticated={this.state.authenticated} {...props} />}/>
+                        <Route path="/signup"
+                               render={(props) => <Signup authenticated={this.state.authenticated} {...props} />}/>
+                        <Route path="/oauth2/redirect" component={OAuth2RedirectHandler}/>
+                        <Route component={NotFound}/>
+                    </Switch>
+                    <AppFooter authenticated={this.state.authenticated} onLogout={this.handleLogout}/>
+                    <Alert stack={{limit: 3}}
+                           timeout={3000}
+                           position='top-right' effect='slide' offset={65}/>
+                </div>
+            );
+        }
     }
 }
 
