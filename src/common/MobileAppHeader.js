@@ -65,12 +65,12 @@ class MobileAppHeader extends Component {
                                         </List.Item>
                                         <List.Item>
                                             <List.Content>
-                                                <NavLink to="/profile" onClick={this.handleClose} style={{color: 'black'}}>Профиль</NavLink>
+                                                <NavLink to="/profile" style={{color: 'black'}}>Профиль</NavLink>
                                             </List.Content>
                                         </List.Item>
                                         <List.Item>
                                             <List.Content>
-                                                <NavLink href="/project" onClick={this.handleClose} style={{color: 'black'}}>Мои боты</NavLink>
+                                                <NavLink href="/project" style={{color: 'black'}}>Мои боты</NavLink>
                                             </List.Content>
                                         </List.Item>
                                         <List.Item>
