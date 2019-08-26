@@ -31,7 +31,7 @@ class MobileAppHeader extends Component {
                 </svg>
 
                 {
-                    !this.props.authenticated ? (
+                    this.props.authenticated ? (
                         <div>
                             <Portal
                                 closeOnTriggerClick
