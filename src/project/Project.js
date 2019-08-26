@@ -7,8 +7,8 @@ import Alert from "react-s-alert";
 
 class Project extends Component {
 
-    constructor(props) {
-        super(props);
+    constructor(props, context) {
+        super(props, context);
         this.state = {
             edit: false,
             projectId: '',

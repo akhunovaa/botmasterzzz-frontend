@@ -101,7 +101,8 @@ class App extends Component {
                     <MobileAppHeader authenticated={this.state.authenticated} onLogout={this.handleLogout}/>
                     <Switch>
                         <Route exact path="/" component={MobileHome}/>
-                        <Route exact path="/feedback" render={(props) => <Feedback {...props} currentUser={this.state.currentUser}/>}/>
+                        <Route exact path="/feedback"
+                               render={(props) => <Feedback {...props} currentUser={this.state.currentUser}/>}/>
                         {/*<Route exact path="/profile" authenticated={this.state.authenticated}*/}
                                {/*currentUser={this.state.currentUser} component={Profile}/>*/}
                         {/*<Route path="/projects" component={Project}/>*/}
