@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './MobileAppFooter.css';
-
+import {NavLink} from "react-router-dom";
 
 class MobileAppFooter extends Component {
     render() {
@@ -63,9 +63,9 @@ class MobileAppFooter extends Component {
                         </path>
                     </svg>
                     <div id="____________">
-                        <a href="/feedback" style={{color: 'rgba(80, 77, 77, 0.8)'}}>
+                        <NavLink to="/feedback" style={{color: 'rgba(80, 77, 77, 0.8)'}}>
                             <span>Написать нам</span>
-                        </a>
+                        </NavLink>
                     </div>
                 </div>
                 <div id="cat">
