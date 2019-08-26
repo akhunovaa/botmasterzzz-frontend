@@ -17,8 +17,10 @@ class MobileAppHeader extends Component {
         this.setState({ open: true })
     }
 
-    handleClose = () => this.setState({ open: false })
-
+    handleClose = () => {
+        console.log("sss")
+        this.setState({ open: false })
+    }
 
 
     render() {
@@ -34,15 +36,17 @@ class MobileAppHeader extends Component {
                     this.props.authenticated ? (
                         <div>
                             <Portal
-                                closeOnTriggerClick
                                 closeOnPortalMouseLeave
+                                closeOnTriggerBlur
+                                closeOnTriggerClick
+                                closeOnTriggerMouseLeave
                                 trigger={
                                     <Button className={"context_menu"} basic icon={'bars'} size={"massive"} />
                                 }
                                 onOpen={this.handleOpen}
                                 onClose={this.handleClose}>
                                 <Segment
-                                    style={{position: 'fixed', top: '80px', zIndex: 1000}}>
+                                    style={{position: 'fixed', top: '76px', zIndex: 1000}}>
                                     <List size={"big"}>
                                         <List.Item>
                                             <List.Icon name='mail' />
@@ -119,7 +123,7 @@ class MobileAppHeader extends Component {
                                     <List.Item>
                                         <List.Icon name='mail' />
                                         <List.Content>
-                                            <a href="/feedback" style={{color: 'black'}}>Обратная связь</a>
+                                            <NavLink to="/feedback" style={{color: 'black'}}>Обратная связь</NavLink>
                                         </List.Content>
                                     </List.Item>
                                     <List.Item>
