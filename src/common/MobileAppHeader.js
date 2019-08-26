@@ -58,12 +58,12 @@ class MobileAppHeader extends Component {
                                             </List.Item>
                                             <List.Item>
                                                 <List.Content>
-                                                    <a href="/" style={{color: 'black'}}>Новости</a>
+                                                    <NavLink to="/" style={{color: 'black'}}>Новости</NavLink>
                                                 </List.Content>
                                             </List.Item>
                                             <List.Item>
                                                 <List.Content>
-                                                    <a href="/" style={{color: 'black'}}>О платформе</a>
+                                                    <NavLink to="/" style={{color: 'black'}}>О платформе</NavLink>
                                                 </List.Content>
                                             </List.Item>
                                             <List.Item>
@@ -81,12 +81,12 @@ class MobileAppHeader extends Component {
                                             </List.Item>
                                             <List.Item>
                                                 <List.Content>
-                                                    <a href="/" style={{color: 'black', fontWeight: 'bold'}}>RU</a>
+                                                    <NavLink to="/" style={{color: 'black', fontWeight: 'bold'}}>RU</NavLink>
                                                 </List.Content>
                                             </List.Item>
                                             <List.Item>
                                                 <List.Content>
-                                                    <a href="/" style={{color: 'black', fontWeight: 'bold'}}>EN</a>
+                                                    <NavLink to="/" style={{color: 'black', fontWeight: 'bold'}}>EN</NavLink>
                                                 </List.Content>
                                             </List.Item>
                                         </List>
@@ -135,17 +135,17 @@ class MobileAppHeader extends Component {
                                             </List.Item>
                                             <List.Item>
                                                 <List.Content>
-                                                    <a href="/" style={{color: 'black'}}>Новости</a>
+                                                    <NavLink to="/" style={{color: 'black'}}>Новости</NavLink>
                                                 </List.Content>
                                             </List.Item>
                                             <List.Item>
                                                 <List.Content>
-                                                    <a href="/" style={{color: 'black'}}>О платформе</a>
+                                                    <NavLink to="/" style={{color: 'black'}}>О платформе</NavLink>
                                                 </List.Content>
                                             </List.Item>
                                             <List.Item>
                                                 <List.Content>
-                                                    <a href="/signup" style={{color: 'black'}}>Регистрация</a>
+                                                    <NavLink to="/signup" style={{color: 'black'}}>Регистрация</NavLink>
                                                 </List.Content>
                                             </List.Item>
                                             <List.Item>
@@ -153,12 +153,12 @@ class MobileAppHeader extends Component {
                                             </List.Item>
                                             <List.Item>
                                                 <List.Content>
-                                                    <a href="/" style={{color: 'black', fontWeight: 'bold'}}>RU</a>
+                                                    <NavLink to="/" style={{color: 'black', fontWeight: 'bold'}}>RU</NavLink>
                                                 </List.Content>
                                             </List.Item>
                                             <List.Item>
                                                 <List.Content>
-                                                    <a href="/" style={{color: 'black', fontWeight: 'bold'}}>EN</a>
+                                                    <NavLink to="/" style={{color: 'black', fontWeight: 'bold'}}>EN</NavLink>
                                                 </List.Content>
                                             </List.Item>
                                         </List>
