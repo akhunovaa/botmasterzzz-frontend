@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './MobileAppHeader.css';
 import {Button, Portal, Segment, Header, Label, Divider, List} from "semantic-ui-react";
-import {NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 class MobileAppHeader extends Component {
 
@@ -65,12 +65,12 @@ class MobileAppHeader extends Component {
                                         </List.Item>
                                         <List.Item>
                                             <List.Content>
-                                                <NavLink to="/profile" style={{color: 'black'}}>Профиль</NavLink>
+                                                <Link to="/profile" style={{color: 'black'}}>Профиль</Link>
                                             </List.Content>
                                         </List.Item>
                                         <List.Item>
                                             <List.Content>
-                                                <NavLink href="/project" style={{color: 'black'}}>Мои боты</NavLink>
+                                                <Link href="/project" style={{color: 'black'}}>Мои боты</Link>
                                             </List.Content>
                                         </List.Item>
                                         <List.Item>
