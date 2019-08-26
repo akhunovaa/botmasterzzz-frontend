@@ -46,7 +46,7 @@ class MobileAppHeader extends Component {
                                 onOpen={this.handleOpen}
                                 onClose={this.handleClose}>
                                 <Segment
-                                    style={{position: 'fixed', top: '76px', zIndex: 1000}}>
+                                    style={{position: 'fixed', top: '76px', zIndex: 999}}>
                                     <List size={"big"}>
                                         <List.Item>
                                             <List.Icon name='mail' />
