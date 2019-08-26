@@ -46,7 +46,7 @@ class MobileHome extends Component {
                         </path>
                     </svg>
                     <div id="______________">
-                        <NavLink style={{float: 'right', color: 'white'}} to="/project">Создать проект</NavLink>
+                        <NavLink style={{float: 'right', color: 'white'}} to="/projects">Создать проект</NavLink>
                     </div>
                 </div>
             </div>

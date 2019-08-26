@@ -18,7 +18,7 @@ class AppHeader extends Component {
                                 <div>
                                     <a style={{float: 'right'}} onClick={this.props.onLogout}>ВЫЙТИ</a>
                                     <NavLink style={{float: 'right'}} to="/feedback">ОБРАТНАЯ СВЯЗЬ</NavLink>
-                                    <NavLink style={{float: 'right'}} to="/project">МОИ БОТЫ</NavLink>
+                                    <NavLink style={{float: 'right'}} to="/projects">МОИ БОТЫ</NavLink>
                                     <NavLink style={{float: 'right'}} to="/profile">ПРОФИЛЬ</NavLink>
                                 </div>
                             ) : (

@@ -50,9 +50,9 @@ class Tools extends Component {
                     <Breadcrumb>
                         <Breadcrumb.Section as={NavLink} to={'/'} link>Главная страница</Breadcrumb.Section>
                         <Breadcrumb.Divider icon='right chevron' />
-                        <Breadcrumb.Section as={NavLink} to={'/project'} onClick={() => this.props.handler(false, this.state.projectId)} link>Панель управления проектами</Breadcrumb.Section>
+                        <Breadcrumb.Section as={NavLink} to={'/projects'} onClick={() => this.props.handler(false, this.state.projectId)} link>Панель управления проектами</Breadcrumb.Section>
                         <Breadcrumb.Divider icon='right chevron' />
-                        <Breadcrumb.Section as={NavLink} to={'/project'} onClick={() => this.props.handler(true, this.state.projectId)}  link>Панель настройки проекта</Breadcrumb.Section>
+                        <Breadcrumb.Section as={NavLink} to={'/projects'} onClick={() => this.props.handler(true, this.state.projectId)}  link>Панель настройки проекта</Breadcrumb.Section>
                         <Breadcrumb.Divider icon='right arrow' />
                         <Breadcrumb.Section active>Настройка бота</Breadcrumb.Section>
                     </Breadcrumb>

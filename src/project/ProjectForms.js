@@ -99,7 +99,7 @@ class ProjectForms extends Component {
                     <Breadcrumb>
                         <Breadcrumb.Section as={NavLink} to={'/'} link>Главная страница</Breadcrumb.Section>
                         <Breadcrumb.Divider icon='right chevron' />
-                        <Breadcrumb.Section as={NavLink} to={'/project'} link>Панель управления проектами</Breadcrumb.Section>
+                        <Breadcrumb.Section as={NavLink} to={'/projects'} link>Панель управления проектами</Breadcrumb.Section>
                         <Breadcrumb.Divider icon='right arrow' />
                         <Breadcrumb.Section active>Мои боты</Breadcrumb.Section>
                     </Breadcrumb>

@@ -6,7 +6,6 @@ import Home from '../home/Home'
 import MobileHome from '../home/mobile/MobileHome'
 import MobileAppFooter from '../common/MobileAppFooter'
 import MobileAppHeader from '../common/MobileAppHeader'
-import Tools from '../admin/Tools'
 import Login from '../user/login/Login';
 import Feedback from '../feedback/Feedback';
 import Admin from '../admin/Admin'
@@ -106,15 +105,15 @@ class App extends Component {
                                render={(props) => <Feedback {...props} currentUser={this.state.currentUser}/>}/>
                         {/*<Route exact path="/profile" authenticated={this.state.authenticated}*/}
                                {/*currentUser={this.state.currentUser} component={Profile}/>*/}
-                        {/*<Route path="/project" component={Project}/>*/}
+                        {/*<Route path="/projects" component={Project}/>*/}
                         {/*<Route path="/administration" authenticated={this.state.authenticated}*/}
                                {/*currentUser={this.state.currentUser} component={Admin}/>*/}
-                        {/*<Route exact path="/project/tools"*/}
+                        {/*<Route exact path="/projects/tools"*/}
                                {/*render={(props) => <Tools {...props} project={this.state.targetProjectId}/>}/>*/}
                         <PrivateRoute path="/administration" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Admin}/>
                         <PrivateRoute path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Profile}/>
-                        <PrivateRoute path="/project" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Project}/>
-                        <PrivateRoute exact path="/project/tools" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Project}/>
+                        <PrivateRoute path="/projects" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Project}/>
+                        {/*<PrivateRoute exact path="/projects/tools" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Project}/>*/}
                         <Route path="/login"
                                render={(props) => <Login authenticated={this.state.authenticated} {...props} />}/>
                         <Route path="/signup"
@@ -138,15 +137,15 @@ class App extends Component {
                                render={(props) => <Feedback {...props} currentUser={this.state.currentUser}/>}/>
                         {/*<Route exact path="/profile" authenticated={this.state.authenticated}*/}
                                {/*currentUser={this.state.currentUser} component={Profile}/>*/}
-                        {/*<Route path="/project" component={Project}/>*/}
+                        {/*<Route path="/projects" component={Project}/>*/}
                         {/*<Route path="/administration" authenticated={this.state.authenticated}*/}
                                {/*currentUser={this.state.currentUser} component={Admin}/>*/}
-                        {/*<Route exact path="/project/tools"*/}
+                        {/*<Route exact path="/projects/tools"*/}
                                {/*render={(props) => <Tools {...props} project={this.state.targetProjectId}/>}/>*/}
                         <PrivateRoute path="/administration" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Admin}/>
                         <PrivateRoute path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Profile}/>
-                        <PrivateRoute path="/project" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Project}/>
-                        <PrivateRoute exact path="/project/tools" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Project}/>
+                        <PrivateRoute path="/projects" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Project}/>
+                        {/*<PrivateRoute exact path="/projects/tools" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Project}/>*/}
                         <Route path="/login"
                                render={(props) => <Login authenticated={this.state.authenticated} {...props} />}/>
                         <Route path="/signup"

@@ -122,7 +122,7 @@ class Home extends Component {
    	  	 	ПРИДУМАЙ, СПРОЕКТИРУЙ И ОЖИВИ СВОЕГО ИНДИВИДУАЛЬНОГО БОТА БЕЗ<br/>
    	  	 	СПЕЦИАЛЬНЫХ ЗНАНИЙ И НАВЫКОВ В ПРОГРАММИРОВАНИИ
    	  	 </span>
-                        <a href="/project">
+                        <a href="/projects">
                             <img src={createButton} class="creat_btn" alt="Create button"/>
                         </a>
                     </div>
