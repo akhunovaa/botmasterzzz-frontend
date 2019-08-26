@@ -10,7 +10,6 @@ class MobileAppHeader extends Component {
         this.state = {
             open: false
         };
-        this.handleClose = this.handleClose.bind(this);
     }
 
 
@@ -18,10 +17,7 @@ class MobileAppHeader extends Component {
         this.setState({ open: true })
     }
 
-    handleClose(event){
-        this.setState({ open: false })
-        console.log(event)
-    }
+    handleClose = () => this.setState({ open: false })
 
 
 
@@ -35,7 +31,7 @@ class MobileAppHeader extends Component {
                 </svg>
 
                 {
-                    this.props.authenticated ? (
+                    !this.props.authenticated ? (
                         <div>
                             <Portal
                                 closeOnTriggerClick
