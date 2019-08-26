@@ -29,7 +29,7 @@ class Login extends Component {
         if(this.props.authenticated) {
             return <Redirect
                 to={{
-                    pathname: "/",
+                    pathname: this.props.path,
                     state: { from: this.props.location }
                 }}/>;
         }
