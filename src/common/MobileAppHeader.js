@@ -1,30 +1,89 @@
 import React, {Component} from 'react';
 import './MobileAppHeader.css';
-import {NavLink} from "react-router-dom";
+import {Button, Portal, Segment, Header, Label, Divider, List} from "semantic-ui-react";
 
 
 class MobileAppHeader extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: false
+        };
+        this.handleClose = this.handleClose.bind(this);
+    }
+
+
+    handleOpen = () => {
+        this.setState({ open: true })
+    }
+
+    handleClose(event){
+        this.setState({ open: false })
+        console.log(event)
+    }
+
+
+
     render() {
+
         return (
             <div id="mobile_header_container">
                 <svg className="mobile_header_body" viewBox="0 0 375 95">
                     <path id="mobile_header_body" d="M 0 0 L 375 0 L 375 95 L 0 95 L 0 0 Z">
                     </path>
                 </svg>
-                <div id="context_menu">
-                    <svg className="Line_1">
-                        <path id="Line_1" d="M 0 0 L 31.6248779296875 0">
-                        </path>
-                    </svg>
-                    <svg className="Line_2">
-                        <path id="Line_2" d="M 0 0 L 31.6248779296875 0">
-                        </path>
-                    </svg>
-                    <svg className="Line_3">
-                        <path id="Line_3" d="M 0 0 L 31.6248779296875 0">
-                        </path>
-                    </svg>
-                </div>
+                <Portal
+                    closeOnTriggerClick
+                    openOnTriggerClick
+                    trigger={
+                        <Button className={"context_menu"} basic icon={'bars'} size={"massive"} />
+                    }
+                    onOpen={this.handleOpen}
+                    onClose={this.handleClose}>
+                    <Segment
+                        style={{position: 'fixed', top: '80px', zIndex: 1000}}>
+                        <List size={"big"}>
+                            <List.Item>
+                                <List.Icon name='mail' />
+                                <List.Content>
+                                    <a href="/feedback" style={{color: 'black'}}>Обратная связь</a>
+                                </List.Content>
+                            </List.Item>
+                            <List.Item>
+                                <Divider />
+                            </List.Item>
+                            <List.Item>
+                                <List.Content>
+                                    <a href="/" style={{color: 'black'}}>Новости</a>
+                                </List.Content>
+                            </List.Item>
+                            <List.Item>
+                                <List.Content>
+                                    <a href="/" style={{color: 'black'}}>О платформе</a>
+                                </List.Content>
+                            </List.Item>
+                            <List.Item>
+                                <List.Content>
+                                    <a href="/signup" style={{color: 'black'}}>Регистрация</a>
+                                </List.Content>
+                            </List.Item>
+                            <List.Item>
+                                <Divider />
+                            </List.Item>
+                            <List.Item>
+                                <List.Content>
+                                    <a href="/" style={{color: 'black', fontWeight: 'bold'}}>RU</a>
+                                </List.Content>
+                            </List.Item>
+                            <List.Item>
+                                <List.Content>
+                                    <a href="/" style={{color: 'black', fontWeight: 'bold'}}>EN</a>
+                                </List.Content>
+                            </List.Item>
+                        </List>
+                    </Segment>
+                </Portal>
                 {
                     this.props.authenticated ? (
                 <div id="login">

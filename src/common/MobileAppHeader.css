@@ -30,14 +30,21 @@
     shape-rendering: auto;
 }
 
-#context_menu {
+.context_menu {
     opacity: 1;
     position: absolute;
     width: 31.625px;
     height: 22px;
     left: 33.875px;
-    top: 36px;
+    top: 19px;
     overflow: visible;
+}
+
+.ui.basic.button:hover, .ui.basic.buttons .button:hover .context_menu{
+    background: none!important;
+    /*color: rgba(0,0,0,.8)!important;*/
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 .Line_1 {
