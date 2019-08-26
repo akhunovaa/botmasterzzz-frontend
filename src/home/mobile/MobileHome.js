@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import background from '../../img/mobile/back_two.png';
 import './MobileHome.css';
+import {NavLink} from "react-router-dom";
 
 
 class MobileHome extends Component {
@@ -45,9 +46,7 @@ class MobileHome extends Component {
                         </path>
                     </svg>
                     <div id="______________">
-                        <a href="/project" style={{color: 'white'}}>
-                            <span>Создать проект</span>
-                        </a>
+                        <NavLink style={{float: 'right', color: 'white'}} to="/project">Создать проект</NavLink>
                     </div>
                 </div>
             </div>
