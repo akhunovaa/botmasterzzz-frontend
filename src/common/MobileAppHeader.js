@@ -47,7 +47,7 @@ class MobileAppHeader extends Component {
                                         <List.Item>
                                             <List.Icon name='mail' />
                                             <List.Content>
-                                                <NavLink href="/feedback" style={{color: 'black'}}>Обратная связь</NavLink>
+                                                <a href="/feedback" style={{color: 'black'}}>Обратная связь</a>
                                             </List.Content>
                                         </List.Item>
                                         <List.Item>
@@ -70,7 +70,7 @@ class MobileAppHeader extends Component {
                                         </List.Item>
                                         <List.Item>
                                             <List.Content>
-                                                <NavLink href="/projects" style={{color: 'black'}}>Мои боты</NavLink>
+                                                <NavLink to="/projects" style={{color: 'black'}}>Мои боты</NavLink>
                                             </List.Content>
                                         </List.Item>
                                         <List.Item>
