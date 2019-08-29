@@ -18,7 +18,8 @@
 }
 
 .project-layer {
-    margin: 24px 24px 24px 24px;
+    margin-top: 24px;
+    margin-bottom: 24px;
 }
 
 .project-cell-header {
@@ -94,7 +95,7 @@
         border-image:  linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);
         border-image:  -webkit-linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);
         border-image-slice: 1;
-        padding-top: 70px;
+        padding-top: 90px;
         height: 100%;
     }
 }
@@ -110,7 +111,7 @@
         border-image:  linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);
         border-image:  -webkit-linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);
         border-image-slice: 1;
-        padding-top: 70px;
+        padding-top: 90px;
         height: 100%;
     }
 
@@ -127,7 +128,7 @@
         border-image:  linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);
         border-image:  -webkit-linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);
         border-image-slice: 1;
-        padding-top: 70px;
+        padding-top: 90px;
         height: 100%;
     }
 
@@ -144,7 +145,7 @@
         border-image:  linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);
         border-image:  -webkit-linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);
         border-image-slice: 1;
-        padding-top: 70px;
+        padding-top: 90px;
         height: 100%;
     }
 
@@ -161,7 +162,7 @@
         border-image:  linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);
         border-image:  -webkit-linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);
         border-image-slice: 1;
-        padding-top: 70px;
+        padding-top: 90px;
         height: 100%;
     }
 
