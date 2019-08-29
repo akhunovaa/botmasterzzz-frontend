@@ -226,7 +226,24 @@
         border-image-slice: 1;
         margin-bottom: 24px;
         padding-top: 90px;
-        height: 850px;
+        height: 1200px;
     }
+
+    .profile-info {
+        display: block;
+    }
+
+    .profile-description{
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        margin-left: 24px;
+        width: 312px;
+    }
+
+    .profile-avatar {
+        margin-left:  80px;
+        display: block;
+        width: 200px;
+    }
+
 
 }
