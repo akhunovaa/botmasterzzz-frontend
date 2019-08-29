@@ -10,13 +10,13 @@ class MobileHome extends Component {
 
     render() {
         return (
-            <div id="body_container">
+            <div className="body_container">
                 <svg className="body_backgound" viewBox="0 0 375 420.418">
                     <pattern elementid="back_two" id="back_two" x="0" y="0"
                              width="100%" height="100%">
                         <image x="0" y="0" width="100%" height="100%" href={background} xlinkHref={background}/>
                     </pattern>
-                    <path id="body_backgound" d="M 0 0 L 375 0 L 375 420.41796875 L 0 420.41796875 L 0 0 Z">
+                    <path className="body_backgound" d="M 0 0 L 375 0 L 375 420.41796875 L 0 420.41796875 L 0 0 Z">
                     </path>
                 </svg>
                 <div id="main_text">
@@ -34,11 +34,6 @@ class MobileHome extends Component {
                             <span>Botmasterzzz</span>
                         </a>
                     </div>
-
-                    <svg className="Line_13">
-                        <path id="Line_13" d="M 0 0 L 214 0">
-                        </path>
-                    </svg>
                 </div>
                 <div id="project_create_button">
                     <svg className="Path_7" viewBox="0 0 242.047 47">

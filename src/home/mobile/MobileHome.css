@@ -1,13 +1,13 @@
-#body_container {
+
+.body_container {
     opacity: 1;
-    position: absolute;
+    position: relative;
     width: 375px;
-    height: 420.418px;
-    left: 0px;
-    top: 95px;
     overflow: visible;
+    top: 95px;
 }
-#body_backgound {
+
+.body_backgound {
     opacity: 0.36;
     filter: blur(39px);
     fill: url(#back_two);
@@ -17,14 +17,9 @@
     stroke-linecap: butt;
     stroke-miterlimit: 4;
     shape-rendering: auto;
+    margin-top: 90px;
 }
-.body_backgound {
-    transform: matrix(1,0,0,1,0,0);
-    overflow: visible;
-    position: absolute;
-    width: 375px;
-    height: 420.418px;
-}
+
 #main_text {
     opacity: 1;
     position: absolute;
@@ -84,7 +79,6 @@
     opacity: 1;
     position: absolute;
     left: 0px;
-    top: 0px;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -92,7 +86,6 @@
     width: 215px;
     white-space: nowrap;
     line-height: 61px;
-    margin-top: -13.5px;
     text-align: center;
     font-family: Segoe UI;
     font-style: normal;

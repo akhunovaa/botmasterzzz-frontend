@@ -18,13 +18,13 @@ class SignUp extends Component {
         }
 
         return (
-            <section className="signup-container">
+            <div className="signup-container">
                 <div className="signup-content">
                     <h1 className="signup-title">Регистрация на портале Botmasterzzz</h1>
                     <SignUpForm {...this.props} />
                     <span className="login-link">Уже зарегистрированы? <Link to="/login">Авторизоваться!</Link></span>
                 </div>
-                </section>
+             </div>
         );
     }
 }
@@ -102,6 +102,7 @@ class SignUpForm extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
+
                 <div className="form-item">
                     <input type="text" name="login"
                            className="form-control" placeholder="Логин"
@@ -109,21 +110,16 @@ class SignUpForm extends Component {
                 </div>
 
                 <div className="form-item">
-                    <input type="text" name="name"
-                           className="form-control" placeholder="Имя"
-                           value={this.state.name} onChange={this.handleInputChange}/>
+                    <input type="email" name="email"
+                           className="form-control" placeholder="Email"
+                           value={this.state.email} onChange={this.handleInputChange} required/>
                 </div>
 
-                <div className="form-item">
-                    <input type="text" name="surname"
-                           className="form-control" placeholder="Фамилия"
-                           value={this.state.surname} onChange={this.handleInputChange}/>
-                </div>
 
                 <div className="form-item">
-                    <input type="text" name="patrName"
-                           className="form-control" placeholder="Отчество"
-                           value={this.state.patrName} onChange={this.handleInputChange}/>
+                    <input type="password" name="password"
+                           className="form-control" placeholder="Пароль"
+                           value={this.state.password} onChange={this.handleInputChange} required/>
                 </div>
 
                 <div className="form-item">
@@ -140,18 +136,6 @@ class SignUpForm extends Component {
                         inputClass='form-control'
                         countryCodeEditable={false}
                     />
-                </div>
-
-                <div className="form-item">
-                    <input type="email" name="email"
-                           className="form-control" placeholder="Email"
-                           value={this.state.email} onChange={this.handleInputChange}/>
-                </div>
-
-                <div className="form-item">
-                    <input type="password" name="password"
-                           className="form-control" placeholder="Пароль"
-                           value={this.state.password} onChange={this.handleInputChange} required/>
                 </div>
 
                 <div className="form-item">

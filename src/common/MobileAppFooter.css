@@ -1,10 +1,9 @@
 #footer_container {
     opacity: 1;
-    position: absolute;
+    position: relative;
     width: 375px;
-    height: 297px;
+    height: auto;
     left: 0px;
-    top: 515px;
     overflow: visible;
 }
 #telegram {
