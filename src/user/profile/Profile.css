@@ -227,6 +227,7 @@
         margin-bottom: 24px;
         padding-top: 90px;
         height: 1200px;
+        display: block;
     }
 
     .profile-info {
@@ -244,6 +245,18 @@
         display: block;
         width: 200px;
     }
+
+    .password-change{
+        width: 316px;
+        display: block;
+        padding-top: 99px;
+        padding-left: 22px;
+    }
+
+    .password-change-retype{
+        display: none;
+    }
+
 
 
 }
