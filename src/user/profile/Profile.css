@@ -1,7 +1,7 @@
 .profile-container {
     border-top: 5px solid transparent;
-    border-image:  linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);
-    border-image:  -webkit-linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);
+    /*border-image:  linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);*/
+    /*border-image:  -webkit-linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);*/
     border-image-slice: 1;
     margin-bottom: 24px;
     padding-top: 70px;
@@ -221,8 +221,8 @@
 
     .profile-container {
         border-top: 5px solid transparent;
-        border-image:  linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);
-        border-image:  -webkit-linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);
+        /*border-image:  linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);*/
+        /*border-image:  -webkit-linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);*/
         border-image-slice: 1;
         margin-bottom: 24px;
         padding-top: 90px;
