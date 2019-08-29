@@ -156,7 +156,7 @@
   ##Screen = B/w 320px to 479px
 */
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 320px) and (max-width: 500px) {
     .project-container {
         border-top: 5px solid transparent;
         border-image:  linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);

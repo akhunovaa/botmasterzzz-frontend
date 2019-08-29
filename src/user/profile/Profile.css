@@ -28,8 +28,6 @@
 
 .profile-avatar > input {
     position: absolute;
-    left: 0;
-    top: 0;
     height: .5px;
     width: .5px;
 }
@@ -40,8 +38,6 @@
 
 .profile-avatar > form > input {
     position: absolute;
-    left: 0;
-    top: 0;
     height: .5px;
     width: .5px;
 }
@@ -219,4 +215,18 @@
     font-size: 12px;
     text-align: center;
     margin-top: 6px;
+}
+
+@media (min-width: 320px) and (max-width: 500px) {
+
+    .profile-container {
+        border-top: 5px solid transparent;
+        border-image:  linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);
+        border-image:  -webkit-linear-gradient(to right, #f5f3f2 0%, #4c8fc8 20%,  #f5f3f2 100%);
+        border-image-slice: 1;
+        margin-bottom: 24px;
+        padding-top: 90px;
+        height: 850px;
+    }
+
 }
