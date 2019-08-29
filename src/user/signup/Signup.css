@@ -1,26 +1,6 @@
-/*.signup-container {*/
-    /*text-align: center;*/
-    /*background: #569acf;*/
-    /*border-bottom: 1px solid #5caae6;*/
-/*}*/
-
-
-/*.signup-content {*/
-    /*background: #fff;*/
-    /*box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);*/
-    /*border-radius: 2px;*/
-    /*width: 500px;*/
-    /*display: inline-block;*/
-    /*margin-top: 30px;*/
-    /*vertical-align: middle;*/
-    /*position: relative;*/
-    /*padding: 35px;*/
-/*}*/
-
-
 .signup-container {
     text-align: center;
-    padding-top: 60px;
+    padding-top: 100px;
     color: #fff;
     box-shadow: 0px 1px 5px 0px #ad9e9e;
     background-image: url('../../img/global/bot.png');
