@@ -21,3 +21,33 @@
 .go-back-btn {
     min-width: 160px;
 }
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 500px) {
+
+    .page-not-found {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 40px;
+        text-align: center;
+        height: 600px;
+    }
+
+    .page-not-found .title {
+        font-size: 50px;
+        letter-spacing: 10px;
+        margin-bottom: 10px;
+    }
+
+    .page-not-found .desc {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .go-back-btn {
+        min-width: 160px;
+    }
+}
