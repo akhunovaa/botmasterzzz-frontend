@@ -61,7 +61,7 @@ class MobileAppHeader extends Component {
                                             </List.Item>
                                             <List.Item>
                                                 <List.Content>
-                                                    <NavLink to="/" style={{color: 'black'}}>Новости</NavLink>
+                                                    <NavLink to="/news" style={{color: 'black'}}>Новости</NavLink>
                                                 </List.Content>
                                             </List.Item>
                                             <List.Item>
@@ -139,7 +139,7 @@ class MobileAppHeader extends Component {
                                             </List.Item>
                                             <List.Item>
                                                 <List.Content>
-                                                    <NavLink to="/" style={{color: 'black'}}>Новости</NavLink>
+                                                    <NavLink to="/news" style={{color: 'black'}}>Новости</NavLink>
                                                 </List.Content>
                                             </List.Item>
                                             <List.Item>

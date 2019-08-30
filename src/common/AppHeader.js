@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { NavLink } from 'react-router-dom';
 import './AppHeader.css';
 import logo from '../img/global/logo.png';
+import {List} from "semantic-ui-react/dist/commonjs/elements/List";
 
 class AppHeader extends Component {
     render() {
@@ -25,6 +26,7 @@ class AppHeader extends Component {
                                 <div>
                                     <NavLink style={{float: 'right'}} to="/signup">РЕГИСТРАЦИЯ</NavLink>
                                     <NavLink style={{float: 'right'}} to="/login">ВХОД</NavLink>
+                                    <NavLink to="/news" style={{float: 'right', color: 'black'}}>НОВОСТИ</NavLink>
                                 </div>
                             )}
                         </ul>
