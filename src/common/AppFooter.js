@@ -18,9 +18,9 @@ class AppFooter extends Component {
                     <div id="footer">
                         <div id="footer-center">
                             <ul>
-                                <li><a href="#">О ПРОЕКТЕ</a></li>
-                                <li><a href="#">О НАС</a></li>
-                                <li><a href="/feedback">ОБРАТНАЯ СВЯЗЬ</a></li>
+                                <li><NavLink to="/info">О ПЛАТФОРМЕ</NavLink></li>
+                                <li><NavLink to="/info">О НАС</NavLink></li>
+                                <li><NavLink to="/feedback">ОБРАТНАЯ СВЯЗЬ</NavLink></li>
                                 <li><a href="#">КОНТАКТЫ</a></li>
                                 <a style={{float: 'right'}} onClick={this.props.onLogout}>ВЫЙТИ</a>
 
@@ -57,9 +57,9 @@ class AppFooter extends Component {
                                 </div>
                             </div>
                             <ul>
-                                <li><a href="#">О ПРОЕКТЕ</a></li>
-                                <li><a href="#">О НАС</a></li>
-                                <li><a href="/feedback">ОБРАТНАЯ СВЯЗЬ</a></li>
+                                <li><NavLink to="/info">О ПЛАТФОРМЕ</NavLink></li>
+                                <li><NavLink to="/info">О НАС</NavLink></li>
+                                <li><NavLink to="/feedback">ОБРАТНАЯ СВЯЗЬ</NavLink></li>
                                 <li><a href="#">КОНТАКТЫ</a></li>
                                 <NavLink style={{float: 'right'}} to="/login">ВХОД</NavLink>
                             </ul>
