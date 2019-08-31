@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Info.css';
-import {Divider, Container, Header, Image, Message} from "semantic-ui-react";
+import {Divider, Container, Image, Message} from "semantic-ui-react";
+import back from "../img/info/back.png";
 
 
 class Info extends Component {
@@ -29,7 +30,11 @@ class Info extends Component {
                         <p>
                             <Message style={{textAlign: 'center'}} color='blue'>Информация о портале BotMasterZzz!</Message>
                         </p>
+                        <Divider />
 
+                        <div className="image-container">
+                             <Image centered src={back} fluid />
+                        </div>
                     </Container>
                 </div>
             </div>
