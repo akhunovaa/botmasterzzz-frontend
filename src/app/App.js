@@ -3,6 +3,7 @@ import {Route, Switch} from 'react-router-dom';
 import AppHeader from '../common/AppHeader';
 import AppFooter from '../common/AppFooter';
 import News from '../news/News'
+import Info from '../info/Info'
 import Home from '../home/Home'
 import MobileHome from '../home/mobile/MobileHome'
 import MobileAppFooter from '../common/MobileAppFooter'
@@ -121,6 +122,7 @@ class App extends Component {
                                render={(props) => <Signup authenticated={this.state.authenticated} {...props} />}/>
                         <Route path="/oauth2/redirect" component={OAuth2RedirectHandler}/>
                         <Route path="/news" component={News}/>
+                        <Route path="/info" component={Info}/>
                         <Route component={NotFound}/>
                     </Switch>
                     <MobileAppFooter authenticated={this.state.authenticated} onLogout={this.handleLogout}/>
@@ -154,6 +156,7 @@ class App extends Component {
                                render={(props) => <Signup authenticated={this.state.authenticated} {...props} />}/>
                         <Route path="/oauth2/redirect" component={OAuth2RedirectHandler}/>
                         <Route path="/news" component={News}/>
+                        <Route path="/info" component={Info}/>
                         <Route component={NotFound}/>
                     </Switch>
                     <AppFooter authenticated={this.state.authenticated} onLogout={this.handleLogout}/>

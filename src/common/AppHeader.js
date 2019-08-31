@@ -13,7 +13,7 @@ class AppHeader extends Component {
                         </a>
                         <ul>
                             <li><a href="#">RU</a></li>
-                            <li><a href="#">О ПЛАТФОРМЕ</a></li>
+                            <li><NavLink style={{float: 'right'}} to="/info">О ПЛАТФОРМЕ</NavLink></li>
                             {this.props.authenticated ? (
                                 <div>
                                     <a style={{float: 'right'}} onClick={this.props.onLogout}>ВЫЙТИ</a>

@@ -38,7 +38,7 @@ class News extends Component {
                             Познакомиться с ним можно по ссылке: <a target href='https://t.me/botmasterzzzrobot'>BotMasterzzz</a>
                         </p>
                         <p>
-                            <Message style={{textAlign: 'center'}} color='red'>Разработка бота в сети Телеграмм!</Message>
+                            <Message style={{textAlign: 'center'}} color='blue'>Разработка бота в сети Телеграмм!</Message>
                         </p>
                         <b>24.03.2019</b>
                         <Divider />
@@ -49,7 +49,7 @@ class News extends Component {
                             Запущен сырой вариант серверной части приложения, без внешней оболочки - веб сайта.
                         </p>
                         <p>
-                            <Message style={{textAlign: 'center'}} color='red'>Стадия тестирования и обткатки приложения!</Message>
+                            <Message style={{textAlign: 'center'}} color='blue'>Стадия тестирования и обткатки приложения!</Message>
                         </p>
                         <b>12.02.2019</b>
                         <Divider />
@@ -62,7 +62,7 @@ class News extends Component {
                             C Днем Рождения BotMasterZzz!
                         </p>
                         <p>
-                            <Message style={{textAlign: 'center'}} color='red'>C Днем Рождения BotMasterZzz!</Message>
+                            <Message style={{textAlign: 'center'}} color='blue'>C Днем Рождения BotMasterZzz!</Message>
                         </p>
 
                     </Container>
