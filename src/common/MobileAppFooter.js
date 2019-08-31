@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './MobileAppFooter.css';
 import {NavLink} from "react-router-dom";
+import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
 
 class MobileAppFooter extends Component {
     render() {
@@ -83,6 +84,7 @@ class MobileAppFooter extends Component {
                         </div>
                     </div>
                 </div>
+                <ScrollUpButton EasingType="easeOutCubic"/>
             </div>
         )
     }

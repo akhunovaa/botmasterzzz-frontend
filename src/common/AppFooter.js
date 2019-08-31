@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
+import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
 import './AppFooter.css';
 import footerBtn1 from '../img/global/footer_btn1.png';
 import footerBtn2 from '../img/global/footer_btn2.png';
@@ -80,6 +81,7 @@ class AppFooter extends Component {
                         </div>
                     </div>
                 </div>
+                <ScrollUpButton EasingType="easeOutCubic"/>
             </div>
         )
     }
