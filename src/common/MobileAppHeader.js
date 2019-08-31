@@ -51,8 +51,7 @@ class MobileAppHeader extends Component {
                                             <List.Item>
                                                 <List.Icon name='mail'/>
                                                 <List.Content>
-                                                    <NavLink to="/feedback" style={{color: 'black'}}>Обратная
-                                                        связь</NavLink>
+                                                    <NavLink to="/feedback" style={{color: 'black'}}>Обратная связь</NavLink>
                                                 </List.Content>
                                             </List.Item>
                                             <List.Item>
