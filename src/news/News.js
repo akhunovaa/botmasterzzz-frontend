@@ -38,7 +38,7 @@ class News extends Component {
                             Познакомиться с ним можно по ссылке: <a target href='https://t.me/botmasterzzzrobot'>BotMasterzzz</a>
                         </p>
                         <p>
-                            <Message style={{textAlign: 'center'}} color='red'>Разработка нашего первого бота в сети Телеграмм</Message>
+                            <Message style={{textAlign: 'center'}} color='red'>Разработка бота в сети Телеграмм!</Message>
                         </p>
                         <b>24.03.2019</b>
                         <Divider />
@@ -49,7 +49,7 @@ class News extends Component {
                             Запущен сырой вариант серверной части приложения, без внешней оболочки - веб сайта.
                         </p>
                         <p>
-                            <Message style={{textAlign: 'center'}} color='red'>Стадия тестирования и обткатки приложения</Message>
+                            <Message style={{textAlign: 'center'}} color='red'>Стадия тестирования и обткатки приложения!</Message>
                         </p>
                         <b>12.02.2019</b>
                         <Divider />
@@ -57,7 +57,7 @@ class News extends Component {
                             <Image centered src={cake} size='medium' circular />
                         </p>
                         <p>
-                            В этот день зародилась идея разработать приложение, котрое бы помогло многим людям в разработке своего собственного бота
+                            В этот день зародилась идея разработать приложение, которое бы помогло многим людям в разработке своего собственного бота
                             в социальных сетях и для того чтобы создать и развивать бота - знаний программирования знать было не нужно.
                             C Днем Рождения BotMasterZzz!
                         </p>
