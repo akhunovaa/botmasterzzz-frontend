@@ -6,7 +6,7 @@
     background-position: center;
     background-size: cover;
     padding-bottom: 20px;
-    height: 1400px;
+    height: 900px;
 }
 
 .info-content {
@@ -47,10 +47,11 @@
         margin-top: 0px;
         background-position: center;
         background-size: cover;
-        height: 1616px;
+        height: 600px;
     }
 
     .info-content {
+        height: 600px;
         text-align: center;
         font-family: "Open Sans", sans-serif, Roboto, Arial, Georgia, FontAwesome;
         font-size: 16px;
