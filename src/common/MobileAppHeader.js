@@ -37,7 +37,6 @@ class MobileAppHeader extends Component {
                             <Portal
                                 closeOnPortalMouseLeave
                                 closeOnTriggerClick
-                                closeOnTriggerMouseLeave
                                 closeOnDocumentClick
                                 trigger={
                                     <Button className={"context_menu"} basic icon={'bars'} size={"massive"}/>
@@ -115,7 +114,6 @@ class MobileAppHeader extends Component {
                             <Portal
                                 closeOnPortalMouseLeave
                                 closeOnTriggerClick
-                                closeOnTriggerMouseLeave
                                 closeOnDocumentClick
                                 trigger={
                                     <Button className={"context_menu"} basic icon={'bars'} size={"massive"}/>
