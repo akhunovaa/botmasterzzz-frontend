@@ -49,32 +49,42 @@ class MobileAppHeader extends Component {
                                              style={{position: 'fixed', top: '76px', zIndex: 1000}}>
                                         <List size={"big"}>
                                             <List.Item>
-                                                <List.Icon name='mail'/>
+                                                <List.Icon name='home'/>
                                                 <List.Content>
-                                                    <NavLink to="/feedback" style={{color: 'black'}}>Обратная связь</NavLink>
+                                                    <NavLink to="/" style={{color: 'black'}}>Главная страница</NavLink>
                                                 </List.Content>
                                             </List.Item>
                                             <List.Item>
                                                 <Divider/>
                                             </List.Item>
                                             <List.Item>
+                                                <List.Icon name='newspaper outline'/>
                                                 <List.Content>
                                                     <NavLink to="/news" style={{color: 'black'}}>Новости</NavLink>
                                                 </List.Content>
                                             </List.Item>
                                             <List.Item>
+                                                <List.Icon name='info circle'/>
                                                 <List.Content>
                                                     <NavLink to="/info" style={{color: 'black'}}>О платформе</NavLink>
                                                 </List.Content>
                                             </List.Item>
                                             <List.Item>
+                                                <List.Icon name='user'/>
                                                 <List.Content>
                                                     <NavLink to="/profile" style={{color: 'black'}}>Профиль</NavLink>
                                                 </List.Content>
                                             </List.Item>
                                             <List.Item>
+                                                <List.Icon name='cogs'/>
                                                 <List.Content>
                                                     <NavLink to="/projects" style={{color: 'black'}}>Мои боты</NavLink>
+                                                </List.Content>
+                                            </List.Item>
+                                            <List.Item>
+                                                <List.Icon name='mail'/>
+                                                <List.Content>
+                                                    <NavLink to="/feedback" style={{color: 'black'}}>Обратная связь</NavLink>
                                                 </List.Content>
                                             </List.Item>
                                             <List.Item>
@@ -125,28 +135,36 @@ class MobileAppHeader extends Component {
                                              style={{position: 'fixed', top: '76px', zIndex: 1000}}>
                                         <List size={"big"}>
                                             <List.Item>
-                                                <List.Icon name='mail'/>
+                                                <List.Icon name='home'/>
                                                 <List.Content>
-                                                    <NavLink to="/feedback" style={{color: 'black'}}>Обратная
-                                                        связь</NavLink>
+                                                    <NavLink to="/" style={{color: 'black'}}>Главная страница</NavLink>
                                                 </List.Content>
                                             </List.Item>
                                             <List.Item>
                                                 <Divider/>
                                             </List.Item>
                                             <List.Item>
+                                                <List.Icon name='newspaper outline'/>
                                                 <List.Content>
                                                     <NavLink to="/news" style={{color: 'black'}}>Новости</NavLink>
                                                 </List.Content>
                                             </List.Item>
                                             <List.Item>
+                                                <List.Icon name='info circle'/>
                                                 <List.Content>
                                                     <NavLink to="/info" style={{color: 'black'}}>О платформе</NavLink>
                                                 </List.Content>
                                             </List.Item>
                                             <List.Item>
+                                                <List.Icon name='user secret'/>
                                                 <List.Content>
                                                     <NavLink to="/signup" style={{color: 'black'}}>Регистрация</NavLink>
+                                                </List.Content>
+                                            </List.Item>
+                                            <List.Item>
+                                                <List.Icon name='mail'/>
+                                                <List.Content>
+                                                    <NavLink to="/feedback" style={{color: 'black'}}>Обратная связь</NavLink>
                                                 </List.Content>
                                             </List.Item>
                                             <List.Item>
