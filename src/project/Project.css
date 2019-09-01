@@ -21,6 +21,10 @@
     margin: 10px;
 }
 
+.project-cell-container {
+    display: block;
+}
+
 .project-cell-header {
     width: 100%;
     display: inline-block;
@@ -31,10 +35,12 @@
 .project-cell-ico-body {
     display: inline-block;
     width: 100%;
+    height: 180px;
     padding-bottom: 5px;
     border-bottom: 1px solid rgba(34,36,38,.15);
-    text-align: right;
-    margin-bottom: 12px;
+    /*text-align: right;*/
+    margin-top: -32px;
+    overflow: hidden;
 }
 
 .project-cell-update-body {

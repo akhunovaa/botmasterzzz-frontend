@@ -46,9 +46,9 @@ class ProjectForms extends Component {
                     items.map(item => (
                         <Grid.Column key={item.id}>
                             <Segment>
+                                <div className='project-cell-container'>
                                 <div className='project-cell-header'>
                                     <Header sub floated='left'>
-                                        <Image size='mini' src={TestLogo} circular inline/>
                                         <Header.Content>
                                             {item.name}
                                             <Header.Subheader>{item.description ? item.description : <span>&emsp;</span>}</Header.Subheader>
@@ -56,8 +56,9 @@ class ProjectForms extends Component {
                                         </Header.Content>
                                     </Header>
                                 </div>
+                                    {/*<Icon size='big' color='blue' name='telegram' floated='left' />*/}
                                 <div className='project-cell-ico-body'>
-                                    <Icon size='big' color='blue' name='telegram'/>
+                                    <Image src={item.imageUrl} size='small' floated='right' circular verticalAlign='top' />
                                 </div>
                                 <div className='project-cell-update-body'>
                                     <form onSubmit={this.redirectToToolsPage}>
@@ -71,6 +72,7 @@ class ProjectForms extends Component {
                                         <input ref={this.currentProjectId} id="projectId" name="projectId" type="hidden" value={item.id}/>
                                         <Button basic icon="trash" content='Удалить'/>
                                     </form>
+                                </div>
                                 </div>
                             </Segment>
                         </Grid.Column>
