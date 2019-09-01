@@ -66,7 +66,7 @@ class ProjectForms extends Component {
                                                 content='Настроить'/>
                                     </form>
                                     <Button basic icon="group"
-                                            content='0'/>
+                                            content={item.userCount}/>
                                     <form onSubmit={this.showProjectDeleteModal}>
                                         <input ref={this.currentProjectId} id="projectId" name="projectId" type="hidden" value={item.id}/>
                                         <Button basic icon="trash" content='Удалить'/>
