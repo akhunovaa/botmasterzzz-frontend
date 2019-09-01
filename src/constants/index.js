@@ -1,5 +1,6 @@
 export const API_BASE_URL = 'https://botmasterzzz.com';
 export const ACCESS_TOKEN = 'accessToken';
+export const TELEGRAM_TOKEN = 'telegramToken';
 
 export const OAUTH2_REDIRECT_URI = 'https://botmasterzzz.com/oauth2/redirect'
 

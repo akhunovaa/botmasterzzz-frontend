@@ -13,6 +13,7 @@ import {Icon, Segment, Header, Breadcrumb, Button} from "semantic-ui-react";
 import {NavLink} from "react-router-dom";
 import {projectBotStatusGet, projectBotStart, projectBotStop} from "../util/APIUtils";
 import Alert from "react-s-alert";
+import {TELEGRAM_TOKEN} from "../constants";
 class Tools extends Component {
 
     constructor(props) {
@@ -162,10 +163,12 @@ class Tools extends Component {
             Alert.warning('Экземпляр бота уже запущен');
             return;
         }
-        if (this.state.project.token === null){
+
+        if(!localStorage.getItem(TELEGRAM_TOKEN)) {
             Alert.warning('Токен для проекта не установлен. Пожалуйста получите токен у @BotFather и установите его для проекта.');
-            return;
+            return
         }
+
         let projectId = this.state.project.id;
         let data = {
             "projectId": projectId

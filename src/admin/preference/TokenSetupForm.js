@@ -3,6 +3,7 @@ import './TokenSetupForm.css';
 import {Button, Input, Grid} from 'semantic-ui-react'
 import {projectTokenUpdate} from "../../util/APIUtils";
 import Alert from "react-s-alert";
+import {TELEGRAM_TOKEN} from "../../constants";
 
 class TokenSetupForm extends Component {
 
@@ -31,7 +32,7 @@ class TokenSetupForm extends Component {
                                 <li className="lip">
                                     <form onSubmit={this.handleSubmit}>
                                         <Input className="inputp" type="text" id="token" name="token"
-                                               placeholder="Токен" defaultValue={this.state.token} required/>
+                                               placeholder="Токен" defaultValue={this.state.token}/>
                                             <Button color='vk' content="Применить"/>
                                     </form>
                                 </li>
@@ -60,6 +61,7 @@ class TokenSetupForm extends Component {
                     Alert.warning(response.message);
                 } else {
                     Alert.success('Данные успешно сохранены');
+                    localStorage.setItem(TELEGRAM_TOKEN, token);
                 }
             }).catch(error => {
             Alert.error('Что-то пошло не так! Попробуйте заново.' || (error && error.message));
