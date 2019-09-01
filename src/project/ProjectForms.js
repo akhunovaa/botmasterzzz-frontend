@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import {Button, Container, Grid, Header, Icon, Image, Input, Modal, Segment, Breadcrumb} from "semantic-ui-react";
-import TestLogo from "../img/github-logo.png";
+import {Button, Container, Grid, Header, Icon, Image, Input, Modal, Segment, Breadcrumb, Divider} from "semantic-ui-react";
 import {projectCreateRequestSend, projectDeleteRequestSend, projectListGet} from "../util/APIUtils";
 import Alert from "react-s-alert";
 import {NavLink} from "react-router-dom";
@@ -53,10 +52,10 @@ class ProjectForms extends Component {
                                             {item.name}
                                             <Header.Subheader>{item.description ? item.description : <span>&emsp;</span>}</Header.Subheader>
                                             <Header.Subheader>{item.note ? item.note : <span>&emsp;</span>}</Header.Subheader>
+                                            <Header.Subheader><Icon size='big' color='blue' name='telegram' floated='left' /></Header.Subheader>
                                         </Header.Content>
                                     </Header>
                                 </div>
-                                    {/*<Icon size='big' color='blue' name='telegram' floated='left' />*/}
                                 <div className='project-cell-ico-body'>
                                     <Image src={item.imageUrl} size='small' floated='right' circular verticalAlign='top' />
                                 </div>
