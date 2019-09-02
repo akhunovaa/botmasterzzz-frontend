@@ -116,8 +116,7 @@ class App extends Component {
                         <Route path="/oauth2/redirect" component={OAuth2RedirectHandler}/>
                         <Route path="/news" component={News}/>
                         <Route path="/info" component={Info}/>
-                        {/*<Route exact path="/administration" component={Admin}/>*/}
-                        <PrivateRoute exact path="/administration" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Admin}/>
+                        <Route exact path="/administration" component={Admin}/>
                         <Route component={NotFound}/>
                     </Switch>
                     <MobileAppFooter authenticated={this.state.authenticated} onLogout={this.handleLogout}/>
@@ -146,8 +145,7 @@ class App extends Component {
                         <Route path="/oauth2/redirect" component={OAuth2RedirectHandler}/>
                         <Route path="/news" component={News}/>
                         <Route path="/info" component={Info}/>
-                        {/*<Route path="/administration" component={Admin}/>*/}
-                        <PrivateRoute exact path="/administration" authenticated={this.state.authenticated} currentUser={this.state.currentUser} component={Admin}/>
+                        <Route path="/administration" component={Admin}/>
                         <Route component={NotFound}/>
                     </Switch>
                     <AppFooter authenticated={this.state.authenticated} onLogout={this.handleLogout}/>
