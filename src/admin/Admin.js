@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../styles/min.css';
+import './Admin.css';
 import 'react-web-tabs/dist/react-web-tabs.css';
 import {Icon, Segment, Header, Table, Popup, Breadcrumb} from "semantic-ui-react";
 import {systemLogListGet} from "../util/APIUtils";
@@ -42,8 +42,8 @@ class Admin extends Component {
             </>
         );
         return (
-            <div className="tools-container">
-                <div className="tools-header">
+            <div className="admin-container">
+                <div className="admin-header">
                     <Segment vertical>
                         <Header floated='left'>
                             <Icon name='cog'/>
