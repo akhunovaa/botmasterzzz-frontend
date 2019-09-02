@@ -5,6 +5,7 @@
     border-image-slice: 1;
     height: -webkit-fill-available;
     padding-top: 70px;
+    min-height: 1100px;
 }
 
 .project-header {
