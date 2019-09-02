@@ -8,7 +8,7 @@
     border-image:  -o-linear-gradient(to right, #f5f3f2 15%, #4c8fc8 70%,  #f5f3f2 100%);
     border-image:  -webkit-linear-gradient(to right, #f5f3f2 15%, #4c8fc8 70%,  #f5f3f2 100%);
     border-image-slice: 2;
-    padding-top: 70px;
+    padding-top: 90px;
     height: -webkit-fill-available;
 }
 
@@ -34,7 +34,6 @@
         width: 375px;
         background-image: none;
         text-align: center;
-        padding-top: 20px;
         color: #fff;
         box-shadow: 0px 1px 5px 0px #ad9e9e;
         margin-top: 0px;
