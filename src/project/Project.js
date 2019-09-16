@@ -27,7 +27,7 @@ class Project extends Component {
                        projectId: response.project.id ? response.project.id : projectId,
                        project: response.project
                });
-                response.project.token ? localStorage.setItem(TELEGRAM_TOKEN, response.project.token) : '';
+                response.project.token ? localStorage.setItem(TELEGRAM_TOKEN, response.project.token) : localStorage.setItem(TELEGRAM_TOKEN, '');
             }).catch(error => {
             Alert.error('Ошибка получения списка проектов' || (error && error.message));
         });
