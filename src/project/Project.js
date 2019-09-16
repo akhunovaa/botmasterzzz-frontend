@@ -4,6 +4,7 @@ import ProjectForms from "./ProjectForms";
 import Tools from "../admin/Tools";
 import {projectGet} from "../util/APIUtils";
 import Alert from "react-s-alert";
+import {TELEGRAM_TOKEN} from "../constants";
 
 class Project extends Component {
 
@@ -25,7 +26,8 @@ class Project extends Component {
                        edit: value,
                        projectId: response.project.id ? response.project.id : projectId,
                        project: response.project
-               })
+               });
+                response.project.token ? localStorage.setItem(TELEGRAM_TOKEN, response.project.token) : '';
             }).catch(error => {
             Alert.error('Ошибка получения списка проектов' || (error && error.message));
         });
