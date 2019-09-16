@@ -125,7 +125,7 @@ class ProjectForms extends Component {
                         <div className='project-modal-input-line'>
                             <label className='input-form-label' form='newProjectName'>Наименование проекта:</label>
                             <Input fluid transparent className='profile-form-input' type='text' id='newProjectName'
-                                   name="newProjectName"
+                                   name="newProjectName" placeholder='MySuper_test_bot'
                                    value={this.state.newProjectName} onChange={this.handleInputChange} required/>
                         </div>
 
