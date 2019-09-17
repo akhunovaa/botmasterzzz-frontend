@@ -31,7 +31,14 @@ class Info extends Component {
                             <Message style={{textAlign: 'center'}} color='blue'>Информация о портале BotMasterZzz!</Message>
                         </p>
                         <Divider />
-
+                        <p style={{textAlign: 'center', color: 'blue'}}>
+                           Будущее уже наступило с Botmasterzz!
+                        </p>
+                        <p style={{textAlign: 'center', color: 'blue'}}>
+                            Botmasterzz - это уникальный сервис, который поможет вам самим без чьей либо помощи разработать чат-бота.
+                            Что может чат бот? Возможности чат бота - по настоящему могут впечатлить. С его помощью можно создать полноценный интернет магазин, личного секретаря, каталог товаров и многое другое. Это только вам решать .
+                            За дополнительной информацией обращайтесь. Наши специалисты проинструктируют вас о том как создать собственного чат-бота с нуля!
+                        </p>
                         <div className="image-container">
                              <Image centered src={back} fluid />
                         </div>
