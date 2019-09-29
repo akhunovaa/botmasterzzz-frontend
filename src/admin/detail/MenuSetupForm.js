@@ -481,6 +481,9 @@ class MainSetupForm extends Component {
                                 'в поле \'Ответ\' знаком %.' +
                                 'Пример: http://ex.com/img_1.jpg%http://ex.com/img_2.jpg%http://ex.com/img_3.jpg';
                             break;
+                        case 0:
+                            item.innerText = 'Необходимо выбрать тип сообщения';
+                            break;
                         default:
                             item.innerText = '';
                     }
@@ -571,6 +574,9 @@ class MainSetupForm extends Component {
                             item.innerText = 'Необходимо разделить ссылки на изображения ' +
                                 'в поле \'Ответ\' знаком %.' +
                                 'Пример: http://ex.com/img_1.jpg%http://ex.com/img_2.jpg%http://ex.com/img_3.jpg';
+                            break;
+                        case 0:
+                            item.innerText = 'Необходимо выбрать тип сообщения';
                             break;
                         default:
                             item.innerText = '';
