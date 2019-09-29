@@ -73,6 +73,11 @@ class MainSetupForm extends Component {
                     key: 4,
                     text: 'Отправка изображения',
                     value: 'Отправка изображения',
+                },
+                {
+                    key: 5,
+                    text: 'Отправка случайного сообщения',
+                    value: 'Отправка случайного сообщения из списка',
                 }
             ],
             buttonStates: {
@@ -249,6 +254,10 @@ class MainSetupForm extends Component {
                             </Grid.Column>
                         </Grid>
 
+                        <div className='project-modal-input-line helper-message'>
+                            <label className="labelx"/>
+                        </div>
+
                         <div className='project-modal-input-line'>
                             <label className='input-form-label' form='newProjectNote'>Примечание:</label>
                             <Input fluid transparent className='profile-form-input' type='text' id='note'
@@ -318,6 +327,9 @@ class MainSetupForm extends Component {
                                 </ol>
                             </Grid.Column>
                         </Grid>
+                        <div className='project-modal-input-line helper-message'>
+                            <label className="labelx"/>
+                        </div>
                     </Modal.Content>
                     <Modal.Actions>
                         <Button
@@ -447,6 +459,33 @@ class MainSetupForm extends Component {
                 text = this.state.commandAnswerType[i].text;
             }
         }
+        let element = document.getElementsByClassName('helper-message');
+        if (id === 5) {
+            if(element){
+                for (let item of element) {
+                    if (item) {
+                            item.innerText = 'Необходимо разделить все сообщения в поле \'Ответ\' знаком %. ' +
+                                'Пример: Первое случайное сообщение%Второе случайное сообщение%Третье случайное сообщение';
+                    }
+                }
+            }
+        }else if (id === 4) {
+            if(element){
+                for (let item of element) {
+                    if (item) {
+                        item.innerText = 'Необходимо указать ссылку на изображение в поле \'Ответ\'';
+                    }
+                }
+            }
+        }else {
+            if(element){
+                for (let item of element) {
+                    if (item) {
+                        item.innerText = '';
+                    }
+                }
+            }
+        }
         this.setState({
             commandType: {
                 id: id,
@@ -514,6 +553,35 @@ class MainSetupForm extends Component {
                 id = this.state.commandAnswerType[i].key;
             }
         }
+
+        let element = document.getElementsByClassName('helper-message');
+        if (id === 5) {
+            if(element){
+                for (let item of element) {
+                    if (item) {
+                        item.innerText = 'Необходимо разделить все сообщения в поле \'Ответ\' знаком %. ' +
+                            'Пример: Первое случайное сообщение%Второе случайное сообщение%Третье случайное сообщение';
+                    }
+                }
+            }
+        }else if (id === 4) {
+            if(element){
+                for (let item of element) {
+                    if (item) {
+                        item.innerText = 'Необходимо указать ссылку на изображение в поле \'Ответ\'';
+                    }
+                }
+            }
+        }else {
+            if(element){
+                for (let item of element) {
+                    if (item) {
+                        item.innerText = '';
+                    }
+                }
+            }
+        }
+
         this.setState({
             commandType: {
                 id: id

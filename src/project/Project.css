@@ -61,6 +61,10 @@
     margin-bottom: 12px;
 }
 
+.helper-message {
+    color: red;
+}
+
 .project-modal-helper-message {
     color: #d4d4d5;
     font-size: 12px;
