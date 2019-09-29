@@ -78,6 +78,11 @@ class MainSetupForm extends Component {
                     key: 5,
                     text: 'Отправка случайного сообщения',
                     value: 'Отправка случайного сообщения из списка',
+                },
+                {
+                    key: 6,
+                    text: 'Отправка случайного изображения',
+                    value: 'Отправка случайного изображения из списка',
                 }
             ],
             buttonStates: {
@@ -460,28 +465,24 @@ class MainSetupForm extends Component {
             }
         }
         let element = document.getElementsByClassName('helper-message');
-        if (id === 5) {
-            if(element){
-                for (let item of element) {
-                    if (item) {
+        if(element){
+            for (let item of element) {
+                if (item) {
+                    switch (id) {
+                        case 5:
                             item.innerText = 'Необходимо разделить все сообщения в поле \'Ответ\' знаком %. ' +
                                 'Пример: Первое случайное сообщение%Второе случайное сообщение%Третье случайное сообщение';
-                    }
-                }
-            }
-        }else if (id === 4) {
-            if(element){
-                for (let item of element) {
-                    if (item) {
-                        item.innerText = 'Необходимо указать ссылку на изображение в поле \'Ответ\'';
-                    }
-                }
-            }
-        }else {
-            if(element){
-                for (let item of element) {
-                    if (item) {
-                        item.innerText = '';
+                            break;
+                        case 4:
+                            item.innerText = 'Необходимо указать ссылку на изображение в поле \'Ответ\'';
+                            break;
+                        case 6:
+                            item.innerText = 'Необходимо разделить ссылки на изображения ' +
+                                'в поле \'Ответ\' знаком %.' +
+                                'Пример: http://ex.com/img_1.jpg%http://ex.com/img_2.jpg%http://ex.com/img_3.jpg';
+                            break;
+                        default:
+                            item.innerText = '';
                     }
                 }
             }
@@ -555,33 +556,28 @@ class MainSetupForm extends Component {
         }
 
         let element = document.getElementsByClassName('helper-message');
-        if (id === 5) {
-            if(element){
-                for (let item of element) {
-                    if (item) {
-                        item.innerText = 'Необходимо разделить все сообщения в поле \'Ответ\' знаком %. ' +
-                            'Пример: Первое случайное сообщение%Второе случайное сообщение%Третье случайное сообщение';
-                    }
-                }
-            }
-        }else if (id === 4) {
-            if(element){
-                for (let item of element) {
-                    if (item) {
-                        item.innerText = 'Необходимо указать ссылку на изображение в поле \'Ответ\'';
-                    }
-                }
-            }
-        }else {
-            if(element){
-                for (let item of element) {
-                    if (item) {
-                        item.innerText = '';
+        if(element){
+            for (let item of element) {
+                if (item) {
+                    switch (id) {
+                        case 5:
+                            item.innerText = 'Необходимо разделить все сообщения в поле \'Ответ\' знаком %. ' +
+                                'Пример: Первое случайное сообщение%Второе случайное сообщение%Третье случайное сообщение';
+                            break;
+                        case 4:
+                            item.innerText = 'Необходимо указать ссылку на изображение в поле \'Ответ\'';
+                            break;
+                        case 6:
+                            item.innerText = 'Необходимо разделить ссылки на изображения ' +
+                                'в поле \'Ответ\' знаком %.' +
+                                'Пример: http://ex.com/img_1.jpg%http://ex.com/img_2.jpg%http://ex.com/img_3.jpg';
+                            break;
+                        default:
+                            item.innerText = '';
                     }
                 }
             }
         }
-
         this.setState({
             commandType: {
                 id: id
