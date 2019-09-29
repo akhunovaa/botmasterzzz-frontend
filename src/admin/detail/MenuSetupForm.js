@@ -236,7 +236,7 @@ class MainSetupForm extends Component {
                                     </li>
                                     <li className="li-modal-menu">
                                         <label className="labelx" form="answer">Ответ</label>
-                                        <TextArea className="text-area text-area-modal" rows={2}
+                                        <TextArea className="text-area text-area-modal" rows={4}
                                                   id="answer" name="answer" onChange={this.handleInputChange} required/>
                                     </li>
                                     <li className="li-modal-menu">
