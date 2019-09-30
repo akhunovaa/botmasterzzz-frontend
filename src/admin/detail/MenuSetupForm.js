@@ -557,10 +557,14 @@ class MainSetupForm extends Component {
 
     handleDropdownUpdChange = (e, {value}) => {
         let id;
+        let iValue;
+        let text;
         for (let i = 0; i < this.state.commandAnswerType.length; i++) {
             let iterValue = this.state.commandAnswerType[i].value;
             if (iterValue === value) {
                 id = this.state.commandAnswerType[i].key;
+                iValue = this.state.commandAnswerType[i].value;
+                text = this.state.commandAnswerType[i].text;
             }
         }
 
@@ -592,7 +596,9 @@ class MainSetupForm extends Component {
         }
         this.setState({
             commandType: {
-                id: id
+                id: id,
+                value: iValue,
+                text: text
             }
         });
     };
