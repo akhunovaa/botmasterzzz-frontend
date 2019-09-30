@@ -247,7 +247,7 @@ class MainSetupForm extends Component {
                                     <li className="li-modal-menu">
                                         <label className="labelx" form="answer">Тип возвращаемого ответа</label>
                                         <Dropdown onChange={this.handleDropdownChange} placeholder='Тип ответа' fluid
-                                                  selection id="commandType" name="commandType"
+                                                  selection id="commandType" name="commandType"  defaultValue={this.state.commandAnswerType[0].value}
                                                   options={this.state.commandAnswerType}/>
                                     </li>
                                     <li className="li-modal-menu">
@@ -318,9 +318,8 @@ class MainSetupForm extends Component {
                                     </li>
                                     <li className="li-modal-menu">
                                         <label className="labelx" form="answer">Тип возвращаемого ответа</label>
-                                        <Dropdown onChange={this.handleDropdownUpdChange} placeholder='Тип ответа'
-                                                  defaultValue={this.state.commandType.value} fluid selection
-                                                  id="commandType" name="commandType"
+                                        <Dropdown onChange={this.handleDropdownUpdChange} placeholder='Тип ответа' fluid
+                                                  selection id="commandType" name="commandType"  defaultValue={this.state.selectedRow.commandType ? this.state.selectedRow.commandType.value : this.state.commandAnswerType[0].value}
                                                   options={this.state.commandAnswerType}/>
                                     </li>
                                     <li className="li-modal-menu">
@@ -501,25 +500,32 @@ class MainSetupForm extends Component {
 
     commandCreate(event) {
         event.preventDefault();
-        if (!this.state.command) {
-            this.close();
-            Alert.warning('Необходимо ввести команду для пункта меню');
-            return
-        } else if (!this.state.commandName) {
-            this.close();
-            Alert.warning('Необходимо ввести наименование команды для пункта меню');
-            return
-        } else if (!this.state.answer) {
-            this.close();
-            Alert.warning('Необходимо ввести ответ для пункта меню');
-            return
+        let element = document.getElementsByClassName('helper-message');
+        if(element){
+            for (let item of element) {
+                if (item) {
+                    if (!this.state.command) {
+                        item.innerText = 'Необходимо ввести команду для пункта меню';
+                        return
+                    } else if (!this.state.commandName) {
+                        item.innerText = 'Необходимо ввести наименование команды для пункта меню';
+                        return
+                    } else if (!this.state.answer) {
+                        item.innerText = 'Необходимо ввести ответ для пункта меню';
+                        return
+                    }else {
+                        item.innerText = '';
+                    }
+                }
+            }
         }
+
 
 
         const projectCreateRequest = Object.assign({}, {
             'command': this.state.command,
             'commandName': this.state.commandName,
-            'commandType': this.state.commandType,
+            'commandType': this.state.commandType ? this.state.commandType :  {id: 1, value: "Текст", text: "Текст"},
             'answer': this.state.answer,
             'projectId': this.state.project.id,
             'privacy': this.state.privacy
@@ -613,7 +619,7 @@ class MainSetupForm extends Component {
         if (element.classList.contains('clicked')) {
             setTimeout(function () {
                 element.classList.remove('clicked');
-            }, 100);
+            }, 50);
         } else {
             element.classList.add('clicked');
         }
@@ -650,7 +656,12 @@ class MainSetupForm extends Component {
                     commandType: commandiType,
                     answer: answer,
                     privacy: privacy
-                }
+                },
+            command: command,
+            commandName: commandName,
+            commandType: commandiType,
+            answer: answer,
+            privacy: privacy
         });
         if (this.state.selectedRow.id === key) {
             return
@@ -668,11 +679,41 @@ class MainSetupForm extends Component {
 
     commandUpdate(event) {
         event.preventDefault();
+        let element = document.getElementsByClassName('helper-message');
+        if(element){
+            for (let item of element) {
+                if (item) {
+                    if (!this.state.command) {
+                        item.innerText = 'Необходимо ввести команду для пункта меню';
+                        return
+                    } else if (!this.state.commandName) {
+                        item.innerText = 'Необходимо ввести наименование команды для пункта меню';
+                        return
+                    } else if (!this.state.answer) {
+                        item.innerText = 'Необходимо ввести ответ для пункта меню';
+                        return
+                    }else {
+                        item.innerText = '';
+                    }
+                }
+            }
+        }
+
+        this.setState({
+            selectedRow: {
+                    command: this.state.command,
+                    commandName: this.state.command,
+                    commandType: this.state.commandType,
+                    answer: this.state.answer,
+                    privacy: this.state.privacy,
+                }
+        });
+
         const projectUpdateRequest = Object.assign({}, {
-            'command': this.state.command ? this.state.command : this.state.selectedRow.command,
-            'commandName': this.state.commandName ? this.state.commandName : this.state.selectedRow.commandName,
-            'commandType': this.state.commandType ? this.state.commandType : this.state.selectedRow.commandType,
-            'answer': this.state.answer ? this.state.answer : this.state.selectedRow.answer,
+            'command': this.state.command,
+            'commandName': this.state.commandName,
+            'commandType': this.state.commandType ? this.state.commandType :  {id: 1, value: "Текст", text: "Текст"},
+            'answer': this.state.answer,
             'projectId': this.state.project.id,
             'id': this.state.selectedRow.id,
             'privacy': this.state.privacy !== 'undefined' ? this.state.privacy : this.state.selectedRow.privacy
