@@ -140,6 +140,8 @@ div.paleBlueRows {
     min-width: 320px;
     padding: 10px 0px 0px;
     margin: 0 auto;
+    min-height: 500px;
+    height: auto;
 }
 
 .tabs-preference {

@@ -63,6 +63,7 @@
 
 .helper-message {
     color: red;
+    height: 60px;
 }
 
 .project-modal-helper-message {

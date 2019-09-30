@@ -247,7 +247,7 @@ class MainSetupForm extends Component {
                                     <li className="li-modal-menu">
                                         <label className="labelx" form="answer">Тип возвращаемого ответа</label>
                                         <Dropdown onChange={this.handleDropdownChange} placeholder='Тип ответа' fluid
-                                                  selection id="commandType" name="commandType"  defaultValue={this.state.commandAnswerType[0].value}
+                                                  selection id="commandType" name="commandType" search defaultValue={this.state.commandAnswerType[0].value}
                                                   options={this.state.commandAnswerType}/>
                                     </li>
                                     <li className="li-modal-menu">
@@ -319,7 +319,7 @@ class MainSetupForm extends Component {
                                     <li className="li-modal-menu">
                                         <label className="labelx" form="answer">Тип возвращаемого ответа</label>
                                         <Dropdown onChange={this.handleDropdownUpdChange} placeholder='Тип ответа' fluid
-                                                  selection id="commandType" name="commandType"  defaultValue={this.state.selectedRow.commandType ? this.state.selectedRow.commandType.value : this.state.commandAnswerType[0].value}
+                                                  selection id="commandType" name="commandType" search defaultValue={this.state.selectedRow.commandType ? this.state.selectedRow.commandType.value : this.state.commandAnswerType[0].value}
                                                   options={this.state.commandAnswerType}/>
                                     </li>
                                     <li className="li-modal-menu">
