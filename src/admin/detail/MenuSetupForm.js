@@ -567,7 +567,7 @@ class MainSetupForm extends Component {
                 text = this.state.commandAnswerType[i].text;
             }
         }
-
+        console.log(id)
         let element = document.getElementsByClassName('helper-message');
         if(element){
             for (let item of element) {
