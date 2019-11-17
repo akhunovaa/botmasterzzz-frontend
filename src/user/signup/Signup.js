@@ -89,9 +89,13 @@ class SignUpForm extends Component {
         if (signUpRequest.captchaToken != null){
             signup(signUpRequest)
                 .then(response => {
-                    Alert.success("Вы успешно зарегистрировались! Пожалуйста авторизуйтесь заново.");
-                    this.onLoadRecaptcha();
-                    this.props.history.push("/");
+                    if (!response.success){
+                        Alert.warning(response.message);
+                    }else {
+                        Alert.success("Вы успешно зарегистрировались! Вы можете авторизоваться в системе.");
+                        this.onLoadRecaptcha();
+                        this.props.history.push("/");
+                    }
                 }).catch(error => {
                 Alert.error((error && error.message) || 'Что-то пошло не так! Попробуйте заново.');
             });
