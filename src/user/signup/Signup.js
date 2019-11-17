@@ -90,6 +90,7 @@ class SignUpForm extends Component {
             signup(signUpRequest)
                 .then(response => {
                     if (!response.success){
+                        this.onLoadRecaptcha();
                         Alert.warning(response.message);
                     }else {
                         Alert.success("Вы успешно зарегистрировались! Вы можете авторизоваться в системе.");
