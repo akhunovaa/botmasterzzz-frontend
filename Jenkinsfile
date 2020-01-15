@@ -1,68 +1,95 @@
 pipeline {
+
+    environment {
+        dockerImageName = "botmasterzzz-frontend"
+        registryUrl = "https://rusberbank.ru"
+        registry = "rusberbank.ru/${dockerImageName}"
+        registryCredential = "ourHubPwd"
+        dockerExternalPort = "127.0.0.1:8066"
+        dockerInternalPort = "80"
+    }
+
     agent any
 
     stages {
+
         stage('Checkout') {
             steps {
                 echo 'Checkout'
             }
         }
-        stage('npm install dependencies') {
+
+        stage('NPM Dependencies Install') {
             steps {
-                echo 'Install dependencies'
+                echo 'Installing dependencies'
                 nodejs('Node 10.15.0 LTS') {
                     sh 'npm install'
-              }
+                }
             }
         }
+
         stage('Test') {
-                    steps {
-                        echo 'Test cases'
-                        nodejs('Node 10.15.0 LTS') {
-                            sh 'npm run-script test'
-                      }
-                    }
+            steps {
+                echo 'Testing cases'
+                nodejs('Node 10.15.0 LTS') {
+                    sh 'npm run-script test'
                 }
+            }
+        }
 
         stage('Build NPM') {
             steps {
-                echo 'Build NPM'
+                echo 'Building npm'
                 nodejs('Node 10.15.0 LTS') {
                     sh 'npm run-script build'
-              }
+                }
             }
         }
-
-
 
         stage('Build Docker Image') {
             steps {
-                echo 'Build Docker Image'
-                sh 'docker build --no-cache -t leon4uk/botmasterzzz-frontend:1.0.0 .'
+                echo "Building image: $registry:$BUILD_NUMBER"
+                script {
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                }
             }
         }
 
-        stage('Push Docker image') {
+        stage('Push Docker Image') {
             steps {
-                echo 'Push Docker image'
-                withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerHubPwd')]) {
-                   sh "docker login -u leon4uk -p ${dockerHubPwd}"
+                echo "Pushing image: $registry:$BUILD_NUMBER"
+                script {
+                    docker.withRegistry(registryUrl, registryCredential) {
+                        dockerImage.push()
+                    }
+
                 }
-                sh 'docker push leon4uk/botmasterzzz-frontend:1.0.0'
-                sh 'docker rmi  leon4uk/botmasterzzz-frontend:1.0.0'
             }
         }
+
+        stage('Remove Unused Docker Image') {
+            steps {
+                echo "Removing image: $registry:$BUILD_NUMBER"
+                sh "docker rmi $registry:$BUILD_NUMBER"
+            }
+        }
+
         stage('Deploy') {
             steps {
                 echo '## Deploy locally ##'
-                withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerHubPwd')]) {
-                   sh "docker login -u leon4uk -p ${dockerHubPwd}"
+                echo "Stopping docker container: $dockerImageName"
+                sh "docker container ls -a -f name=$dockerImageName -q | xargs --no-run-if-empty docker container stop"
+                echo "Removing docker container: $dockerImageName"
+                sh "docker container ls -a -f name=$dockerImageName -q | xargs -r docker container rm"
+                echo "Running docker image: $registry:$BUILD_NUMBER"
+                script {
+                    docker.withRegistry(registryUrl, registryCredential) {
+                        sh "docker run -v /etc/localtime:/etc/localtime --name $dockerImageName -d --net=botmasterzzznetwork -p $dockerExternalPort:$dockerInternalPort --restart always $registry:$BUILD_NUMBER"
+                    }
                 }
-                sh "docker container ls -a -f name=botmasterzzz-frontend -q | xargs --no-run-if-empty docker container stop"
-                sh 'docker container ls -a -f name=botmasterzzz-frontend -q | xargs -r docker container rm'
-                //sh "docker images --format '{{.Repository}}' | grep 'botmasterzzz-frontend' | xargs --no-run-if-empty docker rmi"
-                sh 'docker run -v /etc/localtime:/etc/localtime --name botmasterzzz-frontend -d -p 127.0.0.1:8066:80 leon4uk/botmasterzzz-frontend:1.0.0'
+                sh 'printenv'
             }
+
         }
     }
 }
