@@ -7,7 +7,7 @@ spec:
   ports:
     - port: {{ .Values.service.port }}
       name: http
-      targetPort: 8066
+      targetPort: 80
   externalIPs:
     - 10.0.0.6
   selector:
