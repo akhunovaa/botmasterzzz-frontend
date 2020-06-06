@@ -267,3 +267,7 @@ export function commandGroupUpdateRequest(commandGroupSaveRequest) {
         body: JSON.stringify(commandGroupSaveRequest)
     });
 }
+
+export function checkLocalStorage() {
+    return localStorage.getItem(ACCESS_TOKEN);
+}
