@@ -87,7 +87,7 @@ class MainSetupForm extends Component {
                 {
                     key: 7,
                     text: 'Отправка видео',
-                    value: 'Отправка случайного видео из списка',
+                    value: 'Отправка видео из списка',
                 },
                 {
                     key: 8,
