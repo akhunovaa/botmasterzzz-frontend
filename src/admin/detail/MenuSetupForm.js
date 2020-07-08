@@ -102,7 +102,7 @@ class MainSetupForm extends Component {
                 {
                     key: 10,
                     text: 'Получение аттрибута в базе данных',
-                    value: 'Получение аттрибута в базе данных',
+                    value: 'Получение аттрибута из базы данных',
                 }
             ],
             buttonStates: {
