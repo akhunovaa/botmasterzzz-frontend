@@ -5,7 +5,7 @@
 replicaCount: 3
 
 image:
-  appVersion: 20
+  appVersion: 21
   repository: rusberbank.ru/botmasterzzz-frontend
   pullPolicy: IfNotPresent
 
