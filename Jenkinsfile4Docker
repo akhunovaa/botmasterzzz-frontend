@@ -2,8 +2,8 @@ pipeline {
 
     environment {
         dockerImageName = "botmasterzzz-frontend"
-        registryUrl = "https://rusberbank.ru"
-        registry = "rusberbank.ru/${dockerImageName}"
+        registryUrl = "https://registry.yourapi.ru"
+        registry = "registry.yourapi.ru/${dockerImageName}"
         registryCredential = "ourHubPwd"
         dockerExternalPort = "127.0.0.1:8066"
         dockerInternalPort = "80"

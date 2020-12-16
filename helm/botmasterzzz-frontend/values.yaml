@@ -5,8 +5,8 @@
 replicaCount: 3
 
 image:
-  appVersion: 26
-  repository: rusberbank.ru/botmasterzzz-frontend
+  appVersion: 27
+  repository: registry.yourapi.ru/botmasterzzz-frontend
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
